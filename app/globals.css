@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- Theme tokens ---------------------------------------------------- */
+/* Dark is the default (no class needed). .light on <html> overrides it. */
+:root {
+  color-scheme: dark;
+
+  --c-void: 5 7 13;         /* page background */
+  --c-surface: 10 14 23;    /* section background */
+  --c-ink: 231 235 245;     /* primary text */
+  --c-mute: 137 146 168;    /* secondary text */
+  --c-accent: 47 107 255;   /* signal blue */
+
+  --c-line: rgba(255, 255, 255, 0.08);
+  --c-line-strong: rgba(255, 255, 255, 0.16);
+  --c-grid-line: rgba(255, 255, 255, 0.045);
+  --c-glass-bg: rgba(255, 255, 255, 0.035);
+  --c-glass-border: rgba(255, 255, 255, 0.08);
+  --c-btn-ghost-border: rgba(255, 255, 255, 0.16);
+}
+
+/* Light theme — matches the brand reference: white surfaces, near-black
+   type, Zentrion red accent (#dc2626). */
+html.light {
+  color-scheme: light;
+
+  --c-void: 255 255 255;      /* #ffffff */
+  --c-surface: 248 249 250;   /* #f8f9fa */
+  --c-ink: 17 17 17;          /* #111111 */
+  --c-mute: 73 80 87;         /* #495057 */
+  --c-accent: 220 38 38;      /* #dc2626 */
+
+  --c-line: rgba(0, 0, 0, 0.08);
+  --c-line-strong: rgba(0, 0, 0, 0.15);
+  --c-grid-line: rgba(0, 0, 0, 0.05);
+  --c-glass-bg: rgba(17, 17, 17, 0.03);
+  --c-glass-border: rgba(0, 0, 0, 0.1);
+  --c-btn-ghost-border: rgba(0, 0, 0, 0.16);
+}
+
+/* Scopes (hero visuals, transparent navbar-over-hero) that must stay on the
+   dark palette regardless of the active theme, since they sit on top of the
+   always-dark WebGL shader / 3D scene. */
+.force-dark {
+  --c-void: 5 7 13;
+  --c-surface: 10 14 23;
+  --c-ink: 231 235 245;
+  --c-mute: 137 146 168;
+  --c-line: rgba(255, 255, 255, 0.08);
+  --c-grid-line: rgba(255, 255, 255, 0.045);
+  --c-glass-bg: rgba(255, 255, 255, 0.035);
+  --c-glass-border: rgba(255, 255, 255, 0.08);
+  --c-btn-ghost-border: rgba(255, 255, 255, 0.16);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: rgb(var(--c-void));
+  color: rgb(var(--c-ink));
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: rgb(var(--c-accent));
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--c-accent));
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: rgb(var(--c-accent));
+}
+
+.glass-card {
+  background: var(--c-glass-bg);
+  border: 1px solid var(--c-glass-border);
+  backdrop-filter: blur(10px);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(var(--c-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-grid-line) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, rgb(var(--c-ink)) 0%, #9fc4ff 50%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+html.light .text-gradient {
+  background: linear-gradient(90deg, rgb(var(--c-ink)) 0%, #ef4444 60%, rgb(var(--c-accent)) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.container-x {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(90deg, #2f6bff, #00a8ff);
+  color: #05070d;
+  font-weight: 600;
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 0 0 rgba(47, 107, 255, 0);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(47, 107, 255, 0.45);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--c-btn-ghost-border);
+  color: rgb(var(--c-ink));
+  padding: 0.85rem 1.6rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  background: rgba(0, 212, 255, 0.06);
+}
+
+/* Light theme brand accents — matches the reference: black default button,
+   red (--c-accent) on hover/focus, red eyebrow + links. */
+html.light .btn-primary {
+  background: rgb(var(--c-ink));
+  color: rgb(var(--c-void));
+  box-shadow: none;
+}
+html.light .btn-primary:hover {
+  background: rgb(var(--c-accent));
+  box-shadow: 0 8px 30px rgba(220, 38, 38, 0.25);
+}
+html.light .btn-ghost:hover {
+  border-color: rgba(220, 38, 38, 0.5);
+  background: rgba(220, 38, 38, 0.06);
+  color: rgb(var(--c-accent));
+}
