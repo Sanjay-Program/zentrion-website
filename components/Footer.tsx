@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { CONSULT_EMAIL, HR_EMAIL, COMPANY_ADDRESS, MAPS_LINK } from '@/lib/contact';
 
 const columns = [
   {
@@ -23,15 +24,18 @@ const columns = [
     title: 'Company',
     links: [
       { href: '/about', label: 'About Us' },
+      { href: '/industries', label: 'Industries' },
+      { href: '/case-studies', label: 'Case Studies' },
+      { href: '/resources', label: 'Resources' },
+      { href: '/faq', label: 'FAQ' },
       { href: '/contact', label: 'Contact' },
-      { href: '/book-consultation', label: 'Book Consultation' },
     ],
   },
   {
     title: 'Legal',
     links: [
       { href: '/privacy', label: 'Privacy Policy' },
-      { href: '/terms', label: 'Terms of Service' },
+      { href: '/terms', label: 'Terms & Conditions' },
     ],
   },
 ];
@@ -68,12 +72,29 @@ export default function Footer() {
           </div>
           <div className="mt-4 text-sm text-mute space-y-1">
             <p>
-              <a href="mailto:support@zentriontechnologies.com" className="hover:text-cyan">
-                support@zentriontechnologies.com
-              </a>
+              <a href={`mailto:${CONSULT_EMAIL}`} className="hover:text-cyan">
+                {CONSULT_EMAIL}
+              </a>{' '}
+              <span className="text-xs">(services & consultation)</span>
+            </p>
+            <p>
+              <a href={`mailto:${HR_EMAIL}`} className="hover:text-cyan">
+                {HR_EMAIL}
+              </a>{' '}
+              <span className="text-xs">(careers & internships)</span>
             </p>
             <p>+91 73057 71789</p>
             <p>+91 82204 37738</p>
+            <p className="pt-2 max-w-xs">
+              <a
+                href={MAPS_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cyan"
+              >
+                {COMPANY_ADDRESS}
+              </a>
+            </p>
           </div>
         </div>
 
@@ -94,7 +115,7 @@ export default function Footer() {
       </div>
       <div className="container-x py-6 border-t border-line flex flex-col sm:flex-row justify-between gap-2 text-xs text-mute">
         <p>&copy; {new Date().getFullYear()} Zentrion Technologies. All rights reserved.</p>
-        <p>Chennai, Tamil Nadu, India</p>
+        <p>Minjur, Chennai, Tamil Nadu, India</p>
       </div>
     </footer>
   );

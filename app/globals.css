@@ -121,6 +121,15 @@ html.light .text-gradient {
   color: transparent;
 }
 
+/* Always-legible gradient for text sitting on the permanently-dark hero
+   background, independent of the active site theme's --c-ink value. */
+.text-gradient-hero {
+  background: linear-gradient(90deg, #ffffff 0%, #ff6b6b 55%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .container-x {
   max-width: 1240px;
   margin-left: auto;

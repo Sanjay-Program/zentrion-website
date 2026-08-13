@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { Eyebrow, Reveal, GlassCard, CTASection, SectionHeading, ArrowIcon } from '@/components/ui';
 import Accordion, { AccordionItem } from '@/components/Accordion';
-import ContactForm from '@/components/ContactForm';
 import Link from 'next/link';
-import { buildWhatsAppLink } from '@/lib/contact';
+import { buildWhatsAppLink, INTERNSHIP_APPLICATION_FORM, HR_EMAIL } from '@/lib/contact';
+import TrainingIllustration from '@/components/TrainingIllustration';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Training, Courses & Internships',
@@ -131,7 +132,8 @@ export default function TrainingPage() {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
       />
-      <section className="container-x pt-36 pb-16">
+      <Breadcrumbs items={[{ href: '/training', label: 'Training' }]} />
+      <section className="container-x pt-10 pb-16">
         <Reveal>
           <Eyebrow>Training & Learning</Eyebrow>
           <h1 className="mt-4 font-display text-4xl md:text-5xl font-semibold max-w-2xl">
@@ -142,6 +144,27 @@ export default function TrainingPage() {
             structured internships &mdash; taught by engineers actively running security and AI
             engagements.
           </p>
+        </Reveal>
+      </section>
+
+      {/* AWARENESS TRAINING ILLUSTRATION */}
+      <section className="container-x pb-4">
+        <Reveal>
+          <div className="glass-card rounded-2xl p-6 md:p-10 grid md:grid-cols-[1.1fr,1fr] gap-8 items-center">
+            <div>
+              <Eyebrow>Security Awareness & Training</Eyebrow>
+              <h2 className="mt-3 font-display text-2xl md:text-3xl font-semibold leading-tight">
+                We run in-person and virtual awareness sessions, not just self-paced videos.
+              </h2>
+              <p className="mt-4 text-mute leading-relaxed text-sm">
+                From school-level Internet Safety sessions to enterprise phishing-awareness workshops,
+                every Zentrion training program is delivered by engineers who run real security
+                assessments &mdash; so what you learn maps directly to the threats organizations
+                actually face today.
+              </p>
+            </div>
+            <TrainingIllustration className="w-full h-auto text-ink/70" />
+          </div>
         </Reveal>
       </section>
 
@@ -254,7 +277,7 @@ export default function TrainingPage() {
             {[
               { title: 'Mentorship', text: 'Direct guidance from the engineers running client engagements.' },
               { title: 'Real Projects', text: 'Work on live cybersecurity, AI, or development projects.' },
-              { title: 'Certificate', text: 'A completion certificate recognizing your contribution.' },
+              { title: 'Paid Stipend', text: 'Every internship carries a performance-based stipend, plus a completion certificate.' },
               { title: 'Technologies', text: 'Exposure to modern security tooling, cloud platforms, and AI stacks.' },
             ].map((v) => (
               <Reveal key={v.title}>
@@ -266,11 +289,36 @@ export default function TrainingPage() {
             ))}
           </div>
           <Reveal>
-            <ContactForm
-              fields={['name', 'email', 'phone', 'role', 'message']}
-              submitLabel="Submit Application"
-              context="Internship application"
-            />
+            <div className="glass-card rounded-xl p-6 md:p-8 h-full flex flex-col justify-between">
+              <div>
+                <h3 className="font-display font-semibold text-lg">Apply for a Zentrion internship</h3>
+                <p className="mt-3 text-sm text-mute leading-relaxed">
+                  See open internship tracks &mdash; Cybersecurity, AI/ML, Full Stack, Product, Design,
+                  Data and more &mdash; and apply directly through our internship application form. Our
+                  HR team reviews every application personally.
+                </p>
+              </div>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={INTERNSHIP_APPLICATION_FORM}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  Apply for an Internship <ArrowIcon />
+                </a>
+                <Link href="/careers#internships" className="btn-ghost">
+                  View All Tracks
+                </Link>
+              </div>
+              <p className="mt-4 text-xs text-mute">
+                Prefer email? Reach our HR team directly at{' '}
+                <a href={`mailto:${HR_EMAIL}`} className="text-cyan hover:underline">
+                  {HR_EMAIL}
+                </a>
+                .
+              </p>
+            </div>
           </Reveal>
         </div>
 
@@ -278,7 +326,7 @@ export default function TrainingPage() {
           <p className="eyebrow">FAQs</p>
           <div className="mt-6 grid md:grid-cols-2 gap-5">
             {[
-              { q: 'Is the internship paid?', a: 'Stipends depend on the track and duration, and are confirmed at offer stage.' },
+              { q: 'Is the internship paid?', a: 'Yes — every Zentrion internship carries a performance-based stipend, confirmed at offer stage based on track and duration.' },
               { q: 'Is it remote or in-person?', a: 'Both, depending on the project. Most cohorts run hybrid out of Chennai.' },
               { q: 'What background do I need?', a: 'Basic programming or networking fundamentals. We’ll teach the rest.' },
               { q: 'Do I get a certificate either way?', a: 'Yes, all interns who complete the program receive a certificate.' },

@@ -16,10 +16,12 @@ export default function ContactForm({
   fields = ['name', 'email', 'phone', 'message'],
   submitLabel = 'Send Message',
   context = 'New website inquiry',
+  mailEmail,
 }: {
   fields?: string[];
   submitLabel?: string;
   context?: string;
+  mailEmail?: string;
 }) {
   const [sent, setSent] = useState(false);
   const [waLink, setWaLink] = useState('');
@@ -39,7 +41,7 @@ export default function ContactForm({
     const subject = context;
 
     const wa = buildWhatsAppLink(body);
-    const mail = buildMailtoLink(subject, body);
+    const mail = mailEmail ? buildMailtoLink(subject, body, mailEmail) : buildMailtoLink(subject, body);
     setWaLink(wa);
     setMailLink(mail);
     setSent(true);

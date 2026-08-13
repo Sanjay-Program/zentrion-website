@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Eyebrow, Reveal, GlassCard, StatBlock, CTASection, SectionHeading } from '@/components/ui';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <section className="container-x pt-36 pb-16">
+      <Breadcrumbs items={[{ href: '/about', label: 'About' }]} />
+      <section className="container-x pt-10 pb-16">
         <Reveal>
           <Eyebrow>About Zentrion</Eyebrow>
           <h1 className="mt-4 font-display text-4xl md:text-5xl font-semibold max-w-2xl">

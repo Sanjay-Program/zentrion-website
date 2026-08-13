@@ -3,12 +3,12 @@
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-  const [light, setLight] = useState(false);
+  const [light, setLight] = useState(true);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const stored = window.localStorage.getItem('zentrion-theme');
-    const isLight = stored === 'light';
+    const isLight = stored ? stored === 'light' : true;
     setLight(isLight);
     document.documentElement.classList.toggle('light', isLight);
     setMounted(true);

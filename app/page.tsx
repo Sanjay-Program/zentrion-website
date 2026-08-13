@@ -52,8 +52,8 @@ export default function HomePage() {
               </div>
             </Reveal>
             <Reveal delay={0.08}>
-              <h1 className="mt-5 font-display font-semibold text-4xl sm:text-5xl md:text-[3.6rem] leading-[1.05]">
-                Intelligence That <span className="text-gradient">Protects.</span>
+              <h1 className="mt-5 font-display font-semibold text-4xl sm:text-5xl md:text-[3.6rem] leading-[1.05] text-white">
+                Intelligence That <span className="text-gradient-hero">Protects.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.16}>

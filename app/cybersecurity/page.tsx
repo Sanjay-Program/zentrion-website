@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Eyebrow, Reveal, GlassCard, CTASection, SectionHeading, StatBlock } from '@/components/ui';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'AI-Powered Cybersecurity',
@@ -38,7 +39,8 @@ const offerings = [
 export default function CybersecurityPage() {
   return (
     <>
-      <section className="container-x pt-36 pb-16">
+      <Breadcrumbs items={[{ href: '/cybersecurity', label: 'Cybersecurity' }]} />
+      <section className="container-x pt-10 pb-16">
         <Reveal>
           <Eyebrow>Cybersecurity</Eyebrow>
           <h1 className="mt-4 font-display text-4xl md:text-5xl font-semibold max-w-2xl">

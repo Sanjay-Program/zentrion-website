@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Eyebrow, Reveal, GlassCard } from '@/components/ui';
 import ContactForm from '@/components/ContactForm';
+import { CONSULT_EMAIL, HR_EMAIL, COMPANY_ADDRESS, MAPS_LINK } from '@/lib/contact';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -10,7 +12,9 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="container-x pt-36 pb-24">
+    <>
+    <Breadcrumbs items={[{ href: '/contact', label: 'Contact' }]} />
+      <section className="container-x pt-10 pb-24">
       <Reveal>
         <Eyebrow>Contact</Eyebrow>
         <h1 className="mt-4 font-display text-4xl md:text-5xl font-semibold max-w-2xl">
@@ -24,6 +28,21 @@ export default function ContactPage() {
         </Reveal>
 
         <Reveal delay={0.08} className="space-y-5">
+          <GlassCard hover={false}>
+            <p className="eyebrow">Email</p>
+            <p className="mt-2">
+              <a href={`mailto:${CONSULT_EMAIL}`} className="text-cyan hover:underline">
+                {CONSULT_EMAIL}
+              </a>
+              <span className="block text-xs text-mute mt-0.5">Services &amp; consultation</span>
+            </p>
+            <p className="mt-3">
+              <a href={`mailto:${HR_EMAIL}`} className="text-cyan hover:underline">
+                {HR_EMAIL}
+              </a>
+              <span className="block text-xs text-mute mt-0.5">Careers &amp; internships</span>
+            </p>
+          </GlassCard>
           <GlassCard hover={false}>
             <p className="eyebrow">Phone</p>
             <p className="mt-2 text-lg">+91 73057 71789</p>
@@ -54,10 +73,15 @@ export default function ContactPage() {
           </GlassCard>
           <GlassCard hover={false}>
             <p className="eyebrow">Based in</p>
-            <p className="mt-2 text-mute">Chennai, Tamil Nadu, India</p>
+            <p className="mt-2 text-mute">
+              <a href={MAPS_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-cyan">
+                {COMPANY_ADDRESS}
+              </a>
+            </p>
           </GlassCard>
         </Reveal>
       </div>
     </section>
+    </>
   );
 }
