@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Chakra_Petch, Inter, JetBrains_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -23,6 +24,7 @@ const mono = JetBrains_Mono({
 });
 
 const SITE_URL = 'https://zentriontechnologies.com';
+const ADSENSE_PUBLISHER_ID = 'ca-pub-3940256099942544';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -70,6 +72,9 @@ export const metadata: Metadata = {
     title: 'Zentrion Technologies | Intelligence That Protects.',
     description: 'AI-powered cybersecurity, cloud security, and AI automation solutions.',
     images: ['/og-image.png'],
+  },
+  other: {
+    'google-adsense-account': ADSENSE_PUBLISHER_ID,
   },
   alternates: { canonical: SITE_URL },
   robots: { index: true, follow: true },
@@ -162,6 +167,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body className="font-body antialiased bg-void text-ink">
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <script
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
