@@ -1,12 +1,26 @@
 import { NextResponse } from 'next/server';
 
 const platforms = [
-  { name: 'GitHub', url: (u: string) => `https://github.com/${u}` },
-  { name: 'X', url: (u: string) => `https://x.com/${u}` },
-  { name: 'Instagram', url: (u: string) => `https://www.instagram.com/${u}/` },
-  { name: 'Reddit', url: (u: string) => `https://www.reddit.com/user/${u}/` },
-  { name: 'Medium', url: (u: string) => `https://medium.com/@${u}` },
-  { name: 'Dev.to', url: (u: string) => `https://dev.to/${u}` },
+  {
+    name: 'GitHub',
+    url: (username: string) => `https://api.github.com/users/${username}`,
+    profile: (username: string) => `https://github.com/${username}`,
+  },
+  {
+    name: 'HackerNews',
+    url: (username: string) => `https://hacker-news.firebaseio.com/v0/user/${username}.json`,
+    profile: (username: string) => `https://news.ycombinator.com/user?id=${username}`,
+  },
+  {
+    name: 'NPM',
+    url: (username: string) => `https://registry.npmjs.org/-/user/org.couchdb.user:${username}`,
+    profile: (username: string) => `https://www.npmjs.com/~${username}`,
+  },
+  {
+    name: 'Chess.com',
+    url: (username: string) => `https://api.chess.com/pub/player/${username}`,
+    profile: (username: string) => `https://www.chess.com/member/${username}`,
+  },
 ];
 
 function validUsername(username: string) {
@@ -22,28 +36,47 @@ export async function GET(request: Request) {
 
   const checks = await Promise.all(
     platforms.map(async (platform) => {
-      const url = platform.url(query);
+      const encoded = encodeURIComponent(query);
+      const url = platform.url(encoded);
       try {
         const response = await fetch(url, {
           method: 'GET',
-          redirect: 'manual',
+          headers: { Accept: 'application/json', 'User-Agent': 'zentrion-tools' },
           signal: AbortSignal.timeout(6000),
         });
 
-        if (response.status === 404) {
-          return { platform: platform.name, url, status: 'available', statusCode: 404 };
+        let exists = false;
+        if (response.status === 200) {
+          try {
+            const data = await response.json();
+            exists = data !== null && !data.error;
+          } catch {
+            exists = false;
+          }
         }
 
-        if (response.status >= 200 && response.status < 400) {
-          return { platform: platform.name, url, status: 'taken', statusCode: response.status };
-        }
-
-        return { platform: platform.name, url, status: 'unknown', statusCode: response.status };
+        return {
+          platform: platform.name,
+          exists,
+          status: response.status,
+          profileUrl: platform.profile(query),
+          checkedAt: new Date().toISOString(),
+        };
       } catch {
-        return { platform: platform.name, url, status: 'unknown', statusCode: null };
+        return {
+          platform: platform.name,
+          exists: false,
+          status: null,
+          error: 'Network/CORS blocked',
+          profileUrl: platform.profile(query),
+          checkedAt: new Date().toISOString(),
+        };
       }
     })
   );
 
-  return NextResponse.json({ username: query, checks });
+  return NextResponse.json({
+    username: query,
+    checks,
+  });
 }

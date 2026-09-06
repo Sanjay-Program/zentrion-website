@@ -16,8 +16,12 @@ export async function GET(request: Request) {
     'User-Agent': 'zentrion-tools',
   };
 
-  const [userRes, reposRes] = await Promise.all([
+  const [userRes, eventsRes, reposRes] = await Promise.all([
     fetch(`https://api.github.com/users/${encodeURIComponent(query)}`, {
+      headers,
+      signal: AbortSignal.timeout(7000),
+    }),
+    fetch(`https://api.github.com/users/${encodeURIComponent(query)}/events/public?per_page=20`, {
       headers,
       signal: AbortSignal.timeout(7000),
     }),
@@ -44,20 +48,49 @@ export async function GET(request: Request) {
   }
 
   const user = await userRes.json();
+  const events = eventsRes.ok ? await eventsRes.json() : [];
   const repos = reposRes.ok ? await reposRes.json() : [];
+  const exposedEmails = new Set<string>();
+
+  if (Array.isArray(events)) {
+    for (const event of events) {
+      if (
+        event?.type !== 'PushEvent' ||
+        !event?.payload ||
+        !Array.isArray(event.payload.commits)
+      ) {
+        continue;
+      }
+
+      for (const commit of event.payload.commits) {
+        const email = commit?.author?.email;
+        if (typeof email === 'string' && !email.endsWith('@noreply.github.com')) {
+          exposedEmails.add(email);
+        }
+      }
+    }
+  }
 
   return NextResponse.json({
     username: query,
-    profile: {
+    user: {
+      login: user.login,
       name: user.name,
+      avatar: user.avatar_url,
+      profile: user.html_url,
       bio: user.bio,
+      company: user.company,
       location: user.location,
+      blog: user.blog,
       publicRepos: user.public_repos,
+      publicGists: user.public_gists,
       followers: user.followers,
       following: user.following,
-      profileUrl: user.html_url,
-      avatarUrl: user.avatar_url,
+      createdAt: user.created_at,
+      updatedAt: user.updated_at,
     },
+    emails: Array.from(exposedEmails),
+    emailCount: exposedEmails.size,
     recentRepositories: Array.isArray(repos)
       ? repos.map((repo: {
           name: string;
@@ -75,5 +108,6 @@ export async function GET(request: Request) {
           updatedAt: repo.updated_at,
         }))
       : [],
+    timestamp: new Date().toISOString(),
   });
 }

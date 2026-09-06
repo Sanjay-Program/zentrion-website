@@ -24,11 +24,29 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: data.message || 'Lookup failed.' }, { status: 400 });
     }
 
+    const intelligence = {
+      ip: data.ip || query,
+      country: data.country || null,
+      countryCode: data.country_code || null,
+      region: data.region || null,
+      regionName: data.region || null,
+      city: data.city || null,
+      zip: data.postal || null,
+      latitude: data.latitude || null,
+      longitude: data.longitude || null,
+      timezone: data.timezone?.id || data.timezone || null,
+      isp: data.connection?.isp || null,
+      organization: data.connection?.org || null,
+      autonomousSystem: data.connection?.asn || null,
+      reverseDns: data.connection?.domain || null,
+      timestamp: new Date().toISOString(),
+      source: 'ipwho.is',
+    };
+
     return NextResponse.json({
       query,
       ipType: isIP(query) === 4 ? 'IPv4' : 'IPv6',
-      provider: 'ipwho.is',
-      data,
+      intelligence,
     });
   } catch {
     return NextResponse.json({
