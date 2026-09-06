@@ -71,6 +71,10 @@ export const metadata: Metadata = {
     description: 'AI-powered cybersecurity, cloud security, and AI automation solutions.',
     images: ['/og-image.png'],
   },
+  other: {
+    'google-adsense-account':
+      process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ACCOUNT || 'ca-pub-xxxxxxxxxxxxxxxx',
+  },
   alternates: { canonical: SITE_URL },
   robots: { index: true, follow: true },
 };
