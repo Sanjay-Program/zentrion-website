@@ -81,7 +81,7 @@ export default function LookupTool({
           </div>
         )}
 
-        {result && (
+        {result !== null && (
           <pre className="mt-6 overflow-auto rounded-xl border border-line bg-void/80 p-5 text-xs md:text-sm text-mute leading-relaxed">
             {JSON.stringify(result, null, 2)}
           </pre>
