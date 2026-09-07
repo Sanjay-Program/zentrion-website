@@ -129,6 +129,33 @@ const CATEGORIES = [
       { name: 'HTTP Status Lookup', url: '/tools/http-status' },
     ]
   },
+  {
+    name: '🛠️ Content & Design Utilities',
+    description: 'Formatters, Converters, and Generators',
+    tools: [
+      { name: 'Text Analyzer', url: '/tools/text-analyzer' },
+      { name: 'Color Converter', url: '/tools/color-converter' },
+      { name: 'Lorem Ipsum Generator', url: '/tools/lorem-ipsum' },
+      { name: 'Base32 Encoder', url: '/tools/base32' },
+      { name: 'URL Parser', url: '/tools/url-parser' },
+      { name: 'JSON Formatter', url: '/tools/json-formatter' },
+      { name: 'Image to Base64', url: '/tools/image-base64' },
+      { name: 'Unix Timestamp', url: '/tools/unix-timestamp' },
+    ]
+  },
+  {
+    name: '⚙️ System Utilities',
+    description: 'Calculators, permissions, and schedulers',
+    tools: [
+      { name: 'Chmod Calculator', url: '/tools/chmod-calculator' },
+      { name: 'HTML Entities', url: '/tools/html-entities' },
+      { name: 'Cron Generator', url: '/tools/cron-generator' },
+      { name: 'MAC Generator', url: '/tools/mac-generator' },
+      { name: 'Text Hasher', url: '/tools/text-hasher' },
+      { name: 'API Key Generator', url: '/tools/token-generator' },
+      { name: 'HTTP Status Codes', url: '/tools/http-status-codes' },
+    ]
+  },
 ];
 
 export default function ToolsDashboard() {
