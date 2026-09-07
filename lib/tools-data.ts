@@ -3,6 +3,7 @@ export const CATEGORIES = [
     name: '🌐 Network',
     description: 'Routing, IP intelligence, and connectivity tools',
     tools: [
+      { name: 'Advanced Speed Test', url: '/tools/network/speed-test', priority: true },
       { name: 'What Is My IP', url: '/tools/what-is-my-ip', priority: true },
       { name: 'Phone & SIM Intelligence', url: '/tools/network/phone-validator' },
       { name: 'ASN Lookup', url: '/tools/asn-lookup' },
