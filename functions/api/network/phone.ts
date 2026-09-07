@@ -22,15 +22,19 @@ function getNetworkDetails(parsedNumber: any, clean: string) {
   
   if (country === 'IN') {
     const national = parsedNumber.nationalNumber;
-    const prefix = national.substring(0, 2);
-    if (['98', '99', '97', '96', '95'].includes(prefix)) {
-      carrier = 'Airtel / Vodafone Idea';
-    } else if (['70', '79', '63', '89', '87', '91', '93', '77'].includes(prefix)) {
-      carrier = 'Jio';
-    } else if (['94', '84'].includes(prefix)) {
+    const p2 = national.substring(0, 2);
+    const p4 = national.substring(0, 4);
+    
+    if (['8072', '8079', '8073'].includes(p4) || ['70', '79', '63', '89', '87', '91', '93', '77'].includes(p2)) {
+      carrier = 'Reliance Jio';
+    } else if (['98', '99', '97', '96', '95'].includes(p2)) {
+      carrier = 'Airtel / Vodafone Idea (Vi)';
+    } else if (['80', '81', '82', '83'].includes(p2)) {
+      carrier = 'Airtel / Jio / Vi (Mixed)';
+    } else if (['94', '84'].includes(p2)) {
       carrier = 'BSNL';
     } else {
-      carrier = 'Indian Carrier';
+      carrier = 'Indian Telecom Network';
     }
   } else if (country === 'US' || country === 'CA') {
      const areaCode = parsedNumber.nationalNumber.substring(0, 3);

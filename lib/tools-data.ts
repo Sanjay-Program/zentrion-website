@@ -51,6 +51,8 @@ export const CATEGORIES = [
     name: '🕵️ OSINT',
     description: 'Open-source intelligence and reconnaissance',
     tools: [
+      { name: 'Username Finder', url: '/tools/osint/username-finder', priority: true },
+      { name: 'GitHub Analyzer', url: '/tools/osint/github-analyzer' },
       { name: 'Subdomain Finder', url: '/tools/subdomain-finder', priority: true },
       { name: 'URL Analyzer', url: '/tools/url-analyzer' },
     ]
