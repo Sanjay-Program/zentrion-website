@@ -19,6 +19,7 @@ export async function onRequestGet({ request }: { request: Request }) {
         'Accept': 'application/json',
         'User-Agent': 'Zentrion-Cyber-Suite/1.0'
       },
+      // @ts-expect-error Cloudflare Workers specific fetch options
       cf: {
         // Cache responses for a long time at the edge since MAC assignments rarely change
         cacheTtl: 86400 * 30,

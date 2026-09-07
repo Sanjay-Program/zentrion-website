@@ -37,6 +37,7 @@ export async function onRequestGet({ request }: { request: Request }) {
       },
       redirect: 'follow', // Follow redirects so we get the final destination headers
       // Cloudflare specific options: limit body size since we only care about headers
+      // @ts-expect-error Cloudflare Workers specific fetch options
       cf: {
         cacheTtl: 0, 
       }

@@ -43,6 +43,7 @@ export async function onRequestGet({ request }: { request: Request }) {
           method: 'HEAD',
           headers: { 'User-Agent': 'Zentrion-Cyber-Suite/1.0 (Web Ping)' },
           signal: controller.signal,
+          // @ts-expect-error Cloudflare Workers specific fetch options
           cf: { cacheTtl: 0 } // Bypass cache
         });
         
