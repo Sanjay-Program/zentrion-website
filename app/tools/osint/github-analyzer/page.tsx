@@ -43,14 +43,70 @@ export default function GithubAnalyzerPage() {
     setResult(null);
 
     try {
-      const res = await fetch(`/api/osint/github?query=${encodeURIComponent(targetUsername)}`);
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to analyze GitHub profile.');
+      // Fetch User Data from Client Side
+      const response = await fetch(`https://api.github.com/users/${encodeURIComponent(targetUsername)}`);
+      
+      if (!response.ok) {
+        if (response.status === 404) {
+          throw new Error('GitHub user not found.');
+        }
+        let errMessage = 'GitHub API request failed.';
+        try {
+            const errData = await response.json();
+            if (errData && errData.message) {
+                errMessage = `GitHub API Error (${response.status}): ${errData.message}`;
+            }
+        } catch(e) {}
+        throw new Error(errMessage);
       }
 
-      setResult(data);
+      const userData = await response.json();
+
+      // Fetch Top Repositories
+      let reposData: any[] = [];
+      try {
+        const reposRes = await fetch(`https://api.github.com/users/${encodeURIComponent(targetUsername)}/repos?sort=updated&per_page=100`);
+        if (reposRes.ok) {
+            reposData = await reposRes.json();
+        }
+      } catch(e) {}
+
+      const topRepos = reposData
+        .filter(r => !r.fork)
+        .sort((a, b) => b.stargazers_count - a.stargazers_count)
+        .slice(0, 6)
+        .map(r => ({
+            name: r.name,
+            description: r.description,
+            stars: r.stargazers_count,
+            forks: r.forks_count,
+            language: r.language,
+            url: r.html_url,
+            updated_at: r.updated_at
+        }));
+
+      // Structure Result
+      const formattedResult = {
+        valid: true,
+        username: userData.login,
+        name: userData.name,
+        bio: userData.bio,
+        company: userData.company,
+        location: userData.location,
+        blog: userData.blog,
+        twitter_username: userData.twitter_username,
+        public_repos: userData.public_repos,
+        public_gists: userData.public_gists,
+        followers: userData.followers,
+        following: userData.following,
+        created_at: userData.created_at,
+        updated_at: userData.updated_at,
+        profile_url: userData.html_url,
+        avatar_url: userData.avatar_url,
+        top_repos: topRepos,
+      };
+
+      setResult(formattedResult);
     } catch (err: any) {
       setError(err.message);
     } finally {

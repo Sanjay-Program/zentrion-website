@@ -31,14 +31,74 @@ export default function RepoAnalyzerPage() {
     setResult(null);
 
     try {
-      const res = await fetch(`/api/osint/repo?query=${encodeURIComponent(targetRepo)}`);
-      const data = await res.json();
+      // Parse repo name from URL if necessary
+      let repoPath = targetRepo;
+      if (repoPath.includes('github.com/')) {
+        repoPath = repoPath.split('github.com/')[1];
+      }
+      // Remove any trailing slashes or extra paths
+      repoPath = repoPath.split('/').slice(0, 2).join('/');
 
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to analyze GitHub repository.');
+      if (repoPath.split('/').length !== 2 || !repoPath.split('/')[1]) {
+        throw new Error('Invalid repository format. Use owner/repo.');
       }
 
-      setResult(data);
+      const response = await fetch(`https://api.github.com/repos/${repoPath}`);
+
+      if (!response.ok) {
+        if (response.status === 404) {
+          throw new Error('GitHub repository not found.');
+        }
+        let errMessage = 'GitHub API request failed.';
+        try {
+            const errData = await response.json();
+            if (errData && errData.message) {
+                errMessage = `GitHub API Error (${response.status}): ${errData.message}`;
+            }
+        } catch(e) {}
+        throw new Error(errMessage);
+      }
+
+      const data = await response.json();
+      
+      // Fetch languages
+      let languages = {};
+      try {
+          const langRes = await fetch(`https://api.github.com/repos/${repoPath}/languages`);
+          if (langRes.ok) {
+              languages = await langRes.json();
+          }
+      } catch(e) {}
+
+      const formattedResult = {
+        valid: true,
+        full_name: data.full_name,
+        description: data.description,
+        html_url: data.html_url,
+        homepage: data.homepage,
+        stargazers_count: data.stargazers_count,
+        watchers_count: data.watchers_count,
+        forks_count: data.forks_count,
+        open_issues_count: data.open_issues_count,
+        network_count: data.network_count,
+        subscribers_count: data.subscribers_count,
+        language: data.language,
+        languages: Object.keys(languages),
+        created_at: data.created_at,
+        updated_at: data.updated_at,
+        pushed_at: data.pushed_at,
+        size: data.size,
+        default_branch: data.default_branch,
+        license: data.license?.name || 'No License',
+        owner: {
+          login: data.owner.login,
+          avatar_url: data.owner.avatar_url,
+          html_url: data.owner.html_url,
+          type: data.owner.type
+        }
+      };
+
+      setResult(formattedResult);
     } catch (err: any) {
       setError(err.message);
     } finally {
