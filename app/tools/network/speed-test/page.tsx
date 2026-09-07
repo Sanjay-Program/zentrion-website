@@ -83,7 +83,12 @@ export default function SpeedTestPage() {
     try {
       const uploadSize = 5 * 1024 * 1024; // 5MB
       const uploadData = new Uint8Array(uploadSize);
-      crypto.getRandomValues(uploadData); // Prevent compression
+      // Fill in chunks to avoid crypto.getRandomValues size limits (65536 bytes)
+      const chunk = new Uint8Array(65536);
+      crypto.getRandomValues(chunk);
+      for (let i = 0; i < uploadSize; i += 65536) {
+        uploadData.set(chunk.subarray(0, Math.min(65536, uploadSize - i)), i);
+      }
       
       const ulStart = performance.now();
       
@@ -192,7 +197,7 @@ export default function SpeedTestPage() {
                 <svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                 Download
               </div>
-              <div className="text-3xl font-bold font-mono text-white">{downloadSpeed > 0 ? downloadSpeed : '--'} <span className="text-sm text-[rgb(var(--c-mute))]">Mbps</span></div>
+              <div className="text-3xl font-bold font-mono">{downloadSpeed > 0 ? downloadSpeed : '--'} <span className="text-sm text-[rgb(var(--c-mute))]">Mbps</span></div>
             </div>
 
             <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] p-6">
@@ -200,7 +205,7 @@ export default function SpeedTestPage() {
                 <svg className="w-4 h-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
                 Upload
               </div>
-              <div className="text-3xl font-bold font-mono text-white">{uploadSpeed > 0 ? uploadSpeed : '--'} <span className="text-sm text-[rgb(var(--c-mute))]">Mbps</span></div>
+              <div className="text-3xl font-bold font-mono">{uploadSpeed > 0 ? uploadSpeed : '--'} <span className="text-sm text-[rgb(var(--c-mute))]">Mbps</span></div>
             </div>
 
             <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] p-6">
@@ -208,7 +213,7 @@ export default function SpeedTestPage() {
                 <svg className="w-4 h-4 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 Ping
               </div>
-              <div className="text-3xl font-bold font-mono text-white">{ping !== null ? ping : '--'} <span className="text-sm text-[rgb(var(--c-mute))]">ms</span></div>
+              <div className="text-3xl font-bold font-mono">{ping !== null ? ping : '--'} <span className="text-sm text-[rgb(var(--c-mute))]">ms</span></div>
             </div>
 
             {networkInfo && (
