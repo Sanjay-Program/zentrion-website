@@ -61,6 +61,7 @@ export async function onRequestGet(context: any) {
       grade: grade,
       dns_status: dnsData.valid ? 'Active' : 'Offline',
       header_security: `${headerScore}%`,
+      headers: headers,
       timestamp: new Date().toISOString()
     });
   } catch (error: any) {

@@ -42,10 +42,10 @@ export default function WebsiteScannerPage() {
   };
 
   const headersMap = [
-    { key: 'strict_transport_security', label: 'Strict-Transport-Security (HSTS)', desc: 'Forces secure (HTTP over SSL/TLS) connections to the server' },
-    { key: 'content_security_policy', label: 'Content-Security-Policy', desc: 'Prevents cross-site scripting (XSS) and data injection attacks' },
-    { key: 'x_frame_options', label: 'X-Frame-Options', desc: 'Prevents clickjacking attacks by forbidding iframe embedding' },
-    { key: 'x_content_type_options', label: 'X-Content-Type-Options', desc: 'Prevents MIME-sniffing vulnerabilities' }
+    { key: 'strict-transport-security', label: 'Strict-Transport-Security (HSTS)', desc: 'Forces secure (HTTP over SSL/TLS) connections to the server' },
+    { key: 'content-security-policy', label: 'Content-Security-Policy', desc: 'Prevents cross-site scripting (XSS) and data injection attacks' },
+    { key: 'x-frame-options', label: 'X-Frame-Options', desc: 'Prevents clickjacking attacks by forbidding iframe embedding' },
+    { key: 'x-content-type-options', label: 'X-Content-Type-Options', desc: 'Prevents MIME-sniffing vulnerabilities' }
   ];
 
   return (
@@ -121,7 +121,7 @@ export default function WebsiteScannerPage() {
 
             <div className="md:col-span-2 space-y-4">
                {headersMap.map((h, i) => {
-                 const isPresent = result.headers[h.key] === true;
+                 const isPresent = !!(result.headers && result.headers[h.key]);
                  return (
                    <div key={i} className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] p-6 flex items-start gap-4">
                      <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 mt-1 ${isPresent ? 'bg-green-500/20 text-green-500' : 'bg-red-500/20 text-red-500'}`}>
