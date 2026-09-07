@@ -8,7 +8,7 @@ export async function onRequestGet({ request }: { request: Request }) {
   const sites = [
     { name: 'GitHub', url: `https://github.com/${query}`, testUrl: `https://github.com/${query}` },
     { name: 'Twitter', url: `https://twitter.com/${query}`, testUrl: `https://twitter.com/${query}` },
-    { name: 'Instagram', url: `https://instagram.com/${query}`, testUrl: `https://instagram.com/${query}` },
+    { name: 'Instagram', url: `https://instagram.com/${query}`, testUrl: `https://www.instagram.com/${query}/embed/` },
     { name: 'Reddit', url: `https://reddit.com/user/${query}`, testUrl: `https://www.reddit.com/user/${query}/about.json` },
     { name: 'YouTube', url: `https://youtube.com/@${query}`, testUrl: `https://youtube.com/@${query}` },
     { name: 'TikTok', url: `https://tiktok.com/@${query}`, testUrl: `https://tiktok.com/@${query}` },

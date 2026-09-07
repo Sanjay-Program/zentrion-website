@@ -18,6 +18,32 @@ export async function onRequestGet({ request }: { request: Request }) {
     }
 
     const data: any = await response.json();
+    
+    // Fetch repos
+    let reposData: any[] = [];
+    try {
+        const reposRes = await fetch(`https://api.github.com/users/${encodeURIComponent(query)}/repos?sort=updated&per_page=100`, {
+           headers: { 'User-Agent': 'Zentrion-Cyber-Tools' } 
+        });
+        if (reposRes.ok) {
+            reposData = await reposRes.json();
+        }
+    } catch(e) {}
+
+    const topRepos = reposData
+        .filter(r => !r.fork)
+        .sort((a, b) => b.stargazers_count - a.stargazers_count)
+        .slice(0, 6)
+        .map(r => ({
+            name: r.name,
+            description: r.description,
+            stars: r.stargazers_count,
+            forks: r.forks_count,
+            language: r.language,
+            url: r.html_url,
+            updated_at: r.updated_at
+        }));
+
     return Response.json({
       valid: true,
       username: data.login,
@@ -35,6 +61,7 @@ export async function onRequestGet({ request }: { request: Request }) {
       updated_at: data.updated_at,
       profile_url: data.html_url,
       avatar_url: data.avatar_url,
+      top_repos: topRepos,
       timestamp: new Date().toISOString()
     });
   } catch (error: any) {
