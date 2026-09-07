@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Chakra_Petch, Inter, JetBrains_Mono } from 'next/font/google';
-import Script from 'next/script';
+
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -167,12 +167,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
       <body className="font-body antialiased bg-void text-ink">
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
         <script
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
