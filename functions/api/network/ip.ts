@@ -1,4 +1,8 @@
-import { isIP } from 'node:net';
+function isIP(str: string): number {
+  if (/^(\d{1,3}\.){3}\d{1,3}$/.test(str)) return 4;
+  if (/^[a-fA-F0-9:]+$/.test(str) && str.includes(':')) return 6;
+  return 0;
+}
 
 export async function onRequestGet({ request }: { request: Request }) {
   const query = new URL(request.url).searchParams.get('query')?.trim() || '';
