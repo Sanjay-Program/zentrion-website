@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { isIP } from 'node:net';
 import { NextResponse } from 'next/server';
 
