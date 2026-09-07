@@ -70,6 +70,32 @@ export default function RepoAnalyzerPage() {
           }
       } catch(e) {}
 
+      // Fetch Security Posture
+      let hasSecurityPolicy = false;
+      let hasWorkflows = false;
+      try {
+        const securityRes = await fetch(`https://api.github.com/repos/${repoPath}/contents/SECURITY.md`);
+        if (securityRes.ok) hasSecurityPolicy = true;
+        else {
+           const githubSecurityRes = await fetch(`https://api.github.com/repos/${repoPath}/contents/.github/SECURITY.md`);
+           if (githubSecurityRes.ok) hasSecurityPolicy = true;
+        }
+      } catch(e) {}
+
+      try {
+        const workflowRes = await fetch(`https://api.github.com/repos/${repoPath}/contents/.github/workflows`);
+        if (workflowRes.ok) hasWorkflows = true;
+      } catch(e) {}
+
+      // Fetch contributors
+      let topContributors = [];
+      try {
+        const contribRes = await fetch(`https://api.github.com/repos/${repoPath}/contributors?per_page=5`);
+        if (contribRes.ok) {
+          topContributors = await contribRes.json();
+        }
+      } catch(e) {}
+
       const formattedResult = {
         valid: true,
         full_name: data.full_name,
@@ -90,6 +116,9 @@ export default function RepoAnalyzerPage() {
         size: data.size,
         default_branch: data.default_branch,
         license: data.license?.name || 'No License',
+        hasSecurityPolicy,
+        hasWorkflows,
+        topContributors,
         owner: {
           login: data.owner.login,
           avatar_url: data.owner.avatar_url,
@@ -201,7 +230,7 @@ export default function RepoAnalyzerPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <div>
                     <h3 className="text-sm font-bold text-[rgb(var(--c-mute))] uppercase tracking-widest mb-4">Tech Stack Details</h3>
                     <div className="space-y-3">
@@ -230,13 +259,57 @@ export default function RepoAnalyzerPage() {
                       </div>
                       <div className="flex justify-between">
                         <span className="text-[rgb(var(--c-mute))]">Default Branch</span>
-                        <span className="font-mono">{result.default_branch}</span>
+                        <span className="font-mono flex items-center gap-2">
+                           <svg className="w-3.5 h-3.5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" /></svg>
+                           {result.default_branch}
+                        </span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-[rgb(var(--c-mute))]">Size</span>
                         <span className="font-mono">{(result.size / 1024).toFixed(2)} MB</span>
                       </div>
                     </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-[rgba(255,255,255,0.05)]">
+                  <div>
+                    <h3 className="text-sm font-bold text-[rgb(var(--c-mute))] uppercase tracking-widest mb-4">Security Posture</h3>
+                    <div className="space-y-4 text-sm">
+                      <div className="flex items-center justify-between p-3 rounded-xl border border-[var(--c-glass-border)] bg-[rgba(255,255,255,0.02)]">
+                        <span className="font-bold">SECURITY.md Policy</span>
+                        {result.hasSecurityPolicy ? (
+                           <span className="px-2 py-1 bg-green-500/20 text-green-500 border border-green-500/30 rounded-md text-xs font-bold uppercase tracking-wider">Present</span>
+                        ) : (
+                           <span className="px-2 py-1 bg-red-500/20 text-red-500 border border-red-500/30 rounded-md text-xs font-bold uppercase tracking-wider">Missing</span>
+                        )}
+                      </div>
+                      <div className="flex items-center justify-between p-3 rounded-xl border border-[var(--c-glass-border)] bg-[rgba(255,255,255,0.02)]">
+                        <span className="font-bold">GitHub Workflows</span>
+                        {result.hasWorkflows ? (
+                           <span className="px-2 py-1 bg-blue-500/20 text-blue-500 border border-blue-500/30 rounded-md text-xs font-bold uppercase tracking-wider">Active</span>
+                        ) : (
+                           <span className="px-2 py-1 bg-gray-500/20 text-gray-400 border border-gray-500/30 rounded-md text-xs font-bold uppercase tracking-wider">None</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                     <h3 className="text-sm font-bold text-[rgb(var(--c-mute))] uppercase tracking-widest mb-4">Top Contributors</h3>
+                     {result.topContributors && result.topContributors.length > 0 ? (
+                       <div className="flex flex-col gap-3">
+                         {result.topContributors.map((user: any, idx: number) => (
+                           <a key={idx} href={user.html_url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-2 rounded-xl hover:bg-[rgba(255,255,255,0.05)] transition-colors border border-transparent hover:border-[rgba(255,255,255,0.1)]">
+                             <img src={user.avatar_url} alt={user.login} className="w-8 h-8 rounded-full border border-[rgba(255,255,255,0.1)]" />
+                             <div className="font-mono font-bold text-sm">{user.login}</div>
+                             <div className="ml-auto text-xs text-[rgb(var(--c-mute))] bg-[rgba(255,255,255,0.05)] px-2 py-1 rounded-md">{user.contributions} commits</div>
+                           </a>
+                         ))}
+                       </div>
+                     ) : (
+                       <p className="text-sm text-[rgb(var(--c-mute))]">No contributors found or API limit reached.</p>
+                     )}
                   </div>
                 </div>
              </div>

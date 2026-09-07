@@ -35,7 +35,7 @@ export default function UsernameFinderPage() {
         throw new Error(data.error || 'Failed to check username.');
       }
 
-      setResults(data.results.filter((r: SiteResult) => r.status === 'Found'));
+      setResults(data.results.filter((r: SiteResult) => r.status === 'Found' || r.status === 'Manual Check'));
       setTotalChecked(data.total_checked || 0);
     } catch (err: any) {
       setError(err.message);
@@ -140,7 +140,12 @@ export default function UsernameFinderPage() {
                       />
                     </div>
                     <div className="overflow-hidden">
-                      <div className="font-bold font-display text-sm truncate">{item.site}</div>
+                      <div className="font-bold font-display text-sm truncate flex items-center gap-2">
+                        {item.site}
+                        {item.status.includes('Manual') && (
+                           <span className="px-1.5 py-0.5 bg-yellow-500/20 text-yellow-500 rounded text-[0.6rem] uppercase tracking-wider">Manual Check</span>
+                        )}
+                      </div>
                       <div className="text-[rgb(var(--c-mute))] text-xs truncate group-hover:text-[rgb(var(--c-accent))] transition-colors">
                         View Profile &rarr;
                       </div>

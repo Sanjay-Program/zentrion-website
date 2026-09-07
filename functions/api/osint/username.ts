@@ -77,6 +77,12 @@ export async function onRequestGet({ request }: { request: Request }) {
 
   try {
     const checkUsername = async (site: any) => {
+      // Instagram blocks Cloudflare IPs aggressively, resulting in timeouts or 403s.
+      // We return "Manual Check" to allow the user to click and verify themselves.
+      if (site.name === 'Instagram') {
+         return { site: site.name, url: site.url, status: 'Manual Check' };
+      }
+
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
 
@@ -105,10 +111,15 @@ export async function onRequestGet({ request }: { request: Request }) {
     // Execute all 50 checks concurrently
     const results = await Promise.all(sites.map(checkUsername));
 
-    // Sort to put 'Found' at the top
+    // Sort to put 'Found' and 'Manual Check' at the top
     results.sort((a, b) => {
-        if (a.status === 'Found' && b.status !== 'Found') return -1;
-        if (b.status === 'Found' && a.status !== 'Found') return 1;
+        const isAValid = a.status === 'Found' || a.status === 'Manual Check';
+        const isBValid = b.status === 'Found' || b.status === 'Manual Check';
+        
+        if (isAValid && !isBValid) return -1;
+        if (!isAValid && isBValid) return 1;
+        if (a.status === 'Found' && b.status === 'Manual Check') return -1;
+        if (a.status === 'Manual Check' && b.status === 'Found') return 1;
         return 0;
     });
 
@@ -116,7 +127,7 @@ export async function onRequestGet({ request }: { request: Request }) {
       valid: true,
       username: query,
       total_checked: sites.length,
-      found_count: results.filter(r => r.status === 'Found').length,
+      found_count: results.filter(r => r.status === 'Found' || r.status === 'Manual Check').length,
       results: results,
       timestamp: new Date().toISOString()
     });
