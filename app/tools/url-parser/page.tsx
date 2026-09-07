@@ -34,7 +34,7 @@ export default function UrlParserPage() {
 
       const url = new URL(urlToParse);
       
-      const searchParams = [];
+      const searchParams: { key: string; value: string }[] = [];
       url.searchParams.forEach((value, key) => {
         searchParams.push({ key, value });
       });

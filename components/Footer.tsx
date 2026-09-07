@@ -10,6 +10,7 @@ const columns = [
       { href: '/ai', label: 'AI Automation' },
       { href: '/cloud', label: 'Cloud Consulting' },
       { href: '/services', label: 'Software Development' },
+      { href: '/tools', label: 'Free Security Tools (70+)' },
     ],
   },
   {

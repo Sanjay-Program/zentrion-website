@@ -71,6 +71,9 @@ export default function HomePage() {
                 <Link href="/services" className="btn-ghost">
                   Explore Services
                 </Link>
+                <Link href="/tools" className="btn-ghost text-[rgb(var(--c-accent))] border-[rgba(47,107,255,0.2)] hover:bg-[rgba(47,107,255,0.1)]">
+                  Free Security Tools (70+)
+                </Link>
               </div>
             </Reveal>
 
