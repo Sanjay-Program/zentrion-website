@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JWT Inspector | Zentrion Cyber Tools</title>
+  <meta name="description" content="Decode, inspect, and analyze JSON Web Tokens securely offline.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <h1>Zentrion Cyber Tools</h1>
+    </div>
+  </header>
+  <main>
+    <a href="../index.html" class="back-link">← Back to Tools</a>
+    <div class="tool-header">
+      <span class="eyebrow">🎫 JWT Inspector</span>
+      <h1>JWT Inspector</h1>
+      <p style="color: var(--c-mute);">Decode, inspect, and analyze JSON Web Tokens securely offline.</p>
+      <span class="badge local">LOCAL ONLY</span>
+      <div class="privacy-notice">
+        <strong>LOCAL PROCESSING:</strong> Tokens are decoded locally in your browser. Signature verification is NOT performed.
+      </div>
+    </div>
+    
+    <div class="glass-card" id="tool-container">
+      <div class="input-group">
+        <label for="jwt-input">JSON Web Token</label>
+        <textarea id="jwt-input" placeholder="Paste your JWT here (xxxxx.yyyyy.zzzzz)..."></textarea>
+      </div>
+
+      <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+        <button class="btn" id="decode-btn">Decode Token</button>
+        <button class="btn btn-ghost" id="clear-btn">Clear</button>
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        Results will appear here...
+      </div>
+    </div>
+  </main>
+  <footer>&copy; 2026 Zentrion Technologies. Intelligence That Protects.</footer>
+  <script src="../app.js"></script>
+  <script src="../js/jwt-decoder.js"></script>
+</body>
+</html>

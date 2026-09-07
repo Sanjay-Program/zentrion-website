@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hash Generator | Zentrion Cyber Tools</title>
+  <meta name="description" content="Compute SHA-1, SHA-256, SHA-384, and SHA-512 hashes for text and files locally.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <h1>Zentrion Cyber Tools</h1>
+    </div>
+  </header>
+  <main>
+    <a href="../index.html" class="back-link">← Back to Tools</a>
+    <div class="tool-header">
+      <span class="eyebrow">#️⃣ Hash Generator</span>
+      <h1>Hash Generator</h1>
+      <p style="color: var(--c-mute);">Compute secure hashes for text and files using Web Crypto APIs.</p>
+      <span class="badge local">LOCAL ONLY</span>
+      <div class="privacy-notice">
+        <strong>LOCAL PROCESSING:</strong> Hashing is performed locally in your browser. Files and text are never uploaded.
+      </div>
+    </div>
+    
+    <div class="glass-card" id="tool-container">
+      <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+        <button id="mode-text" class="btn">Text Input</button>
+        <button id="mode-file" class="btn btn-ghost">File Input</button>
+      </div>
+
+      <div id="text-input-group" class="input-group">
+        <label for="hash-text">String to hash</label>
+        <textarea id="hash-text" placeholder="Enter text here..."></textarea>
+      </div>
+
+      <div id="file-input-group" class="input-group" style="display: none;">
+        <label for="hash-file">Select a file</label>
+        <input type="file" id="hash-file" style="background: rgba(0,0,0,0.2); padding: 2rem; border-radius: 6px; width: 100%;">
+      </div>
+
+      <div class="input-group">
+        <label for="hash-algo">Algorithm</label>
+        <select id="hash-algo">
+          <option value="SHA-256">SHA-256</option>
+          <option value="SHA-512">SHA-512</option>
+          <option value="SHA-384">SHA-384</option>
+          <option value="SHA-1">SHA-1 (Insecure)</option>
+        </select>
+      </div>
+
+      <div style="display: flex; gap: 1rem;">
+        <button class="btn" id="generate-btn">Generate Hash</button>
+        <button class="btn btn-ghost" id="clear-btn">Clear</button>
+      </div>
+
+      <div class="result-box empty" id="result-box" style="margin-top: 2rem;">
+        Results will appear here...
+      </div>
+    </div>
+  </main>
+  <footer>&copy; 2026 Zentrion Technologies. Intelligence That Protects.</footer>
+  <script src="../app.js"></script>
+  <script src="../js/hash-generator.js"></script>
+</body>
+</html>

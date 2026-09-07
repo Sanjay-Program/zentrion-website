@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DNS Lookup | Zentrion Cyber Tools</title>
+  <meta name="description" content="Query global DNS records directly from your browser using DNS-over-HTTPS.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <h1>Zentrion Cyber Tools</h1>
+    </div>
+  </header>
+  <main>
+    <a href="../index.html" class="back-link">← Back to Tools</a>
+    <div class="tool-header">
+      <span class="eyebrow">🔍 DNS Lookup</span>
+      <h1>DNS Lookup</h1>
+      <p style="color: var(--c-mute);">Query DNS records using Cloudflare DNS-over-HTTPS (DoH).</p>
+      <span class="badge external">EXTERNAL API</span>
+      <div class="privacy-notice">
+        <strong>EXTERNAL API:</strong> This tool makes a secure HTTPS request to Cloudflare's public DNS resolver.
+      </div>
+    </div>
+    
+    <div class="glass-card" id="tool-container">
+      <div style="display: grid; grid-template-columns: 2fr 1fr auto; gap: 1rem; align-items: end; margin-bottom: 1.5rem;">
+        <div class="input-group" style="margin: 0;">
+          <label for="dns-domain">Domain Name</label>
+          <input type="text" id="dns-domain" placeholder="example.com">
+        </div>
+        <div class="input-group" style="margin: 0;">
+          <label for="dns-type">Record Type</label>
+          <select id="dns-type">
+            <option value="A">A (IPv4)</option>
+            <option value="AAAA">AAAA (IPv6)</option>
+            <option value="MX">MX (Mail)</option>
+            <option value="NS">NS (Name Server)</option>
+            <option value="TXT">TXT (Text)</option>
+            <option value="CNAME">CNAME (Canonical)</option>
+            <option value="SOA">SOA (Start of Authority)</option>
+            <option value="CAA">CAA (Certificate Auth)</option>
+          </select>
+        </div>
+        <button class="btn" id="lookup-btn" style="height: 46px;">Lookup</button>
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        Results will appear here...
+      </div>
+    </div>
+  </main>
+  <footer>&copy; 2026 Zentrion Technologies. Intelligence That Protects.</footer>
+  <script src="../app.js"></script>
+  <script src="../js/dns-lookup.js"></script>
+</body>
+</html>

@@ -1,198 +1,217 @@
-import type { Metadata } from 'next';
+import React from 'react';
 import Link from 'next/link';
-import Breadcrumbs from '@/components/Breadcrumbs';
-import { Eyebrow, Reveal, GlassCard } from '@/components/ui';
-
-const tools = [
-  {
-    name: 'DNS Lookup',
-    description: 'Look up DNS records for a domain.',
-    href: '/tools/network/dns-lookup',
-    icon: '🌐',
-  },
-  {
-    name: 'IP Lookup',
-    description: 'Get intelligence and location hints for an IP address.',
-    href: '/tools/network/ip-lookup',
-    icon: '📍',
-  },
-  {
-    name: 'Phone Validator',
-    description: 'Validate and inspect phone numbers in E.164 format.',
-    href: '/tools/network/phone-validator',
-    icon: '📱',
-  },
-  {
-    name: 'GitHub Analyzer',
-    description: 'Analyze GitHub profile stats and public repositories.',
-    href: '/tools/network/github-analyzer',
-    icon: '🐙',
-  },
-  {
-    name: 'Username Finder',
-    description: 'Check username availability across major platforms.',
-    href: '/tools/network/username-finder',
-    icon: '🔎',
-  },
-];
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Tools | Networking Tools',
-  description:
-    'Use Zentrion networking tools for DNS lookups, IP checks, phone validation, GitHub analysis, and username discovery to speed up security research and diagnostics.',
-  keywords: [
-    'networking tools',
-    'dns lookup tool',
-    'ip lookup tool',
-    'phone validator',
-    'github profile analyzer',
-    'username availability checker',
-    'online networking utilities',
-    'cybersecurity osint tools',
-    'domain intelligence tools',
-    'free network diagnostic tools',
-  ],
-  alternates: { canonical: '/tools' },
+  title: 'Zentrion Cyber Intelligence Suite | 70+ Free Security Tools',
+  description: 'The ultimate suite of 70+ free cybersecurity, networking, OSINT, and AI-powered intelligence tools. Analyze domains, test DNS, scan ports, and secure your digital assets.',
   openGraph: {
-    title: 'Zentrion Networking Tools',
-    description:
-      'Fast networking and OSINT-style utilities for DNS, IP, phone, GitHub, and username checks with practical results for security teams.',
-    url: 'https://zentriontechnologies.com/tools',
-    type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Zentrion Networking Tools',
-    description:
-      'DNS lookup, IP lookup, phone validation, GitHub analyzer, and username finder tools.',
-    images: ['/og-image.png'],
+    title: 'Zentrion Cyber Intelligence Suite | 70+ Free Security Tools',
+    description: 'The ultimate suite of 70+ free cybersecurity, networking, OSINT, and AI-powered intelligence tools.',
   },
 };
 
-const toolsSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'Networking Tools',
-  description:
-    'Useful tools for DNS, IP intelligence, phone validation, GitHub analysis, and username discovery.',
-  url: 'https://zentriontechnologies.com/tools',
-  hasPart: tools.map((tool) => ({
-    '@type': 'SoftwareApplication',
-    name: tool.name,
-    applicationCategory: 'NetworkingApplication',
-    url: `https://zentriontechnologies.com${tool.href}`,
-    description: tool.description,
-  })),
-};
-
-const faqs = [
+const CATEGORIES = [
   {
-    q: 'Are these networking tools free to use?',
-    a: 'Yes. The DNS, IP, phone validation, GitHub analyzer, and username finder tools are free to use on the website.',
+    name: '🤖 Zentrion Intelligence (AI)',
+    description: 'AI-powered security audits and threat analysis',
+    tools: [
+      { name: 'AI Website Security Scanner', url: '/tools/website-security-scanner', priority: true },
+      { name: 'AI Domain Security Audit', url: '/tools/domain-security-audit' },
+      { name: 'AI Email Security Audit', url: '/tools/email-security-audit' },
+      { name: 'AI SSL/TLS Analysis', url: '/tools/ssl-tls-analysis' },
+      { name: 'AI DNS Analysis', url: '/tools/dns-analysis' },
+      { name: 'AI IP Intelligence', url: '/tools/ip-intelligence' },
+      { name: 'AI IOC Analysis', url: '/tools/ioc-analysis' },
+    ]
   },
   {
-    q: 'Who should use these tools?',
-    a: 'Security teams, developers, students, and IT administrators can use these tools for quick checks, troubleshooting, and basic reconnaissance.',
+    name: '🌐 Network',
+    description: 'Routing, IP intelligence, and connectivity tools',
+    tools: [
+      { name: 'What Is My IP', url: '/tools/what-is-my-ip', priority: true },
+      { name: 'IP Lookup', url: '/tools/ip-lookup', priority: true },
+      { name: 'Reverse IP', url: '/tools/reverse-ip' },
+      { name: 'ASN Lookup', url: '/tools/asn-lookup' },
+      { name: 'Ping Test', url: '/tools/ping' },
+      { name: 'Traceroute', url: '/tools/traceroute' },
+      { name: 'Port Checker', url: '/tools/port-checker', priority: true },
+      { name: 'Subnet Calculator', url: '/tools/subnet-calculator' },
+      { name: 'IP Classifier (IPv4/v6)', url: '/tools/ip-classifier' },
+      { name: 'MAC Vendor Lookup', url: '/tools/mac-vendor' },
+      { name: 'Common Ports', url: '/tools/common-ports' },
+    ]
   },
   {
-    q: 'Do I need to install software?',
-    a: 'No installation is needed. All tools run directly in your browser through the Zentrion website.',
+    name: '🌎 DNS & Domains',
+    description: 'Domain records, propagation, and DNSSEC',
+    tools: [
+      { name: 'DNS Lookup', url: '/tools/dns-lookup', priority: true },
+      { name: 'DNS Propagation Checker', url: '/tools/dns-propagation', priority: true },
+      { name: 'Reverse DNS', url: '/tools/reverse-dns' },
+      { name: 'WHOIS / RDAP Lookup', url: '/tools/whois-lookup', priority: true },
+      { name: 'DNSSEC Checker', url: '/tools/dnssec-checker' },
+      { name: 'CAA Checker', url: '/tools/caa-checker' },
+      { name: 'Domain Age Checker', url: '/tools/domain-age' },
+      { name: 'Domain Expiry Checker', url: '/tools/domain-expiry' },
+      { name: 'Nameserver Checker', url: '/tools/nameserver-checker' },
+      { name: 'DNS Record Analyzer', url: '/tools/dns-record-analyzer' },
+    ]
+  },
+  {
+    name: '🔒 Web Security',
+    description: 'TLS, Headers, and Web vulnerability tools',
+    tools: [
+      { name: 'SSL Certificate Checker', url: '/tools/ssl-checker', priority: true },
+      { name: 'TLS Version Checker', url: '/tools/tls-checker' },
+      { name: 'Certificate Decoder', url: '/tools/certificate-decoder' },
+      { name: 'Certificate Chain Analyzer', url: '/tools/certificate-chain' },
+      { name: 'HTTP Headers Checker', url: '/tools/http-headers' },
+      { name: 'Security Headers Checker', url: '/tools/security-headers', priority: true },
+      { name: 'Redirect Checker', url: '/tools/redirect-checker' },
+      { name: 'Website Technology Detector', url: '/tools/technology-detector' },
+    ]
+  },
+  {
+    name: '📧 Email Security',
+    description: 'SPF, DKIM, DMARC, and email health',
+    tools: [
+      { name: 'MX Lookup', url: '/tools/mx-lookup' },
+      { name: 'SPF Checker', url: '/tools/spf-checker', priority: true },
+      { name: 'DKIM Checker', url: '/tools/dkim-checker', priority: true },
+      { name: 'DMARC Checker', url: '/tools/dmarc-checker', priority: true },
+      { name: 'MTA-STS Checker', url: '/tools/mta-sts' },
+      { name: 'TLS-RPT Checker', url: '/tools/tls-rpt' },
+      { name: 'Email Security Score', url: '/tools/email-security-score' },
+    ]
+  },
+  {
+    name: '🛡️ Threat Intelligence',
+    description: 'Reputation, Blacklists, and IOCs',
+    tools: [
+      { name: 'IP Reputation', url: '/tools/ip-reputation' },
+      { name: 'Domain Reputation', url: '/tools/domain-reputation' },
+      { name: 'URL Reputation', url: '/tools/url-reputation' },
+      { name: 'IP Blacklist Checker', url: '/tools/ip-blacklist', priority: true },
+      { name: 'Domain Blacklist Checker', url: '/tools/domain-blacklist' },
+      { name: 'Hash Reputation', url: '/tools/hash-reputation' },
+      { name: 'IOC Lookup', url: '/tools/ioc-lookup' },
+      { name: 'ASN Reputation', url: '/tools/asn-reputation' },
+    ]
+  },
+  {
+    name: '🕵️ OSINT',
+    description: 'Open-source intelligence and reconnaissance',
+    tools: [
+      { name: 'Username Finder', url: '/tools/username-finder' },
+      { name: 'GitHub Analyzer', url: '/tools/github-analyzer' },
+      { name: 'Subdomain Finder', url: '/tools/subdomain-finder', priority: true },
+      { name: 'Certificate Transparency', url: '/tools/certificate-transparency' },
+      { name: 'URL Analyzer', url: '/tools/url-analyzer' },
+      { name: 'Robots.txt Analyzer', url: '/tools/robots-analyzer' },
+      { name: 'Sitemap Analyzer', url: '/tools/sitemap-analyzer' },
+      { name: 'Domain Intelligence', url: '/tools/domain-intelligence' },
+    ]
+  },
+  {
+    name: '🔐 Developer Security',
+    description: 'Crypto, Encoding, JWT, and offline utilities',
+    tools: [
+      { name: 'Password Strength', url: '/tools/password-strength' },
+      { name: 'Password Generator', url: '/tools/password-generator' },
+      { name: 'Password Breach Check', url: '/tools/password-breach' },
+      { name: 'JWT Inspector', url: '/tools/jwt-inspector' },
+      { name: 'Hash Generator', url: '/tools/hash-generator' },
+      { name: 'HMAC Generator', url: '/tools/hmac-generator' },
+      { name: 'Encoding Toolkit', url: '/tools/encoding-toolkit' },
+      { name: 'Regex Tester', url: '/tools/regex-tester' },
+      { name: 'UUID Generator', url: '/tools/uuid-generator' },
+      { name: 'HTTP Status Lookup', url: '/tools/http-status' },
+    ]
   },
 ];
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((item) => ({
-    '@type': 'Question',
-    name: item.q,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: item.a,
-    },
-  })),
-};
-
-export default function ToolsPage() {
+export default function ToolsDashboard() {
   return (
-    <>
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolsSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <Breadcrumbs items={[{ href: '/tools', label: 'Tools' }]} />
-      <section className="container-x pt-10 pb-16">
-        <Reveal>
-          <Eyebrow>Tools</Eyebrow>
-          <h1 className="mt-4 font-display text-4xl md:text-5xl font-semibold max-w-3xl">
-            Networking Tools
-          </h1>
-          <p className="mt-6 max-w-2xl text-mute leading-relaxed text-lg">
-            Useful tools for DNS, IP intelligence, phone validation, GitHub analysis, and username
-            discovery.
-          </p>
-        </Reveal>
-      </section>
+    <div className="min-h-screen bg-[rgb(var(--c-void))] text-[rgb(var(--c-ink))] pt-32 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background glowing effects */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[rgb(var(--c-accent))] opacity-[0.08] blur-[120px] rounded-full pointer-events-none" />
 
-      <section className="container-x pb-20">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {tools.map((tool, i) => (
-            <Reveal key={tool.href} delay={i * 0.05}>
-              <Link href={tool.href} className="group block h-full">
-                <GlassCard className="h-full">
-                  <div className="text-3xl">{tool.icon}</div>
-                  <h2 className="mt-4 text-xl font-display font-semibold group-hover:underline">
-                    {tool.name}
-                  </h2>
-                  <p className="mt-3 text-sm text-mute leading-relaxed">{tool.description}</p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-cyan group-hover:gap-2.5 transition-all">
-                    Open tool →
+      <div className="max-w-7xl mx-auto relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="eyebrow block mb-4 text-[rgb(var(--c-accent))] tracking-widest uppercase text-sm font-mono">
+            Intelligence That Protects
+          </span>
+          <h1 className="text-4xl md:text-6xl font-bold font-display tracking-tight mb-6">
+            Zentrion Cyber Intelligence Suite
+          </h1>
+          <p className="text-xl text-[rgb(var(--c-mute))] max-w-3xl mx-auto">
+            A comprehensive ecosystem of 70+ advanced networking, OSINT, and cybersecurity utilities. 
+            Run full-stack domain audits, inspect certificates, and gather threat intelligence instantly.
+          </p>
+        </div>
+
+        {/* Flagship Tool Callout */}
+        <div className="mb-20">
+          <Link href="/tools/website-security-scanner" className="block w-full">
+            <div className="relative group overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.15)] bg-gradient-to-r from-[rgba(47,107,255,0.1)] to-[rgba(10,14,23,0.8)] backdrop-blur-xl p-8 md:p-12 transition-all hover:border-[rgba(255,255,255,0.3)] hover:shadow-2xl hover:shadow-[rgb(var(--c-accent))]/20">
+              <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--c-accent))] to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div>
+                  <span className="inline-block px-3 py-1 bg-[rgb(var(--c-accent))] text-white text-xs font-bold uppercase tracking-wider rounded-full mb-4 shadow-[0_0_15px_rgba(47,107,255,0.5)]">
+                    Flagship Tool
                   </span>
-                </GlassCard>
-              </Link>
-            </Reveal>
+                  <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">Zentrion Website Security Scanner</h2>
+                  <p className="text-[rgb(var(--c-mute))] text-lg max-w-xl">
+                    Run an all-in-one AI-powered audit checking DNS, SSL, Security Headers, WHOIS, Email Security (SPF/DMARC), and Blacklist status. Get a complete security score in seconds.
+                  </p>
+                </div>
+                <div className="flex-shrink-0">
+                  <div className="px-8 py-4 bg-white text-black font-bold font-display rounded-lg transition-transform group-hover:scale-105">
+                    Launch Scanner &rarr;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+
+        {/* Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {CATEGORIES.map((category) => (
+            <div key={category.name} className="glass-card rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 flex flex-col h-full hover:border-[rgba(255,255,255,0.15)] transition-colors">
+              <h3 className="text-2xl font-bold font-display mb-2">{category.name}</h3>
+              <p className="text-[rgb(var(--c-mute))] text-sm mb-6">{category.description}</p>
+              
+              <ul className="space-y-3 mt-auto">
+                {category.tools.map((tool) => (
+                  <li key={tool.name}>
+                    <Link 
+                      href={tool.url}
+                      className="group flex items-center justify-between text-[rgb(var(--c-ink))] hover:text-[rgb(var(--c-accent))] transition-colors text-sm font-medium"
+                    >
+                      <span className="flex items-center gap-2">
+                        {tool.name}
+                        {tool.priority && (
+                          <span className="text-[10px] uppercase tracking-wider bg-[rgba(255,255,255,0.1)] px-1.5 py-0.5 rounded text-[rgb(var(--c-mute))] group-hover:bg-[rgb(var(--c-accent))] group-hover:text-white transition-colors">
+                            Hot
+                          </span>
+                        )}
+                      </span>
+                      <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all">
+                        &rarr;
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
-      </section>
 
-      <section className="container-x py-20 border-t border-line">
-        <div className="max-w-3xl space-y-6">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold">
-            Why use Zentrion networking tools?
-          </h2>
-          <p className="text-mute leading-relaxed">
-            These utilities are designed for real daily workflows: domain DNS troubleshooting, IP
-            intelligence checks, phone-number format validation, GitHub profile analysis, and
-            username reconnaissance. They help teams move faster when validating infrastructure,
-            investigating suspicious activity, or preparing security assessments.
-          </p>
-          <p className="text-mute leading-relaxed">
-            If you work in cybersecurity, cloud operations, DevOps, or digital investigations, this
-            tools hub gives you one central place for quick and practical lookups.
-          </p>
-        </div>
-      </section>
-
-      <section className="container-x pb-24">
-        <div className="max-w-3xl">
-          <h2 className="font-display text-3xl md:text-4xl font-semibold">Networking tools FAQ</h2>
-          <div className="mt-8 grid gap-4">
-            {faqs.map((item) => (
-              <GlassCard key={item.q} hover={false}>
-                <h3 className="font-display text-xl font-semibold">{item.q}</h3>
-                <p className="mt-3 text-sm text-mute leading-relaxed">{item.a}</p>
-              </GlassCard>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 }

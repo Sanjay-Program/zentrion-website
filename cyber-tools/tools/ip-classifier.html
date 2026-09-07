@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP Classifier | Zentrion Cyber Tools</title>
+  <meta name="description" content="Validate and classify IPv4/IPv6 addresses by routing ranges.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <h1>Zentrion Cyber Tools</h1>
+    </div>
+  </header>
+  <main>
+    <a href="../index.html" class="back-link">← Back to Tools</a>
+    <div class="tool-header">
+      <span class="eyebrow">📍 IP Classifier</span>
+      <h1>IP Classifier</h1>
+      <p style="color: var(--c-mute);">Validate and classify IPv4 and IPv6 addresses. No geolocation is performed.</p>
+      <span class="badge local">LOCAL ONLY</span>
+    </div>
+    
+    <div class="glass-card" id="tool-container">
+      <div class="input-group">
+        <label for="ip-input">IP Address (IPv4 or IPv6)</label>
+        <div style="display: flex; gap: 0.5rem;">
+          <input type="text" id="ip-input" placeholder="e.g. 192.168.1.100 or fe80::1">
+          <button class="btn" id="classify-btn">Classify</button>
+        </div>
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        Results will appear here...
+      </div>
+    </div>
+  </main>
+  <footer>&copy; 2026 Zentrion Technologies. Intelligence That Protects.</footer>
+  <script src="../app.js"></script>
+  <script src="../js/ip-classifier.js"></script>
+</body>
+</html>

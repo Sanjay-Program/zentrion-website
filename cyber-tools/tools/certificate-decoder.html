@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificate Decoder | Zentrion Cyber Tools</title>
+  <meta name="description" content="Parse and inspect X.509 PEM certificates locally.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <h1>Zentrion Cyber Tools</h1>
+    </div>
+  </header>
+  <main>
+    <a href="../index.html" class="back-link">← Back to Tools</a>
+    <div class="tool-header">
+      <span class="eyebrow">📜 Certificate Decoder</span>
+      <h1>Certificate Decoder</h1>
+      <p style="color: var(--c-mute);">Parse and inspect X.509 PEM certificates securely in your browser using a custom ASN.1 DER parser.</p>
+      <span class="badge local">LOCAL ONLY</span>
+      <div class="privacy-notice">
+        <strong>LOCAL PROCESSING:</strong> Certificates are parsed entirely offline. No data is sent to external servers.
+      </div>
+    </div>
+    
+    <div class="glass-card" id="tool-container">
+      <div class="input-group">
+        <label for="cert-input">Paste PEM Certificate</label>
+        <textarea id="cert-input" placeholder="-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----"></textarea>
+      </div>
+      
+      <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+        <button class="btn" id="decode-btn">Decode Certificate</button>
+        <button class="btn btn-ghost" id="clear-btn">Clear</button>
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        Results will appear here...
+      </div>
+    </div>
+  </main>
+  <footer>&copy; 2026 Zentrion Technologies. Intelligence That Protects.</footer>
+  <script src="../app.js"></script>
+  <script src="../js/certificate-decoder.js"></script>
+</body>
+</html>

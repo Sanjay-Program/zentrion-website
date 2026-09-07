@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encoding Toolkit | Zentrion Cyber Tools</title>
+  <meta name="description" content="Encode and decode Base64, URL, HTML, Hex, and Binary formats.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <h1>Zentrion Cyber Tools</h1>
+    </div>
+  </header>
+  <main>
+    <a href="../index.html" class="back-link">← Back to Tools</a>
+    <div class="tool-header">
+      <span class="eyebrow">🔤 Encoding Toolkit</span>
+      <h1>Encoding Toolkit</h1>
+      <p style="color: var(--c-mute);">Encode and decode various formats safely.</p>
+      <span class="badge local">LOCAL ONLY</span>
+      <div class="privacy-notice">
+        <strong>LOCAL PROCESSING:</strong> All encoding operations run in the browser.
+      </div>
+    </div>
+    
+    <div class="glass-card" id="tool-container">
+      <div class="input-group">
+        <label for="enc-type">Encoding Format</label>
+        <select id="enc-type">
+          <option value="base64">Base64</option>
+          <option value="url">URL Encoding</option>
+          <option value="html">HTML Entities</option>
+          <option value="hex">Hexadecimal</option>
+          <option value="binary">Binary</option>
+        </select>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: center;">
+        <div class="input-group" style="margin: 0;">
+          <label for="enc-input">Input</label>
+          <textarea id="enc-input" placeholder="Type here..."></textarea>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <button class="btn btn-small" id="encode-btn">Encode &rarr;</button>
+          <button class="btn btn-small btn-ghost" id="decode-btn">&larr; Decode</button>
+          <button class="btn btn-small btn-ghost" id="swap-btn">Swap ⇅</button>
+        </div>
+        <div class="input-group" style="margin: 0; position: relative;">
+          <label for="enc-output">Output</label>
+          <textarea id="enc-output" readonly placeholder="Result..."></textarea>
+          <button id="copy-btn" class="copy-btn" style="top: 25px;">Copy</button>
+        </div>
+      </div>
+      
+      <div style="margin-top: 1rem;">
+        <button class="btn btn-ghost" id="clear-btn">Clear All</button>
+      </div>
+    </div>
+  </main>
+  <footer>&copy; 2026 Zentrion Technologies. Intelligence That Protects.</footer>
+  <script src="../app.js"></script>
+  <script src="../js/encoding.js"></script>
+</body>
+</html>

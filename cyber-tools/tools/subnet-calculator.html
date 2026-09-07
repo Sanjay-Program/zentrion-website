@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subnet Calculator | Zentrion Cyber Tools</title>
+  <meta name="description" content="Calculate IPv4 CIDR blocks, wildcard masks, and usable host ranges locally.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <h1>Zentrion Cyber Tools</h1>
+    </div>
+  </header>
+  <main>
+    <a href="../index.html" class="back-link">← Back to Tools</a>
+    <div class="tool-header">
+      <span class="eyebrow">🖧 Subnet Calculator</span>
+      <h1>Subnet Calculator</h1>
+      <p style="color: var(--c-mute);">Calculate IPv4 CIDR blocks, wildcard masks, and usable host ranges without floating point math errors.</p>
+      <span class="badge local">LOCAL ONLY</span>
+      <div class="privacy-notice">
+        <strong>LOCAL PROCESSING:</strong> All calculations are executed securely within your browser.
+      </div>
+    </div>
+    
+    <div class="glass-card" id="tool-container">
+      <div class="input-group">
+        <label for="cidr-input">IPv4 Network (e.g., 192.168.1.0/24)</label>
+        <div style="display: flex; gap: 0.5rem;">
+          <input type="text" id="cidr-input" placeholder="10.0.0.0/8">
+          <button class="btn" id="calc-btn">Calculate</button>
+        </div>
+      </div>
+
+      <div class="result-box empty" id="result-box">
+        Results will appear here...
+      </div>
+    </div>
+  </main>
+  <footer>&copy; 2026 Zentrion Technologies. Intelligence That Protects.</footer>
+  <script src="../app.js"></script>
+  <script src="../js/subnet-calculator.js"></script>
+</body>
+</html>
