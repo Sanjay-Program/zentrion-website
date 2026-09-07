@@ -31,11 +31,16 @@ export default function MacVendorPage() {
     setResult(null);
 
     try {
-      const res = await fetch(`/api/network/mac-vendor?mac=${encodeURIComponent(mac.trim())}`);
+      const cleanMac = mac.trim().replace(/[:-]/g, '').toUpperCase();
+      if (cleanMac.length !== 12 || !/^[0-9A-F]{12}$/.test(cleanMac)) {
+        throw new Error('Invalid MAC address format.');
+      }
+
+      const res = await fetch(`https://macvendors.co/api/${cleanMac}`);
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.error || 'Lookup failed.');
+        throw new Error(data.error || 'Failed to query MAC vendor database.');
       }
 
       if (data.error) {

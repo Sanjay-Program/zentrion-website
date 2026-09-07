@@ -18,14 +18,24 @@ export default function AsnLookupPage() {
     setResult(null);
 
     try {
-      const res = await fetch(`/api/network/asn?asn=${encodeURIComponent(asn)}`);
-      const data = await res.json();
-
+      const cleanAsn = asn.replace(/^as/i, '');
+      const res = await fetch(`https://api.bgpview.io/asn/${encodeURIComponent(cleanAsn)}`);
+      
       if (!res.ok) {
-        throw new Error(data.error || 'Failed to fetch ASN data.');
+        if (res.status === 404 || res.status === 400) {
+            throw new Error('ASN not found in BGP database.');
+        }
+        if (res.status === 429) {
+            throw new Error('Rate limit exceeded for BGP database. Try again later.');
+        }
+        throw new Error('Failed to fetch ASN data.');
       }
 
-      setResult(data);
+      const json = await res.json();
+      if (json.status !== 'ok' || !json.data) {
+        throw new Error('ASN data unavailable.');
+      }
+      setResult(json.data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred.');
     } finally {
