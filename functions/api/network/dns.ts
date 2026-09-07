@@ -1,15 +1,13 @@
-export const dynamic = 'force-dynamic';
-import { NextResponse } from 'next/server';
 
 function isValidDomain(domain: string) {
   return /^(?!:\/\/)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/.test(domain);
 }
 
-export async function GET(request: Request) {
+export async function onRequestGet({ request }: { request: Request }) {
   const query = new URL(request.url).searchParams.get('query')?.trim().toLowerCase() || '';
 
   if (!query || !isValidDomain(query)) {
-    return NextResponse.json({ error: 'Please provide a valid domain.' }, { status: 400 });
+    return Response.json({ error: 'Please provide a valid domain.' }, { status: 400 });
   }
 
   try {
@@ -22,7 +20,7 @@ export async function GET(request: Request) {
     );
 
     if (!response.ok) {
-      return NextResponse.json(
+      return Response.json(
         { error: `DNS request failed with status ${response.status}.` },
         { status: response.status }
       );
@@ -41,7 +39,7 @@ export async function GET(request: Request) {
       : [];
 
     if (records.length === 0) {
-      return NextResponse.json(
+      return Response.json(
         {
           domain: query,
           records: [],
@@ -54,7 +52,7 @@ export async function GET(request: Request) {
       );
     }
 
-    return NextResponse.json({
+    return Response.json({
       domain: query,
       records,
       count: records.length,
@@ -62,7 +60,7 @@ export async function GET(request: Request) {
       source: 'Cloudflare DNS-over-HTTPS',
     });
   } catch {
-    return NextResponse.json(
+    return Response.json(
       { error: 'Failed to query DNS infrastructure. Please try again.' },
       { status: 502 }
     );

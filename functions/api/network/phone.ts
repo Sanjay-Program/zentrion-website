@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic';
-import { NextResponse } from 'next/server';
 
 function inferCarrier(clean: string) {
   if (clean.startsWith('+91')) {
@@ -60,11 +58,11 @@ function inferCarrier(clean: string) {
   return { country: 'Unknown Region', carrier: 'Carrier Not Identified' };
 }
 
-export async function GET(request: Request) {
+export async function onRequestGet({ request }: { request: Request }) {
   const query = new URL(request.url).searchParams.get('query')?.trim() || '';
 
   if (!query) {
-    return NextResponse.json({ error: 'Please provide a phone number.' }, { status: 400 });
+    return Response.json({ error: 'Please provide a phone number.' }, { status: 400 });
   }
 
   const raw = query;
@@ -73,7 +71,7 @@ export async function GET(request: Request) {
   if (!clean.startsWith('+')) clean = `+${clean}`;
   const inference = inferCarrier(clean);
 
-  return NextResponse.json({
+  return Response.json({
     valid,
     input: raw,
     cleanFormat: clean,

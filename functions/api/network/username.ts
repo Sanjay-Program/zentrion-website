@@ -1,5 +1,3 @@
-export const dynamic = 'force-dynamic';
-import { NextResponse } from 'next/server';
 
 const platforms = [
   {
@@ -74,11 +72,11 @@ function validUsername(username: string) {
   return /^[a-zA-Z0-9._-]{2,32}$/.test(username);
 }
 
-export async function GET(request: Request) {
+export async function onRequestGet({ request }: { request: Request }) {
   const query = new URL(request.url).searchParams.get('query')?.trim() || '';
 
   if (!query || !validUsername(query)) {
-    return NextResponse.json({ error: 'Please provide a valid username.' }, { status: 400 });
+    return Response.json({ error: 'Please provide a valid username.' }, { status: 400 });
   }
 
   const checks = await Promise.all(
@@ -136,7 +134,7 @@ export async function GET(request: Request) {
     })
   );
 
-  return NextResponse.json({
+  return Response.json({
     username: query,
     checks,
   });

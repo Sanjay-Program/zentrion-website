@@ -1,15 +1,13 @@
-export const dynamic = 'force-dynamic';
-import { NextResponse } from 'next/server';
 
 function validUsername(username: string) {
   return /^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,37}[a-zA-Z0-9])?$/.test(username);
 }
 
-export async function GET(request: Request) {
+export async function onRequestGet({ request }: { request: Request }) {
   const query = new URL(request.url).searchParams.get('query')?.trim() || '';
 
   if (!query || !validUsername(query)) {
-    return NextResponse.json({ error: 'Please provide a valid GitHub username.' }, { status: 400 });
+    return Response.json({ error: 'Please provide a valid GitHub username.' }, { status: 400 });
   }
 
   const headers = {
@@ -38,11 +36,11 @@ export async function GET(request: Request) {
   ]);
 
   if (userRes.status === 404) {
-    return NextResponse.json({ error: 'GitHub user not found.' }, { status: 404 });
+    return Response.json({ error: 'GitHub user not found.' }, { status: 404 });
   }
 
   if (!userRes.ok) {
-    return NextResponse.json(
+    return Response.json(
       { error: 'GitHub API request failed. Please try again shortly.' },
       { status: userRes.status }
     );
@@ -72,7 +70,7 @@ export async function GET(request: Request) {
     }
   }
 
-  return NextResponse.json({
+  return Response.json({
     username: query,
     user: {
       login: user.login,

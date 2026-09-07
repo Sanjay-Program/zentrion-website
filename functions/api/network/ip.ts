@@ -1,12 +1,10 @@
-export const dynamic = 'force-dynamic';
 import { isIP } from 'node:net';
-import { NextResponse } from 'next/server';
 
-export async function GET(request: Request) {
+export async function onRequestGet({ request }: { request: Request }) {
   const query = new URL(request.url).searchParams.get('query')?.trim() || '';
 
   if (!query || isIP(query) === 0) {
-    return NextResponse.json({ error: 'Please provide a valid IPv4 or IPv6 address.' }, { status: 400 });
+    return Response.json({ error: 'Please provide a valid IPv4 or IPv6 address.' }, { status: 400 });
   }
 
   try {
@@ -22,7 +20,7 @@ export async function GET(request: Request) {
     const data = await response.json();
 
     if (data.success === false) {
-      return NextResponse.json({ error: data.message || 'Lookup failed.' }, { status: 400 });
+      return Response.json({ error: data.message || 'Lookup failed.' }, { status: 400 });
     }
 
     const intelligence = {
@@ -44,13 +42,13 @@ export async function GET(request: Request) {
       source: 'ipwho.is',
     };
 
-    return NextResponse.json({
+    return Response.json({
       query,
       ipType: isIP(query) === 4 ? 'IPv4' : 'IPv6',
       intelligence,
     });
   } catch {
-    return NextResponse.json({
+    return Response.json({
       query,
       ipType: isIP(query) === 4 ? 'IPv4' : 'IPv6',
       warning: 'Live IP intelligence provider is currently unreachable.',
