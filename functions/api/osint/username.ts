@@ -52,10 +52,27 @@ export async function onRequestGet({ request }: { request: Request }) {
     { name: 'BitBucket', url: `https://bitbucket.org/${query}/`, testUrl: `https://bitbucket.org/${query}/` },
     { name: 'Codecademy', url: `https://codecademy.com/profiles/${query}`, testUrl: `https://codecademy.com/profiles/${query}` },
     { name: 'HackerEarth', url: `https://hackerearth.com/@${query}`, testUrl: `https://hackerearth.com/@${query}` },
-    { name: 'Kik', url: `https://ws2.kik.com/user/${query}`, testUrl: `https://ws2.kik.com/user/${query}` },
     { name: 'VSCO', url: `https://vsco.co/${query}`, testUrl: `https://vsco.co/${query}` },
     { name: 'Substack', url: `https://${query}.substack.com`, testUrl: `https://${query}.substack.com` },
     { name: 'Tumblr', url: `https://${query}.tumblr.com`, testUrl: `https://${query}.tumblr.com` },
+    { name: 'About.me', url: `https://about.me/${query}`, testUrl: `https://about.me/${query}` },
+    { name: 'MyAnimeList', url: `https://myanimelist.net/profile/${query}`, testUrl: `https://myanimelist.net/profile/${query}` },
+    { name: 'Fiverr', url: `https://www.fiverr.com/${query}`, testUrl: `https://www.fiverr.com/${query}` },
+    { name: 'Gumroad', url: `https://${query}.gumroad.com`, testUrl: `https://${query}.gumroad.com` },
+    { name: 'Lichess', url: `https://lichess.org/@/${query}`, testUrl: `https://lichess.org/@/${query}` },
+    { name: 'Chess.com', url: `https://www.chess.com/member/${query}`, testUrl: `https://www.chess.com/member/${query}` },
+    { name: 'Bandcamp', url: `https://${query}.bandcamp.com`, testUrl: `https://${query}.bandcamp.com` },
+    { name: 'Pornhub', url: `https://www.pornhub.com/users/${query}`, testUrl: `https://www.pornhub.com/users/${query}` },
+    { name: 'OnlyFans', url: `https://onlyfans.com/${query}`, testUrl: `https://onlyfans.com/${query}` },
+    { name: 'HuggingFace', url: `https://huggingface.co/${query}`, testUrl: `https://huggingface.co/${query}` },
+    { name: 'Disqus', url: `https://disqus.com/by/${query}`, testUrl: `https://disqus.com/by/${query}` },
+    { name: 'Gitee', url: `https://gitee.com/${query}`, testUrl: `https://gitee.com/${query}` },
+    { name: 'Npm', url: `https://www.npmjs.com/~${query}`, testUrl: `https://www.npmjs.com/~${query}` },
+    { name: 'PyPI', url: `https://pypi.org/user/${query}/`, testUrl: `https://pypi.org/user/${query}/` },
+    { name: 'Codeforces', url: `https://codeforces.com/profile/${query}`, testUrl: `https://codeforces.com/profile/${query}` },
+    { name: 'AtCoder', url: `https://atcoder.jp/users/${query}`, testUrl: `https://atcoder.jp/users/${query}` },
+    { name: 'CodeChef', url: `https://www.codechef.com/users/${query}`, testUrl: `https://www.codechef.com/users/${query}` },
+    { name: 'GeeksforGeeks', url: `https://auth.geeksforgeeks.org/user/${query}`, testUrl: `https://auth.geeksforgeeks.org/user/${query}` }
   ];
 
   try {

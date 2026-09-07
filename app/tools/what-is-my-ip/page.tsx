@@ -23,53 +23,25 @@ export default function WhatIsMyIpPage() {
   useEffect(() => {
     async function fetchIp() {
       try {
-        // 1. Get raw IP and Colo Loc from Cloudflare's edge trace (extremely fast & reliable)
-        const traceRes = await fetch('https://1.1.1.1/cdn-cgi/trace');
-        const traceText = await traceRes.text();
+        const res = await fetch('/api/network/what-is-my-ip');
+        const data = await res.json();
         
-        const lines = traceText.split('\n');
-        let rawIp = '';
-        let loc = '';
-        
-        for (const line of lines) {
-          if (line.startsWith('ip=')) rawIp = line.replace('ip=', '');
-          if (line.startsWith('loc=')) loc = line.replace('loc=', '');
+        if (!data.success) {
+          throw new Error(data.error || 'Failed to fetch IP details.');
         }
 
-        if (!rawIp) throw new Error('Could not determine IP address.');
-
-        const type = rawIp.includes(':') ? 'IPv6' : 'IPv4';
-
-        // 2. Hydrate with rich intelligence from IPWho.is
-        const whoRes = await fetch(`https://ipwho.is/${encodeURIComponent(rawIp)}`);
-        const whoData = await whoRes.json();
-
-        if (whoData.success === false) {
-          // Fallback if IPWho.is is rate limited
-          setInfo({
-            ip: rawIp,
-            type,
-            loc,
-            country: 'Unknown',
-            city: 'Unknown',
-            region: 'Unknown',
-            isp: 'Unknown',
-            asn: 'Unknown',
-            org: 'Unknown',
-          });
-          return;
-        }
+        const type = data.ip.includes(':') ? 'IPv6' : 'IPv4';
 
         setInfo({
-          ip: rawIp,
-          type,
-          loc: whoData.country_code || loc,
-          country: whoData.country || 'Unknown',
-          city: whoData.city || 'Unknown',
-          region: whoData.region || 'Unknown',
-          isp: whoData.connection?.isp || 'Unknown',
-          asn: `AS${whoData.connection?.asn}` || 'Unknown',
-          org: whoData.connection?.org || 'Unknown',
+          ip: data.ip,
+          type: type,
+          loc: data.loc,
+          country: data.country,
+          city: data.city,
+          region: data.region,
+          isp: data.org,
+          asn: data.asn,
+          org: data.org,
         });
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred.');

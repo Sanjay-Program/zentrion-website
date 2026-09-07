@@ -15,13 +15,13 @@ export default function PhoneValidatorPage() {
       <Breadcrumbs
         items={[
           { href: '/tools', label: 'Tools' },
-          { href: '/tools/network/phone-validator', label: 'Phone \u0026 SIM Intelligence' },
+          { href: '/tools/network/phone-validator', label: 'Phone & SIM Intelligence' },
         ]}
       />
       <LookupTool
-        title="Phone \u0026 SIM Intelligence"
+        title="Phone & SIM Intelligence"
         description="Validate phone number format, verify E.164 syntax, identify line type (Mobile/SIM or Fixed), and lookup estimated carrier networks globally."
-        endpoint="/api/network/phone"
+        endpoint="/api/network/phone?number="
         placeholder="+919876543210 or +14155552671"
         buttonLabel="Analyze Number"
         inputAriaLabel="Phone number"
