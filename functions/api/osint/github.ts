@@ -14,7 +14,14 @@ export async function onRequestGet({ request }: { request: Request }) {
         if (response.status === 404) {
             return Response.json({ error: 'GitHub user not found.' }, { status: 404 });
         }
-        throw new Error('GitHub API request failed.');
+        let errMessage = 'GitHub API request failed.';
+        try {
+            const errData = await response.json();
+            if (errData && errData.message) {
+                errMessage = `GitHub API Error (${response.status}): ${errData.message}`;
+            }
+        } catch(e) {}
+        throw new Error(errMessage);
     }
 
     const data: any = await response.json();

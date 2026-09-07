@@ -54,6 +54,7 @@ export const CATEGORIES = [
     tools: [
       { name: 'Username Finder', url: '/tools/osint/username-finder', priority: true },
       { name: 'GitHub Analyzer', url: '/tools/osint/github-analyzer' },
+      { name: 'Repository Analyzer', url: '/tools/osint/repo-analyzer' },
       { name: 'Subdomain Finder', url: '/tools/subdomain-finder', priority: true },
       { name: 'URL Analyzer', url: '/tools/url-analyzer' },
     ]
