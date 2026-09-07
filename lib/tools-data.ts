@@ -4,6 +4,7 @@ export const CATEGORIES = [
     description: 'Routing, IP intelligence, and connectivity tools',
     tools: [
       { name: 'What Is My IP', url: '/tools/what-is-my-ip', priority: true },
+      { name: 'Phone & SIM Intelligence', url: '/tools/network/phone-validator' },
       { name: 'ASN Lookup', url: '/tools/asn-lookup' },
       { name: 'Ping Test', url: '/tools/ping' },
       { name: 'Subnet Calculator', url: '/tools/subnet-calculator' },
