@@ -20,7 +20,7 @@ export default function LookupTool({
   inputAriaLabel,
 }: LookupToolProps) {
   const [input, setInput] = useState('');
-  const [result, setResult] = useState<unknown>(null);
+  const [result, setResult] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -81,11 +81,11 @@ export default function LookupTool({
           </div>
         )}
 
-        {result && (
+        {result ? (
           <pre className="mt-6 overflow-auto rounded-xl border border-line bg-void/80 p-5 text-xs md:text-sm text-mute leading-relaxed">
             {JSON.stringify(result, null, 2)}
           </pre>
-        )}
+        ) : null}
       </div>
     </section>
   );
