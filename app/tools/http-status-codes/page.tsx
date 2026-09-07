@@ -94,7 +94,7 @@ export default function HttpStatusCodesPage() {
       case '3xx': return 'text-yellow-400 border-yellow-400/30 bg-yellow-400/10';
       case '4xx': return 'text-orange-400 border-orange-400/30 bg-orange-400/10';
       case '5xx': return 'text-red-400 border-red-400/30 bg-red-400/10';
-      default: return 'text-white border-white/30 bg-white/10';
+      default: return 'text-[rgb(var(--c-ink))] border-white/30 bg-white/10';
     }
   };
 
@@ -127,7 +127,7 @@ export default function HttpStatusCodesPage() {
                 placeholder="Search code or phrase..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="block w-full pl-10 pr-3 py-3 border border-[rgba(255,255,255,0.1)] rounded-xl bg-[rgba(0,0,0,0.3)] text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] sm:text-sm"
+                className="block w-full pl-10 pr-3 py-3 border border-[var(--c-glass-border)] rounded-xl bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] sm:text-sm"
               />
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function HttpStatusCodesPage() {
               className={`px-4 py-2 rounded-lg font-bold text-sm transition-all ${
                 activeFilter === filter 
                   ? 'bg-[rgb(var(--c-accent))] text-[rgb(var(--c-void))]' 
-                  : 'bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[rgb(var(--c-mute))] hover:text-white hover:bg-[rgba(255,255,255,0.1)]'
+                  : 'bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))] hover:bg-[rgba(255,255,255,0.1)]'
               }`}
             >
               {filter === 'All' ? 'All Codes' : filter}
@@ -150,19 +150,19 @@ export default function HttpStatusCodesPage() {
         </div>
 
         {filteredCodes.length === 0 ? (
-          <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-12 text-center">
+          <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-12 text-center">
             <svg className="mx-auto h-12 w-12 text-[rgb(var(--c-mute))] mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            <h3 className="text-xl font-bold text-white mb-2">No status codes found</h3>
+            <h3 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-2">No status codes found</h3>
             <p className="text-[rgb(var(--c-mute))]">Try adjusting your search or filter criteria.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {filteredCodes.map(status => (
-              <div key={status.code} className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.04)] backdrop-blur-md p-6 flex flex-col transition-colors group">
+              <div key={status.code} className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] hover:bg-[rgba(255,255,255,0.04)] backdrop-blur-md p-6 flex flex-col transition-colors group">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-baseline gap-3">
-                    <span className="text-3xl font-display font-bold text-white">{status.code}</span>
-                    <span className="text-lg font-bold text-[rgb(var(--c-mute))] group-hover:text-white transition-colors">{status.phrase}</span>
+                    <span className="text-3xl font-display font-bold text-[rgb(var(--c-ink))]">{status.code}</span>
+                    <span className="text-lg font-bold text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-ink))] transition-colors">{status.phrase}</span>
                   </div>
                   <div className={`text-xs font-bold px-2 py-1 rounded border ${getColorForType(status.type)} shrink-0`}>
                     {status.type}

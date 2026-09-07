@@ -76,7 +76,7 @@ export default function SimilarTools() {
       </div>
       <div className="mt-8 text-center">
         <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-[rgb(var(--c-mute))] hover:text-white transition-colors">
-          View all 70+ security tools <span aria-hidden="true">&rarr;</span>
+          View all 30+ security tools <span aria-hidden="true">&rarr;</span>
         </Link>
       </div>
     </div>

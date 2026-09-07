@@ -80,13 +80,13 @@ export default function PasswordStrengthPage() {
           <h1 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">Password Strength</h1>
           <p className="text-xl text-[rgb(var(--c-mute))]">Analyze password entropy and patterns entirely offline in your browser.</p>
           <div className="mt-4">
-            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[rgba(255,255,255,0.1)]">
+            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[var(--c-glass-border)]">
               LOCAL ONLY
             </span>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 md:p-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 md:p-8">
           
           <div className="mb-8 relative">
             <label className="block text-sm font-medium mb-2">Enter Password</label>
@@ -95,7 +95,7 @@ export default function PasswordStrengthPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Type a password to analyze..."
-              className="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 pr-20 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors"
+              className="w-full bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 pr-20 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors"
             />
             <button 
               onClick={() => setShowPwd(!showPwd)}
@@ -119,38 +119,38 @@ export default function PasswordStrengthPage() {
             </div>
           </div>
 
-          <div className="bg-[rgba(0,0,0,0.2)] rounded-xl p-6 border border-[rgba(255,255,255,0.05)]">
+          <div className="bg-[rgba(0,0,0,0.2)] rounded-xl p-6 border border-[var(--c-glass-border)]">
             <h4 className="text-[rgb(var(--c-mute))] mb-4 uppercase tracking-wider text-sm font-bold">Analysis Results</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
-              <div className="flex justify-between py-2 border-b border-[rgba(255,255,255,0.05)]">
+              <div className="flex justify-between py-2 border-b border-[var(--c-glass-border)]">
                 <span className="text-[rgb(var(--c-mute))]">Estimated Entropy</span>
                 <span className="font-mono text-[rgb(var(--c-accent))]">{entropy.toFixed(1)} bits</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[rgba(255,255,255,0.05)]">
+              <div className="flex justify-between py-2 border-b border-[var(--c-glass-border)]">
                 <span className="text-[rgb(var(--c-mute))]">Character Pool</span>
                 <span className="font-mono">{pool}</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[rgba(255,255,255,0.05)]">
+              <div className="flex justify-between py-2 border-b border-[var(--c-glass-border)]">
                 <span className="text-[rgb(var(--c-mute))]">Uppercase Letters</span>
                 <span className="font-mono">{stats.upper}</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[rgba(255,255,255,0.05)]">
+              <div className="flex justify-between py-2 border-b border-[var(--c-glass-border)]">
                 <span className="text-[rgb(var(--c-mute))]">Lowercase Letters</span>
                 <span className="font-mono">{stats.lower}</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[rgba(255,255,255,0.05)]">
+              <div className="flex justify-between py-2 border-b border-[var(--c-glass-border)]">
                 <span className="text-[rgb(var(--c-mute))]">Numbers</span>
                 <span className="font-mono">{stats.num}</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[rgba(255,255,255,0.05)]">
+              <div className="flex justify-between py-2 border-b border-[var(--c-glass-border)]">
                 <span className="text-[rgb(var(--c-mute))]">Symbols</span>
                 <span className="font-mono">{stats.sym}</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[rgba(255,255,255,0.05)]">
+              <div className="flex justify-between py-2 border-b border-[var(--c-glass-border)]">
                 <span className="text-[rgb(var(--c-mute))]">Repeated Characters</span>
                 <span className="font-mono" style={{ color: stats.repeated ? 'rgb(var(--c-danger))' : 'inherit' }}>{stats.repeated ? 'Yes (Penalty)' : 'No'}</span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[rgba(255,255,255,0.05)]">
+              <div className="flex justify-between py-2 border-b border-[var(--c-glass-border)]">
                 <span className="text-[rgb(var(--c-mute))]">Sequential Patterns</span>
                 <span className="font-mono" style={{ color: stats.seq ? 'rgb(var(--c-danger))' : 'inherit' }}>{stats.seq ? 'Yes (Penalty)' : 'No'}</span>
               </div>

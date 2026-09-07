@@ -115,8 +115,8 @@ export default function ChmodCalculatorPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           
           {/* Permissions Grid */}
-          <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8">
-            <h3 className="text-white font-bold text-xl mb-6">Permissions Grid</h3>
+          <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8">
+            <h3 className="text-[rgb(var(--c-ink))] font-bold text-xl mb-6">Permissions Grid</h3>
             
             <div className="space-y-6">
               {[
@@ -124,8 +124,8 @@ export default function ChmodCalculatorPage() {
                 { id: 'group', label: 'Group' },
                 { id: 'public', label: 'Public (Other)' },
               ].map((role) => (
-                <div key={role.id} className="bg-[rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] rounded-xl p-4">
-                  <div className="text-white font-semibold mb-3">{role.label}</div>
+                <div key={role.id} className="bg-[rgba(0,0,0,0.2)] border border-[var(--c-glass-border)] rounded-xl p-4">
+                  <div className="text-[rgb(var(--c-ink))] font-semibold mb-3">{role.label}</div>
                   <div className="flex gap-4">
                     
                     <label className="flex items-center gap-2 cursor-pointer group">
@@ -140,7 +140,7 @@ export default function ChmodCalculatorPage() {
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
                         </div>
                       </div>
-                      <span className="text-[rgb(var(--c-mute))] group-hover:text-white transition-colors text-sm font-medium">Read (4)</span>
+                      <span className="text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-ink))] transition-colors text-sm font-medium">Read (4)</span>
                     </label>
 
                     <label className="flex items-center gap-2 cursor-pointer group">
@@ -155,7 +155,7 @@ export default function ChmodCalculatorPage() {
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
                         </div>
                       </div>
-                      <span className="text-[rgb(var(--c-mute))] group-hover:text-white transition-colors text-sm font-medium">Write (2)</span>
+                      <span className="text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-ink))] transition-colors text-sm font-medium">Write (2)</span>
                     </label>
 
                     <label className="flex items-center gap-2 cursor-pointer group">
@@ -170,7 +170,7 @@ export default function ChmodCalculatorPage() {
                           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" /></svg>
                         </div>
                       </div>
-                      <span className="text-[rgb(var(--c-mute))] group-hover:text-white transition-colors text-sm font-medium">Execute (1)</span>
+                      <span className="text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-ink))] transition-colors text-sm font-medium">Execute (1)</span>
                     </label>
 
                   </div>
@@ -180,43 +180,43 @@ export default function ChmodCalculatorPage() {
           </div>
 
           {/* Results */}
-          <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between">
+          <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between">
             
             <div className="space-y-8">
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">Octal Value</label>
+                <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Octal Value</label>
                 <div className="relative group">
                   <input
                     type="text"
                     value={octal}
                     onChange={handleOctalChange}
                     maxLength={3}
-                    className="w-full px-6 py-5 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-[rgb(var(--c-accent))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-3xl font-bold tracking-widest"
+                    className="w-full px-6 py-5 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-accent))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-3xl font-bold tracking-widest"
                   />
-                  <button onClick={() => copyToClipboard(octal)} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] rounded-lg text-white opacity-0 group-hover:opacity-100 transition-all">
+                  <button onClick={() => copyToClipboard(octal)} className="absolute right-4 top-1/2 -translate-y-1/2 p-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] rounded-lg text-[rgb(var(--c-ink))] opacity-0 group-hover:opacity-100 transition-all">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                   </button>
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-white mb-2">Symbolic Notation</label>
-                <div className="relative group bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl px-6 py-5 flex items-center justify-between">
-                  <div className="font-mono text-3xl font-bold text-white tracking-widest">{symbolic}</div>
-                  <button onClick={() => copyToClipboard(symbolic)} className="p-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] rounded-lg text-white opacity-0 group-hover:opacity-100 transition-all">
+                <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Symbolic Notation</label>
+                <div className="relative group bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl px-6 py-5 flex items-center justify-between">
+                  <div className="font-mono text-3xl font-bold text-[rgb(var(--c-ink))] tracking-widest">{symbolic}</div>
+                  <button onClick={() => copyToClipboard(symbolic)} className="p-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] rounded-lg text-[rgb(var(--c-ink))] opacity-0 group-hover:opacity-100 transition-all">
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-8 border-t border-[rgba(255,255,255,0.05)]">
-              <label className="block text-sm font-semibold text-white mb-3">Example Usage</label>
+            <div className="mt-8 pt-8 border-t border-[var(--c-glass-border)]">
+              <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-3">Example Usage</label>
               <div className="flex gap-2 mb-2">
-                <code className="flex-grow p-3 bg-black/50 border border-[rgba(255,255,255,0.1)] rounded text-[rgb(var(--c-accent))] font-mono text-sm">
+                <code className="flex-grow p-3 bg-black/50 border border-[var(--c-glass-border)] rounded text-[rgb(var(--c-accent))] font-mono text-sm">
                   chmod {octal} file.txt
                 </code>
-                <button onClick={() => copyToClipboard(`chmod ${octal} file.txt`)} className="px-3 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] rounded text-white transition-all">
+                <button onClick={() => copyToClipboard(`chmod ${octal} file.txt`)} className="px-3 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] rounded text-[rgb(var(--c-ink))] transition-all">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                 </button>
               </div>

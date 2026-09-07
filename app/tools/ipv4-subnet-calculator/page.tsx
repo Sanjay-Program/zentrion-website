@@ -139,7 +139,7 @@ export default function SubnetCalculatorPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Instantly calculate network addresses, broadcast ranges, and CIDR subnets.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-1">
               <label className="block text-sm text-[rgb(var(--c-mute))] font-semibold mb-2">IP Address</label>
@@ -152,7 +152,7 @@ export default function SubnetCalculatorPage() {
                   value={ipInput}
                   onChange={(e) => setIpInput(e.target.value)}
                   placeholder="192.168.1.1"
-                  className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                  className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 />
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function SubnetCalculatorPage() {
                   max="32"
                   value={cidrInput}
                   onChange={(e) => setCidrInput(parseInt(e.target.value) || 0)}
-                  className="w-full pl-8 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                  className="w-full pl-8 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 />
               </div>
             </div>
@@ -187,56 +187,56 @@ export default function SubnetCalculatorPage() {
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-6">
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-xl p-5">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-5">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">Network Address</div>
-                <div className="text-xl font-mono text-white font-bold">{result.networkAddress}</div>
+                <div className="text-xl font-mono text-[rgb(var(--c-ink))] font-bold">{result.networkAddress}</div>
               </div>
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-xl p-5">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-5">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">Broadcast Address</div>
-                <div className="text-xl font-mono text-white font-bold">{result.broadcastAddress}</div>
+                <div className="text-xl font-mono text-[rgb(var(--c-ink))] font-bold">{result.broadcastAddress}</div>
               </div>
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-xl p-5">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-5">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">Usable Hosts</div>
                 <div className="text-xl font-mono text-[rgb(var(--c-accent))] font-bold">{result.usableHosts.toLocaleString()}</div>
               </div>
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-xl p-5">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-5">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">Subnet Mask</div>
-                <div className="text-xl font-mono text-white font-bold">{result.subnetMask}</div>
+                <div className="text-xl font-mono text-[rgb(var(--c-ink))] font-bold">{result.subnetMask}</div>
               </div>
             </div>
 
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden shadow-xl">
+            <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden shadow-xl">
               <table className="w-full text-left border-collapse">
-                <tbody className="divide-y divide-[rgba(255,255,255,0.05)]">
-                  <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                <tbody className="divide-y divide-[var(--c-glass-border)]">
+                  <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                     <td className="py-4 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold w-1/3">IP Address</td>
-                    <td className="py-4 px-6 font-mono text-white">{result.ipAddress}</td>
+                    <td className="py-4 px-6 font-mono text-[rgb(var(--c-ink))]">{result.ipAddress}</td>
                   </tr>
-                  <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                  <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                     <td className="py-4 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">Usable Host Range</td>
                     <td className="py-4 px-6 font-mono text-blue-400 font-bold">{result.usableHostRange}</td>
                   </tr>
-                  <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                  <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                     <td className="py-4 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">Total IPs (Including Net/Bcast)</td>
-                    <td className="py-4 px-6 font-mono text-white">{result.totalHosts.toLocaleString()}</td>
+                    <td className="py-4 px-6 font-mono text-[rgb(var(--c-ink))]">{result.totalHosts.toLocaleString()}</td>
                   </tr>
-                  <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                  <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                     <td className="py-4 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">Wildcard Mask</td>
                     <td className="py-4 px-6 font-mono text-yellow-400">{result.wildcardMask}</td>
                   </tr>
-                  <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                  <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                     <td className="py-4 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">Binary Subnet Mask</td>
-                    <td className="py-4 px-6 font-mono text-[rgba(255,255,255,0.6)] text-sm tracking-widest break-all">
+                    <td className="py-4 px-6 font-mono text-[rgb(var(--c-mute))] text-sm tracking-widest break-all">
                       {result.binarySubnetMask.split('.').map((octet, i) => (
                         <span key={i} className={octet.includes('1') ? 'text-green-400' : 'text-red-400'}>{octet}{i < 3 ? '.' : ''}</span>
                       ))}
                     </td>
                   </tr>
-                  <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                  <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                     <td className="py-4 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">IP Class</td>
-                    <td className="py-4 px-6 font-mono text-white">{result.ipClass}</td>
+                    <td className="py-4 px-6 font-mono text-[rgb(var(--c-ink))]">{result.ipClass}</td>
                   </tr>
-                  <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                  <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                     <td className="py-4 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">IP Type</td>
                     <td className="py-4 px-6">
                       <span className={`px-2 py-1 rounded text-xs font-bold uppercase ${result.ipType === 'Private' ? 'bg-orange-500/20 text-orange-400' : result.ipType === 'Public' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}`}>

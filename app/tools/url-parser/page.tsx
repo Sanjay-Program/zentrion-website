@@ -80,14 +80,14 @@ export default function UrlParserPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Deconstruct any URL into its core components and extract query parameters instantly.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
-          <label className="block text-sm font-semibold text-white mb-3">Input URL</label>
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
+          <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-3">Input URL</label>
           <input
             type="text"
             value={urlInput}
             onChange={(e) => setUrlInput(e.target.value)}
             placeholder="https://user:pass@www.example.com:8080/path/to/page?query=123#section"
-            className="w-full px-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-sm sm:text-base"
+            className="w-full px-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-sm sm:text-base"
             spellCheck="false"
           />
         </div>
@@ -104,80 +104,80 @@ export default function UrlParserPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               
-              <div className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors">
+              <div className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-2">Protocol</div>
-                <div className="font-mono text-white text-lg break-all">{parsedData.protocol || '-'}</div>
+                <div className="font-mono text-[rgb(var(--c-ink))] text-lg break-all">{parsedData.protocol || '-'}</div>
                 {parsedData.protocol && (
-                  <button onClick={() => copyToClipboard(parsedData.protocol)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                  <button onClick={() => copyToClipboard(parsedData.protocol)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))] opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
                 )}
               </div>
 
-              <div className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors">
+              <div className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-2">Hostname / Domain</div>
-                <div className="font-mono text-white text-lg break-all">{parsedData.hostname || '-'}</div>
+                <div className="font-mono text-[rgb(var(--c-ink))] text-lg break-all">{parsedData.hostname || '-'}</div>
                 {parsedData.hostname && (
-                  <button onClick={() => copyToClipboard(parsedData.hostname)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                  <button onClick={() => copyToClipboard(parsedData.hostname)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))] opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
                 )}
               </div>
 
-              <div className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors">
+              <div className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-2">Port</div>
                 <div className="font-mono text-[rgb(var(--c-accent))] text-lg break-all">{parsedData.port || '-'}</div>
                 {parsedData.port && parsedData.port !== 'N/A' && (
-                  <button onClick={() => copyToClipboard(parsedData.port.split(' ')[0])} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                  <button onClick={() => copyToClipboard(parsedData.port.split(' ')[0])} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))] opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
                 )}
               </div>
 
-              <div className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors md:col-span-2 lg:col-span-3">
+              <div className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors md:col-span-2 lg:col-span-3">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-2">Pathname</div>
-                <div className="font-mono text-white text-lg break-all">{parsedData.pathname || '/'}</div>
+                <div className="font-mono text-[rgb(var(--c-ink))] text-lg break-all">{parsedData.pathname || '/'}</div>
                 {parsedData.pathname && (
-                  <button onClick={() => copyToClipboard(parsedData.pathname)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                  <button onClick={() => copyToClipboard(parsedData.pathname)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))] opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
                 )}
               </div>
 
               {(parsedData.username || parsedData.password) && (
                 <>
-                  <div className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors">
+                  <div className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors">
                     <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-2">Username</div>
-                    <div className="font-mono text-white text-lg break-all">{parsedData.username || '-'}</div>
+                    <div className="font-mono text-[rgb(var(--c-ink))] text-lg break-all">{parsedData.username || '-'}</div>
                     {parsedData.username && (
-                      <button onClick={() => copyToClipboard(parsedData.username)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                      <button onClick={() => copyToClipboard(parsedData.username)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))] opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
                     )}
                   </div>
-                  <div className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors">
+                  <div className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors">
                     <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-2">Password</div>
-                    <div className="font-mono text-white text-lg break-all">{parsedData.password || '-'}</div>
+                    <div className="font-mono text-[rgb(var(--c-ink))] text-lg break-all">{parsedData.password || '-'}</div>
                     {parsedData.password && (
-                      <button onClick={() => copyToClipboard(parsedData.password)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                      <button onClick={() => copyToClipboard(parsedData.password)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))] opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
                     )}
                   </div>
                 </>
               )}
 
-              <div className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors md:col-span-2 lg:col-span-3">
+              <div className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] p-5 flex flex-col justify-between group relative hover:bg-[rgba(255,255,255,0.04)] transition-colors md:col-span-2 lg:col-span-3">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-2">Fragment (Hash)</div>
                 <div className="font-mono text-purple-400 text-lg break-all">{parsedData.hash || '-'}</div>
                 {parsedData.hash && (
-                  <button onClick={() => copyToClipboard(parsedData.hash)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                  <button onClick={() => copyToClipboard(parsedData.hash)} className="absolute top-4 right-4 text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))] opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
                 )}
               </div>
 
             </div>
 
             {parsedData.searchParams.length > 0 && (
-              <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md overflow-hidden">
-                <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex justify-between items-center">
-                  <h3 className="text-white font-semibold">Query Parameters ({parsedData.searchParams.length})</h3>
+              <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md overflow-hidden">
+                <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center">
+                  <h3 className="text-[rgb(var(--c-ink))] font-semibold">Query Parameters ({parsedData.searchParams.length})</h3>
                 </div>
-                <div className="divide-y divide-[rgba(255,255,255,0.05)]">
+                <div className="divide-y divide-[var(--c-glass-border)]">
                   {parsedData.searchParams.map((param, idx) => (
-                    <div key={idx} className="p-4 sm:p-6 flex flex-col sm:flex-row gap-4 hover:bg-[rgba(255,255,255,0.02)] transition-colors group">
+                    <div key={idx} className="p-4 sm:p-6 flex flex-col sm:flex-row gap-4 hover:bg-[var(--c-glass-bg)] transition-colors group">
                       <div className="sm:w-1/3 flex items-start gap-2">
                         <span className="text-[rgb(var(--c-accent))] font-mono break-all">{param.key}</span>
                       </div>
                       <div className="sm:w-2/3 flex items-start justify-between gap-4">
-                        <span className="text-white font-mono break-all">{param.value}</span>
+                        <span className="text-[rgb(var(--c-ink))] font-mono break-all">{param.value}</span>
                         <button
                           onClick={() => copyToClipboard(param.value)}
                           className="p-1.5 text-[rgb(var(--c-mute))] hover:text-white bg-[rgba(255,255,255,0.05)] rounded opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all shrink-0"

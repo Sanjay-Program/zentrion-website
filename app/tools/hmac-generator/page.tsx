@@ -97,38 +97,38 @@ export default function HmacGeneratorPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
           <div className="lg:col-span-2 space-y-6">
-            <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8">
+            <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8">
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold text-white mb-2">Message (Payload)</label>
+                  <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Message (Payload)</label>
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Enter the string you want to hash..."
-                    className="w-full h-32 px-4 py-3 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono resize-none"
+                    className="w-full h-32 px-4 py-3 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono resize-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-white mb-2">Secret Key</label>
+                  <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Secret Key</label>
                   <input
                     type="text"
                     value={secret}
                     onChange={(e) => setSecret(e.target.value)}
                     placeholder="Enter a strong secret key..."
-                    className="w-full px-4 py-3 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                    className="w-full px-4 py-3 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8">
+            <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-white font-semibold">HMAC Signature</h3>
+                <h3 className="text-[rgb(var(--c-ink))] font-semibold">HMAC Signature</h3>
                 <button 
                   onClick={copyToClipboard}
                   disabled={!hmacResult}
-                  className="px-4 py-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] rounded-lg text-sm text-white transition-colors flex items-center gap-2 disabled:opacity-50"
+                  className="px-4 py-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] rounded-lg text-sm text-[rgb(var(--c-ink))] transition-colors flex items-center gap-2 disabled:opacity-50"
                 >
                   {copied ? (
                     <><svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Copied!</>
@@ -138,7 +138,7 @@ export default function HmacGeneratorPage() {
                 </button>
               </div>
 
-              <div className="bg-[rgba(0,0,0,0.3)] rounded-xl border border-[rgba(255,255,255,0.05)] p-6 min-h-[120px] flex items-center justify-center break-all relative group">
+              <div className="bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] rounded-xl border border-[var(--c-glass-border)] p-6 min-h-[120px] flex items-center justify-center break-all relative group">
                 {!hmacResult ? (
                   <span className="text-[rgb(var(--c-mute))] text-sm">Signature will appear here once you enter a message and secret key.</span>
                 ) : (
@@ -151,8 +151,8 @@ export default function HmacGeneratorPage() {
           </div>
 
           <div className="lg:col-span-1 space-y-6">
-            <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6">
-              <h3 className="text-white font-semibold mb-6 flex items-center gap-2">
+            <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold mb-6 flex items-center gap-2">
                 <svg className="w-5 h-5 text-[rgb(var(--c-accent))]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
                 Configuration
               </h3>
@@ -168,7 +168,7 @@ export default function HmacGeneratorPage() {
                         className={`py-2 px-3 text-sm font-mono rounded-lg border transition-all ${
                           algorithm === alg 
                             ? 'bg-[rgb(var(--c-accent))] border-[rgb(var(--c-accent))] text-[rgb(var(--c-void))] font-bold' 
-                            : 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.1)] text-[rgb(var(--c-mute))] hover:border-[rgba(255,255,255,0.3)]'
+                            : 'bg-[var(--c-glass-bg)] border-[var(--c-glass-border)] text-[rgb(var(--c-mute))] hover:border-[rgba(255,255,255,0.3)]'
                         }`}
                       >
                         {alg}
@@ -187,8 +187,8 @@ export default function HmacGeneratorPage() {
                       onClick={() => setOutputFormat('hex')}
                       className={`py-2 px-3 text-sm rounded-lg border transition-all ${
                         outputFormat === 'hex' 
-                          ? 'bg-white/10 border-white text-white font-bold' 
-                          : 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.1)] text-[rgb(var(--c-mute))] hover:border-[rgba(255,255,255,0.3)]'
+                          ? 'bg-white/10 border-white text-[rgb(var(--c-ink))] font-bold' 
+                          : 'bg-[var(--c-glass-bg)] border-[var(--c-glass-border)] text-[rgb(var(--c-mute))] hover:border-[rgba(255,255,255,0.3)]'
                       }`}
                     >
                       Hexadecimal
@@ -197,8 +197,8 @@ export default function HmacGeneratorPage() {
                       onClick={() => setOutputFormat('base64')}
                       className={`py-2 px-3 text-sm rounded-lg border transition-all ${
                         outputFormat === 'base64' 
-                          ? 'bg-white/10 border-white text-white font-bold' 
-                          : 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.1)] text-[rgb(var(--c-mute))] hover:border-[rgba(255,255,255,0.3)]'
+                          ? 'bg-white/10 border-white text-[rgb(var(--c-ink))] font-bold' 
+                          : 'bg-[var(--c-glass-bg)] border-[var(--c-glass-border)] text-[rgb(var(--c-mute))] hover:border-[rgba(255,255,255,0.3)]'
                       }`}
                     >
                       Base64
@@ -206,7 +206,7 @@ export default function HmacGeneratorPage() {
                   </div>
                 </div>
                 
-                <div className="pt-4 border-t border-[rgba(255,255,255,0.1)]">
+                <div className="pt-4 border-t border-[var(--c-glass-border)]">
                   <div className="flex items-start gap-3 p-3 bg-green-500/10 border border-green-500/20 rounded-xl">
                     <svg className="w-5 h-5 text-green-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                     <div>

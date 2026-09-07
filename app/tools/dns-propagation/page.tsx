@@ -119,7 +119,7 @@ export default function DnsPropagationPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Verify globally how your DNS records have propagated across major DNS resolvers.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={handleQuery} className="flex flex-col md:flex-row gap-4">
             <div className="flex-grow relative">
               <input
@@ -127,7 +127,7 @@ export default function DnsPropagationPage() {
                 value={domain}
                 onChange={(e) => setDomain(e.target.value)}
                 placeholder="example.com"
-                className="w-full px-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full px-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -136,10 +136,10 @@ export default function DnsPropagationPage() {
               <select
                 value={recordType}
                 onChange={(e) => setRecordType(e.target.value)}
-                className="w-full px-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white appearance-none focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono cursor-pointer"
+                className="w-full px-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] appearance-none focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono cursor-pointer"
               >
                 {getRecordTypes().map(type => (
-                  <option key={type} value={type} className="bg-[rgb(var(--c-void))] text-white">{type} Record</option>
+                  <option key={type} value={type} className="bg-[rgb(var(--c-void))] text-[rgb(var(--c-ink))]">{type} Record</option>
                 ))}
               </select>
               <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-[rgb(var(--c-mute))]">
@@ -159,9 +159,9 @@ export default function DnsPropagationPage() {
 
         {hasResults && (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="flex justify-between items-center bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-xl p-4">
+            <div className="flex justify-between items-center bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-4">
               <div className="flex items-center gap-3">
-                <h3 className="font-semibold text-white">Global Consensus Status:</h3>
+                <h3 className="font-semibold text-[rgb(var(--c-ink))]">Global Consensus Status:</h3>
                 {!isQuerying && (
                   <span className={`font-bold ${getConsensusColor()} flex items-center gap-2`}>
                     {getConsensusColor() === 'text-green-400' ? (
@@ -179,10 +179,10 @@ export default function DnsPropagationPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Object.values(results).map((res) => (
-                <div key={res.provider.id} className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-xl overflow-hidden flex flex-col">
-                  <div className="border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] px-5 py-3 flex justify-between items-center">
+                <div key={res.provider.id} className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl overflow-hidden flex flex-col">
+                  <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-5 py-3 flex justify-between items-center">
                     <div>
-                      <h3 className="font-semibold text-white">{res.provider.name}</h3>
+                      <h3 className="font-semibold text-[rgb(var(--c-ink))]">{res.provider.name}</h3>
                       <p className="text-[10px] text-[rgb(var(--c-mute))] uppercase tracking-wider">{res.provider.location}</p>
                     </div>
                     {res.status === 'pending' && (
@@ -207,7 +207,7 @@ export default function DnsPropagationPage() {
                     ) : (
                       <div className="space-y-2">
                         {res.records?.map((record, idx) => (
-                          <div key={idx} className="font-mono text-sm text-[rgb(var(--c-accent))] bg-[rgba(255,255,255,0.02)] p-2 rounded border border-[rgba(255,255,255,0.05)] break-all">
+                          <div key={idx} className="font-mono text-sm text-[rgb(var(--c-accent))] bg-[var(--c-glass-bg)] p-2 rounded border border-[var(--c-glass-border)] break-all">
                             {record}
                           </div>
                         ))}

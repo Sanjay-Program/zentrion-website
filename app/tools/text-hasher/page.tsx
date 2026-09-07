@@ -77,12 +77,12 @@ export default function TextHasherPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Instantly calculate cryptographic hashes for strings securely in your browser.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md flex flex-col overflow-hidden mb-8">
-          <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex justify-between items-center shrink-0">
-            <h3 className="text-white font-semibold">Input String</h3>
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md flex flex-col overflow-hidden mb-8">
+          <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center shrink-0">
+            <h3 className="text-[rgb(var(--c-ink))] font-semibold">Input String</h3>
             <button
               onClick={() => setInputText('')}
-              className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-red-500/20 hover:text-red-400 border border-[rgba(255,255,255,0.1)] rounded text-[rgb(var(--c-mute))] text-sm transition-colors"
+              className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-red-500/20 hover:text-red-400 border border-[var(--c-glass-border)] rounded text-[rgb(var(--c-mute))] text-sm transition-colors"
             >
               Clear
             </button>
@@ -92,21 +92,21 @@ export default function TextHasherPage() {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="Type or paste the text you want to hash..."
-            className="w-full h-40 p-6 bg-transparent text-white font-mono text-lg leading-relaxed focus:outline-none resize-none custom-scrollbar"
+            className="w-full h-40 p-6 bg-transparent text-[rgb(var(--c-ink))] font-mono text-lg leading-relaxed focus:outline-none resize-none custom-scrollbar"
             spellCheck="false"
           />
         </div>
 
         {inputText && (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-4">
-            <h3 className="text-lg font-bold text-white mb-2 px-1">Hash Results</h3>
+            <h3 className="text-lg font-bold text-[rgb(var(--c-ink))] mb-2 px-1">Hash Results</h3>
             {Object.entries(hashes).map(([algo, hashValue], idx) => (
-              <div key={idx} className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md overflow-hidden flex flex-col sm:flex-row group transition-colors hover:bg-[rgba(255,255,255,0.03)]">
-                <div className="sm:w-32 px-6 py-4 border-b sm:border-b-0 sm:border-r border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex flex-row sm:flex-col items-center sm:items-start justify-between sm:justify-center shrink-0">
+              <div key={idx} className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md overflow-hidden flex flex-col sm:flex-row group transition-colors hover:bg-[var(--c-glass-bg)]">
+                <div className="sm:w-32 px-6 py-4 border-b sm:border-b-0 sm:border-r border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex flex-row sm:flex-col items-center sm:items-start justify-between sm:justify-center shrink-0">
                   <div className="text-[rgb(var(--c-accent))] font-bold tracking-wider">{algo}</div>
                 </div>
                 <div className="p-4 sm:p-6 flex-grow flex items-center justify-between gap-4 overflow-hidden">
-                  <div className="font-mono text-white text-sm break-all">
+                  <div className="font-mono text-[rgb(var(--c-ink))] text-sm break-all">
                     {hashValue}
                   </div>
                   <button

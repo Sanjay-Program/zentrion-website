@@ -73,15 +73,15 @@ export default function IpConverterPage() {
   };
 
   const OutputCard = ({ title, value, description }: { title: string, value: string, description: string }) => (
-    <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md overflow-hidden flex flex-col">
-      <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex justify-between items-center">
+    <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md overflow-hidden flex flex-col">
+      <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center">
         <h3 className="text-[rgb(var(--c-accent))] font-bold uppercase tracking-widest text-sm flex items-center gap-2">
           {title}
         </h3>
         <button
           onClick={() => copyToClipboard(value, title)}
           disabled={!value}
-          className="text-xs px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] rounded text-white transition-colors disabled:opacity-50 flex items-center gap-1.5"
+          className="text-xs px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] rounded text-[rgb(var(--c-ink))] transition-colors disabled:opacity-50 flex items-center gap-1.5"
         >
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
           Copy
@@ -90,13 +90,13 @@ export default function IpConverterPage() {
       <div className="p-6 bg-[rgba(0,0,0,0.2)] flex-grow">
         {value ? (
           <div>
-            <div className="font-mono text-white text-xl sm:text-2xl break-all">
+            <div className="font-mono text-[rgb(var(--c-ink))] text-xl sm:text-2xl break-all">
               {value}
             </div>
             <p className="text-sm text-[rgb(var(--c-mute))] mt-4">{description}</p>
-            <div className="mt-4 pt-4 border-t border-[rgba(255,255,255,0.05)]">
+            <div className="mt-4 pt-4 border-t border-[var(--c-glass-border)]">
               <div className="text-xs text-[rgb(var(--c-mute))] mb-1">Example usage in browser:</div>
-              <code className="text-xs bg-[rgba(255,255,255,0.05)] px-2 py-1 rounded text-white/80 select-all font-mono">http://{value}</code>
+              <code className="text-xs bg-[rgba(255,255,255,0.05)] px-2 py-1 rounded text-[rgb(var(--c-ink))]/80 select-all font-mono">http://{value}</code>
             </div>
           </div>
         ) : (
@@ -126,14 +126,14 @@ export default function IpConverterPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Convert standard IPv4 addresses into Decimal, Hexadecimal, and Octal formats to bypass SSRF and WAF filters.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
-          <label className="block text-sm font-semibold text-white mb-3">IPv4 Address</label>
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
+          <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-3">IPv4 Address</label>
           <input
             type="text"
             value={ip}
             onChange={(e) => setIp(e.target.value)}
             placeholder="127.0.0.1"
-            className="w-full px-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-lg"
+            className="w-full px-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-lg"
           />
         </div>
 

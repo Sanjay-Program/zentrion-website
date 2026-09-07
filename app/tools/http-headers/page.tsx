@@ -73,7 +73,7 @@ export default function HttpHeadersPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Analyze HTTP response headers to debug CORS, security, and caching policies.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={handleInspect} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-grow relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
@@ -84,7 +84,7 @@ export default function HttpHeadersPage() {
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="example.com or https://api.example.com"
-                className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -95,7 +95,7 @@ export default function HttpHeadersPage() {
             >
               {loading ? (
                 <span className="flex items-center gap-2">
-                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                   Inspecting...
                 </span>
               ) : 'Inspect Headers'}
@@ -116,7 +116,7 @@ export default function HttpHeadersPage() {
         {result && (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             {/* Status Bar */}
-            <div className="flex flex-wrap items-center gap-4 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-xl p-4">
+            <div className="flex flex-wrap items-center gap-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-4">
               <div className={`px-4 py-2 rounded-lg border font-mono font-bold text-lg flex items-center gap-2 ${getStatusColor(result.status)}`}>
                 <div className="w-2 h-2 rounded-full bg-current shadow-[0_0_8px_currentColor]" />
                 {result.status} {result.statusText}
@@ -137,21 +137,21 @@ export default function HttpHeadersPage() {
             </div>
 
             {/* Headers Table */}
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-xl overflow-hidden">
+            <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl overflow-hidden">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[rgba(255,255,255,0.03)] border-b border-[rgba(255,255,255,0.1)]">
+                  <tr className="bg-[var(--c-glass-bg)] border-b border-[var(--c-glass-border)]">
                     <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm w-1/3">Header Name</th>
                     <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm">Value</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[rgba(255,255,255,0.05)]">
+                <tbody className="divide-y divide-[var(--c-glass-border)]">
                   {Object.entries(result.headers)
                     .sort(([a], [b]) => a.localeCompare(b))
                     .map(([key, value]) => {
                       const category = getHeaderCategory(key);
                       return (
-                        <tr key={key} className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                        <tr key={key} className="hover:bg-[var(--c-glass-bg)] transition-colors">
                           <td className="py-4 px-6 align-top">
                             <div className="flex items-center gap-2">
                               <span className="font-mono text-[rgb(var(--c-accent))] break-all">{key}</span>
@@ -163,7 +163,7 @@ export default function HttpHeadersPage() {
                               )}
                             </div>
                           </td>
-                          <td className="py-4 px-6 font-mono text-sm break-all leading-relaxed text-[rgba(255,255,255,0.8)]">
+                          <td className="py-4 px-6 font-mono text-sm break-all leading-relaxed text-[rgb(var(--c-mute))]">
                             {value}
                           </td>
                         </tr>

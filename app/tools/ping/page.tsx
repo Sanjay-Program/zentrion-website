@@ -103,7 +103,7 @@ export default function WebPingPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Measure latency, uptime, and packet loss to any domain or IP address.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={handlePing} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-grow relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
@@ -114,7 +114,7 @@ export default function WebPingPage() {
                 value={target}
                 onChange={(e) => setTarget(e.target.value)}
                 placeholder="example.com or 1.1.1.1"
-                className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -128,8 +128,8 @@ export default function WebPingPage() {
           </form>
         </div>
 
-        <div className="bg-[#0D1117] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden shadow-2xl mt-8">
-          <div className="bg-[#161B22] border-b border-[rgba(255,255,255,0.05)] px-4 py-3 flex items-center gap-2">
+        <div className="bg-[#0D1117] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden shadow-2xl mt-8">
+          <div className="bg-[#161B22] border-b border-[var(--c-glass-border)] px-4 py-3 flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-green-500"></div>

@@ -112,13 +112,13 @@ Usable: ${result.usableCount}`;
           <h1 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">Subnet Calculator</h1>
           <p className="text-xl text-[rgb(var(--c-mute))]">Calculate IPv4 CIDR blocks, wildcard masks, and usable host ranges locally.</p>
           <div className="mt-4 flex gap-2">
-            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[rgba(255,255,255,0.1)]">
+            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[var(--c-glass-border)]">
               LOCAL ONLY
             </span>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 md:p-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 md:p-8">
           
           <form onSubmit={calculateSubnet} className="mb-8 relative">
             <label className="block text-sm font-medium mb-2">IPv4 Network (e.g., 192.168.1.0/24)</label>
@@ -128,7 +128,7 @@ Usable: ${result.usableCount}`;
                 value={cidrInput}
                 onChange={(e) => setCidrInput(e.target.value)}
                 placeholder="10.0.0.0/8"
-                className="w-full flex-grow bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono"
+                className="w-full flex-grow bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono"
               />
               <button 
                 type="submit"
@@ -146,46 +146,46 @@ Usable: ${result.usableCount}`;
           )}
 
           {result && (
-            <div className="bg-[rgba(0,0,0,0.2)] rounded-xl p-6 border border-[rgba(255,255,255,0.05)] relative">
+            <div className="bg-[rgba(0,0,0,0.2)] rounded-xl p-6 border border-[var(--c-glass-border)] relative">
               <h4 className="text-[rgb(var(--c-mute))] text-sm uppercase tracking-wider mb-4 font-bold">Subnet Details</h4>
               
               <table className="w-full text-left">
                 <tbody>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))] w-1/2">IP Address</td>
                     <td className="py-3 font-mono">{result.ip}</td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))]">Network Address</td>
                     <td className="py-3 font-mono text-[rgb(var(--c-accent))] font-bold">{result.network}</td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))]">Broadcast Address</td>
                     <td className="py-3 font-mono">{result.broadcast}</td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))]">Subnet Mask</td>
                     <td className="py-3 font-mono">{result.mask}</td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))]">Wildcard Mask</td>
                     <td className="py-3 font-mono">{result.wildcard}</td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))]">First Usable Host</td>
                     <td className="py-3 font-mono text-[#4ade80]">{result.first}</td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))]">Last Usable Host</td>
                     <td className="py-3 font-mono text-[#4ade80]">{result.last}</td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))]">Total Addresses</td>
                     <td className="py-3 font-mono">{BigInt(result.totalCount).toLocaleString()}</td>
                   </tr>
                   <tr>
                     <td className="py-3 text-[rgb(var(--c-mute))]">Usable Hosts</td>
-                    <td className="py-3 font-mono font-bold text-white">{BigInt(result.usableCount).toLocaleString()}</td>
+                    <td className="py-3 font-mono font-bold text-[rgb(var(--c-ink))]">{BigInt(result.usableCount).toLocaleString()}</td>
                   </tr>
                 </tbody>
               </table>

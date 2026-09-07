@@ -93,7 +93,7 @@ export default function WhoisLookupPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Retrieve deep registration details, nameservers, and registrar data for any domain using the modern RDAP protocol.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={handleLookup} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-grow relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
@@ -104,7 +104,7 @@ export default function WhoisLookupPage() {
                 value={domain}
                 onChange={(e) => setDomain(e.target.value)}
                 placeholder="e.g. google.com"
-                className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -115,7 +115,7 @@ export default function WhoisLookupPage() {
             >
               {loading ? (
                 <span className="flex items-center gap-2">
-                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                  <svg className="animate-spin h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                   Querying...
                 </span>
               ) : 'Lookup Domain'}
@@ -137,42 +137,42 @@ export default function WhoisLookupPage() {
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-6">
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-xl p-5">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-5">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">Handle</div>
-                <div className="text-lg font-mono text-white font-bold truncate">{result.handle || result.ldhName}</div>
+                <div className="text-lg font-mono text-[rgb(var(--c-ink))] font-bold truncate">{result.handle || result.ldhName}</div>
               </div>
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-xl p-5">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-5">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">Registration Date</div>
-                <div className="text-lg font-mono text-white font-bold">{dates.registration}</div>
+                <div className="text-lg font-mono text-[rgb(var(--c-ink))] font-bold">{dates.registration}</div>
               </div>
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-xl p-5">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-5">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">Expiration Date</div>
                 <div className="text-lg font-mono text-[rgb(var(--c-accent))] font-bold">{dates.expiration}</div>
               </div>
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-xl p-5">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-5">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">Last Updated</div>
-                <div className="text-lg font-mono text-white font-bold">{dates.lastChanged}</div>
+                <div className="text-lg font-mono text-[rgb(var(--c-ink))] font-bold">{dates.lastChanged}</div>
               </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden">
-                <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4">
-                  <h2 className="text-white font-bold flex items-center gap-2">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden">
+                <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4">
+                  <h2 className="text-[rgb(var(--c-ink))] font-bold flex items-center gap-2">
                     <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
                     Registrar Details
                   </h2>
                 </div>
                 <div className="p-6">
-                  <div className="font-mono text-lg text-white mb-2">{getRegistrar()}</div>
+                  <div className="font-mono text-lg text-[rgb(var(--c-ink))] mb-2">{getRegistrar()}</div>
                   <div className="text-[rgb(var(--c-mute))] text-sm">The organization responsible for managing the reservation of this domain name.</div>
                 </div>
               </div>
 
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden">
-                <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4">
-                  <h2 className="text-white font-bold flex items-center gap-2">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden">
+                <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4">
+                  <h2 className="text-[rgb(var(--c-ink))] font-bold flex items-center gap-2">
                     <svg className="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg>
                     Nameservers
                   </h2>
@@ -181,7 +181,7 @@ export default function WhoisLookupPage() {
                   {getNameServers().length > 0 ? (
                     <ul className="space-y-2">
                       {getNameServers().map((ns: string, idx: number) => (
-                        <li key={idx} className="font-mono text-white text-sm bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.05)] rounded-lg p-3">
+                        <li key={idx} className="font-mono text-[rgb(var(--c-ink))] text-sm bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg p-3">
                           {ns}
                         </li>
                       ))}
@@ -194,9 +194,9 @@ export default function WhoisLookupPage() {
 
             </div>
 
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden">
-              <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4 flex justify-between items-center">
-                <h2 className="text-white font-bold flex items-center gap-2">
+            <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden">
+              <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4 flex justify-between items-center">
+                <h2 className="text-[rgb(var(--c-ink))] font-bold flex items-center gap-2">
                   <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                   Domain Status Codes
                 </h2>
@@ -205,7 +205,7 @@ export default function WhoisLookupPage() {
                 {getStatus().length > 0 ? (
                   <div className="flex flex-wrap gap-2">
                     {getStatus().map((status: string, idx: number) => (
-                      <span key={idx} className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-lg text-sm text-[rgb(var(--c-mute))] font-mono">
+                      <span key={idx} className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] rounded-lg text-sm text-[rgb(var(--c-mute))] font-mono">
                         {status}
                       </span>
                     ))}
@@ -219,15 +219,15 @@ export default function WhoisLookupPage() {
               </div>
             </div>
 
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden">
-              <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4 flex justify-between items-center">
-                <h2 className="text-white font-bold flex items-center gap-2">
+            <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden">
+              <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4 flex justify-between items-center">
+                <h2 className="text-[rgb(var(--c-ink))] font-bold flex items-center gap-2">
                   <svg className="w-5 h-5 text-[rgb(var(--c-mute))]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                   Raw RDAP JSON
                 </h2>
               </div>
               <div className="p-0">
-                <pre className="text-[rgb(var(--c-mute))] text-xs font-mono p-6 bg-[rgba(0,0,0,0.3)] overflow-x-auto max-h-[400px] custom-scrollbar">
+                <pre className="text-[rgb(var(--c-mute))] text-xs font-mono p-6 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] overflow-x-auto max-h-[400px] custom-scrollbar">
                   {JSON.stringify(result, null, 2)}
                 </pre>
               </div>

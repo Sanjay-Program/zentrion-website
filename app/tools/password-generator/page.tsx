@@ -90,10 +90,10 @@ export default function PasswordGeneratorPage() {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           
           <div className="lg:col-span-3 space-y-6">
-            <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8">
+            <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8">
               
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-white font-semibold">Generated Password</h3>
+                <h3 className="text-[rgb(var(--c-ink))] font-semibold">Generated Password</h3>
                 <button
                   onClick={generatePassword}
                   className="p-2 text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-accent))] transition-colors rounded-full hover:bg-[rgba(255,255,255,0.05)]"
@@ -104,7 +104,7 @@ export default function PasswordGeneratorPage() {
               </div>
 
               <div className="relative group">
-                <div className="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-xl p-6 min-h-[120px] flex items-center justify-center break-all transition-all group-hover:border-[rgba(255,255,255,0.3)]">
+                <div className="w-full bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-xl p-6 min-h-[120px] flex items-center justify-center break-all transition-all group-hover:border-[rgba(255,255,255,0.3)]">
                   <span className="font-mono text-3xl text-[rgb(var(--c-accent))] leading-relaxed text-center tracking-wider">
                     {password || <span className="text-[rgb(var(--c-mute))] text-xl">Select character types...</span>}
                   </span>
@@ -131,7 +131,7 @@ export default function PasswordGeneratorPage() {
                 <div className="mt-6 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <span className="text-sm text-[rgb(var(--c-mute))]">Entropy:</span>
-                    <span className="font-mono text-white text-lg">{entropy} bits</span>
+                    <span className="font-mono text-[rgb(var(--c-ink))] text-lg">{entropy} bits</span>
                   </div>
                   <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${getEntropyColor()}`}>
                     {getEntropyLabel()}
@@ -150,8 +150,8 @@ export default function PasswordGeneratorPage() {
           </div>
 
           <div className="lg:col-span-2">
-            <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8">
-              <h3 className="text-white font-semibold mb-6 flex items-center gap-2">
+            <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold mb-6 flex items-center gap-2">
                 <svg className="w-5 h-5 text-[rgb(var(--c-accent))]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
                 Parameters
               </h3>
@@ -160,7 +160,7 @@ export default function PasswordGeneratorPage() {
                 
                 <div>
                   <div className="flex justify-between items-center mb-3">
-                    <label className="block text-sm font-semibold text-white">Password Length</label>
+                    <label className="block text-sm font-semibold text-[rgb(var(--c-ink))]">Password Length</label>
                     <span className="text-[rgb(var(--c-accent))] font-mono text-xl">{length}</span>
                   </div>
                   <input 
@@ -178,9 +178,9 @@ export default function PasswordGeneratorPage() {
                   </div>
                 </div>
 
-                <div className="space-y-4 pt-4 border-t border-[rgba(255,255,255,0.05)]">
+                <div className="space-y-4 pt-4 border-t border-[var(--c-glass-border)]">
                   <label className="flex items-center justify-between cursor-pointer group">
-                    <span className="text-[rgb(var(--c-mute))] group-hover:text-white transition-colors flex items-center gap-2">
+                    <span className="text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-ink))] transition-colors flex items-center gap-2">
                       <span className="w-6 text-center font-mono text-white bg-[rgba(255,255,255,0.05)] rounded">A</span> 
                       Uppercase
                     </span>
@@ -192,7 +192,7 @@ export default function PasswordGeneratorPage() {
                   </label>
 
                   <label className="flex items-center justify-between cursor-pointer group">
-                    <span className="text-[rgb(var(--c-mute))] group-hover:text-white transition-colors flex items-center gap-2">
+                    <span className="text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-ink))] transition-colors flex items-center gap-2">
                       <span className="w-6 text-center font-mono text-white bg-[rgba(255,255,255,0.05)] rounded">a</span> 
                       Lowercase
                     </span>
@@ -204,7 +204,7 @@ export default function PasswordGeneratorPage() {
                   </label>
 
                   <label className="flex items-center justify-between cursor-pointer group">
-                    <span className="text-[rgb(var(--c-mute))] group-hover:text-white transition-colors flex items-center gap-2">
+                    <span className="text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-ink))] transition-colors flex items-center gap-2">
                       <span className="w-6 text-center font-mono text-white bg-[rgba(255,255,255,0.05)] rounded">1</span> 
                       Numbers
                     </span>
@@ -216,7 +216,7 @@ export default function PasswordGeneratorPage() {
                   </label>
 
                   <label className="flex items-center justify-between cursor-pointer group">
-                    <span className="text-[rgb(var(--c-mute))] group-hover:text-white transition-colors flex items-center gap-2">
+                    <span className="text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-ink))] transition-colors flex items-center gap-2">
                       <span className="w-6 text-center font-mono text-white bg-[rgba(255,255,255,0.05)] rounded">#</span> 
                       Symbols
                     </span>

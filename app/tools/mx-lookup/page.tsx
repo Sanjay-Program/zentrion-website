@@ -90,7 +90,7 @@ export default function MxLookupPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Discover and verify the Mail Exchange (MX) records responsible for routing email for a domain.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={handleLookup} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-grow relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
@@ -101,7 +101,7 @@ export default function MxLookupPage() {
                 value={domain}
                 onChange={(e) => setDomain(e.target.value)}
                 placeholder="e.g. gmail.com"
-                className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -126,8 +126,8 @@ export default function MxLookupPage() {
         )}
 
         {result && (
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden shadow-xl">
-            <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4 flex justify-between items-center">
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden shadow-xl">
+            <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4 flex justify-between items-center">
               <h2 className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-widest font-semibold flex items-center gap-2">
                 Mail Exchange Records
               </h2>
@@ -142,17 +142,17 @@ export default function MxLookupPage() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse min-w-[500px]">
                     <thead>
-                      <tr className="bg-[rgba(255,255,255,0.01)] border-b border-[rgba(255,255,255,0.05)]">
+                      <tr className="bg-[rgba(255,255,255,0.01)] border-b border-[var(--c-glass-border)]">
                         <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm w-32">Priority</th>
                         <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm">Mail Server (Target)</th>
                         <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm w-48 text-right">Status</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[rgba(255,255,255,0.05)]">
+                    <tbody className="divide-y divide-[var(--c-glass-border)]">
                       {result.records.map((rec, i) => (
-                        <tr key={i} className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                        <tr key={i} className="hover:bg-[var(--c-glass-bg)] transition-colors">
                           <td className="py-4 px-6">
-                            <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] font-mono text-lg font-bold text-[rgb(var(--c-accent))]">
+                            <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] font-mono text-lg font-bold text-[rgb(var(--c-accent))]">
                               {rec.priority}
                             </span>
                           </td>
@@ -181,7 +181,7 @@ export default function MxLookupPage() {
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-500/10 text-yellow-500 mb-4">
                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">No MX Records Found</h3>
+                  <h3 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-2">No MX Records Found</h3>
                   <p className="text-[rgb(var(--c-mute))] max-w-md mx-auto">
                     The domain <strong>{result.domain}</strong> does not have any Mail Exchange records configured. It cannot receive emails.
                   </p>

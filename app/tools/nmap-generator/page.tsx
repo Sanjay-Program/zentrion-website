@@ -110,52 +110,52 @@ export default function NmapGeneratorPage() {
           <div className="lg:col-span-2 space-y-6">
             
             {/* Target & Basic Scan Type */}
-            <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8">
-              <h3 className="text-white font-semibold mb-6 flex items-center gap-2">
+            <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold mb-6 flex items-center gap-2">
                 <svg className="w-5 h-5 text-[rgb(var(--c-accent))]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
                 Target & Scan Type
               </h3>
 
               <div className="space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold text-white mb-2">Target (IP, Range, or Subnet)</label>
+                  <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Target (IP, Range, or Subnet)</label>
                   <input
                     type="text"
                     value={target}
                     onChange={(e) => setTarget(e.target.value)}
                     placeholder="192.168.1.1, 10.0.0.0/24, example.com"
-                    className="w-full px-4 py-3 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                    className="w-full px-4 py-3 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <label className={`p-4 rounded-xl border cursor-pointer transition-all ${scanType === '-sS' && !agressiveMode ? 'bg-[rgb(var(--c-accent))]/10 border-[rgb(var(--c-accent))]' : 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.3)]'} ${agressiveMode ? 'opacity-50 pointer-events-none' : ''}`}>
+                  <label className={`p-4 rounded-xl border cursor-pointer transition-all ${scanType === '-sS' && !agressiveMode ? 'bg-[rgb(var(--c-accent))]/10 border-[rgb(var(--c-accent))]' : 'bg-[var(--c-glass-bg)] border-[var(--c-glass-border)] hover:border-[rgba(255,255,255,0.3)]'} ${agressiveMode ? 'opacity-50 pointer-events-none' : ''}`}>
                     <div className="flex justify-between items-center mb-1">
-                      <span className="text-white font-bold">SYN Stealth (-sS)</span>
+                      <span className="text-[rgb(var(--c-ink))] font-bold">SYN Stealth (-sS)</span>
                       <input type="radio" checked={scanType === '-sS'} onChange={() => setScanType('-sS')} className="accent-[rgb(var(--c-accent))]" />
                     </div>
                     <p className="text-xs text-[rgb(var(--c-mute))]">Default, fast, and relatively unobtrusive.</p>
                   </label>
 
-                  <label className={`p-4 rounded-xl border cursor-pointer transition-all ${scanType === '-sT' && !agressiveMode ? 'bg-[rgb(var(--c-accent))]/10 border-[rgb(var(--c-accent))]' : 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.3)]'} ${agressiveMode ? 'opacity-50 pointer-events-none' : ''}`}>
+                  <label className={`p-4 rounded-xl border cursor-pointer transition-all ${scanType === '-sT' && !agressiveMode ? 'bg-[rgb(var(--c-accent))]/10 border-[rgb(var(--c-accent))]' : 'bg-[var(--c-glass-bg)] border-[var(--c-glass-border)] hover:border-[rgba(255,255,255,0.3)]'} ${agressiveMode ? 'opacity-50 pointer-events-none' : ''}`}>
                     <div className="flex justify-between items-center mb-1">
-                      <span className="text-white font-bold">TCP Connect (-sT)</span>
+                      <span className="text-[rgb(var(--c-ink))] font-bold">TCP Connect (-sT)</span>
                       <input type="radio" checked={scanType === '-sT'} onChange={() => setScanType('-sT')} className="accent-[rgb(var(--c-accent))]" />
                     </div>
                     <p className="text-xs text-[rgb(var(--c-mute))]">Used when SYN scan is not an option.</p>
                   </label>
 
-                  <label className={`p-4 rounded-xl border cursor-pointer transition-all ${scanType === '-sU' && !agressiveMode ? 'bg-[rgb(var(--c-accent))]/10 border-[rgb(var(--c-accent))]' : 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.3)]'} ${agressiveMode ? 'opacity-50 pointer-events-none' : ''}`}>
+                  <label className={`p-4 rounded-xl border cursor-pointer transition-all ${scanType === '-sU' && !agressiveMode ? 'bg-[rgb(var(--c-accent))]/10 border-[rgb(var(--c-accent))]' : 'bg-[var(--c-glass-bg)] border-[var(--c-glass-border)] hover:border-[rgba(255,255,255,0.3)]'} ${agressiveMode ? 'opacity-50 pointer-events-none' : ''}`}>
                     <div className="flex justify-between items-center mb-1">
-                      <span className="text-white font-bold">UDP Scan (-sU)</span>
+                      <span className="text-[rgb(var(--c-ink))] font-bold">UDP Scan (-sU)</span>
                       <input type="radio" checked={scanType === '-sU'} onChange={() => setScanType('-sU')} className="accent-[rgb(var(--c-accent))]" />
                     </div>
                     <p className="text-xs text-[rgb(var(--c-mute))]">Slow but necessary for UDP services.</p>
                   </label>
 
-                  <label className={`p-4 rounded-xl border cursor-pointer transition-all ${scanType === 'none' && !agressiveMode ? 'bg-[rgb(var(--c-accent))]/10 border-[rgb(var(--c-accent))]' : 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.3)]'} ${agressiveMode ? 'opacity-50 pointer-events-none' : ''}`}>
+                  <label className={`p-4 rounded-xl border cursor-pointer transition-all ${scanType === 'none' && !agressiveMode ? 'bg-[rgb(var(--c-accent))]/10 border-[rgb(var(--c-accent))]' : 'bg-[var(--c-glass-bg)] border-[var(--c-glass-border)] hover:border-[rgba(255,255,255,0.3)]'} ${agressiveMode ? 'opacity-50 pointer-events-none' : ''}`}>
                     <div className="flex justify-between items-center mb-1">
-                      <span className="text-white font-bold">Ping Only (-sn)</span>
+                      <span className="text-[rgb(var(--c-ink))] font-bold">Ping Only (-sn)</span>
                       <input type="radio" checked={scanType === 'none' && !hostDiscovery} onChange={() => {setScanType('none'); setHostDiscovery(true);}} className="accent-[rgb(var(--c-accent))]" />
                     </div>
                     <p className="text-xs text-[rgb(var(--c-mute))]">No port scan, just host discovery.</p>
@@ -167,19 +167,19 @@ export default function NmapGeneratorPage() {
             {/* Ports & Timing */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
-              <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6">
-                <h3 className="text-white font-semibold mb-4">Port Options</h3>
+              <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6">
+                <h3 className="text-[rgb(var(--c-ink))] font-semibold mb-4">Port Options</h3>
                 
                 <div className="space-y-3">
                   <label className="flex items-center gap-3 cursor-pointer">
                     <input type="radio" checked={portOption === 'default'} onChange={() => setPortOption('default')} className="accent-[rgb(var(--c-accent))]" />
-                    <span className="text-sm text-white">Default (Top 1000)</span>
+                    <span className="text-sm text-[rgb(var(--c-ink))]">Default (Top 1000)</span>
                   </label>
                   
                   <label className="flex flex-col gap-2 cursor-pointer">
                     <div className="flex items-center gap-3">
                       <input type="radio" checked={portOption === 'specific'} onChange={() => setPortOption('specific')} className="accent-[rgb(var(--c-accent))]" />
-                      <span className="text-sm text-white">Specific Ports (-p)</span>
+                      <span className="text-sm text-[rgb(var(--c-ink))]">Specific Ports (-p)</span>
                     </div>
                     {portOption === 'specific' && (
                       <input
@@ -187,7 +187,7 @@ export default function NmapGeneratorPage() {
                         value={specificPorts}
                         onChange={(e) => setSpecificPorts(e.target.value)}
                         placeholder="80,443,1-1024"
-                        className="w-full px-3 py-2 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded text-sm text-white focus:border-[rgb(var(--c-accent))] outline-none font-mono"
+                        className="w-full px-3 py-2 bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] rounded text-sm text-[rgb(var(--c-ink))] focus:border-[rgb(var(--c-accent))] outline-none font-mono"
                       />
                     )}
                   </label>
@@ -195,7 +195,7 @@ export default function NmapGeneratorPage() {
                   <label className="flex flex-col gap-2 cursor-pointer">
                     <div className="flex items-center gap-3">
                       <input type="radio" checked={portOption === 'top'} onChange={() => setPortOption('top')} className="accent-[rgb(var(--c-accent))]" />
-                      <span className="text-sm text-white">Top Ports (--top-ports)</span>
+                      <span className="text-sm text-[rgb(var(--c-ink))]">Top Ports (--top-ports)</span>
                     </div>
                     {portOption === 'top' && (
                       <input
@@ -204,16 +204,16 @@ export default function NmapGeneratorPage() {
                         max="65535"
                         value={topPorts}
                         onChange={(e) => setTopPorts(parseInt(e.target.value) || 100)}
-                        className="w-full px-3 py-2 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded text-sm text-white focus:border-[rgb(var(--c-accent))] outline-none font-mono"
+                        className="w-full px-3 py-2 bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] rounded text-sm text-[rgb(var(--c-ink))] focus:border-[rgb(var(--c-accent))] outline-none font-mono"
                       />
                     )}
                   </label>
                 </div>
               </div>
 
-              <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6">
+              <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-white font-semibold">Timing Template (-T)</h3>
+                  <h3 className="text-[rgb(var(--c-ink))] font-semibold">Timing Template (-T)</h3>
                   <span className="font-mono font-bold text-[rgb(var(--c-accent))]">-T{timing}</span>
                 </div>
                 
@@ -233,7 +233,7 @@ export default function NmapGeneratorPage() {
                   <span>4</span>
                   <span>5</span>
                 </div>
-                <p className="text-xs text-white/80 mt-4 h-8">{getTimingDescription(timing)}</p>
+                <p className="text-xs text-[rgb(var(--c-ink))]/80 mt-4 h-8">{getTimingDescription(timing)}</p>
               </div>
 
             </div>
@@ -241,16 +241,16 @@ export default function NmapGeneratorPage() {
 
           <div className="lg:col-span-1 space-y-6">
             
-            <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6">
-              <h3 className="text-white font-semibold mb-6 flex items-center gap-2">
+            <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold mb-6 flex items-center gap-2">
                 <svg className="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                 Detection & Scripts
               </h3>
 
               <div className="space-y-4">
-                <label className="flex items-center justify-between cursor-pointer group p-3 border border-transparent rounded-lg hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                <label className="flex items-center justify-between cursor-pointer group p-3 border border-transparent rounded-lg hover:bg-[var(--c-glass-bg)] transition-colors">
                   <div>
-                    <span className="text-white text-sm font-bold block mb-1">Aggressive Scan (-A)</span>
+                    <span className="text-[rgb(var(--c-ink))] text-sm font-bold block mb-1">Aggressive Scan (-A)</span>
                     <span className="text-xs text-[rgb(var(--c-mute))] block">Enables OS, version, script, and traceroute.</span>
                   </div>
                   <div className="relative">
@@ -260,37 +260,37 @@ export default function NmapGeneratorPage() {
                   </div>
                 </label>
 
-                <div className={`space-y-2 border-t border-[rgba(255,255,255,0.05)] pt-4 transition-opacity ${agressiveMode ? 'opacity-30 pointer-events-none' : ''}`}>
-                  <label className="flex items-center gap-3 cursor-pointer p-2 hover:bg-[rgba(255,255,255,0.02)] rounded">
+                <div className={`space-y-2 border-t border-[var(--c-glass-border)] pt-4 transition-opacity ${agressiveMode ? 'opacity-30 pointer-events-none' : ''}`}>
+                  <label className="flex items-center gap-3 cursor-pointer p-2 hover:bg-[var(--c-glass-bg)] rounded">
                     <input type="checkbox" checked={!hostDiscovery} onChange={() => setHostDiscovery(!hostDiscovery)} className="accent-[rgb(var(--c-accent))]" />
-                    <span className="text-sm text-white">Disable Host Discovery (-Pn)</span>
+                    <span className="text-sm text-[rgb(var(--c-ink))]">Disable Host Discovery (-Pn)</span>
                   </label>
                   
-                  <label className="flex items-center gap-3 cursor-pointer p-2 hover:bg-[rgba(255,255,255,0.02)] rounded">
+                  <label className="flex items-center gap-3 cursor-pointer p-2 hover:bg-[var(--c-glass-bg)] rounded">
                     <input type="checkbox" checked={osDetection} onChange={() => setOsDetection(!osDetection)} className="accent-[rgb(var(--c-accent))]" />
-                    <span className="text-sm text-white">OS Detection (-O)</span>
+                    <span className="text-sm text-[rgb(var(--c-ink))]">OS Detection (-O)</span>
                   </label>
                   
-                  <label className="flex items-center gap-3 cursor-pointer p-2 hover:bg-[rgba(255,255,255,0.02)] rounded">
+                  <label className="flex items-center gap-3 cursor-pointer p-2 hover:bg-[var(--c-glass-bg)] rounded">
                     <input type="checkbox" checked={serviceDetection} onChange={() => setServiceDetection(!serviceDetection)} className="accent-[rgb(var(--c-accent))]" />
-                    <span className="text-sm text-white">Service Versioning (-sV)</span>
+                    <span className="text-sm text-[rgb(var(--c-ink))]">Service Versioning (-sV)</span>
                   </label>
                   
-                  <label className="flex items-center gap-3 cursor-pointer p-2 hover:bg-[rgba(255,255,255,0.02)] rounded">
+                  <label className="flex items-center gap-3 cursor-pointer p-2 hover:bg-[var(--c-glass-bg)] rounded">
                     <input type="checkbox" checked={defaultScripts} onChange={() => setDefaultScripts(!defaultScripts)} className="accent-[rgb(var(--c-accent))]" />
-                    <span className="text-sm text-white">Default Scripts (-sC)</span>
+                    <span className="text-sm text-[rgb(var(--c-ink))]">Default Scripts (-sC)</span>
                   </label>
                 </div>
               </div>
             </div>
 
-            <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6">
-              <h3 className="text-white font-semibold mb-4 text-sm">Output Format</h3>
+            <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold mb-4 text-sm">Output Format</h3>
               
               <select 
                 value={outputFormat} 
                 onChange={(e) => setOutputFormat(e.target.value)}
-                className="w-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-white rounded-lg px-3 py-2 outline-none focus:border-[rgb(var(--c-accent))] mb-3 text-sm"
+                className="w-full bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] text-[rgb(var(--c-ink))] rounded-lg px-3 py-2 outline-none focus:border-[rgb(var(--c-accent))] mb-3 text-sm"
               >
                 <option value="none">Standard Output Only</option>
                 <option value="-oN">Normal (-oN)</option>
@@ -305,7 +305,7 @@ export default function NmapGeneratorPage() {
                   value={outputFilename}
                   onChange={(e) => setOutputFilename(e.target.value)}
                   placeholder="scan_results"
-                  className="w-full px-3 py-2 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded text-sm text-white focus:border-[rgb(var(--c-accent))] outline-none font-mono"
+                  className="w-full px-3 py-2 bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] rounded text-sm text-[rgb(var(--c-ink))] focus:border-[rgb(var(--c-accent))] outline-none font-mono"
                 />
               )}
             </div>
@@ -317,7 +317,7 @@ export default function NmapGeneratorPage() {
         <div className="mt-8 sticky bottom-8 z-50 glass-card rounded-2xl border border-[rgba(255,255,255,0.2)] bg-[rgba(20,20,20,0.8)] backdrop-blur-xl p-4 sm:p-6 shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col sm:flex-row gap-4 items-center">
           <div className="flex-grow w-full overflow-x-auto custom-scrollbar pb-2 sm:pb-0">
             <div className="font-mono text-xl text-[rgb(var(--c-accent))] whitespace-nowrap min-w-max">
-              <span className="text-white/50 select-none mr-2">$</span>
+              <span className="text-[rgb(var(--c-ink))]/50 select-none mr-2">$</span>
               {generatedCommand}
             </div>
           </div>

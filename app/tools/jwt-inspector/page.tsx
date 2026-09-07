@@ -95,13 +95,13 @@ export default function JwtInspectorPage() {
           <h1 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">JWT Inspector</h1>
           <p className="text-xl text-[rgb(var(--c-mute))]">Decode, inspect, and analyze JSON Web Tokens securely offline.</p>
           <div className="mt-4 flex gap-2">
-            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[rgba(255,255,255,0.1)]">
+            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[var(--c-glass-border)]">
               LOCAL ONLY
             </span>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 md:p-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 md:p-8">
           
           <div className="mb-6">
             <label className="block text-sm font-medium mb-2">JSON Web Token</label>
@@ -109,7 +109,7 @@ export default function JwtInspectorPage() {
               value={jwt}
               onChange={(e) => setJwt(e.target.value)}
               placeholder="Paste your JWT here (xxxxx.yyyyy.zzzzz)..."
-              className="w-full h-32 bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono text-sm break-all"
+              className="w-full h-32 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono text-sm break-all"
             />
           </div>
 
@@ -122,7 +122,7 @@ export default function JwtInspectorPage() {
             </button>
             <button 
               onClick={() => { setJwt(''); setResult(null); setError(null); }}
-              className="px-6 py-3 rounded-lg border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+              className="px-6 py-3 rounded-lg border border-[var(--c-glass-border)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
             >
               Clear
             </button>
@@ -147,27 +147,27 @@ export default function JwtInspectorPage() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div>
                   <h4 className="text-[rgb(var(--c-mute))] text-sm uppercase tracking-wider mb-2 font-bold">Header (Decoded)</h4>
-                  <pre className="bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.05)] p-4 rounded-xl overflow-x-auto text-[rgb(var(--c-accent))] font-mono text-sm">
+                  <pre className="bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] p-4 rounded-xl overflow-x-auto text-[rgb(var(--c-accent))] font-mono text-sm">
                     {JSON.stringify(result.header, null, 2)}
                   </pre>
                 </div>
                 <div>
                   <h4 className="text-[rgb(var(--c-mute))] text-sm uppercase tracking-wider mb-2 font-bold">Payload (Decoded)</h4>
-                  <pre className="bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.05)] p-4 rounded-xl overflow-x-auto text-[#4ade80] font-mono text-sm">
+                  <pre className="bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] p-4 rounded-xl overflow-x-auto text-[#4ade80] font-mono text-sm">
                     {JSON.stringify(result.payload, null, 2)}
                   </pre>
                 </div>
               </div>
 
-              <div className="bg-[rgba(0,0,0,0.2)] rounded-xl p-6 border border-[rgba(255,255,255,0.05)]">
+              <div className="bg-[rgba(0,0,0,0.2)] rounded-xl p-6 border border-[var(--c-glass-border)]">
                 <h4 className="text-[rgb(var(--c-mute))] text-sm uppercase tracking-wider mb-4 font-bold">Time Claims</h4>
                 <table className="w-full text-sm">
                   <tbody>
-                    <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                    <tr className="border-b border-[var(--c-glass-border)]">
                       <td className="py-2 text-[rgb(var(--c-mute))]">EXP (Expiration)</td>
                       <td className="py-2 font-mono text-right">{result.times.exp}</td>
                     </tr>
-                    <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                    <tr className="border-b border-[var(--c-glass-border)]">
                       <td className="py-2 text-[rgb(var(--c-mute))]">NBF (Not Before)</td>
                       <td className="py-2 font-mono text-right">{result.times.nbf}</td>
                     </tr>

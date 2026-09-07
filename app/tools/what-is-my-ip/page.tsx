@@ -95,7 +95,7 @@ export default function WhatIsMyIpPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Instantly check your public IPv4 and IPv6 address and network details.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 md:p-8 sm:p-10">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 md:p-8 sm:p-10">
           {loading ? (
             <div className="py-20 text-center animate-pulse">
               <div className="w-16 h-16 border-4 border-[rgb(var(--c-accent))] border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
@@ -117,11 +117,11 @@ export default function WhatIsMyIpPage() {
                   {info.ip}
                 </div>
                 <div className="mt-4 flex items-center justify-center gap-3">
-                  <span className="px-3 py-1 rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-sm font-mono">
+                  <span className="px-3 py-1 rounded-full bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] text-sm font-mono">
                     {info.type} Protocol
                   </span>
                   {info.loc && (
-                    <span className="px-3 py-1 rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-sm">
+                    <span className="px-3 py-1 rounded-full bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] text-sm">
                       {info.loc} Node
                     </span>
                   )}
@@ -129,7 +129,7 @@ export default function WhatIsMyIpPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] rounded-xl p-6">
+                <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-6">
                   <h3 className="text-lg font-bold font-display mb-6 flex items-center gap-2">
                     <svg className="w-5 h-5 text-[rgb(var(--c-accent))]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                     Location Data
@@ -150,7 +150,7 @@ export default function WhatIsMyIpPage() {
                   </div>
                 </div>
 
-                <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] rounded-xl p-6">
+                <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-6">
                   <h3 className="text-lg font-bold font-display mb-6 flex items-center gap-2">
                     <svg className="w-5 h-5 text-[rgb(var(--c-accent))]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
                     Network Provider

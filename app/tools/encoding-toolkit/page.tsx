@@ -95,20 +95,20 @@ export default function EncodingToolkitPage() {
           <h1 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">Encoding Toolkit</h1>
           <p className="text-xl text-[rgb(var(--c-mute))]">Encode and decode Base64, URL, HTML, Hex, and Binary formats securely offline.</p>
           <div className="mt-4 flex gap-2">
-            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[rgba(255,255,255,0.1)]">
+            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[var(--c-glass-border)]">
               LOCAL ONLY
             </span>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 md:p-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 md:p-8">
           
           <div className="mb-6 w-full md:w-64">
             <label className="block text-sm font-medium mb-2">Encoding Format</label>
             <select 
               value={encType}
               onChange={(e) => setEncType(e.target.value)}
-              className="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors"
+              className="w-full bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors"
             >
               <option value="base64">Base64</option>
               <option value="url">URL Encoding</option>
@@ -125,7 +125,7 @@ export default function EncodingToolkitPage() {
                 value={inputVal}
                 onChange={(e) => setInputVal(e.target.value)}
                 placeholder="Type here..."
-                className="w-full h-48 bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono text-sm"
+                className="w-full h-48 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono text-sm"
               />
             </div>
             
@@ -138,13 +138,13 @@ export default function EncodingToolkitPage() {
               </button>
               <button 
                 onClick={handleDecode}
-                className="px-4 py-2 border border-[rgba(255,255,255,0.1)] font-bold rounded-lg hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+                className="px-4 py-2 border border-[var(--c-glass-border)] font-bold rounded-lg hover:bg-[rgba(255,255,255,0.05)] transition-colors"
               >
                 &larr; Decode
               </button>
               <button 
                 onClick={swapText}
-                className="px-4 py-2 border border-[rgba(255,255,255,0.1)] text-[rgb(var(--c-mute))] text-sm rounded-lg hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+                className="px-4 py-2 border border-[var(--c-glass-border)] text-[rgb(var(--c-mute))] text-sm rounded-lg hover:bg-[rgba(255,255,255,0.05)] transition-colors"
               >
                 Swap ⇅
               </button>
@@ -156,7 +156,7 @@ export default function EncodingToolkitPage() {
                 value={outputVal}
                 readOnly
                 placeholder="Result will appear here..."
-                className="w-full h-48 bg-[rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono text-sm text-[rgb(var(--c-accent))]"
+                className="w-full h-48 bg-[rgba(0,0,0,0.2)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono text-sm text-[rgb(var(--c-accent))]"
               />
               <button 
                 onClick={copyOutput}
@@ -176,7 +176,7 @@ export default function EncodingToolkitPage() {
           <div>
             <button 
               onClick={() => { setInputVal(''); setOutputVal(''); setError(null); }}
-              className="px-6 py-2 rounded-lg border border-[rgba(255,255,255,0.1)] text-[rgb(var(--c-mute))] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+              className="px-6 py-2 rounded-lg border border-[var(--c-glass-border)] text-[rgb(var(--c-mute))] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
             >
               Clear All
             </button>

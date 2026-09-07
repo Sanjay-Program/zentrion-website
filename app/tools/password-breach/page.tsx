@@ -70,13 +70,13 @@ export default function PasswordBreachPage() {
           <h1 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">Password Breach Checker</h1>
           <p className="text-xl text-[rgb(var(--c-mute))]">Check if a password has been compromised using k-anonymity privacy protocols.</p>
           <div className="mt-4 flex gap-2">
-            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[rgba(255,255,255,0.1)]">
+            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[var(--c-glass-border)]">
               EXTERNAL API (K-ANONYMITY)
             </span>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 md:p-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 md:p-8">
           
           <form onSubmit={checkBreach} className="mb-8 relative">
             <label className="block text-sm font-medium mb-2">Password to Check</label>
@@ -87,7 +87,7 @@ export default function PasswordBreachPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter password to check breach corpus..."
-                  className="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 pr-20 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors"
+                  className="w-full bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 pr-20 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors"
                 />
                 <button 
                   type="button"
@@ -129,7 +129,7 @@ export default function PasswordBreachPage() {
             </div>
           )}
 
-          <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.05)] text-sm text-[rgb(var(--c-mute))]">
+          <div className="mt-8 pt-6 border-t border-[var(--c-glass-border)] text-sm text-[rgb(var(--c-mute))]">
             <strong>Privacy Note:</strong> This tool uses the k-anonymity model. Only the first 5 characters of the SHA-1 hash of your password are sent to the API. Your actual password is never transmitted.
           </div>
 

@@ -62,12 +62,12 @@ export default function CaesarCipherPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Easily encrypt or decrypt text using classic substitution ciphers by shifting the alphabet.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           
           <div className="max-w-2xl mx-auto mb-10">
             <div className="flex justify-between items-center mb-4">
-              <label className="text-sm font-semibold text-white">Shift Amount (ROT)</label>
-              <span className="text-[rgb(var(--c-accent))] font-mono font-bold text-2xl bg-[rgba(255,255,255,0.05)] px-4 py-1 rounded-lg border border-[rgba(255,255,255,0.1)]">
+              <label className="text-sm font-semibold text-[rgb(var(--c-ink))]">Shift Amount (ROT)</label>
+              <span className="text-[rgb(var(--c-accent))] font-mono font-bold text-2xl bg-[rgba(255,255,255,0.05)] px-4 py-1 rounded-lg border border-[var(--c-glass-border)]">
                 {shift > 0 ? '+' : ''}{shift}
               </span>
             </div>
@@ -110,23 +110,23 @@ export default function CaesarCipherPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-[400px]">
             
             <div className="flex flex-col h-full">
-              <label className="block text-sm font-semibold text-white mb-3">Input Text</label>
+              <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-3">Input Text</label>
               <textarea
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder="Type the message to encrypt or decrypt..."
-                className="flex-grow w-full p-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono resize-none custom-scrollbar text-lg leading-relaxed"
+                className="flex-grow w-full p-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono resize-none custom-scrollbar text-lg leading-relaxed"
                 spellCheck="false"
               />
             </div>
 
             <div className="flex flex-col h-full">
               <div className="flex justify-between items-center mb-3">
-                <label className="text-sm font-semibold text-white">Output Text</label>
+                <label className="text-sm font-semibold text-[rgb(var(--c-ink))]">Output Text</label>
                 <button
                   onClick={copyToClipboard}
                   disabled={!outputText}
-                  className="text-xs px-3 py-1 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] rounded text-white transition-colors disabled:opacity-50 flex items-center gap-1.5"
+                  className="text-xs px-3 py-1 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] rounded text-[rgb(var(--c-ink))] transition-colors disabled:opacity-50 flex items-center gap-1.5"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                   Copy
@@ -136,7 +136,7 @@ export default function CaesarCipherPage() {
                 readOnly
                 value={outputText}
                 placeholder="Shifted output will appear here..."
-                className="flex-grow w-full p-4 bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.05)] rounded-xl text-[rgb(var(--c-accent))] focus:outline-none transition-all font-mono resize-none custom-scrollbar text-lg leading-relaxed"
+                className="flex-grow w-full p-4 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-accent))] focus:outline-none transition-all font-mono resize-none custom-scrollbar text-lg leading-relaxed"
                 spellCheck="false"
               />
             </div>

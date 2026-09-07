@@ -80,13 +80,13 @@ export default function Base64ConverterPage() {
         </div>
 
         <div className="mb-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="inline-flex bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-lg p-1">
+          <div className="inline-flex bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-lg p-1">
             <button
               onClick={() => setMode('encode')}
               className={`px-6 py-2 rounded-md text-sm font-semibold transition-all ${
                 mode === 'encode' 
                   ? 'bg-[rgb(var(--c-accent))] text-[rgb(var(--c-void))] shadow-sm' 
-                  : 'text-[rgb(var(--c-mute))] hover:text-white'
+                  : 'text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))]'
               }`}
             >
               Encode (Text &rarr; Base64)
@@ -96,7 +96,7 @@ export default function Base64ConverterPage() {
               className={`px-6 py-2 rounded-md text-sm font-semibold transition-all ${
                 mode === 'decode' 
                   ? 'bg-[rgb(var(--c-accent))] text-[rgb(var(--c-void))] shadow-sm' 
-                  : 'text-[rgb(var(--c-mute))] hover:text-white'
+                  : 'text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))]'
               }`}
             >
               Decode (Base64 &rarr; Text)
@@ -112,7 +112,7 @@ export default function Base64ConverterPage() {
             </button>
             <button 
               onClick={copyToClipboard}
-              className="px-4 py-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] rounded-lg text-sm text-white transition-colors flex items-center gap-2"
+              className="px-4 py-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] rounded-lg text-sm text-[rgb(var(--c-ink))] transition-colors flex items-center gap-2"
             >
               {copied ? (
                 <><svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Copied!</>
@@ -132,9 +132,9 @@ export default function Base64ConverterPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[500px]">
           {/* Plain Text Pane */}
-          <div className={`glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md flex flex-col overflow-hidden transition-all duration-300 ${mode === 'encode' ? 'ring-2 ring-[rgb(var(--c-accent))] shadow-[0_0_30px_rgba(var(--c-accent-rgb),0.1)]' : ''}`}>
-            <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.02)] flex justify-between items-center">
-              <h3 className="text-white font-semibold flex items-center gap-2">
+          <div className={`glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md flex flex-col overflow-hidden transition-all duration-300 ${mode === 'encode' ? 'ring-2 ring-[rgb(var(--c-accent))] shadow-[0_0_30px_rgba(var(--c-accent-rgb),0.1)]' : ''}`}>
+            <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold flex items-center gap-2">
                 <svg className="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" /></svg>
                 Plain Text
               </h3>
@@ -147,15 +147,15 @@ export default function Base64ConverterPage() {
               }}
               readOnly={mode === 'decode'}
               placeholder={mode === 'encode' ? "Type or paste string here to encode..." : "Decoded result will appear here..."}
-              className={`w-full h-full p-6 bg-transparent text-white font-mono leading-relaxed focus:outline-none resize-none custom-scrollbar ${mode === 'decode' ? 'opacity-80' : ''}`}
+              className={`w-full h-full p-6 bg-transparent text-[rgb(var(--c-ink))] font-mono leading-relaxed focus:outline-none resize-none custom-scrollbar ${mode === 'decode' ? 'opacity-80' : ''}`}
               spellCheck="false"
             />
           </div>
 
           {/* Base64 Text Pane */}
-          <div className={`glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md flex flex-col overflow-hidden transition-all duration-300 ${mode === 'decode' ? 'ring-2 ring-[rgb(var(--c-accent))] shadow-[0_0_30px_rgba(var(--c-accent-rgb),0.1)]' : ''}`}>
-            <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.02)] flex justify-between items-center">
-              <h3 className="text-white font-semibold flex items-center gap-2">
+          <div className={`glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md flex flex-col overflow-hidden transition-all duration-300 ${mode === 'decode' ? 'ring-2 ring-[rgb(var(--c-accent))] shadow-[0_0_30px_rgba(var(--c-accent-rgb),0.1)]' : ''}`}>
+            <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold flex items-center gap-2">
                 <svg className="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                 Base64 String
               </h3>

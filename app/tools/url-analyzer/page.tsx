@@ -81,7 +81,7 @@ export default function UrlAnalyzerPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Safely parse and extract components from complex, obfuscated, or suspicious URLs.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={analyzeUrl} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-grow relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
@@ -92,7 +92,7 @@ export default function UrlAnalyzerPage() {
                 value={urlInput}
                 onChange={(e) => setUrlInput(e.target.value)}
                 placeholder="https://example.com/path?query=123#hash"
-                className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -119,7 +119,7 @@ export default function UrlAnalyzerPage() {
         {result && (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             {/* Visual URL Breakdown */}
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
+            <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl p-6 md:p-8">
               <h3 className="text-[rgb(var(--c-mute))] text-sm font-semibold uppercase tracking-widest mb-6">Normalized URL</h3>
               <div className="font-mono text-lg md:text-xl break-all leading-relaxed">
                 <span className={result.isSecure ? 'text-green-400 font-bold' : 'text-yellow-400 font-bold'}>{result.protocol}://</span>
@@ -128,7 +128,7 @@ export default function UrlAnalyzerPage() {
                     {result.username}{result.password ? `:${result.password}` : ''}@
                   </span>
                 )}
-                <span className="text-white font-bold">{result.hostname}</span>
+                <span className="text-[rgb(var(--c-ink))] font-bold">{result.hostname}</span>
                 {!result.port.includes('implicit') && result.port && (
                   <span className="text-purple-400">:{result.port}</span>
                 )}
@@ -138,7 +138,7 @@ export default function UrlAnalyzerPage() {
               </div>
               
               <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] rounded-lg p-4">
+                <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-lg p-4">
                   <div className="text-[rgb(var(--c-mute))] text-xs uppercase mb-1">Security</div>
                   <div className={`font-bold flex items-center gap-1 ${result.isSecure ? 'text-green-400' : 'text-yellow-400'}`}>
                     {result.isSecure ? (
@@ -148,21 +148,21 @@ export default function UrlAnalyzerPage() {
                     )}
                   </div>
                 </div>
-                <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] rounded-lg p-4">
+                <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-lg p-4">
                   <div className="text-[rgb(var(--c-mute))] text-xs uppercase mb-1">Target Type</div>
-                  <div className="font-bold text-white">
+                  <div className="font-bold text-[rgb(var(--c-ink))]">
                     {result.isIpUrl ? 'IP Address' : 'Domain Name'}
                   </div>
                 </div>
-                <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] rounded-lg p-4">
+                <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-lg p-4">
                   <div className="text-[rgb(var(--c-mute))] text-xs uppercase mb-1">Query Params</div>
-                  <div className="font-bold text-white">
+                  <div className="font-bold text-[rgb(var(--c-ink))]">
                     {Object.keys(result.searchParams).length} found
                   </div>
                 </div>
-                <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] rounded-lg p-4">
+                <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-lg p-4">
                   <div className="text-[rgb(var(--c-mute))] text-xs uppercase mb-1">Authentication</div>
-                  <div className="font-bold text-white">
+                  <div className="font-bold text-[rgb(var(--c-ink))]">
                     {result.username ? 'Present' : 'None'}
                   </div>
                 </div>
@@ -171,40 +171,40 @@ export default function UrlAnalyzerPage() {
 
             {/* Component Table */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden h-fit">
-                <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden h-fit">
+                <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4">
                   <h2 className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-widest font-semibold">URL Components</h2>
                 </div>
                 <table className="w-full text-left border-collapse">
-                  <tbody className="divide-y divide-[rgba(255,255,255,0.05)]">
-                    <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                  <tbody className="divide-y divide-[var(--c-glass-border)]">
+                    <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                       <td className="py-3 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">Protocol</td>
                       <td className="py-3 px-6 font-mono text-sm text-[rgb(var(--c-accent))]">{result.protocol}</td>
                     </tr>
-                    <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                    <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                       <td className="py-3 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">Hostname</td>
-                      <td className="py-3 px-6 font-mono text-sm text-white break-all">{result.hostname}</td>
+                      <td className="py-3 px-6 font-mono text-sm text-[rgb(var(--c-ink))] break-all">{result.hostname}</td>
                     </tr>
-                    <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                    <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                       <td className="py-3 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">Port</td>
                       <td className="py-3 px-6 font-mono text-sm text-purple-400">{result.port || '-'}</td>
                     </tr>
-                    <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                    <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                       <td className="py-3 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">Path</td>
                       <td className="py-3 px-6 font-mono text-sm text-blue-400 break-all">{result.pathname}</td>
                     </tr>
-                    <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                    <tr className="hover:bg-[var(--c-glass-bg)] transition-colors">
                       <td className="py-3 px-6 text-sm text-[rgb(var(--c-mute))] font-semibold">Hash / Fragment</td>
                       <td className="py-3 px-6 font-mono text-sm text-pink-400 break-all">{result.hash || '-'}</td>
                     </tr>
                     {result.username && (
-                      <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors bg-red-500/5">
+                      <tr className="hover:bg-[var(--c-glass-bg)] transition-colors bg-red-500/5">
                         <td className="py-3 px-6 text-sm text-red-400 font-semibold">Username</td>
                         <td className="py-3 px-6 font-mono text-sm text-red-400 break-all">{result.username}</td>
                       </tr>
                     )}
                     {result.password && (
-                      <tr className="hover:bg-[rgba(255,255,255,0.02)] transition-colors bg-red-500/5">
+                      <tr className="hover:bg-[var(--c-glass-bg)] transition-colors bg-red-500/5">
                         <td className="py-3 px-6 text-sm text-red-400 font-semibold">Password</td>
                         <td className="py-3 px-6 font-mono text-sm text-red-400 break-all">********</td>
                       </tr>
@@ -213,18 +213,18 @@ export default function UrlAnalyzerPage() {
                 </table>
               </div>
 
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden h-fit">
-                <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4 flex justify-between items-center">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden h-fit">
+                <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4 flex justify-between items-center">
                   <h2 className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-widest font-semibold">Query Parameters</h2>
-                  <span className="bg-[rgba(255,255,255,0.1)] text-white text-xs px-2 py-0.5 rounded-full">{Object.keys(result.searchParams).length}</span>
+                  <span className="bg-[rgba(255,255,255,0.1)] text-[rgb(var(--c-ink))] text-xs px-2 py-0.5 rounded-full">{Object.keys(result.searchParams).length}</span>
                 </div>
                 {Object.keys(result.searchParams).length > 0 ? (
                   <table className="w-full text-left border-collapse">
-                    <tbody className="divide-y divide-[rgba(255,255,255,0.05)]">
+                    <tbody className="divide-y divide-[var(--c-glass-border)]">
                       {Object.entries(result.searchParams).map(([key, value], idx) => (
-                        <tr key={idx} className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                        <tr key={idx} className="hover:bg-[var(--c-glass-bg)] transition-colors">
                           <td className="py-3 px-6 text-sm font-mono text-orange-400 break-all w-1/3">{key}</td>
-                          <td className="py-3 px-6 font-mono text-sm text-[rgba(255,255,255,0.8)] break-all">{value}</td>
+                          <td className="py-3 px-6 font-mono text-sm text-[rgb(var(--c-mute))] break-all">{value}</td>
                         </tr>
                       ))}
                     </tbody>

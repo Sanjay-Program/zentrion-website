@@ -67,20 +67,20 @@ export default function HashGeneratorPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Securely generate cryptographic hashes (SHA-256, SHA-512, etc.) directly in your browser.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
-          <label className="block text-sm font-semibold text-white mb-3">Input Text</label>
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
+          <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-3">Input Text</label>
           <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type or paste the string you want to hash..."
-            className="w-full h-32 px-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono resize-none"
+            className="w-full h-32 px-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono resize-none"
           />
         </div>
 
         <div className="space-y-4">
           {Object.entries(hashes).map(([type, hash]) => (
-            <div key={type} className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md overflow-hidden">
-              <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex justify-between items-center">
+            <div key={type} className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md overflow-hidden">
+              <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center">
                 <h3 className="text-[rgb(var(--c-accent))] font-bold uppercase tracking-widest text-sm flex items-center gap-2">
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
                   {type}
@@ -88,7 +88,7 @@ export default function HashGeneratorPage() {
                 <button
                   onClick={() => copyToClipboard(hash)}
                   disabled={!hash}
-                  className="text-xs px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] rounded text-white transition-colors disabled:opacity-50 flex items-center gap-1.5"
+                  className="text-xs px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] rounded text-[rgb(var(--c-ink))] transition-colors disabled:opacity-50 flex items-center gap-1.5"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                   Copy
@@ -96,7 +96,7 @@ export default function HashGeneratorPage() {
               </div>
               <div className="p-6 bg-[rgba(0,0,0,0.2)]">
                 {hash ? (
-                  <div className="font-mono text-white text-sm sm:text-base break-all leading-relaxed">
+                  <div className="font-mono text-[rgb(var(--c-ink))] text-sm sm:text-base break-all leading-relaxed">
                     {hash}
                   </div>
                 ) : (

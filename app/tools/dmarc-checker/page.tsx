@@ -162,7 +162,7 @@ export default function DmarcCheckerPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Validate your DMARC records to protect your domain from email spoofing and phishing.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={handleLookup} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-grow relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
@@ -173,7 +173,7 @@ export default function DmarcCheckerPage() {
                 value={domain}
                 onChange={(e) => setDomain(e.target.value)}
                 placeholder="e.g. google.com"
-                className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -234,8 +234,8 @@ export default function DmarcCheckerPage() {
 
             {result.record && (
               <>
-                <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden">
-                  <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4 flex justify-between items-center">
+                <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden">
+                  <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4 flex justify-between items-center">
                     <h2 className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-widest font-semibold">Raw TXT Record (_dmarc.{result.domain})</h2>
                     <span className="text-xs text-[rgb(var(--c-mute))] flex items-center gap-1">
                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -243,25 +243,25 @@ export default function DmarcCheckerPage() {
                     </span>
                   </div>
                   <div className="p-6">
-                    <div className="font-mono text-lg text-white bg-[rgba(255,255,255,0.02)] p-4 rounded-xl border border-[rgba(255,255,255,0.05)] break-all leading-relaxed">
+                    <div className="font-mono text-lg text-white bg-[var(--c-glass-bg)] p-4 rounded-xl border border-[var(--c-glass-border)] break-all leading-relaxed">
                       {result.record}
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden">
-                  <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4 flex justify-between items-center">
+                <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden">
+                  <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4 flex justify-between items-center">
                     <h2 className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-widest font-semibold">Parsed Tags</h2>
-                    <span className="bg-[rgba(255,255,255,0.1)] text-white text-xs px-2 py-0.5 rounded-full">{Object.keys(result.tags).length}</span>
+                    <span className="bg-[rgba(255,255,255,0.1)] text-[rgb(var(--c-ink))] text-xs px-2 py-0.5 rounded-full">{Object.keys(result.tags).length}</span>
                   </div>
                   <table className="w-full text-left border-collapse">
-                    <tbody className="divide-y divide-[rgba(255,255,255,0.05)]">
+                    <tbody className="divide-y divide-[var(--c-glass-border)]">
                       {Object.entries(result.tags).map(([key, val], idx) => (
-                        <tr key={idx} className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                        <tr key={idx} className="hover:bg-[var(--c-glass-bg)] transition-colors">
                           <td className="py-4 px-6 text-sm font-mono text-[rgb(var(--c-accent))] font-bold w-1/4">
                             {key}
                           </td>
-                          <td className="py-4 px-6 font-mono text-white text-sm w-1/3 break-all">
+                          <td className="py-4 px-6 font-mono text-[rgb(var(--c-ink))] text-sm w-1/3 break-all">
                             {val}
                           </td>
                           <td className="py-4 px-6 text-[rgb(var(--c-mute))] text-sm">

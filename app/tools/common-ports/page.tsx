@@ -78,7 +78,7 @@ export default function CommonPortsPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Search and reference standard TCP/UDP port assignments and their associated services.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <div className="relative max-w-2xl">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
@@ -88,16 +88,16 @@ export default function CommonPortsPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by port number (e.g., 443) or service (e.g., SSH, Database)..."
-              className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all"
+              className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all"
             />
           </div>
         </div>
 
-        <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden shadow-xl">
+        <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden shadow-xl">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
-                <tr className="bg-[rgba(255,255,255,0.03)] border-b border-[rgba(255,255,255,0.1)]">
+                <tr className="bg-[var(--c-glass-bg)] border-b border-[var(--c-glass-border)]">
                   <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm w-32">Port</th>
                   <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm w-32">Protocol</th>
                   <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm w-48">Service Name</th>
@@ -105,22 +105,22 @@ export default function CommonPortsPage() {
                   <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm w-32">Type</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[rgba(255,255,255,0.05)]">
+              <tbody className="divide-y divide-[var(--c-glass-border)]">
                 {filteredPorts.length > 0 ? (
                   filteredPorts.map((p) => (
-                    <tr key={`${p.port}-${p.protocol}`} className="hover:bg-[rgba(255,255,255,0.02)] transition-colors group">
+                    <tr key={`${p.port}-${p.protocol}`} className="hover:bg-[var(--c-glass-bg)] transition-colors group">
                       <td className="py-4 px-6">
                         <span className="font-mono text-xl font-bold text-[rgb(var(--c-accent))]">{p.port}</span>
                       </td>
                       <td className="py-4 px-6">
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-[rgb(var(--c-mute))] group-hover:text-white transition-colors">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-ink))] transition-colors">
                           {p.protocol}
                         </span>
                       </td>
                       <td className="py-4 px-6">
-                        <span className="font-bold text-white">{p.service}</span>
+                        <span className="font-bold text-[rgb(var(--c-ink))]">{p.service}</span>
                       </td>
-                      <td className="py-4 px-6 text-[rgba(255,255,255,0.7)] leading-relaxed">
+                      <td className="py-4 px-6 text-[rgb(var(--c-mute))] leading-relaxed">
                         {p.description}
                       </td>
                       <td className="py-4 px-6">

@@ -89,28 +89,28 @@ export default function UuidGeneratorPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Generate cryptographically secure Version 4 UUIDs instantly in your browser.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           
           <div className="flex flex-col sm:flex-row gap-6 items-end">
             
             <div className="w-full sm:w-1/3">
-              <label className="block text-sm font-semibold text-white mb-2">Quantity (1-1000)</label>
+              <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Quantity (1-1000)</label>
               <input
                 type="number"
                 min="1"
                 max="1000"
                 value={count}
                 onChange={(e) => setCount(parseInt(e.target.value) || 1)}
-                className="w-full px-4 py-3 bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg text-white focus:outline-none focus:border-[rgb(var(--c-accent))]"
+                className="w-full px-4 py-3 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg text-[rgb(var(--c-ink))] focus:outline-none focus:border-[rgb(var(--c-accent))]"
               />
             </div>
 
             <div className="w-full sm:w-1/3">
-              <label className="block text-sm font-semibold text-white mb-2">Format</label>
+              <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Format</label>
               <select
                 value={format}
                 onChange={(e) => setFormat(e.target.value as any)}
-                className="w-full px-4 py-3 bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg text-white focus:outline-none focus:border-[rgb(var(--c-accent))] appearance-none"
+                className="w-full px-4 py-3 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg text-[rgb(var(--c-ink))] focus:outline-none focus:border-[rgb(var(--c-accent))] appearance-none"
               >
                 <option value="standard">Standard (Lowercase)</option>
                 <option value="uppercase">Uppercase</option>
@@ -133,14 +133,14 @@ export default function UuidGeneratorPage() {
 
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md flex flex-col overflow-hidden h-[500px]">
-          <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex flex-wrap gap-4 justify-between items-center shrink-0">
-            <h3 className="text-white font-semibold">Generated UUIDs ({uuids.length})</h3>
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md flex flex-col overflow-hidden h-[500px]">
+          <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex flex-wrap gap-4 justify-between items-center shrink-0">
+            <h3 className="text-[rgb(var(--c-ink))] font-semibold">Generated UUIDs ({uuids.length})</h3>
             
             <div className="flex gap-2">
               <button
                 onClick={copyAll}
-                className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] text-white rounded text-sm transition-colors flex items-center gap-2"
+                className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] text-[rgb(var(--c-ink))] rounded text-sm transition-colors flex items-center gap-2"
               >
                 {copied ? (
                   <>
@@ -156,7 +156,7 @@ export default function UuidGeneratorPage() {
               </button>
               <button
                 onClick={downloadTxt}
-                className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] text-white rounded text-sm transition-colors flex items-center gap-2"
+                className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] text-[rgb(var(--c-ink))] rounded text-sm transition-colors flex items-center gap-2"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                 Download .txt

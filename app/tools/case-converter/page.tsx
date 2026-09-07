@@ -102,14 +102,14 @@ export default function CaseConverterPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Instantly convert strings into 12 different programming casing formats.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-12">
-          <label className="block text-sm font-semibold text-white mb-3">Input String</label>
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-12">
+          <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-3">Input String</label>
           <input
             type="text"
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="Type your string here (e.g. Hello World or hello-world)..."
-            className="w-full px-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-lg"
+            className="w-full px-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-lg"
             spellCheck="false"
           />
         </div>
@@ -117,10 +117,10 @@ export default function CaseConverterPage() {
         {inputText && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {cases.map((c, idx) => (
-              <div key={idx} className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-xl p-4 flex justify-between items-center group hover:bg-[rgba(255,255,255,0.04)] transition-colors">
+              <div key={idx} className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-4 flex justify-between items-center group hover:bg-[rgba(255,255,255,0.04)] transition-colors">
                 <div className="overflow-hidden pr-4">
                   <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">{c.label}</div>
-                  <div className="font-mono text-white text-lg truncate">
+                  <div className="font-mono text-[rgb(var(--c-ink))] text-lg truncate">
                     {c.value}
                   </div>
                 </div>

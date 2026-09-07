@@ -101,28 +101,28 @@ export default function LoremIpsumPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Generate random placeholder text for your mockups, wireframes, and prototypes instantly.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           
           <div className="flex flex-col sm:flex-row gap-6 items-end">
             
             <div className="w-full sm:w-1/3">
-              <label className="block text-sm font-semibold text-white mb-2">Count</label>
+              <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Count</label>
               <input
                 type="number"
                 min="1"
                 max="1000"
                 value={count}
                 onChange={(e) => setCount(parseInt(e.target.value) || 1)}
-                className="w-full px-4 py-3 bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg text-white focus:outline-none focus:border-[rgb(var(--c-accent))]"
+                className="w-full px-4 py-3 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg text-[rgb(var(--c-ink))] focus:outline-none focus:border-[rgb(var(--c-accent))]"
               />
             </div>
 
             <div className="w-full sm:w-1/3">
-              <label className="block text-sm font-semibold text-white mb-2">Type</label>
+              <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Type</label>
               <select
                 value={type}
                 onChange={(e) => setType(e.target.value as any)}
-                className="w-full px-4 py-3 bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg text-white focus:outline-none focus:border-[rgb(var(--c-accent))] appearance-none"
+                className="w-full px-4 py-3 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg text-[rgb(var(--c-ink))] focus:outline-none focus:border-[rgb(var(--c-accent))] appearance-none"
               >
                 <option value="paragraphs">Paragraphs</option>
                 <option value="sentences">Sentences</option>
@@ -142,7 +142,7 @@ export default function LoremIpsumPage() {
                   <div className={`block w-10 h-6 rounded-full transition-colors ${startWithLorem ? 'bg-[rgb(var(--c-accent))]' : 'bg-[rgba(255,255,255,0.1)]'}`}></div>
                   <div className={`absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${startWithLorem ? 'translate-x-4' : ''}`}></div>
                 </div>
-                <span className="text-sm text-white group-hover:text-[rgb(var(--c-accent))] transition-colors">
+                <span className="text-sm text-[rgb(var(--c-ink))] group-hover:text-[rgb(var(--c-accent))] transition-colors">
                   Start with "Lorem ipsum..."
                 </span>
               </label>
@@ -159,12 +159,12 @@ export default function LoremIpsumPage() {
 
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md flex flex-col overflow-hidden h-[600px]">
-          <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex justify-between items-center shrink-0">
-            <h3 className="text-white font-semibold">Generated Output</h3>
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md flex flex-col overflow-hidden h-[600px]">
+          <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center shrink-0">
+            <h3 className="text-[rgb(var(--c-ink))] font-semibold">Generated Output</h3>
             <button
               onClick={copyToClipboard}
-              className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] text-white rounded text-sm transition-colors flex items-center gap-2"
+              className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] text-[rgb(var(--c-ink))] rounded text-sm transition-colors flex items-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
               Copy Text
@@ -172,7 +172,7 @@ export default function LoremIpsumPage() {
           </div>
           
           <div className="flex-grow p-6 bg-[rgba(0,0,0,0.2)] overflow-y-auto custom-scrollbar">
-            <div className="text-white text-lg leading-relaxed whitespace-pre-wrap font-serif">
+            <div className="text-[rgb(var(--c-ink))] text-lg leading-relaxed whitespace-pre-wrap font-serif">
               {output}
             </div>
           </div>

@@ -126,8 +126,8 @@ export default function ColorConverterPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           <div className="space-y-6">
-            <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8">
-              <label className="block text-sm font-semibold text-white mb-3">Input Color (HEX or RGB)</label>
+            <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8">
+              <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-3">Input Color (HEX or RGB)</label>
               
               <div className="flex gap-4">
                 <input
@@ -141,7 +141,7 @@ export default function ColorConverterPage() {
                   value={hex}
                   onChange={handleInputChange}
                   placeholder="#000000"
-                  className="flex-grow px-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-lg"
+                  className="flex-grow px-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-lg"
                   spellCheck="false"
                 />
               </div>
@@ -155,7 +155,7 @@ export default function ColorConverterPage() {
             </div>
 
             <div 
-              className="w-full h-64 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] transition-colors duration-300 relative overflow-hidden"
+              className="w-full h-64 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] transition-colors duration-300 relative overflow-hidden"
               style={{ backgroundColor: hex }}
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent pointer-events-none"></div>
@@ -170,10 +170,10 @@ export default function ColorConverterPage() {
               { label: 'HSL', value: hsl },
               { label: 'CMYK', value: cmyk }
             ].map((color, idx) => (
-              <div key={idx} className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-4 flex justify-between items-center group transition-colors hover:bg-[rgba(255,255,255,0.04)]">
+              <div key={idx} className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-4 flex justify-between items-center group transition-colors hover:bg-[rgba(255,255,255,0.04)]">
                 <div>
                   <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">{color.label}</div>
-                  <div className="font-mono text-white text-lg">
+                  <div className="font-mono text-[rgb(var(--c-ink))] text-lg">
                     {color.value}
                   </div>
                 </div>
@@ -187,9 +187,9 @@ export default function ColorConverterPage() {
               </div>
             ))}
 
-            <div className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 mt-6">
-               <h3 className="text-white text-sm font-bold mb-3">CSS Variables Quick Copy</h3>
-               <div className="bg-[rgba(0,0,0,0.3)] p-4 rounded-lg font-mono text-sm text-[rgb(var(--c-accent))] relative group">
+            <div className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 mt-6">
+               <h3 className="text-[rgb(var(--c-ink))] text-sm font-bold mb-3">CSS Variables Quick Copy</h3>
+               <div className="bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] p-4 rounded-lg font-mono text-sm text-[rgb(var(--c-accent))] relative group">
                  <pre>
 {`:root {
   --color-primary: ${hex};

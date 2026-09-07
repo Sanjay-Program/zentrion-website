@@ -84,7 +84,7 @@ export default function JsonFormatterPage() {
             <select
               value={mode}
               onChange={(e) => setMode(e.target.value as any)}
-              className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-white rounded-lg px-4 py-2 outline-none focus:border-[rgb(var(--c-accent))]"
+              className="bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] text-[rgb(var(--c-ink))] rounded-lg px-4 py-2 outline-none focus:border-[rgb(var(--c-accent))]"
             >
               <option value="beautify">Beautify JSON</option>
               <option value="minify">Minify JSON</option>
@@ -94,7 +94,7 @@ export default function JsonFormatterPage() {
               <select
                 value={indent}
                 onChange={(e) => setIndent(parseInt(e.target.value))}
-                className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] text-white rounded-lg px-4 py-2 outline-none focus:border-[rgb(var(--c-accent))]"
+                className="bg-[rgba(255,255,255,0.05)] border border-[var(--c-glass-border)] text-[rgb(var(--c-ink))] rounded-lg px-4 py-2 outline-none focus:border-[rgb(var(--c-accent))]"
               >
                 <option value={2}>2 Spaces</option>
                 <option value={4}>4 Spaces</option>
@@ -113,15 +113,15 @@ export default function JsonFormatterPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-[700px]">
           
           {/* Input Pane */}
-          <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md flex flex-col overflow-hidden h-full">
-            <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex justify-between items-center shrink-0">
-              <h3 className="text-white font-semibold flex items-center gap-2">
+          <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md flex flex-col overflow-hidden h-full">
+            <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center shrink-0">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold flex items-center gap-2">
                 <span className="text-[rgb(var(--c-accent))] font-bold text-xl">{'{ }'}</span>
                 Input JSON
               </h3>
               <button
                 onClick={clearAll}
-                className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-red-500/20 hover:text-red-400 border border-[rgba(255,255,255,0.1)] rounded text-[rgb(var(--c-mute))] text-sm transition-colors"
+                className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-red-500/20 hover:text-red-400 border border-[var(--c-glass-border)] rounded text-[rgb(var(--c-mute))] text-sm transition-colors"
               >
                 Clear
               </button>
@@ -131,22 +131,22 @@ export default function JsonFormatterPage() {
               value={inputJson}
               onChange={(e) => setInputJson(e.target.value)}
               placeholder='{"name": "Zentrion", "type": "Toolkit"}'
-              className="flex-grow p-6 bg-transparent text-white font-mono text-sm leading-relaxed focus:outline-none resize-none custom-scrollbar whitespace-pre"
+              className="flex-grow p-6 bg-transparent text-[rgb(var(--c-ink))] font-mono text-sm leading-relaxed focus:outline-none resize-none custom-scrollbar whitespace-pre"
               spellCheck="false"
             />
           </div>
 
           {/* Output Pane */}
-          <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md flex flex-col overflow-hidden h-full relative">
-            <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex justify-between items-center shrink-0">
-              <h3 className="text-white font-semibold flex items-center gap-2">
+          <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md flex flex-col overflow-hidden h-full relative">
+            <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center shrink-0">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold flex items-center gap-2">
                 <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                 {mode === 'beautify' ? 'Formatted Output' : 'Minified Output'}
               </h3>
               <button
                 onClick={copyToClipboard}
                 disabled={!outputJson}
-                className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] text-white rounded text-sm transition-colors flex items-center gap-1.5 disabled:opacity-50"
+                className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] text-[rgb(var(--c-ink))] rounded text-sm transition-colors flex items-center gap-1.5 disabled:opacity-50"
               >
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                 Copy

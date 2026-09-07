@@ -89,7 +89,7 @@ export default function UnixTimestampPage() {
             <p className="text-xl text-[rgb(var(--c-mute))]">Convert Epoch time to human-readable dates and vice-versa instantly.</p>
           </div>
           
-          <div className="glass-card rounded-xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md px-6 py-4 flex flex-col items-center justify-center min-w-[250px]">
+          <div className="glass-card rounded-xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md px-6 py-4 flex flex-col items-center justify-center min-w-[250px]">
              <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">Current Epoch Time</div>
              <div className="font-mono text-3xl font-bold text-[rgb(var(--c-accent))]">{currentTimestamp}</div>
           </div>
@@ -98,33 +98,33 @@ export default function UnixTimestampPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* Unix to Date */}
-          <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between min-h-[400px]">
+          <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between min-h-[400px]">
             <div>
-              <h3 className="text-white font-bold text-xl mb-6">Unix to Date</h3>
-              <label className="block text-sm font-semibold text-white mb-2">Timestamp (Seconds or MS)</label>
+              <h3 className="text-[rgb(var(--c-ink))] font-bold text-xl mb-6">Unix to Date</h3>
+              <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Timestamp (Seconds or MS)</label>
               <input
                 type="number"
                 value={timestampStr}
                 onChange={(e) => setTimestampStr(e.target.value)}
                 placeholder="e.g. 1672531200"
-                className="w-full px-4 py-3 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-lg mb-8"
+                className="w-full px-4 py-3 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono text-lg mb-8"
               />
             </div>
             
             <div className="space-y-4">
-              <div className="bg-[rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] rounded-xl p-4">
+              <div className="bg-[rgba(0,0,0,0.2)] border border-[var(--c-glass-border)] rounded-xl p-4">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">Local Time</div>
-                <div className="text-white font-bold text-lg">
+                <div className="text-[rgb(var(--c-ink))] font-bold text-lg">
                   {convertedDate ? convertedDate.toLocaleString() : '-'}
                 </div>
               </div>
-              <div className="bg-[rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] rounded-xl p-4">
+              <div className="bg-[rgba(0,0,0,0.2)] border border-[var(--c-glass-border)] rounded-xl p-4">
                 <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">UTC / GMT Time</div>
-                <div className="text-white font-bold text-lg">
+                <div className="text-[rgb(var(--c-ink))] font-bold text-lg">
                   {convertedDate ? convertedDate.toUTCString() : '-'}
                 </div>
               </div>
-              <div className="bg-[rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] rounded-xl p-4 flex justify-between items-center group">
+              <div className="bg-[rgba(0,0,0,0.2)] border border-[var(--c-glass-border)] rounded-xl p-4 flex justify-between items-center group">
                 <div>
                   <div className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-wider font-semibold mb-1">ISO 8601 String</div>
                   <div className="font-mono text-[rgb(var(--c-accent))]">
@@ -132,42 +132,42 @@ export default function UnixTimestampPage() {
                   </div>
                 </div>
                 {convertedDate && (
-                  <button onClick={() => copyToClipboard(convertedDate.toISOString())} className="text-[rgb(var(--c-mute))] hover:text-white opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
+                  <button onClick={() => copyToClipboard(convertedDate.toISOString())} className="text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-ink))] opacity-0 group-hover:opacity-100 transition-opacity"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></button>
                 )}
               </div>
             </div>
           </div>
 
           {/* Date to Unix */}
-          <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between min-h-[400px]">
+          <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between min-h-[400px]">
             <div>
-              <h3 className="text-white font-bold text-xl mb-6">Date to Unix</h3>
+              <h3 className="text-[rgb(var(--c-ink))] font-bold text-xl mb-6">Date to Unix</h3>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <div className="flex-grow">
-                  <label className="block text-sm font-semibold text-white mb-2">Local Date</label>
+                  <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Local Date</label>
                   <input
                     type="date"
                     value={dateInput}
                     onChange={(e) => setDateInput(e.target.value)}
-                    className="w-full px-4 py-3 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                    className="w-full px-4 py-3 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                   />
                 </div>
                 <div className="sm:w-1/3">
-                  <label className="block text-sm font-semibold text-white mb-2">Local Time</label>
+                  <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-2">Local Time</label>
                   <input
                     type="time"
                     value={timeInput}
                     onChange={(e) => setTimeInput(e.target.value)}
-                    className="w-full px-4 py-3 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                    className="w-full px-4 py-3 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                   />
                 </div>
               </div>
             </div>
             
             <div className="space-y-4">
-              <div className="bg-[rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.05)] rounded-xl p-6 flex flex-col items-center justify-center h-48 relative group">
+              <div className="bg-[rgba(0,0,0,0.2)] border border-[var(--c-glass-border)] rounded-xl p-6 flex flex-col items-center justify-center h-48 relative group">
                 <div className="text-[rgb(var(--c-mute))] text-sm uppercase tracking-wider font-semibold mb-2">Unix Timestamp (Seconds)</div>
-                <div className="font-mono text-5xl font-bold text-white break-all">
+                <div className="font-mono text-5xl font-bold text-[rgb(var(--c-ink))] break-all">
                   {convertedTimestamp !== null ? convertedTimestamp : '-'}
                 </div>
                 

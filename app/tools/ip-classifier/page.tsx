@@ -102,13 +102,13 @@ export default function IpClassifierPage() {
           <h1 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">IP Classifier</h1>
           <p className="text-xl text-[rgb(var(--c-mute))]">Validate and classify IPv4 and IPv6 addresses. No geolocation is performed.</p>
           <div className="mt-4 flex gap-2">
-            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[rgba(255,255,255,0.1)]">
+            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[var(--c-glass-border)]">
               LOCAL ONLY
             </span>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 md:p-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 md:p-8">
           
           <form onSubmit={handleClassify} className="mb-8 relative">
             <label className="block text-sm font-medium mb-2">IP Address (IPv4 or IPv6)</label>
@@ -118,7 +118,7 @@ export default function IpClassifierPage() {
                 value={ipInput}
                 onChange={(e) => setIpInput(e.target.value)}
                 placeholder="e.g. 192.168.1.100 or fe80::1"
-                className="w-full flex-grow bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono"
+                className="w-full flex-grow bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono"
               />
               <button 
                 type="submit"
@@ -136,26 +136,26 @@ export default function IpClassifierPage() {
           )}
 
           {result && (
-            <div className="bg-[rgba(0,0,0,0.2)] rounded-xl p-6 border border-[rgba(255,255,255,0.05)] relative">
+            <div className="bg-[rgba(0,0,0,0.2)] rounded-xl p-6 border border-[var(--c-glass-border)] relative">
               <h4 className="text-[rgb(var(--c-mute))] text-sm uppercase tracking-wider mb-4 font-bold">Classification Result</h4>
               
               <table className="w-full text-left">
                 <tbody>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))] w-1/3">Version</td>
                     <td className="py-3 font-mono">{result.version}</td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))]">Normalized Address</td>
                     <td className="py-3 font-mono text-[rgb(var(--c-accent))] font-bold">{result.normalized}</td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))]">Classification</td>
                     <td className="py-3 font-bold" style={{ color: result.classification.includes('Public') ? 'rgb(var(--c-danger))' : '#4ade80' }}>
                       {result.classification}
                     </td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))]">Special Range</td>
                     <td className="py-3">{result.special}</td>
                   </tr>

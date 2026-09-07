@@ -71,7 +71,7 @@ export default function HttpStatusPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Quickly verify the HTTP response status code and redirection behavior of any URL.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={handleCheck} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-grow relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
@@ -82,7 +82,7 @@ export default function HttpStatusPage() {
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 placeholder="https://example.com"
-                className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -93,7 +93,7 @@ export default function HttpStatusPage() {
             >
               {loading ? (
                 <span className="flex items-center gap-2">
-                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                   Checking...
                 </span>
               ) : 'Check Status'}
@@ -114,7 +114,7 @@ export default function HttpStatusPage() {
         {result && (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 flex flex-col items-center justify-center text-center">
+              <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl p-8 flex flex-col items-center justify-center text-center">
                 <h3 className="text-[rgb(var(--c-mute))] text-sm font-semibold uppercase tracking-widest mb-4">Response Status</h3>
                 <div className={`text-6xl font-bold font-mono ${getStatusColor(result.status).split(' ')[0]}`}>
                   {result.status}
@@ -128,38 +128,38 @@ export default function HttpStatusPage() {
               </div>
 
               <div className="space-y-6">
-                <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6">
+                <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl p-6">
                   <h3 className="text-[rgb(var(--c-mute))] text-sm font-semibold uppercase tracking-widest mb-4">Resolution Details</h3>
                   
                   <div className="space-y-4">
                     <div>
                       <div className="text-[rgb(var(--c-mute))] text-xs mb-1">Target URL</div>
-                      <div className="font-mono text-sm text-white break-all bg-[rgba(255,255,255,0.02)] p-2 rounded border border-[rgba(255,255,255,0.05)]">
+                      <div className="font-mono text-sm text-[rgb(var(--c-ink))] break-all bg-[var(--c-glass-bg)] p-2 rounded border border-[var(--c-glass-border)]">
                         {result.url}
                       </div>
                     </div>
                     
-                    <div className="flex items-center justify-between py-2 border-b border-[rgba(255,255,255,0.05)]">
+                    <div className="flex items-center justify-between py-2 border-b border-[var(--c-glass-border)]">
                       <span className="text-[rgb(var(--c-mute))]">Response Time</span>
-                      <span className="font-mono text-white flex items-center gap-2">
+                      <span className="font-mono text-[rgb(var(--c-ink))] flex items-center gap-2">
                         <svg className="w-4 h-4 text-[rgb(var(--c-accent))]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         {result.responseTimeMs}ms
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-between py-2 border-b border-[rgba(255,255,255,0.05)]">
+                    <div className="flex items-center justify-between py-2 border-b border-[var(--c-glass-border)]">
                       <span className="text-[rgb(var(--c-mute))]">Redirected</span>
-                      <span className={`font-mono ${result.redirected ? 'text-blue-400' : 'text-white'}`}>
+                      <span className={`font-mono ${result.redirected ? 'text-blue-400' : 'text-[rgb(var(--c-ink))]'}`}>
                         {result.redirected ? 'Yes' : 'No'}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <Link href={`/tools/http-headers?url=${encodeURIComponent(url)}`} className="block w-full bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] hover:border-[rgb(var(--c-accent))] hover:bg-[rgba(var(--c-accent-rgb),0.05)] transition-all rounded-2xl p-6 group cursor-pointer">
+                <Link href={`/tools/http-headers?url=${encodeURIComponent(url)}`} className="block w-full bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] hover:border-[rgb(var(--c-accent))] hover:bg-[rgba(var(--c-accent-rgb),0.05)] transition-all rounded-2xl p-6 group cursor-pointer">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-white font-semibold flex items-center gap-2">
+                      <h3 className="text-[rgb(var(--c-ink))] font-semibold flex items-center gap-2">
                         <svg className="w-5 h-5 text-[rgb(var(--c-accent))]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" /></svg>
                         Inspect HTTP Headers
                       </h3>

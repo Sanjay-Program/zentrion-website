@@ -128,7 +128,7 @@ export default function ImageBase64Page() {
 
         {!base64String ? (
           <div 
-            className={`glass-card rounded-3xl border-2 border-dashed ${isDragging ? 'border-[rgb(var(--c-accent))] bg-[rgba(255,255,255,0.05)]' : 'border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)]'} backdrop-blur-md p-16 text-center transition-all cursor-pointer hover:border-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.04)] mb-8`}
+            className={`glass-card rounded-3xl border-2 border-dashed ${isDragging ? 'border-[rgb(var(--c-accent))] bg-[rgba(255,255,255,0.05)]' : 'border-[var(--c-glass-border)] bg-[var(--c-glass-bg)]'} backdrop-blur-md p-16 text-center transition-all cursor-pointer hover:border-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.04)] mb-8`}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
@@ -144,7 +144,7 @@ export default function ImageBase64Page() {
             <div className="bg-[rgba(255,255,255,0.05)] w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-[rgb(var(--c-accent))]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-2">Drag & Drop Image Here</h3>
+            <h3 className="text-2xl font-bold text-[rgb(var(--c-ink))] mb-2">Drag & Drop Image Here</h3>
             <p className="text-[rgb(var(--c-mute))] text-lg mb-6">or click to browse from your computer (max 5MB)</p>
             
             {error && (
@@ -155,14 +155,14 @@ export default function ImageBase64Page() {
           </div>
         ) : (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
-            <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-start">
+            <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 flex flex-col md:flex-row gap-8 items-start">
               
               <div className="w-full md:w-1/3 flex flex-col items-center">
-                <div className="w-full aspect-square rounded-xl overflow-hidden bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.05)] relative flex items-center justify-center mb-4">
+                <div className="w-full aspect-square rounded-xl overflow-hidden bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] relative flex items-center justify-center mb-4">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={base64String} alt={fileName} className="max-w-full max-h-full object-contain p-2" />
                 </div>
-                <h4 className="text-white font-bold text-center w-full truncate mb-1" title={fileName}>{fileName}</h4>
+                <h4 className="text-[rgb(var(--c-ink))] font-bold text-center w-full truncate mb-1" title={fileName}>{fileName}</h4>
                 <p className="text-[rgb(var(--c-mute))] text-sm">{formatSize(fileSize)}</p>
                 
                 <button
@@ -179,18 +179,18 @@ export default function ImageBase64Page() {
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
                     Copy Raw Base64
                   </button>
-                  <button onClick={copyAsHtml} className="px-4 py-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] text-white rounded-xl text-sm transition-colors flex items-center gap-2">
+                  <button onClick={copyAsHtml} className="px-4 py-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] text-[rgb(var(--c-ink))] rounded-xl text-sm transition-colors flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                     Copy HTML Tag
                   </button>
-                  <button onClick={copyAsCss} className="px-4 py-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] text-white rounded-xl text-sm transition-colors flex items-center gap-2">
+                  <button onClick={copyAsCss} className="px-4 py-2 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] text-[rgb(var(--c-ink))] rounded-xl text-sm transition-colors flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                     Copy CSS bg
                   </button>
                 </div>
                 
-                <div className="flex-grow bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.05)] rounded-xl relative overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 bg-[rgba(255,255,255,0.02)] border-b border-[rgba(255,255,255,0.05)] px-4 py-2 text-xs font-mono text-[rgb(var(--c-mute))] flex justify-between">
+                <div className="flex-grow bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-xl relative overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 bg-[var(--c-glass-bg)] border-b border-[var(--c-glass-border)] px-4 py-2 text-xs font-mono text-[rgb(var(--c-mute))] flex justify-between">
                     <span>Base64 Data URI</span>
                     <span>{base64String.length.toLocaleString()} characters</span>
                   </div>

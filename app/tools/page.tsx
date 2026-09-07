@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Zentrion Cyber Intelligence Suite | 70+ Free Security Tools',
-  description: 'The ultimate suite of 70+ free cybersecurity, networking, OSINT, and AI-powered intelligence tools. Analyze domains, test DNS, scan ports, and secure your digital assets.',
+  title: 'Zentrion Cyber Intelligence Suite | 30+ Free Security Tools',
+  description: 'The ultimate suite of 30+ free cybersecurity, networking, OSINT, and AI-powered intelligence tools. Analyze domains, test DNS, scan ports, and secure your digital assets.',
   openGraph: {
-    title: 'Zentrion Cyber Intelligence Suite | 70+ Free Security Tools',
-    description: 'The ultimate suite of 70+ free cybersecurity, networking, OSINT, and AI-powered intelligence tools.',
+    title: 'Zentrion Cyber Intelligence Suite | 30+ Free Security Tools',
+    description: 'The ultimate suite of 30+ free cybersecurity, networking, OSINT, and AI-powered intelligence tools.',
   },
 };
 
@@ -30,7 +30,7 @@ export default function ToolsDashboard() {
             Zentrion Cyber Intelligence Suite
           </h1>
           <p className="text-xl text-[rgb(var(--c-mute))] max-w-3xl mx-auto">
-            A comprehensive ecosystem of 70+ advanced networking, OSINT, and cybersecurity utilities. 
+            A comprehensive ecosystem of 30+ advanced networking, OSINT, and cybersecurity utilities. 
             Run full-stack domain audits, inspect certificates, and gather threat intelligence instantly.
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function ToolsDashboard() {
         {/* Categories Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {CATEGORIES.map((category) => (
-            <div key={category.name} className="glass-card rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 flex flex-col h-full hover:border-[rgba(255,255,255,0.15)] transition-colors">
+            <div key={category.name} className="glass-card rounded-xl border border-[rgba(255,255,255,0.08)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 flex flex-col h-full hover:border-[rgba(255,255,255,0.15)] transition-colors">
               <h3 className="text-2xl font-bold font-display mb-2">{category.name}</h3>
               <p className="text-[rgb(var(--c-mute))] text-sm mb-6">{category.description}</p>
               

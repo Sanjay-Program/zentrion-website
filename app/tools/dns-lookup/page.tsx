@@ -61,13 +61,13 @@ export default function DnsLookupPage() {
           <h1 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">DNS Lookup</h1>
           <p className="text-xl text-[rgb(var(--c-mute))]">Query global DNS records directly from your browser using Cloudflare DNS-over-HTTPS (DoH).</p>
           <div className="mt-4">
-            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[rgba(255,255,255,0.1)]">
+            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[var(--c-glass-border)]">
               EXTERNAL API
             </span>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 md:p-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 md:p-8">
           <form onSubmit={performLookup} className="flex flex-col md:flex-row gap-4 mb-8">
             <div className="flex-grow">
               <label className="block text-sm font-medium mb-2">Domain Name</label>
@@ -76,7 +76,7 @@ export default function DnsLookupPage() {
                 value={domain}
                 onChange={(e) => setDomain(e.target.value)}
                 placeholder="example.com"
-                className="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors"
+                className="w-full bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors"
                 required
               />
             </div>
@@ -85,7 +85,7 @@ export default function DnsLookupPage() {
               <select 
                 value={recordType}
                 onChange={(e) => setRecordType(e.target.value)}
-                className="w-full bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors"
+                className="w-full bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors"
               >
                 <option value="A">A (IPv4)</option>
                 <option value="AAAA">AAAA (IPv6)</option>
@@ -121,7 +121,7 @@ export default function DnsLookupPage() {
               ) : (
                 <table className="w-full text-left border-collapse">
                   <thead>
-                    <tr className="border-b border-[rgba(255,255,255,0.1)] text-[rgb(var(--c-mute))]">
+                    <tr className="border-b border-[var(--c-glass-border)] text-[rgb(var(--c-mute))]">
                       <th className="py-3 px-4">Name</th>
                       <th className="py-3 px-4">Type</th>
                       <th className="py-3 px-4">TTL</th>
@@ -130,7 +130,7 @@ export default function DnsLookupPage() {
                   </thead>
                   <tbody>
                     {results.map((ans, idx) => (
-                      <tr key={idx} className="border-b border-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                      <tr key={idx} className="border-b border-[var(--c-glass-border)] hover:bg-[var(--c-glass-bg)] transition-colors">
                         <td className="py-3 px-4 font-mono text-sm">{ans.name}</td>
                         <td className="py-3 px-4 font-mono text-sm">{typeMap[ans.type] || ans.type}</td>
                         <td className="py-3 px-4 font-mono text-sm">{ans.TTL}</td>

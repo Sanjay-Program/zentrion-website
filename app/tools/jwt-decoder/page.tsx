@@ -118,15 +118,15 @@ export default function JwtDecoderPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-auto lg:h-[650px]">
           
           {/* Input Pane */}
-          <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md flex flex-col overflow-hidden h-full">
-            <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex justify-between items-center shrink-0">
-              <h3 className="text-white font-semibold flex items-center gap-2">
+          <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md flex flex-col overflow-hidden h-full">
+            <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center shrink-0">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold flex items-center gap-2">
                 <svg className="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                 Encoded JWT
               </h3>
               <button
                 onClick={() => setToken('')}
-                className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-red-500/20 hover:text-red-400 border border-[rgba(255,255,255,0.1)] rounded text-[rgb(var(--c-mute))] text-sm transition-colors"
+                className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-red-500/20 hover:text-red-400 border border-[var(--c-glass-border)] rounded text-[rgb(var(--c-mute))] text-sm transition-colors"
               >
                 Clear
               </button>
@@ -136,7 +136,7 @@ export default function JwtDecoderPage() {
               value={token}
               onChange={(e) => setToken(e.target.value)}
               placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-              className="flex-grow p-6 bg-transparent text-white font-mono text-sm leading-relaxed focus:outline-none resize-none custom-scrollbar break-all whitespace-pre-wrap"
+              className="flex-grow p-6 bg-transparent text-[rgb(var(--c-ink))] font-mono text-sm leading-relaxed focus:outline-none resize-none custom-scrollbar break-all whitespace-pre-wrap"
               spellCheck="false"
             />
             
@@ -149,9 +149,9 @@ export default function JwtDecoderPage() {
           </div>
 
           {/* Output Pane */}
-          <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md flex flex-col overflow-hidden h-full">
-            <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)] flex justify-between items-center shrink-0 gap-4">
-              <h3 className="text-white font-semibold flex items-center gap-2">
+          <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md flex flex-col overflow-hidden h-full">
+            <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] flex justify-between items-center shrink-0 gap-4">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold flex items-center gap-2">
                 <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                 Decoded Token
               </h3>
@@ -171,23 +171,23 @@ export default function JwtDecoderPage() {
               )}
               
               {header && (
-                <div className="p-6 border-b border-[rgba(255,255,255,0.05)]">
+                <div className="p-6 border-b border-[var(--c-glass-border)]">
                   <h4 className="text-red-400 font-bold text-sm uppercase tracking-wider mb-2">Header</h4>
                   <pre className="text-red-300 font-mono text-sm overflow-x-auto custom-scrollbar">{header}</pre>
                 </div>
               )}
 
               {payload && (
-                <div className="p-6 border-b border-[rgba(255,255,255,0.05)]">
+                <div className="p-6 border-b border-[var(--c-glass-border)]">
                   <div className="flex justify-between items-center mb-2">
                     <h4 className="text-purple-400 font-bold text-sm uppercase tracking-wider">Payload</h4>
                   </div>
                   <pre className="text-purple-300 font-mono text-sm overflow-x-auto custom-scrollbar">{payload}</pre>
                   
                   {expiresAt && (
-                    <div className="mt-6 pt-4 border-t border-[rgba(255,255,255,0.05)]">
+                    <div className="mt-6 pt-4 border-t border-[var(--c-glass-border)]">
                       <div className="text-xs text-[rgb(var(--c-mute))] uppercase tracking-wider mb-1 font-bold">Expiration (exp)</div>
-                      <div className="text-white text-sm">{expiresAt.toLocaleString()}</div>
+                      <div className="text-[rgb(var(--c-ink))] text-sm">{expiresAt.toLocaleString()}</div>
                     </div>
                   )}
                 </div>

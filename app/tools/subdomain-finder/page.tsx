@@ -73,7 +73,7 @@ export default function SubdomainFinderPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Discover hidden subdomains by querying public Certificate Transparency (CT) logs.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={handleLookup} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-grow relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
@@ -84,7 +84,7 @@ export default function SubdomainFinderPage() {
                 value={domain}
                 onChange={(e) => setDomain(e.target.value)}
                 placeholder="e.g. netflix.com"
-                className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -95,7 +95,7 @@ export default function SubdomainFinderPage() {
             >
               {loading ? (
                 <span className="flex items-center gap-2">
-                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                  <svg className="animate-spin h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                   Scanning...
                 </span>
               ) : 'Scan Domain'}
@@ -118,10 +118,10 @@ export default function SubdomainFinderPage() {
         )}
 
         {result && (
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden shadow-xl">
-            <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden shadow-xl">
+            <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
               <div className="flex items-center gap-3">
-                <h2 className="text-white font-bold text-lg">
+                <h2 className="text-[rgb(var(--c-ink))] font-bold text-lg">
                   Reconnaissance Results
                 </h2>
                 <span className="px-3 py-1 bg-[rgba(255,255,255,0.1)] rounded-full text-sm font-mono text-[rgb(var(--c-accent))]">
@@ -135,11 +135,11 @@ export default function SubdomainFinderPage() {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder="Filter results..."
-                  className="w-full sm:w-48 px-3 py-1.5 bg-[rgba(0,0,0,0.2)] border border-[rgba(255,255,255,0.1)] rounded-lg text-sm text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] transition-all"
+                  className="w-full sm:w-48 px-3 py-1.5 bg-[rgba(0,0,0,0.2)] border border-[var(--c-glass-border)] rounded-lg text-sm text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] transition-all"
                 />
                 <button
                   onClick={copyToClipboard}
-                  className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] rounded-lg text-sm text-white transition-colors flex items-center gap-2 shrink-0"
+                  className="px-3 py-1.5 bg-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.1)] border border-[var(--c-glass-border)] rounded-lg text-sm text-[rgb(var(--c-ink))] transition-colors flex items-center gap-2 shrink-0"
                   title="Copy All to Clipboard"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
@@ -152,7 +152,7 @@ export default function SubdomainFinderPage() {
               {result.subdomains.length > 0 ? (
                 <div className="max-h-[600px] overflow-y-auto custom-scrollbar">
                   <table className="w-full text-left border-collapse">
-                    <thead className="sticky top-0 bg-[#0d1117] shadow-sm z-10 border-b border-[rgba(255,255,255,0.05)]">
+                    <thead className="sticky top-0 bg-[#0d1117] shadow-sm z-10 border-b border-[var(--c-glass-border)]">
                       <tr>
                         <th className="py-3 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm">#</th>
                         <th className="py-3 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm">Subdomain</th>
@@ -192,7 +192,7 @@ export default function SubdomainFinderPage() {
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[rgba(255,255,255,0.05)] text-[rgb(var(--c-mute))] mb-4">
                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">No Subdomains Discovered</h3>
+                  <h3 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-2">No Subdomains Discovered</h3>
                   <p className="text-[rgb(var(--c-mute))] max-w-md mx-auto">
                     We couldn't find any historical SSL certificates for <strong>{result.domain}</strong> in the public Certificate Transparency logs.
                   </p>

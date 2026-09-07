@@ -122,7 +122,7 @@ export default function IpBlacklistPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Scan an IP address across {BLACKLISTS.length} major anti-spam and malware DNSBL databases.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={handleScan} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-grow relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
@@ -133,7 +133,7 @@ export default function IpBlacklistPage() {
                 value={ip}
                 onChange={(e) => setIp(e.target.value)}
                 placeholder="e.g. 192.168.1.1"
-                className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -159,7 +159,7 @@ export default function IpBlacklistPage() {
 
         {hasResults && (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className={`p-6 rounded-2xl border ${listedCount > 0 ? 'bg-red-500/10 border-red-500/20 text-red-400' : (isQuerying ? 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.1)] text-white' : 'bg-green-500/10 border-green-500/20 text-green-400')} flex flex-col md:flex-row md:items-center justify-between gap-4`}>
+            <div className={`p-6 rounded-2xl border ${listedCount > 0 ? 'bg-red-500/10 border-red-500/20 text-red-400' : (isQuerying ? 'bg-[var(--c-glass-bg)] border-[var(--c-glass-border)] text-white' : 'bg-green-500/10 border-green-500/20 text-green-400')} flex flex-col md:flex-row md:items-center justify-between gap-4`}>
               <div className="flex items-center gap-4">
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center ${listedCount > 0 ? 'bg-red-500/20' : (isQuerying ? 'bg-[rgba(255,255,255,0.05)]' : 'bg-green-500/20')}`}>
                   {isQuerying ? (
@@ -181,19 +181,19 @@ export default function IpBlacklistPage() {
               </div>
             </div>
 
-            <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden">
+            <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[rgba(255,255,255,0.03)] border-b border-[rgba(255,255,255,0.1)]">
+                  <tr className="bg-[var(--c-glass-bg)] border-b border-[var(--c-glass-border)]">
                     <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm">DNSBL Provider</th>
                     <th className="py-4 px-6 text-[rgb(var(--c-mute))] font-semibold text-sm w-32">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[rgba(255,255,255,0.05)]">
+                <tbody className="divide-y divide-[var(--c-glass-border)]">
                   {Object.values(results).map((res) => (
-                    <tr key={res.provider.domain} className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                    <tr key={res.provider.domain} className="hover:bg-[var(--c-glass-bg)] transition-colors">
                       <td className="py-4 px-6">
-                        <div className="font-semibold text-white mb-1">{res.provider.name}</div>
+                        <div className="font-semibold text-[rgb(var(--c-ink))] mb-1">{res.provider.name}</div>
                         <div className="text-xs text-[rgb(var(--c-mute))]">{res.provider.domain}</div>
                       </td>
                       <td className="py-4 px-6 align-middle">

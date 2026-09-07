@@ -130,13 +130,13 @@ export default function CertificateDecoderPage() {
           <h1 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">Certificate Decoder</h1>
           <p className="text-xl text-[rgb(var(--c-mute))]">Parse and inspect X.509 PEM certificates securely in your browser.</p>
           <div className="mt-4 flex gap-2">
-            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[rgba(255,255,255,0.1)]">
+            <span className="inline-block px-3 py-1 bg-[rgba(255,255,255,0.05)] text-xs font-mono tracking-wider rounded-md border border-[var(--c-glass-border)]">
               LOCAL ONLY
             </span>
           </div>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 md:p-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 md:p-8">
           
           <div className="mb-6">
             <label className="block text-sm font-medium mb-2">Paste PEM Certificate</label>
@@ -144,7 +144,7 @@ export default function CertificateDecoderPage() {
               value={certInput}
               onChange={(e) => setCertInput(e.target.value)}
               placeholder={`-----BEGIN CERTIFICATE-----\n...\n-----END CERTIFICATE-----`}
-              className="w-full h-48 bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.1)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono text-sm break-all"
+              className="w-full h-48 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-lg px-4 py-3 focus:outline-none focus:border-[rgb(var(--c-accent))] transition-colors font-mono text-sm break-all"
             />
           </div>
 
@@ -157,7 +157,7 @@ export default function CertificateDecoderPage() {
             </button>
             <button 
               onClick={() => { setCertInput(''); setResult(null); setError(null); }}
-              className="px-6 py-3 rounded-lg border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+              className="px-6 py-3 rounded-lg border border-[var(--c-glass-border)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
             >
               Clear
             </button>
@@ -170,16 +170,16 @@ export default function CertificateDecoderPage() {
           )}
 
           {result && (
-            <div className="bg-[rgba(0,0,0,0.2)] rounded-xl p-6 border border-[rgba(255,255,255,0.05)]">
+            <div className="bg-[rgba(0,0,0,0.2)] rounded-xl p-6 border border-[var(--c-glass-border)]">
               <h4 className="text-[rgb(var(--c-mute))] text-sm uppercase tracking-wider mb-4 font-bold">Certificate Details</h4>
               
               <table className="w-full text-left table-fixed">
                 <tbody>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))] w-1/3 pr-4">SHA-256 Fingerprint</td>
                     <td className="py-3 font-mono text-[rgb(var(--c-accent))] break-all text-sm">{result.fingerprint}</td>
                   </tr>
-                  <tr className="border-b border-[rgba(255,255,255,0.05)]">
+                  <tr className="border-b border-[var(--c-glass-border)]">
                     <td className="py-3 text-[rgb(var(--c-mute))] pr-4">Status</td>
                     <td className="py-3 font-bold" style={{ color: result.statusColor }}>{result.expirationStatus}</td>
                   </tr>
@@ -189,7 +189,7 @@ export default function CertificateDecoderPage() {
                       <span className="text-xs opacity-70">(Subject/Issuer details)</span>
                     </td>
                     <td className="py-3">
-                      <ul className="list-disc pl-5 space-y-1 text-sm font-mono text-white">
+                      <ul className="list-disc pl-5 space-y-1 text-sm font-mono text-[rgb(var(--c-ink))]">
                         {result.strings.map((str: string, i: number) => (
                           <li key={i}>{str}</li>
                         ))}

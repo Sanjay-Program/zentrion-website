@@ -66,9 +66,9 @@ export default function TokenGeneratorPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Generate cryptographically secure randomized tokens for API keys, salts, and nonces.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-10 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-10 mb-8">
           
-          <div className="mb-8 p-6 bg-[rgba(0,0,0,0.3)] rounded-xl border border-[rgba(255,255,255,0.05)] relative group break-all min-h-[100px] flex items-center justify-center">
+          <div className="mb-8 p-6 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] rounded-xl border border-[var(--c-glass-border)] relative group break-all min-h-[100px] flex items-center justify-center">
             {token ? (
               <div className="font-mono text-2xl md:text-3xl text-[rgb(var(--c-accent))] text-center tracking-wider">
                 {token}
@@ -83,7 +83,7 @@ export default function TokenGeneratorPage() {
               className={`absolute top-4 right-4 p-2 rounded-lg transition-all ${
                 copied 
                   ? 'bg-green-500/20 text-green-400' 
-                  : 'bg-[rgba(255,255,255,0.1)] text-white hover:bg-[rgba(255,255,255,0.2)] opacity-0 group-hover:opacity-100'
+                  : 'bg-[rgba(255,255,255,0.1)] text-[rgb(var(--c-ink))] hover:bg-[rgba(255,255,255,0.2)] opacity-0 group-hover:opacity-100'
               }`}
             >
               {copied ? (
@@ -96,7 +96,7 @@ export default function TokenGeneratorPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div>
-              <label className="block text-sm font-semibold text-white mb-4">Token Length ({length})</label>
+              <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-4">Token Length ({length})</label>
               <input
                 type="range"
                 min="16"
@@ -120,7 +120,7 @@ export default function TokenGeneratorPage() {
                   <div className={`block w-10 h-6 rounded-full transition-colors ${includeUppercase ? 'bg-[rgb(var(--c-accent))]' : 'bg-[rgba(255,255,255,0.1)]'}`}></div>
                   <div className={`absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${includeUppercase ? 'translate-x-4' : ''}`}></div>
                 </div>
-                <span className="text-sm text-white font-medium">Uppercase (A-Z)</span>
+                <span className="text-sm text-[rgb(var(--c-ink))] font-medium">Uppercase (A-Z)</span>
               </label>
 
               <label className="flex items-center gap-3 cursor-pointer group">
@@ -129,7 +129,7 @@ export default function TokenGeneratorPage() {
                   <div className={`block w-10 h-6 rounded-full transition-colors ${includeLowercase ? 'bg-[rgb(var(--c-accent))]' : 'bg-[rgba(255,255,255,0.1)]'}`}></div>
                   <div className={`absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${includeLowercase ? 'translate-x-4' : ''}`}></div>
                 </div>
-                <span className="text-sm text-white font-medium">Lowercase (a-z)</span>
+                <span className="text-sm text-[rgb(var(--c-ink))] font-medium">Lowercase (a-z)</span>
               </label>
 
               <label className="flex items-center gap-3 cursor-pointer group">
@@ -138,7 +138,7 @@ export default function TokenGeneratorPage() {
                   <div className={`block w-10 h-6 rounded-full transition-colors ${includeNumbers ? 'bg-[rgb(var(--c-accent))]' : 'bg-[rgba(255,255,255,0.1)]'}`}></div>
                   <div className={`absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${includeNumbers ? 'translate-x-4' : ''}`}></div>
                 </div>
-                <span className="text-sm text-white font-medium">Numbers (0-9)</span>
+                <span className="text-sm text-[rgb(var(--c-ink))] font-medium">Numbers (0-9)</span>
               </label>
 
               <label className="flex items-center gap-3 cursor-pointer group">
@@ -147,7 +147,7 @@ export default function TokenGeneratorPage() {
                   <div className={`block w-10 h-6 rounded-full transition-colors ${includeSymbols ? 'bg-[rgb(var(--c-accent))]' : 'bg-[rgba(255,255,255,0.1)]'}`}></div>
                   <div className={`absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${includeSymbols ? 'translate-x-4' : ''}`}></div>
                 </div>
-                <span className="text-sm text-white font-medium">Symbols (!@#$)</span>
+                <span className="text-sm text-[rgb(var(--c-ink))] font-medium">Symbols (!@#$)</span>
               </label>
             </div>
           </div>

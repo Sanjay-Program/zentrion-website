@@ -79,7 +79,7 @@ export default function RegexTesterPage() {
           html += testString.substring(lastIndex, m.index).replace(/</g, '&lt;').replace(/>/g, '&gt;');
           // Add highlighted match (alternate colors)
           const colorClass = i % 2 === 0 ? 'bg-blue-500/40 text-blue-100' : 'bg-purple-500/40 text-purple-100';
-          html += `<mark class="rounded px-0.5 ${colorClass} bg-opacity-60 text-white font-bold bg-transparent">${m.match.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</mark>`;
+          html += `<mark class="rounded px-0.5 ${colorClass} bg-opacity-60 text-[rgb(var(--c-ink))] font-bold bg-transparent">${m.match.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</mark>`;
           lastIndex = m.index + m.match.length;
         });
         
@@ -119,24 +119,24 @@ export default function RegexTesterPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Evaluate JavaScript Regular Expressions in real-time. Highlights matches and extracts capture groups.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           
-          <label className="block text-sm font-semibold text-white mb-3">Regular Expression</label>
+          <label className="block text-sm font-semibold text-[rgb(var(--c-ink))] mb-3">Regular Expression</label>
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <div className="flex-grow flex items-center bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl focus-within:border-[rgb(var(--c-accent))] focus-within:ring-1 focus-within:ring-[rgb(var(--c-accent))] transition-all overflow-hidden">
+            <div className="flex-grow flex items-center bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl focus-within:border-[rgb(var(--c-accent))] focus-within:ring-1 focus-within:ring-[rgb(var(--c-accent))] transition-all overflow-hidden">
               <span className="pl-4 pr-2 text-[rgb(var(--c-accent))] font-mono font-bold text-xl">/</span>
               <input
                 type="text"
                 value={pattern}
                 onChange={(e) => setPattern(e.target.value)}
                 placeholder="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                className="w-full py-4 bg-transparent text-white placeholder-[rgb(var(--c-mute))] focus:outline-none font-mono text-lg"
+                className="w-full py-4 bg-transparent text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none font-mono text-lg"
                 spellCheck="false"
               />
               <span className="pr-4 pl-2 text-[rgb(var(--c-accent))] font-mono font-bold text-xl">/</span>
             </div>
             
-            <div className="flex bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl p-1 shrink-0 h-14">
+            <div className="flex bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-1 shrink-0 h-14">
               <button 
                 onClick={() => toggleFlag('g')}
                 className={`w-12 rounded-lg font-mono font-bold transition-colors ${flags.includes('g') ? 'bg-[rgb(var(--c-accent))] text-[rgb(var(--c-void))]' : 'text-[rgb(var(--c-mute))] hover:text-white'}`}
@@ -165,24 +165,24 @@ export default function RegexTesterPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label className="text-sm font-semibold text-white">Test String</label>
+                <label className="text-sm font-semibold text-[rgb(var(--c-ink))]">Test String</label>
               </div>
               <textarea
                 value={testString}
                 onChange={(e) => setTestString(e.target.value)}
                 placeholder="Paste the text you want to test your regex against here..."
-                className="w-full h-[300px] p-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono resize-none custom-scrollbar"
+                className="w-full h-[300px] p-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono resize-none custom-scrollbar"
                 spellCheck="false"
               />
             </div>
             
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label className="text-sm font-semibold text-white">Highlighted Matches</label>
+                <label className="text-sm font-semibold text-[rgb(var(--c-ink))]">Highlighted Matches</label>
                 <span className="text-[rgb(var(--c-accent))] text-sm font-bold bg-[rgba(255,255,255,0.05)] px-2 py-0.5 rounded">{matches.length} Matches</span>
               </div>
               <div 
-                className="w-full h-[300px] p-4 bg-[rgba(0,0,0,0.3)] border border-[rgba(255,255,255,0.05)] rounded-xl text-[rgba(255,255,255,0.7)] font-mono resize-none overflow-y-auto custom-scrollbar whitespace-pre-wrap break-words"
+                className="w-full h-[300px] p-4 bg-[rgba(17,17,17,0.05)] dark:bg-[rgba(0,0,0,0.3)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-mute))] font-mono resize-none overflow-y-auto custom-scrollbar whitespace-pre-wrap break-words"
                 dangerouslySetInnerHTML={{ __html: highlightedHtml || '<span class="italic opacity-50">No matches found...</span>' }}
               />
             </div>
@@ -190,16 +190,16 @@ export default function RegexTesterPage() {
         </div>
 
         {matches.length > 0 && (
-          <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md overflow-hidden">
-            <div className="px-6 py-4 border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.03)]">
-              <h3 className="text-white font-semibold flex items-center gap-2">
+          <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md overflow-hidden">
+            <div className="px-6 py-4 border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)]">
+              <h3 className="text-[rgb(var(--c-ink))] font-semibold flex items-center gap-2">
                 <svg className="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" /></svg>
                 Match Results & Capture Groups
               </h3>
             </div>
             <div className="bg-[rgba(0,0,0,0.2)] overflow-x-auto p-0 max-h-[400px] overflow-y-auto custom-scrollbar">
               <table className="w-full text-left border-collapse">
-                <thead className="border-b border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.02)] sticky top-0 backdrop-blur-md z-10">
+                <thead className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] sticky top-0 backdrop-blur-md z-10">
                   <tr>
                     <th className="py-3 px-6 text-[rgb(var(--c-mute))] font-semibold text-xs uppercase tracking-wider w-16">#</th>
                     <th className="py-3 px-6 text-[rgb(var(--c-mute))] font-semibold text-xs uppercase tracking-wider">Match</th>
@@ -207,21 +207,21 @@ export default function RegexTesterPage() {
                     <th className="py-3 px-6 text-[rgb(var(--c-mute))] font-semibold text-xs uppercase tracking-wider">Groups</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[rgba(255,255,255,0.05)]">
+                <tbody className="divide-y divide-[var(--c-glass-border)]">
                   {matches.map((m, idx) => (
-                    <tr key={idx} className="hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+                    <tr key={idx} className="hover:bg-[var(--c-glass-bg)] transition-colors">
                       <td className="py-4 px-6 text-[rgb(var(--c-mute))] font-mono text-sm">{idx + 1}</td>
                       <td className="py-4 px-6 font-mono text-sm text-[rgb(var(--c-accent))] font-bold break-all">
                         {m.match}
                       </td>
-                      <td className="py-4 px-6 text-white font-mono text-sm">
+                      <td className="py-4 px-6 text-[rgb(var(--c-ink))] font-mono text-sm">
                         {m.index} - {m.index + m.match.length}
                       </td>
-                      <td className="py-4 px-6 font-mono text-sm text-white">
+                      <td className="py-4 px-6 font-mono text-sm text-[rgb(var(--c-ink))]">
                         {m.groups.length > 0 ? (
                           <div className="flex flex-col gap-1">
                             {m.groups.map((g, gIdx) => (
-                              <div key={gIdx} className="bg-[rgba(255,255,255,0.05)] px-2 py-1 rounded border border-[rgba(255,255,255,0.1)] inline-block w-fit">
+                              <div key={gIdx} className="bg-[rgba(255,255,255,0.05)] px-2 py-1 rounded border border-[var(--c-glass-border)] inline-block w-fit">
                                 <span className="text-[rgb(var(--c-mute))] mr-2 text-xs">Group {gIdx + 1}:</span>
                                 {g || <span className="italic opacity-50">undefined</span>}
                               </div>

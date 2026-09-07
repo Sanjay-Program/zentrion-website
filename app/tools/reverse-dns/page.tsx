@@ -83,7 +83,7 @@ export default function ReverseDnsPage() {
           <p className="text-xl text-[rgb(var(--c-mute))]">Perform a PTR record lookup to find the hostname associated with an IP address.</p>
         </div>
 
-        <div className="glass-card rounded-2xl border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-md p-6 sm:p-8 mb-8">
+        <div className="glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
           <form onSubmit={handleLookup} className="flex flex-col sm:flex-row gap-4">
             <div className="flex-grow relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[rgb(var(--c-mute))]">
@@ -94,7 +94,7 @@ export default function ReverseDnsPage() {
                 value={ip}
                 onChange={(e) => setIp(e.target.value)}
                 placeholder="e.g. 8.8.8.8"
-                className="w-full pl-12 pr-4 py-4 bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
+                className="w-full pl-12 pr-4 py-4 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl text-[rgb(var(--c-ink))] placeholder-[rgb(var(--c-mute))] focus:outline-none focus:border-[rgb(var(--c-accent))] focus:ring-1 focus:ring-[rgb(var(--c-accent))] transition-all font-mono"
                 required
               />
             </div>
@@ -119,8 +119,8 @@ export default function ReverseDnsPage() {
         )}
 
         {result && (
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.1)] rounded-2xl overflow-hidden">
-            <div className="border-b border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] px-6 py-4 flex justify-between items-center">
+          <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-2xl overflow-hidden">
+            <div className="border-b border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] px-6 py-4 flex justify-between items-center">
               <h2 className="text-[rgb(var(--c-mute))] text-xs uppercase tracking-widest font-semibold flex items-center gap-2">
                 PTR Record Analysis
               </h2>
@@ -134,7 +134,7 @@ export default function ReverseDnsPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <h3 className="text-[rgb(var(--c-mute))] text-sm font-medium mb-2">Original IP</h3>
-                  <div className="font-mono text-lg text-white bg-[rgba(255,255,255,0.03)] p-3 rounded-lg border border-[rgba(255,255,255,0.05)]">
+                  <div className="font-mono text-lg text-white bg-[var(--c-glass-bg)] p-3 rounded-lg border border-[var(--c-glass-border)]">
                     {result.ip}
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export default function ReverseDnsPage() {
               </div>
 
               <div>
-                <h3 className="text-white font-display font-semibold text-lg mb-4 flex items-center gap-2">
+                <h3 className="text-[rgb(var(--c-ink))] font-display font-semibold text-lg mb-4 flex items-center gap-2">
                   <svg className="w-5 h-5 text-[rgb(var(--c-accent))]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
                   Resolved Hostnames
                 </h3>
@@ -155,8 +155,8 @@ export default function ReverseDnsPage() {
                 {result.hostnames.length > 0 ? (
                   <div className="space-y-3">
                     {result.hostnames.map((host, i) => (
-                      <div key={i} className="flex items-center justify-between bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)] rounded-xl p-4 hover:border-[rgb(var(--c-accent))] transition-colors">
-                        <span className="font-mono text-lg text-white break-all">{host.replace(/\.$/, '')}</span>
+                      <div key={i} className="flex items-center justify-between bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-4 hover:border-[rgb(var(--c-accent))] transition-colors">
+                        <span className="font-mono text-lg text-[rgb(var(--c-ink))] break-all">{host.replace(/\.$/, '')}</span>
                         <span className="px-3 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-full text-xs font-bold uppercase tracking-wide shrink-0 ml-4">
                           PTR Match
                         </span>
@@ -164,7 +164,7 @@ export default function ReverseDnsPage() {
                     ))}
                   </div>
                 ) : (
-                  <div className="bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.05)] rounded-xl p-8 text-center">
+                  <div className="bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] rounded-xl p-8 text-center">
                     <svg className="w-12 h-12 text-[rgb(var(--c-mute))] mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     <p className="text-[rgb(var(--c-mute))]">No PTR records found for this IP address.</p>
                   </div>
