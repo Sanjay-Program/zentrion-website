@@ -1,77 +1,50 @@
-export async function onRequestGet({ request, env }: { request: Request, env: any }) {
+export async function onRequestGet({ request }: { request: Request }) {
   const urlParams = new URL(request.url).searchParams;
-  const domain = urlParams.get('domain')?.trim().toLowerCase();
+  let domain = urlParams.get('domain')?.trim();
 
   if (!domain) {
-    return Response.json({ error: 'Please provide a domain name.' }, { status: 400 });
+    return Response.json({ error: 'Please provide a domain.' }, { status: 400 });
   }
 
-  // Basic domain validation
-  if (!/^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$/.test(domain)) {
-    return Response.json({ error: 'Invalid domain format.' }, { status: 400 });
-  }
-
-  // Check if API key is provided in Cloudflare environment variables
-  const apiKey = env.WHOIS_API_KEY;
-
-  if (!apiKey) {
-    // Return mock data if no API key is configured yet
-    return Response.json({
-      domain: domain,
-      domain_id: `MOCK_ID_${Math.floor(Math.random() * 1000000)}`,
-      status: "clientTransferProhibited",
-      create_date: "1997-09-15T04:00:00Z",
-      update_date: new Date().toISOString(),
-      expire_date: new Date(Date.now() + 31536000000).toISOString(),
-      domain_age: 9500,
-      whois_server: `whois.mock-registrar.com`,
-      registrar: {
-        iana_id: "1337",
-        name: "Mock Registrar, LLC",
-        url: "https://mock-registrar.com"
-      },
-      registrant: {
-        name: "DATA REDACTED",
-        organization: "DATA REDACTED",
-        street_address: "REDACTED FOR PRIVACY",
-        city: "REDACTED",
-        region: "REDACTED",
-        zip_code: "REDACTED",
-        country: "US",
-        phone: "REDACTED",
-        fax: "REDACTED",
-        email: "mock-privacy@contactprivacy.com"
-      },
-      nameservers: [
-        "ns1.mock-dns.com",
-        "ns2.mock-dns.com"
-      ],
-      _mock: true,
-      _message: "Configure the WHOIS_API_KEY environment variable in Cloudflare to enable real live lookups."
-    });
-  }
+  // Basic sanitization
+  domain = domain.replace(/^https?:\/\//, '').split('/')[0].toLowerCase();
+  
+  // RDAP is the modern successor to WHOIS. 
+  // We use rdap.org which redirects to the correct authoritative registry.
+  const rdapUrl = `https://rdap.org/domain/${domain}`;
 
   try {
-    // Implement live lookup using IP2WHOIS API
-    const res = await fetch(`https://api.ip2whois.com/v2?key=${apiKey}&domain=${encodeURIComponent(domain)}`, {
-      cf: {
-        cacheTtl: 86400, // Cache WHOIS lookups for 24 hours to save API credits
-      }
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+
+    const res = await fetch(rdapUrl, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/rdap+json',
+        'User-Agent': 'Zentrion-Cyber-Suite/1.0 (WHOIS Recon)'
+      },
+      signal: controller.signal
     });
 
+    clearTimeout(timeoutId);
+
     if (!res.ok) {
-      return Response.json({ error: 'WHOIS provider returned an error.' }, { status: 502 });
+      if (res.status === 404) {
+        return Response.json({ error: 'Domain not found or not registered.' }, { status: 404 });
+      }
+      throw new Error(`RDAP returned status ${res.status}`);
     }
 
     const data = await res.json();
-    
-    if (data.error) {
-      return Response.json({ error: data.error.error_message || 'Domain lookup failed.' }, { status: 400 });
-    }
-
     return Response.json(data);
 
-  } catch (err) {
-    return Response.json({ error: 'Failed to contact WHOIS servers.' }, { status: 502 });
+  } catch (err: any) {
+    if (err.name === 'AbortError') {
+      return Response.json({ error: 'RDAP query timed out.' }, { status: 504 });
+    }
+    return Response.json({ 
+      error: 'Failed to fetch domain registration data.',
+      details: err.message
+    }, { status: 500 });
   }
 }
