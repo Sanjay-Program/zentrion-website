@@ -1,9 +1,4 @@
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'No Internet Connection | Zentrion Technologies',
-  description: 'You are currently offline. Please check your internet connection.',
-};
+'use client';
 
 export default function OfflinePage() {
   return (
