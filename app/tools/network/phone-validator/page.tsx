@@ -51,6 +51,7 @@ export default function PhoneValidatorPage() {
           <h1 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">Phone & SIM Intelligence</h1>
           <p className="text-xl text-[rgb(var(--c-mute))] max-w-2xl">
             Validate phone number format, verify E.164 syntax, identify line type (Mobile/SIM or Fixed), and lookup estimated carrier networks globally.
+            <br/><span className="text-sm mt-2 block opacity-70">Note: Carrier detection is algorithmic and relies on original allocations. It may not reflect numbers ported via Mobile Number Portability (MNP).</span>
           </p>
         </div>
 

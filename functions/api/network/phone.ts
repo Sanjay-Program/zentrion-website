@@ -26,27 +26,23 @@ function getNetworkDetails(parsedNumber: any, clean: string) {
     const p3 = national.substring(0, 3);
     const p4 = national.substring(0, 4);
     
-    // Explicit Jio Prefixes
-    const jio4 = ['8072', '8079', '8073'];
-    const jio2 = ['70', '79', '63', '89', '87', '91', '93', '77', '60', '61', '62', '66', '67', '68', '69'];
-    
-    // Explicit Airtel Prefixes
-    const airtel4 = ['7305', '7339', '7358', '7373', '7397'];
-    const airtel2 = ['98', '99', '97', '96', '95', '72', '74', '78', '81', '83', '85', '88', '90', '92'];
-    
-    // BSNL
-    const bsnl = ['94', '84'];
+    // We use a broader, albeit estimation-based, list of allocations (Pre-MNP).
+    // Note: Due to Mobile Number Portability, true accuracy requires an HLR lookup API.
+    const jioPrefixes = ['60', '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '79', '87', '89', '91', '93', '77'];
+    const airtelPrefixes = ['72', '73', '74', '78', '81', '83', '85', '88', '90', '92', '95', '96', '97', '98', '99'];
+    const viPrefixes = ['75', '76', '80', '82', '86', '89']; // Vi (Vodafone Idea)
+    const bsnlPrefixes = ['84', '94'];
 
-    if (airtel4.includes(p4) || airtel2.includes(p2)) {
-      carrier = 'Bharti Airtel';
-    } else if (jio4.includes(p4) || jio2.includes(p2)) {
-      carrier = 'Reliance Jio';
-    } else if (bsnl.includes(p2)) {
-      carrier = 'BSNL';
-    } else if (['80', '82', '86', '75', '76'].includes(p2)) {
-      carrier = 'Vodafone Idea (Vi)';
+    if (airtelPrefixes.includes(p2)) {
+      carrier = 'Bharti Airtel (Estimated)';
+    } else if (jioPrefixes.includes(p2) || ['8072', '8079', '8073'].includes(p4)) {
+      carrier = 'Reliance Jio (Estimated)';
+    } else if (viPrefixes.includes(p2)) {
+      carrier = 'Vodafone Idea / Vi (Estimated)';
+    } else if (bsnlPrefixes.includes(p2)) {
+      carrier = 'BSNL (Estimated)';
     } else {
-      carrier = 'Indian Telecom Network';
+      carrier = 'Indian Network (Check MNP)';
     }
   } else if (country === 'US' || country === 'CA') {
      const areaCode = parsedNumber.nationalNumber.substring(0, 3);
