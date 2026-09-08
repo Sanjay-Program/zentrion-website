@@ -35,7 +35,7 @@ function getNetworkDetails(parsedNumber: any, clean: string) {
 
     if (airtelPrefixes.includes(p2)) {
       carrier = 'Bharti Airtel (Estimated)';
-    } else if (jioPrefixes.includes(p2) || ['8072', '8079', '8073'].includes(p4)) {
+    } else if (jioPrefixes.includes(p2)) {
       carrier = 'Reliance Jio (Estimated)';
     } else if (viPrefixes.includes(p2)) {
       carrier = 'Vodafone Idea / Vi (Estimated)';
