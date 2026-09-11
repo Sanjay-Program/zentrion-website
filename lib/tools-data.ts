@@ -5,6 +5,7 @@ export const CATEGORIES = [
     tools: [
       { name: 'Advanced Speed Test', url: '/tools/network/speed-test', priority: true },
       { name: 'What Is My IP', url: '/tools/what-is-my-ip', priority: true },
+      { name: 'Port Scanner', url: '/tools/port-scanner', priority: true },
       { name: 'Phone & SIM Intelligence', url: '/tools/network/phone-validator' },
       { name: 'ASN Lookup', url: '/tools/asn-lookup' },
       { name: 'Ping Test', url: '/tools/ping' },
@@ -26,8 +27,10 @@ export const CATEGORIES = [
   },
   {
     name: '🔒 Web Security',
-    description: 'TLS, Headers, and Web vulnerability tools',
+    description: 'TLS, Headers, WAF detection, and Web vulnerability tools',
     tools: [
+      { name: 'WAF Detector', url: '/tools/waf-detector', priority: true },
+      { name: 'URL Safety Checker', url: '/tools/url-safety', priority: true },
       { name: 'Certificate Decoder', url: '/tools/certificate-decoder' },
       { name: 'HTTP Headers Checker', url: '/tools/http-headers' },
     ]
@@ -43,8 +46,9 @@ export const CATEGORIES = [
   },
   {
     name: '🛡️ Threat Intelligence',
-    description: 'Reputation, Blacklists, and IOCs',
+    description: 'CVEs, Reputation, Blacklists, and IOCs',
     tools: [
+      { name: 'CVE Lookup', url: '/tools/cve-lookup', priority: true },
       { name: 'IP Blacklist Checker', url: '/tools/ip-blacklist', priority: true },
     ]
   },
@@ -63,6 +67,8 @@ export const CATEGORIES = [
     name: '🔐 Developer Security',
     description: 'Crypto, Encoding, JWT, and offline utilities',
     tools: [
+      { name: 'AES Encrypt / Decrypt', url: '/tools/aes-crypto', priority: true },
+      { name: 'OTP / TOTP Generator', url: '/tools/otp-generator', priority: true },
       { name: 'Password Strength', url: '/tools/password-strength' },
       { name: 'Password Generator', url: '/tools/password-generator' },
       { name: 'Password Breach Check', url: '/tools/password-breach' },
