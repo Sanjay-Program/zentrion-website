@@ -25,6 +25,27 @@ const routes = [
   '/request-demo',
   '/privacy',
   '/terms',
+  // Guides & Tutorials
+  '/guides',
+  '/guides/check-if-website-hacked',
+  '/guides/email-leak-check',
+  '/guides/find-open-ports',
+  '/guides/check-dns-records',
+  '/guides/detect-phishing-email',
+  '/guides/secure-wifi-home',
+  '/guides/check-website-safe',
+  '/guides/nmap-scanning-tutorial',
+  '/guides/wireshark-packet-analysis',
+  '/guides/kali-linux-pentesting-tutorial',
+  '/guides/password-cracking-tutorial',
+  '/guides/sql-injection-tutorial',
+  '/guides/ctf-walkthrough-beginner',
+  '/guides/home-lab-cybersecurity',
+  '/guides/python-cybersecurity-scripts',
+  '/guides/ransomware-incident-response',
+  '/guides/home-soc-setup',
+  // Resources
+  '/resources/cybersecurity-commands',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

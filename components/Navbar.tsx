@@ -27,6 +27,8 @@ const navItems: NavItem[] = [
     items: [
       { href: '/resources', label: 'Deep Research', blurb: 'Cybersecurity research & insights' },
       { href: '/tools', label: 'Networking Tools', blurb: 'DNS, IP, phone, GitHub, username checks' },
+      { href: '/guides', label: 'Security Guides', blurb: '17 free tutorials with real commands' },
+      { href: '/resources/cybersecurity-commands', label: 'Commands Cheat Sheet', blurb: '100+ Nmap, dig, openssl commands' },
       { href: '/case-studies', label: 'Case Studies', blurb: 'How we work with clients' },
       { href: '/faq', label: 'FAQ', blurb: 'Common questions answered' },
     ],
