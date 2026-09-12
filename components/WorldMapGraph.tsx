@@ -11,19 +11,19 @@ import { useEffect, useRef } from 'react';
 type City = { name: string; x: number; y: number };
 
 const CITIES: City[] = [
-  { name: 'New York', x: 0.28, y: 0.35 },
-  { name: 'London', x: 0.48, y: 0.28 },
-  { name: 'Berlin', x: 0.52, y: 0.3 },
-  { name: 'Dubai', x: 0.6, y: 0.42 },
-  { name: 'Mumbai', x: 0.66, y: 0.48 },
-  { name: 'Chennai', x: 0.685, y: 0.52 },
-  { name: 'Singapore', x: 0.76, y: 0.55 },
-  { name: 'Tokyo', x: 0.85, y: 0.38 },
-  { name: 'Sydney', x: 0.88, y: 0.72 },
-  { name: 'Sao Paulo', x: 0.32, y: 0.68 },
-  { name: 'Cape Town', x: 0.54, y: 0.78 },
-  { name: 'San Francisco', x: 0.18, y: 0.38 },
-  { name: 'Toronto', x: 0.26, y: 0.32 },
+  { name: 'New York', x: 0.28, y: 0.34 },
+  { name: 'London', x: 0.44, y: 0.21 },
+  { name: 'Berlin', x: 0.49, y: 0.21 },
+  { name: 'Dubai', x: 0.63, y: 0.43 },
+  { name: 'Mumbai', x: 0.68, y: 0.52 },
+  { name: 'Chennai', x: 0.69, y: 0.60 },
+  { name: 'Singapore', x: 0.77, y: 0.65 },
+  { name: 'Tokyo', x: 0.87, y: 0.30 },
+  { name: 'Sydney', x: 0.87, y: 0.78 },
+  { name: 'Sao Paulo', x: 0.35, y: 0.69 },
+  { name: 'Cape Town', x: 0.57, y: 0.78 },
+  { name: 'San Francisco', x: 0.11, y: 0.39 },
+  { name: 'Toronto', x: 0.25, y: 0.30 },
 ];
 
 export default function WorldMapGraph({ className = '' }: { className?: string }) {
@@ -75,21 +75,59 @@ export default function WorldMapGraph({ className = '' }: { className?: string }
     }
 
     function getCityPos(city: City) {
-      return { x: city.x * w, y: city.y * h };
+      const paddingX = w * 0.05;
+      const paddingY = h * 0.15;
+      const availableW = w - paddingX * 2;
+      const availableH = h - paddingY * 2;
+      return { 
+        x: paddingX + city.x * availableW, 
+        y: paddingY + city.y * availableH 
+      };
     }
 
     function buildDots() {
       dots = [];
-      const cols = Math.floor(w / 16);
-      const rows = Math.floor(h / 16);
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          const nx = i / cols;
-          const ny = j / rows;
-          const mask =
-            Math.sin(nx * 7 + ny * 2.5) * Math.cos(ny * 5.5 - nx * 1.8) + Math.sin(nx * 3) * 0.3;
-          if (mask > 0.08) {
-            dots.push({ x: i * 16 + 8, y: j * 16 + 8, baseAlpha: 0.08 + Math.random() * 0.08 });
+      const mapData = [
+        "                                                                ",
+        "                                                                ",
+        "       ####                  ########                           ",
+        "      ######                ###########                         ",
+        "     ########              #############               #        ",
+        "    ##########             ##############             ###       ",
+        "    ###########            ###############            ###       ",
+        "     ##########            ################           ###       ",
+        "      #########    ##      #################          ###       ",
+        "       ########  ######    #################         ####       ",
+        "        ####### ########   #################         ###        ",
+        "         ##############    ################         ###         ",
+        "          #############     ##############         ####         ",
+        "           ###########       ############           ##          ",
+        "            #########          #########                        ",
+        "            ########            #######                         ",
+        "             ######              #####                          ",
+        "              ####                ###            ####           ",
+        "              ###                  #             #####          ",
+        "              ##                                 #####          ",
+        "                                                  ###           ",
+        "                                                                ",
+        "                                                                "
+      ];
+      const mapCols = 64;
+      const mapRows = 23;
+      
+      const paddingX = w * 0.05;
+      const paddingY = h * 0.15;
+      const availableW = w - paddingX * 2;
+      const availableH = h - paddingY * 2;
+
+      for (let r = 0; r < mapRows; r++) {
+        for (let c = 0; c < mapCols; c++) {
+          if (mapData[r][c] === '#') {
+            if (Math.random() > 0.08) { // Skip a few random dots to make it look organic
+              const dx = paddingX + (c / (mapCols - 1)) * availableW;
+              const dy = paddingY + (r / (mapRows - 1)) * availableH;
+              dots.push({ x: dx, y: dy, baseAlpha: 0.15 + Math.random() * 0.3 });
+            }
           }
         }
       }
