@@ -34,34 +34,48 @@ export default function ServicesPage() {
       </section>
 
       <section className="container-x pb-20">
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <ServiceCard
-            eyebrow="Cybersecurity"
-            title="AI-Powered Cybersecurity"
-            description="Vulnerability assessment, penetration testing, network, cloud, and endpoint security, and audits your team can act on."
-            href="/cybersecurity"
-            points={['Vulnerability assessment', 'Penetration testing', 'Cloud & endpoint security', 'Security audits']}
+            eyebrow="Security"
+            title="Website Security Audit"
+            description="Full SSL/TLS, headers, DNS, and open port scan. Identify misconfigurations and vulnerabilities before they are exploited."
+            href="/services/website-security-audit"
+            points={['Security headers audit', 'DNS security (SPF/DKIM/DMARC)', 'Known vulnerability checks']}
+          />
+          <ServiceCard
+            eyebrow="Security"
+            title="Penetration Testing"
+            description="Deep-dive manual and automated exploitation of your web applications, networks, and cloud infrastructure."
+            href="/contact"
+            points={['Web & API Pentesting', 'Network exploitation', 'Detailed remediation reports']}
+          />
+          <ServiceCard
+            eyebrow="AI"
+            title="AI Security Assessment"
+            description="Evaluate your LLMs and AI agents against prompt injection, data leakage, and the OWASP Top 10."
+            href="/contact"
+            points={['Prompt injection testing', 'Agentic architecture review', 'Data leakage prevention']}
           />
           <ServiceCard
             eyebrow="AI"
             title="AI Automation"
-            description="Generative AI solutions, LLM development, agentic AI, chatbots, and RAG systems built for real workloads."
-            href="/ai"
-            points={['Generative AI solutions', 'Agentic AI', 'AI chatbots', 'RAG systems']}
+            description="Custom generative AI solutions, agentic workflows, and RAG systems built to automate repetitive enterprise tasks."
+            href="/contact"
+            points={['Custom LLM workflows', 'Agentic automation', 'Enterprise RAG systems']}
           />
           <ServiceCard
-            eyebrow="Cloud"
-            title="Cloud Consulting"
-            description="Architecture, migration, and security review across your cloud footprint."
-            href="/cloud"
-            points={['Cloud migration', 'Cost optimization', 'Cloud security review']}
+            eyebrow="Security"
+            title="Managed Security (MDR)"
+            description="Continuous monitoring, threat hunting, and incident response for your entire infrastructure."
+            href="/contact"
+            points={['24/7 Threat monitoring', 'Endpoint protection', 'Rapid incident response']}
           />
           <ServiceCard
-            eyebrow="Training"
-            title="Training & Internships"
-            description="Cybersecurity awareness training, certifications, and structured internship programs."
-            href="/training"
-            points={['Cybersecurity awareness', 'Certifications', 'Internships & placement training']}
+            eyebrow="Compliance"
+            title="DPDP Compliance"
+            description="Ensure your data handling practices comply with India's Digital Personal Data Protection Act."
+            href="/contact"
+            points={['Data mapping', 'Privacy impact assessments', 'Compliance auditing']}
           />
         </div>
       </section>

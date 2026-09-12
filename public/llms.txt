@@ -1,0 +1,31 @@
+# Zentrion Technologies – Free Cybersecurity Tools & Tutorials
+
+> Free, browser-based cybersecurity tools and hands-on tutorials.
+> No install, no signup. 20+ interactive security tools and 30+ step-by-step
+> guides covering network security, AI security, pentesting, and incident response.
+> Built by security professionals in India.
+
+## Interactive Tools
+- [Password Generator](https://zentriontechnologies.com/tools/password-generator): Generate cryptographically strong random passwords in the browser
+- [Port Scanner](https://zentriontechnologies.com/tools/port-scanner): Scan any IP or domain for open TCP ports
+- [DNS Lookup](https://zentriontechnologies.com/tools/dns-lookup): Query A, AAAA, MX, TXT, NS, CAA records
+- [Hash Generator](https://zentriontechnologies.com/tools/hash-generator): MD5, SHA-1, SHA-256, SHA-512 hashing
+- [Website Security Scanner](https://zentriontechnologies.com/tools/website-security-scanner): SSL, headers, DNS, CSP audit
+
+## Tutorials
+- [Nmap Scanning (50+ Commands)](https://zentriontechnologies.com/guides/nmap-scanning-tutorial): Complete Nmap guide with real examples
+- [Wireshark Packet Analysis](https://zentriontechnologies.com/guides/wireshark-packet-analysis): 30 hands-on exercises
+- [Kali Linux Pentesting](https://zentriontechnologies.com/guides/kali-linux-pentesting-tutorial): Full attack chain walkthrough
+- [SQL Injection A to Z](https://zentriontechnologies.com/guides/sql-injection-tutorial): Manual + sqlmap
+- [OWASP LLM Top 10 2026](https://zentriontechnologies.com/guides/owasp-llm-top-10-2026): AI security risks explained
+- [MCP Security Guide](https://zentriontechnologies.com/guides/mcp-security-tutorial): Defending Model Context Protocol servers
+- [Linux Privilege Escalation](https://zentriontechnologies.com/guides/linux-privilege-escalation): 30+ methods
+
+## About & Services
+- [About Zentrion](https://zentriontechnologies.com/about): Team, credentials, methodology
+- [Services Hub](https://zentriontechnologies.com/services): Cybersecurity solutions for Indian businesses
+
+## Optional
+- [All Tools](https://zentriontechnologies.com/tools): Complete tool directory
+- [All Guides](https://zentriontechnologies.com/guides): Complete tutorial directory
+- [Resources](https://zentriontechnologies.com/resources): Learning roadmaps, glossaries, CTF labs
