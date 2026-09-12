@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react';
 
+import { WORLD_DOTS } from './worldMapData';
+
 /**
  * Animated "global intelligence" canvas visual: a dotted world silhouette with
  * pulsing connections between major cities. Theme-aware (reads the .light
@@ -11,19 +13,19 @@ import { useEffect, useRef } from 'react';
 type City = { name: string; x: number; y: number };
 
 const CITIES: City[] = [
-  { name: 'New York', x: 0.28, y: 0.34 },
-  { name: 'London', x: 0.44, y: 0.21 },
-  { name: 'Berlin', x: 0.49, y: 0.21 },
-  { name: 'Dubai', x: 0.63, y: 0.43 },
-  { name: 'Mumbai', x: 0.68, y: 0.52 },
-  { name: 'Chennai', x: 0.69, y: 0.60 },
-  { name: 'Singapore', x: 0.77, y: 0.65 },
-  { name: 'Tokyo', x: 0.87, y: 0.30 },
-  { name: 'Sydney', x: 0.87, y: 0.78 },
-  { name: 'Sao Paulo', x: 0.35, y: 0.69 },
-  { name: 'Cape Town', x: 0.57, y: 0.78 },
-  { name: 'San Francisco', x: 0.11, y: 0.39 },
-  { name: 'Toronto', x: 0.25, y: 0.30 },
+  { name: 'New York', x: 0.294, y: 0.274 },
+  { name: 'London', x: 0.500, y: 0.214 },
+  { name: 'Berlin', x: 0.537, y: 0.208 },
+  { name: 'Dubai', x: 0.654, y: 0.360 },
+  { name: 'Mumbai', x: 0.702, y: 0.394 },
+  { name: 'Chennai', x: 0.723, y: 0.427 },
+  { name: 'Singapore', x: 0.788, y: 0.492 },
+  { name: 'Tokyo', x: 0.888, y: 0.302 },
+  { name: 'Sydney', x: 0.920, y: 0.688 },
+  { name: 'Sao Paulo', x: 0.370, y: 0.631 },
+  { name: 'Cape Town', x: 0.551, y: 0.688 },
+  { name: 'San Francisco', x: 0.160, y: 0.290 },
+  { name: 'Toronto', x: 0.280, y: 0.257 },
 ];
 
 export default function WorldMapGraph({ className = '' }: { className?: string }) {
@@ -87,50 +89,16 @@ export default function WorldMapGraph({ className = '' }: { className?: string }
 
     function buildDots() {
       dots = [];
-      const mapData = [
-        "                                                                ",
-        "                                                                ",
-        "       ####                  ########                           ",
-        "      ######                ###########                         ",
-        "     ########              #############               #        ",
-        "    ##########             ##############             ###       ",
-        "    ###########            ###############            ###       ",
-        "     ##########            ################           ###       ",
-        "      #########    ##      #################          ###       ",
-        "       ########  ######    #################         ####       ",
-        "        ####### ########   #################         ###        ",
-        "         ##############    ################         ###         ",
-        "          #############     ##############         ####         ",
-        "           ###########       ############           ##          ",
-        "            #########          #########                        ",
-        "            ########            #######                         ",
-        "             ######              #####                          ",
-        "              ####                ###            ####           ",
-        "              ###                  #             #####          ",
-        "              ##                                 #####          ",
-        "                                                  ###           ",
-        "                                                                ",
-        "                                                                "
-      ];
-      const mapCols = 64;
-      const mapRows = 23;
-      
       const paddingX = w * 0.05;
       const paddingY = h * 0.15;
       const availableW = w - paddingX * 2;
       const availableH = h - paddingY * 2;
 
-      for (let r = 0; r < mapRows; r++) {
-        for (let c = 0; c < mapCols; c++) {
-          if (mapData[r][c] === '#') {
-            if (Math.random() > 0.08) { // Skip a few random dots to make it look organic
-              const dx = paddingX + (c / (mapCols - 1)) * availableW;
-              const dy = paddingY + (r / (mapRows - 1)) * availableH;
-              dots.push({ x: dx, y: dy, baseAlpha: 0.15 + Math.random() * 0.3 });
-            }
-          }
-        }
-      }
+      WORLD_DOTS.forEach(([dx, dy]) => {
+         const x = paddingX + dx * availableW;
+         const y = paddingY + dy * availableH;
+         dots.push({ x, y, baseAlpha: 0.25 + Math.random() * 0.4 });
+      });
     }
 
     function initConnections() {
