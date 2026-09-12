@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { CheckCircle2, XCircle, AlertTriangle, HelpCircle, Check, X, AlertTriangle as AlertTriangleIcon } from 'lucide-react';
 
 interface UrlSafetyResult {
   url: string;
@@ -24,7 +25,7 @@ interface ApiError {
 const VERDICT_CONFIG = {
   safe: {
     label: 'SAFE',
-    icon: '✓',
+    icon: <CheckCircle2 className="w-[1em] h-[1em]" />,
     color: '#22c55e',
     bg: 'rgba(34,197,94,0.08)',
     border: 'rgba(34,197,94,0.25)',
@@ -33,7 +34,7 @@ const VERDICT_CONFIG = {
   },
   unsafe: {
     label: 'MALICIOUS',
-    icon: '✕',
+    icon: <XCircle className="w-[1em] h-[1em]" />,
     color: '#ef4444',
     bg: 'rgba(239,68,68,0.08)',
     border: 'rgba(239,68,68,0.25)',
@@ -42,7 +43,7 @@ const VERDICT_CONFIG = {
   },
   suspicious: {
     label: 'SUSPICIOUS',
-    icon: '⚠',
+    icon: <AlertTriangle className="w-[1em] h-[1em]" />,
     color: '#eab308',
     bg: 'rgba(234,179,8,0.08)',
     border: 'rgba(234,179,8,0.25)',
@@ -51,7 +52,7 @@ const VERDICT_CONFIG = {
   },
   unknown: {
     label: 'UNKNOWN',
-    icon: '?',
+    icon: <HelpCircle className="w-[1em] h-[1em]" />,
     color: '#94a3b8',
     bg: 'rgba(148,163,184,0.08)',
     border: 'rgba(148,163,184,0.25)',
@@ -261,12 +262,12 @@ export default function UrlSafetyPage() {
                     </div>
                   </div>
                   {result.urlhaus.listed ? (
-                    <span className="text-xs font-bold px-3 py-1.5 rounded-lg" style={{ color: '#ef4444', background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)' }}>
-                      ✕ Listed
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5" style={{ color: '#ef4444', background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)' }}>
+                      <X className="w-3.5 h-3.5" /> Listed
                     </span>
                   ) : (
-                    <span className="text-xs font-bold px-3 py-1.5 rounded-lg" style={{ color: '#22c55e', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.3)' }}>
-                      ✓ Not Listed
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5" style={{ color: '#22c55e', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.3)' }}>
+                      <Check className="w-3.5 h-3.5" /> Not Listed
                     </span>
                   )}
                 </div>
@@ -289,16 +290,16 @@ export default function UrlSafetyPage() {
                       — Unavailable
                     </span>
                   ) : result.phishtank.listed && result.phishtank.verified ? (
-                    <span className="text-xs font-bold px-3 py-1.5 rounded-lg" style={{ color: '#ef4444', background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)' }}>
-                      ✕ Phishing (Verified)
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5" style={{ color: '#ef4444', background: 'rgba(239,68,68,0.12)', border: '1px solid rgba(239,68,68,0.3)' }}>
+                      <X className="w-3.5 h-3.5" /> Phishing (Verified)
                     </span>
                   ) : result.phishtank.listed ? (
-                    <span className="text-xs font-bold px-3 py-1.5 rounded-lg" style={{ color: '#eab308', background: 'rgba(234,179,8,0.12)', border: '1px solid rgba(234,179,8,0.3)' }}>
-                      ⚠ In Database (Unverified)
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5" style={{ color: '#eab308', background: 'rgba(234,179,8,0.12)', border: '1px solid rgba(234,179,8,0.3)' }}>
+                      <AlertTriangleIcon className="w-3.5 h-3.5" /> In Database (Unverified)
                     </span>
                   ) : (
-                    <span className="text-xs font-bold px-3 py-1.5 rounded-lg" style={{ color: '#22c55e', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.3)' }}>
-                      ✓ Not Listed
+                    <span className="text-xs font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5" style={{ color: '#22c55e', background: 'rgba(34,197,94,0.12)', border: '1px solid rgba(34,197,94,0.3)' }}>
+                      <Check className="w-3.5 h-3.5" /> Not Listed
                     </span>
                   )}
                 </div>
