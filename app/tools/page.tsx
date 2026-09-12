@@ -12,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 import { CATEGORIES } from '@/lib/tools-data';
+import AdBanner from '@/components/AdBanner';
+import SalesCTA from '@/components/SalesCTA';
 
 export default function ToolsDashboard() {
   return (
@@ -20,6 +22,15 @@ export default function ToolsDashboard() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[rgb(var(--c-accent))] opacity-[0.08] blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
+        
+        {/* Breadcrumbs */}
+        <div className="mb-8 flex items-center gap-2 text-sm font-medium">
+          <Link href="/" className="text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-accent))] transition-colors">
+            Home
+          </Link>
+          <span className="text-[rgb(var(--c-mute))]">/</span>
+          <span className="text-[rgb(var(--c-ink))]">Tools</span>
+        </div>
         
         {/* Header */}
         <div className="text-center mb-16">
@@ -34,6 +45,9 @@ export default function ToolsDashboard() {
             Run full-stack domain audits, inspect certificates, and gather threat intelligence instantly.
           </p>
         </div>
+
+        {/* AdSense Top */}
+        <AdBanner dataAdSlot="1234567890" />
 
         {/* Flagship Tool Callout */}
         <div className="mb-20">
@@ -64,6 +78,7 @@ export default function ToolsDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {CATEGORIES.map((category) => (
             <div key={category.name} className="glass-card rounded-xl border border-[rgba(255,255,255,0.08)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 flex flex-col h-full hover:border-[rgba(255,255,255,0.15)] transition-colors">
+              {category.icon}
               <h3 className="text-2xl font-bold font-display mb-2">{category.name}</h3>
               <p className="text-[rgb(var(--c-mute))] text-sm mb-6">{category.description}</p>
               
@@ -92,6 +107,12 @@ export default function ToolsDashboard() {
             </div>
           ))}
         </div>
+
+        {/* AdSense Bottom */}
+        <AdBanner dataAdSlot="0987654321" />
+
+        {/* Sales CTA */}
+        <SalesCTA />
 
       </div>
     </div>

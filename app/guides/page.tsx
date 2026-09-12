@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import AdBanner from '@/components/AdBanner';
+import SalesCTA from '@/components/SalesCTA';
 import { 
   Search, Mail, Plug, Globe, AlertTriangle, Wifi, CheckCircle, Smartphone, 
   Map, Radio, Skull, Unlock, Syringe, Flag, Home, TerminalSquare, 
@@ -66,6 +68,15 @@ export default function GuidesIndexPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-[rgb(var(--c-accent))]/10 via-transparent to-purple-900/10 pointer-events-none" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[rgb(var(--c-accent))] opacity-[0.06] blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-6xl mx-auto relative z-10 text-center">
+          {/* Breadcrumbs */}
+          <div className="mb-6 flex items-center justify-center gap-2 text-sm font-medium">
+            <Link href="/" className="text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-accent))] transition-colors">
+              Home
+            </Link>
+            <span className="text-[rgb(var(--c-mute))]">/</span>
+            <span className="text-[rgb(var(--c-ink))]">Guides</span>
+          </div>
+
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] text-sm font-bold uppercase tracking-widest mb-6 text-[rgb(var(--c-mute))]">
             Free Learning Resources
           </div>
@@ -90,6 +101,9 @@ export default function GuidesIndexPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 pb-24">
+        {/* AdSense Top */}
+        <AdBanner dataAdSlot="3456789012" />
+
         {/* How-To Guides */}
         <section className="mb-20">
           <div className="flex items-center gap-3 mb-8">
@@ -164,6 +178,12 @@ export default function GuidesIndexPage() {
             </div>
           </Link>
         </section>
+
+        {/* AdSense Bottom */}
+        <AdBanner dataAdSlot="4567890123" />
+
+        {/* Sales CTA */}
+        <SalesCTA />
       </div>
     </main>
   );

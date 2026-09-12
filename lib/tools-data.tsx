@@ -1,6 +1,10 @@
+import React from 'react';
+import { Globe, Globe2, ShieldCheck, Mail, ShieldAlert, Search, KeyRound, Wrench, Settings } from 'lucide-react';
+
 export const CATEGORIES = [
   {
-    name: '🌐 Network',
+    name: 'Network',
+    icon: <Globe className="w-6 h-6 mb-4 text-[rgb(var(--c-accent))]" />,
     description: 'Routing, IP intelligence, and connectivity tools',
     tools: [
       { name: 'Advanced Speed Test', url: '/tools/network/speed-test', priority: true },
@@ -16,7 +20,8 @@ export const CATEGORIES = [
     ]
   },
   {
-    name: '🌎 DNS & Domains',
+    name: 'DNS & Domains',
+    icon: <Globe2 className="w-6 h-6 mb-4 text-[rgb(var(--c-accent))]" />,
     description: 'Domain records, propagation, and DNSSEC',
     tools: [
       { name: 'DNS Lookup', url: '/tools/dns-lookup', priority: true },
@@ -26,7 +31,8 @@ export const CATEGORIES = [
     ]
   },
   {
-    name: '🔒 Web Security',
+    name: 'Web Security',
+    icon: <ShieldCheck className="w-6 h-6 mb-4 text-[rgb(var(--c-accent))]" />,
     description: 'TLS, Headers, WAF detection, and Web vulnerability tools',
     tools: [
       { name: 'WAF Detector', url: '/tools/waf-detector', priority: true },
@@ -36,7 +42,8 @@ export const CATEGORIES = [
     ]
   },
   {
-    name: '📧 Email Security',
+    name: 'Email Security',
+    icon: <Mail className="w-6 h-6 mb-4 text-[rgb(var(--c-accent))]" />,
     description: 'SPF, DKIM, DMARC, and email health',
     tools: [
       { name: 'MX Lookup', url: '/tools/mx-lookup' },
@@ -45,7 +52,8 @@ export const CATEGORIES = [
     ]
   },
   {
-    name: '🛡️ Threat Intelligence',
+    name: 'Threat Intelligence',
+    icon: <ShieldAlert className="w-6 h-6 mb-4 text-[rgb(var(--c-accent))]" />,
     description: 'CVEs, Reputation, Blacklists, and IOCs',
     tools: [
       { name: 'CVE Lookup', url: '/tools/cve-lookup', priority: true },
@@ -53,7 +61,8 @@ export const CATEGORIES = [
     ]
   },
   {
-    name: '🕵️ OSINT',
+    name: 'OSINT',
+    icon: <Search className="w-6 h-6 mb-4 text-[rgb(var(--c-accent))]" />,
     description: 'Open-source intelligence and reconnaissance',
     tools: [
       { name: 'Username Finder', url: '/tools/osint/username-finder', priority: true },
@@ -64,7 +73,8 @@ export const CATEGORIES = [
     ]
   },
   {
-    name: '🔐 Developer Security',
+    name: 'Developer Security',
+    icon: <KeyRound className="w-6 h-6 mb-4 text-[rgb(var(--c-accent))]" />,
     description: 'Crypto, Encoding, JWT, and offline utilities',
     tools: [
       { name: 'AES Encrypt / Decrypt', url: '/tools/aes-crypto', priority: true },
@@ -82,7 +92,8 @@ export const CATEGORIES = [
     ]
   },
   {
-    name: '🛠️ Content & Design Utilities',
+    name: 'Content & Design Utilities',
+    icon: <Wrench className="w-6 h-6 mb-4 text-[rgb(var(--c-accent))]" />,
     description: 'Formatters, Converters, and Generators',
     tools: [
       { name: 'Text Analyzer', url: '/tools/text-analyzer' },
@@ -96,7 +107,8 @@ export const CATEGORIES = [
     ]
   },
   {
-    name: '⚙️ System Utilities',
+    name: 'System Utilities',
+    icon: <Settings className="w-6 h-6 mb-4 text-[rgb(var(--c-accent))]" />,
     description: 'Calculators, permissions, and schedulers',
     tools: [
       { name: 'Chmod Calculator', url: '/tools/chmod-calculator' },
@@ -109,3 +121,4 @@ export const CATEGORIES = [
     ]
   },
 ];
+

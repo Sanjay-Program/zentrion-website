@@ -110,16 +110,18 @@ export default function UrlSafetyPage() {
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-red-500 opacity-[0.02] blur-[140px] rounded-full pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
-        {/* Back link */}
-        <Link
-          href="/tools"
-          className="inline-flex items-center gap-2 text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-accent))] mb-8 transition-colors text-sm"
-        >
-          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Back to Dashboard
-        </Link>
+        {/* Breadcrumbs */}
+        <div className="mb-8 flex items-center gap-2 text-sm font-medium">
+          <Link href="/" className="text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-accent))] transition-colors">
+            Home
+          </Link>
+          <span className="text-[rgb(var(--c-mute))]">/</span>
+          <Link href="/tools" className="text-[rgb(var(--c-mute))] hover:text-[rgb(var(--c-accent))] transition-colors">
+            Tools
+          </Link>
+          <span className="text-[rgb(var(--c-mute))]">/</span>
+          <span className="text-[rgb(var(--c-ink))]">URL Safety</span>
+        </div>
 
         {/* Header */}
         <div className="mb-10">
