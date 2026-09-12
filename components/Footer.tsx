@@ -19,6 +19,7 @@ const columns = [
       { href: '/guides', label: 'Security Guides & Tutorials' },
       { href: '/resources/cybersecurity-commands', label: 'Commands Cheat Sheet' },
       { href: '/careers', label: 'Careers' },
+      { href: '/sitemap.xml', label: 'Sitemap' },
     ],
   },
   {
