@@ -16,7 +16,7 @@
   --c-line: rgba(255, 255, 255, 0.08);
   --c-line-strong: rgba(255, 255, 255, 0.16);
   --c-grid-line: rgba(255, 255, 255, 0.045);
-  --c-glass-bg: rgba(255, 255, 255, 0.035);
+  --c-glass-bg: rgba(255, 255, 255, 0.05);
   --c-glass-border: rgba(255, 255, 255, 0.08);
   --c-btn-ghost-border: rgba(255, 255, 255, 0.16);
 }
@@ -35,7 +35,7 @@ html.light {
   --c-line: rgba(0, 0, 0, 0.08);
   --c-line-strong: rgba(0, 0, 0, 0.15);
   --c-grid-line: rgba(0, 0, 0, 0.05);
-  --c-glass-bg: rgba(17, 17, 17, 0.03);
+  --c-glass-bg: rgba(255, 255, 255, 0.7);
   --c-glass-border: rgba(0, 0, 0, 0.1);
   --c-btn-ghost-border: rgba(0, 0, 0, 0.16);
 }

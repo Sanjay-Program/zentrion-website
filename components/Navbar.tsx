@@ -65,7 +65,7 @@ function DesktopDropdown({ item }: { item: NavItem }) {
       </button>
       {open && (
         <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64 z-[100]">
-          <div className="bg-surface border border-line rounded-xl p-2 shadow-2xl">
+          <div className="glass-card rounded-xl p-2 shadow-2xl">
             {item.items!.map((l) => (
               <Link
                 key={l.href}
@@ -110,7 +110,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled
           ? 'bg-void/85 backdrop-blur-md border-b border-line'
           : `bg-transparent ${overDarkHero ? 'force-dark' : ''}`
