@@ -15,8 +15,13 @@ export default function EmailLeakCheckPage() {
       <h2 id="hibp">Step 1: Check Known Breaches</h2>
       <ul>
         <li><a href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Have I Been Pwned</a> — Enter your email to search 13B+ accounts across 800+ breaches</li>
-        <li><a href="https://dehashed.com/" target="_blank" rel="noopener noreferrer">DeHashed</a> — More comprehensive, paid service</li>
+        <li><a href="https://github.com/khast3x/h8mail" target="_blank" rel="noopener noreferrer">h8mail</a> — 100% Free and Open-Source OSINT CLI tool for finding email leaks</li>
       </ul>
+      <pre><code>{`# Install h8mail (Open Source Lab)
+pip3 install h8mail
+
+# Run a basic search against an email (no API keys required for basic search)
+h8mail -t target@example.com`}</code></pre>
       <pre><code>{`# Check password exposure (k-anonymity, no email needed)
 # Hash your password with SHA-1 first, then check first 5 chars:
 echo -n "YourPassword" | sha1sum | head -c 5
