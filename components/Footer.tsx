@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Instagram, Linkedin } from 'lucide-react';
 import { CONSULT_EMAIL, HR_EMAIL, COMPANY_ADDRESS, MAPS_LINK } from '@/lib/contact';
 
 const columns = [
@@ -56,20 +57,22 @@ export default function Footer() {
             </p>
           </div>
           <p className="mt-3 text-sm text-mute max-w-xs">
-            Intelligence That Protects. AI-powered cybersecurity, cloud, and automation for
-            enterprises, schools, and colleges.
+            Intelligence That Protects. AI-powered
+            cybersecurity, cloud, and automation for
+            enterprises worldwide.
           </p>
-          <div className="mt-5 flex gap-4 text-sm text-mute">
-            <a href="https://instagram.com/zentriontech" target="_blank" rel="noopener noreferrer" className="hover:text-cyan">
-              Instagram
+          <div className="mt-5 flex items-center gap-5 text-mute">
+            <a href="https://instagram.com/zentriontech" target="_blank" rel="noopener noreferrer" className="hover:text-cyan transition-colors" aria-label="Instagram">
+              <Instagram className="w-5 h-5" />
             </a>
             <a
               href="https://linkedin.com/company/zentriontechnologies"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-cyan"
+              className="hover:text-cyan transition-colors"
+              aria-label="LinkedIn"
             >
-              LinkedIn
+              <Linkedin className="w-5 h-5" />
             </a>
           </div>
           <div className="mt-4 text-sm text-mute space-y-1">
@@ -87,16 +90,6 @@ export default function Footer() {
             </p>
             <p>+91 73057 71789</p>
             <p>+91 82204 37738</p>
-            <p className="pt-2 max-w-xs">
-              <a
-                href={MAPS_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-cyan"
-              >
-                {COMPANY_ADDRESS}
-              </a>
-            </p>
           </div>
         </div>
 
@@ -117,7 +110,7 @@ export default function Footer() {
       </div>
       <div className="container-x py-6 border-t border-line flex flex-col sm:flex-row justify-between gap-2 text-xs text-mute">
         <p>&copy; {new Date().getFullYear()} Zentrion Technologies. All rights reserved.</p>
-        <p>Minjur, Chennai, Tamil Nadu, India</p>
+        <p>Chennai, Tamil Nadu, India</p>
       </div>
     </footer>
   );

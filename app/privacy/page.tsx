@@ -16,7 +16,7 @@ const sections = [
   },
   {
     title: '2. Information We Collect',
-    body: `We may collect: (a) identity and contact details such as name, email address, phone number, organization/school/college name and designation; (b) information submitted through contact forms, consultation requests, internship applications, training enrolments and the internship application form (currently hosted on Google Forms); (c) technical information such as IP address, browser type, device information, pages visited and referring URLs, collected automatically through standard web analytics; (d) communications you send us by email, WhatsApp or through this website; and (e) where relevant to an engagement, limited organizational or system information you choose to share with us for the purpose of scoping or delivering security, AI or consulting services.`,
+    body: `We may collect: (a) identity and contact details such as name, email address, phone number, organization name and designation; (b) information submitted through contact forms, consultation requests, internship applications, training enrolments and the internship application form (currently hosted on Google Forms); (c) technical information such as IP address, browser type, device information, pages visited and referring URLs, collected automatically through standard web analytics; (d) communications you send us by email, WhatsApp or through this website; and (e) where relevant to an engagement, limited organizational or system information you choose to share with us for the purpose of scoping or delivering security, AI or consulting services.`,
   },
   {
     title: '3. How We Use Information',
@@ -47,8 +47,8 @@ const sections = [
     body: `Subject to applicable law (including the DPDP Act, where applicable), you may have the right to: access the personal information we hold about you; request correction of inaccurate or incomplete information; request erasure of your personal information, subject to any legal or contractual retention requirement; withdraw consent to processing; and raise a grievance regarding how we handle your personal information. To exercise any of these rights, write to us at consultancy@zentriontechnologies.com (general/services) or hr@zentriontechnologies.com (careers/internships). We will respond within a reasonable time and in line with applicable law.`,
   },
   {
-    title: '10. Children\u2019s Data & School/College Programs',
-    body: `Some of our training and awareness programs are delivered to students at schools and colleges, including minors. Where we collect any personal information relating to a child in connection with such a program, we do so only through or with the involvement of the relevant educational institution and, where required by applicable law, with appropriate parental/guardian consent, and we limit collection to what is reasonably necessary to deliver the program (such as name and class/section for attendance and certificates). We do not knowingly use such information for behavioural monitoring, tracking or targeted advertising directed at children.`,
+    title: '10. Children\u2019s Data & Training Programs',
+    body: `Some of our training and awareness programs may be delivered to students. Where we collect any personal information relating to a child in connection with such a program, we do so only through or with the involvement of the relevant institution and, where required by applicable law, with appropriate parental/guardian consent, and we limit collection to what is reasonably necessary to deliver the program (such as name for attendance and certificates). We do not knowingly use such information for behavioural monitoring, tracking or targeted advertising directed at children.`,
   },
   {
     title: '11. Third-Party Links',
@@ -64,7 +64,7 @@ const sections = [
   },
   {
     title: '14. Contact Us',
-    body: `For privacy-related questions, requests or grievances: General & services — ${CONSULT_EMAIL}. Careers & internship applications — ${HR_EMAIL}. Registered address — ${COMPANY_ADDRESS}.`,
+    body: `For privacy-related questions, requests or grievances: General & services — ${CONSULT_EMAIL}. Careers & internship applications — ${HR_EMAIL}.`,
   },
 ];
 

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     template: '%s | Zentrion Technologies',
   },
   description:
-    'Zentrion Technologies delivers AI-powered cybersecurity, cloud security, AI automation, and enterprise software for businesses, schools, and colleges. Intelligence That Protects.',
+    'Zentrion Technologies delivers AI-powered cybersecurity, cloud security, AI automation, and enterprise software for businesses worldwide. Intelligence That Protects.',
   keywords: [
     'AI cybersecurity company',
     'penetration testing services',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: 'Zentrion Technologies',
     title: 'Zentrion Technologies | Intelligence That Protects.',
     description:
-      'AI-powered cybersecurity, cloud security, and AI automation for enterprises, schools, and colleges.',
+      'AI-powered cybersecurity, cloud security, and AI automation for enterprises worldwide.',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
@@ -91,7 +91,7 @@ const orgSchema = {
   logo: `${SITE_URL}/logo-full.png`,
   slogan: 'Intelligence That Protects.',
   description:
-    'Zentrion Technologies delivers AI-powered cybersecurity, cloud security, AI automation, and enterprise software for businesses, schools, and colleges.',
+    'Zentrion Technologies delivers AI-powered cybersecurity, cloud security, AI automation, and enterprise software for businesses worldwide.',
   sameAs: [
     'https://instagram.com/zentriontech',
     'https://linkedin.com/company/zentriontechnologies',

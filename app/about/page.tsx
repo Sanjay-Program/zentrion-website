@@ -5,7 +5,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Zentrion Technologies is an AI-powered cybersecurity and automation company based in Chennai, building for enterprises, schools, and colleges.',
+    'Zentrion Technologies is an AI-powered cybersecurity and automation company based in Chennai, building for enterprises worldwide.',
   alternates: { canonical: '/about' },
 };
 

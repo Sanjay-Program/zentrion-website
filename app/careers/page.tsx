@@ -81,7 +81,7 @@ const internships = [
   {
     title: 'Business Development & Growth Intern',
     tags: ['B2B SaaS', 'Lead Generation', 'CRM'],
-    text: 'Build our early customer pipeline across schools, colleges and B2B security/AI customers.',
+    text: 'Build our early customer pipeline across B2B security and AI customers.',
     stipend: 'Performance-based stipend + certificate',
   },
   {

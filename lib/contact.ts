@@ -10,7 +10,7 @@ export const HR_EMAIL = 'hr@zentriontechnologies.com';
 export const CONTACT_EMAIL = CONSULT_EMAIL;
 
 export const COMPANY_ADDRESS =
-  'ZENTRION TECHNOLOGIES, VOC Street, KGL Prabu Nagar, Minjur, Chennai, Tamil Nadu 601203';
+  'Chennai, Tamil Nadu, India';
 
 export const MAPS_LINK = 'https://maps.app.goo.gl/8inA3Sy9FR8fsdXM8';
 

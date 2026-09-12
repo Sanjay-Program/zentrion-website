@@ -16,7 +16,7 @@ const generalFaqs: AccordionItem[] = [
     title: 'What does Zentrion Technologies actually do?',
     meta: 'Services',
     content:
-      'We deliver AI-powered cybersecurity (VAPT, security audits, monitoring), AI & automation solutions, cloud & technology consulting, cybersecurity/AI education programs, and a structured internship program — for enterprises, schools and colleges.',
+      'We deliver AI-powered cybersecurity (VAPT, security audits, monitoring), AI & automation solutions, cloud & technology consulting, cybersecurity/AI education programs, and a structured internship program — for enterprises and businesses worldwide.',
   },
   {
     title: 'Which industries do you work with?',
@@ -37,10 +37,10 @@ const generalFaqs: AccordionItem[] = [
       'No. Our assessments and readiness scores give you an evidence-backed picture of your current posture and gaps — they are not a legal certification of compliance and should be reviewed alongside your own legal counsel.',
   },
   {
-    title: 'Do you offer cybersecurity awareness training for schools and colleges?',
+    title: 'Do you offer cybersecurity awareness training for employees?',
     meta: 'Training',
     content:
-      'Yes. Our workshops range from Internet Safety for younger students to Cybersecurity & AI Awareness and Future Careers sessions for higher-secondary and college students. See our Training page for the full curriculum.',
+      'Yes. We run custom cybersecurity awareness workshops covering phishing, social engineering, password hygiene, and data privacy.',
   },
 ];
 

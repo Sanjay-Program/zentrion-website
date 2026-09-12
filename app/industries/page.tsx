@@ -11,11 +11,6 @@ export const metadata: Metadata = {
 
 const industries = [
   {
-    title: 'Education (Schools & Colleges)',
-    text: 'Cybersecurity awareness workshops, DPDP-aligned data privacy support, and structured internship/training pipelines for CBSE, ICSE, matriculation and international schools, plus engineering and arts & science colleges.',
-    points: ['Student data protection', 'CyberSafe Student workshops', 'Faculty & admin awareness', 'Campus network security review'],
-  },
-  {
     title: 'Healthcare',
     text: 'Security and privacy engineering for patient data, diagnostics, appointment and billing systems, aligned to sensitive-health-data obligations under the DPDP Act.',
     points: ['Patient data classification', 'Access control review', 'Vendor/processor risk', 'Incident response readiness'],

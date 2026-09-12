@@ -59,8 +59,8 @@ export default function HomePage() {
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-xl text-lg text-mute leading-relaxed">
                 Zentrion Technologies builds AI-driven defenses, cloud infrastructure, and
-                automation systems for enterprises, schools, and colleges &mdash; detecting
-                threats and neutralizing them before they matter.
+                automation systems for enterprises worldwide &mdash; detecting
+                breaches before they happen and hardening defenses on autopilot.
               </p>
             </Reveal>
             <Reveal delay={0.24}>
@@ -276,14 +276,14 @@ export default function HomePage() {
       <section className="container-x py-20 md:py-28 border-t border-line">
         <SectionHeading
           eyebrow="Who we work with"
-          title="Enterprises, schools, and colleges"
-          description="Security and AI programs that fit the constraints of a growing business or an academic institution &mdash; not a one-size-fits-all package."
+          title="Enterprises, startups, and organizations"
+          description="We secure operations and accelerate workflows for organizations across multiple sectors, ensuring compliance and robust defense."
         />
         <div className="mt-12 grid md:grid-cols-3 gap-5">
           {[
-            { title: 'Enterprises', text: 'Security audits, cloud hardening, and AI automation for teams that can’t afford downtime.' },
-            { title: 'Schools & Colleges', text: 'Cybersecurity awareness programs, internships, and curriculum partnerships for institutions.' },
-            { title: 'Startups', text: 'Full-stack builds and security foundations for teams shipping fast without cutting corners.' },
+            { title: 'Tech Startups & SaaS', text: 'Secure cloud architectures, AI integration, and automated CI/CD security pipelines.' },
+            { title: 'Financial Services', text: 'Fintech compliance, secure API gateways, and real-time fraud detection systems.' },
+            { title: 'Healthcare & Enterprises', text: 'Data privacy compliance, endpoint security, and automated incident response.' },
           ].map((c, i) => (
             <Reveal key={c.title} delay={i * 0.08}>
               <GlassCard>
