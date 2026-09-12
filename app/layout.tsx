@@ -76,6 +76,7 @@ export const metadata: Metadata = {
   other: {
     'google-adsense-account': ADSENSE_PUBLISHER_ID,
     'msvalidate.01': 'E98A07887F09FDDD549C7F69143778B8',
+    'yandex-verification': '7c14e088dc313b34',
   },
   alternates: { canonical: SITE_URL },
   robots: { index: true, follow: true },
