@@ -15,6 +15,7 @@ const HOW_TO_GUIDES = [
   { title: 'How to Detect Phishing Emails', url: '/guides/detect-phishing-email', icon: '🎣', time: '10 min read', tags: ['Phishing', 'Email Security'] },
   { title: 'How to Secure Your Home Wi-Fi in 10 Steps', url: '/guides/secure-wifi-home', icon: '📶', time: '8 min read', tags: ['WiFi', 'WPA3'] },
   { title: 'How to Check if a Website is Safe', url: '/guides/check-website-safe', icon: '✅', time: '7 min read', tags: ['URL Safety', 'SSL'] },
+  { title: 'Phone OSINT & SIM Intelligence', url: '/guides/phone-intelligence-osint', icon: '📱', time: '15 min read', tags: ['OSINT', 'Telecom'] },
 ];
 
 const TUTORIALS = [

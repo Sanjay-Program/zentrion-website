@@ -44,6 +44,7 @@ const routes = [
   '/guides/python-cybersecurity-scripts',
   '/guides/ransomware-incident-response',
   '/guides/home-soc-setup',
+  '/guides/phone-intelligence-osint',
   // Resources
   '/resources/cybersecurity-commands',
 ];
