@@ -72,6 +72,7 @@ const routes = [
   '/resources/cybersecurity-commands',
   '/services',
   '/services/website-security-audit',
+  '/sitemap',
   '/soc',
   '/sql-injection',
   '/sqli',
