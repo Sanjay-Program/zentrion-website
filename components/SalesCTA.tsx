@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function SalesCTA() {
   return (
     <div className="my-16 w-full">
-      <div className="relative overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.15)] bg-gradient-to-r from-[rgba(47,107,255,0.1)] to-[rgba(10,14,23,0.8)] backdrop-blur-xl p-8 md:p-12">
+      <div className="relative overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.15)] bg-gradient-to-r from-[rgba(47,107,255,0.2)] to-[rgba(10,14,23,0.95)] backdrop-blur-3xl p-8 md:p-12">
         <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--c-accent))] to-purple-600 opacity-10 pointer-events-none" />
         
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">

@@ -96,7 +96,7 @@ body {
 .glass-card {
   background: var(--c-glass-bg);
   border: 1px solid var(--c-glass-border);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(24px);
   transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 

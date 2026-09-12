@@ -64,8 +64,8 @@ function DesktopDropdown({ item }: { item: NavItem }) {
         </svg>
       </button>
       {open && (
-        <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64 z-50">
-          <div className="glass-card rounded-xl p-2 shadow-xl">
+        <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-64 z-[100]">
+          <div className="bg-surface border border-line rounded-xl p-2 shadow-2xl">
             {item.items!.map((l) => (
               <Link
                 key={l.href}
