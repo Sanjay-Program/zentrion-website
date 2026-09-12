@@ -38,7 +38,7 @@ const DIFF_COLORS: Record<string, string> = {
 
 export default function GuidesIndexPage() {
   return (
-    <main className="min-h-screen bg-[rgb(var(--c-void))] text-[rgb(var(--c-ink))]">
+    <main className="force-dark min-h-screen bg-[rgb(var(--c-void))] text-[rgb(var(--c-ink))]">
       {/* Hero */}
       <div className="relative overflow-hidden pt-32 pb-20 px-4">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-transparent to-purple-900/10 pointer-events-none" />

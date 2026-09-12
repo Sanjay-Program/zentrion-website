@@ -21,7 +21,7 @@ const navItems: NavItem[] = [
     ],
   },
   { label: 'Industries', href: '/industries' },
-  { label: 'Training', href: '/training' },
+  { label: 'Free Guides', href: '/guides' },
   {
     label: 'Resources',
     items: [

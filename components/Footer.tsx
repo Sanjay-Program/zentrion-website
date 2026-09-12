@@ -14,10 +14,10 @@ const columns = [
     ],
   },
   {
-    title: 'Learn',
+    title: 'Learn (Free)',
     links: [
-      { href: '/training', label: 'Courses & Certifications' },
-      { href: '/training#internships', label: 'Internships' },
+      { href: '/guides', label: 'Security Guides & Tutorials' },
+      { href: '/resources/cybersecurity-commands', label: 'Commands Cheat Sheet' },
       { href: '/careers', label: 'Careers' },
     ],
   },
