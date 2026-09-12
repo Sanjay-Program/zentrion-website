@@ -37,6 +37,12 @@ const TUTORIALS = [
   { title: 'Cloud Security – AWS/Azure Misconfigurations (40+ Checks)', url: '/guides/cloud-security-tutorial', icon: '☁️', time: '30 min', difficulty: 'Intermediate' },
   { title: 'Linux Privilege Escalation – 30+ Methods (Full Guide)', url: '/guides/linux-privilege-escalation', icon: '🐧', time: '45 min', difficulty: 'Advanced' },
   { title: 'Phishing Attack Lab – Gophish + SET (Build, Launch, Analyze)', url: '/guides/phishing-attack-lab', icon: '🎣', time: '25 min', difficulty: 'Intermediate' },
+  { title: 'OWASP LLM Top 10 (2026) – Defensive Architecture', url: '/guides/owasp-llm-top-10-2026', icon: '🧠', time: '20 min', difficulty: 'Intermediate' },
+  { title: 'MCP Security Guide – Defending Model Context Protocol', url: '/guides/mcp-security-tutorial', icon: '🔌', time: '15 min', difficulty: 'Advanced' },
+  { title: 'OWASP Agentic Top 10 (2026) – Autonomous AI Risks', url: '/guides/owasp-agentic-top-10-2026', icon: '🤖', time: '20 min', difficulty: 'Advanced' },
+  { title: 'LLM Security Evaluation & Vulnerability Assessment', url: '/guides/llm-security-evaluation', icon: '🧪', time: '15 min', difficulty: 'Intermediate' },
+  { title: 'Defending Against AI-Generated Phishing & Deepfakes', url: '/guides/ai-phishing-detection', icon: '🛡️', time: '15 min', difficulty: 'Beginner' },
+  { title: 'Secure AI Chatbot Architecture – Implementation Guide', url: '/guides/secure-ai-chatbot', icon: '💬', time: '20 min', difficulty: 'Advanced' },
 ];
 
 const DIFF_COLORS: Record<string, string> = {
