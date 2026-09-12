@@ -29,6 +29,14 @@ const TUTORIALS = [
   { title: 'Python Security Scripts – 20 Scripts in 10 Min Each', url: '/guides/python-cybersecurity-scripts', icon: '🐍', time: '45 min', difficulty: 'Intermediate' },
   { title: 'Ransomware Incident Response Playbook', url: '/guides/ransomware-incident-response', icon: '🚨', time: '25 min', difficulty: 'Advanced' },
   { title: 'Home SOC Setup with Wazuh + Suricata (Free)', url: '/guides/home-soc-setup', icon: '🖥️', time: '40 min', difficulty: 'Advanced' },
+  { title: 'Google Dorking & OSINT – 100+ Dorks That Expose Everything', url: '/guides/google-dorking-osint', icon: '🕵️', time: '25 min', difficulty: 'Beginner' },
+  { title: 'Burp Suite Complete Guide – Web App Pentesting (40+ Techniques)', url: '/guides/burp-suite-web-pentesting', icon: '🕷️', time: '45 min', difficulty: 'Intermediate' },
+  { title: 'Active Directory Attacks – Kerberoasting, BloodHound, AD CS', url: '/guides/active-directory-attacks', icon: '🏢', time: '50 min', difficulty: 'Advanced' },
+  { title: 'Bug Bounty from Zero – Recon to Report (Complete Workflow)', url: '/guides/bug-bounty-tutorial', icon: '💰', time: '35 min', difficulty: 'Intermediate' },
+  { title: 'Malware Analysis – Static & Dynamic (Full Lab Setup)', url: '/guides/malware-analysis-tutorial', icon: '🦠', time: '40 min', difficulty: 'Advanced' },
+  { title: 'Cloud Security – AWS/Azure Misconfigurations (40+ Checks)', url: '/guides/cloud-security-tutorial', icon: '☁️', time: '30 min', difficulty: 'Intermediate' },
+  { title: 'Linux Privilege Escalation – 30+ Methods (Full Guide)', url: '/guides/linux-privilege-escalation', icon: '🐧', time: '45 min', difficulty: 'Advanced' },
+  { title: 'Phishing Attack Lab – Gophish + SET (Build, Launch, Analyze)', url: '/guides/phishing-attack-lab', icon: '🎣', time: '25 min', difficulty: 'Intermediate' },
 ];
 
 const DIFF_COLORS: Record<string, string> = {

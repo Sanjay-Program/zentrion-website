@@ -45,6 +45,14 @@ const routes = [
   '/guides/ransomware-incident-response',
   '/guides/home-soc-setup',
   '/guides/phone-intelligence-osint',
+  '/guides/google-dorking-osint',
+  '/guides/burp-suite-web-pentesting',
+  '/guides/active-directory-attacks',
+  '/guides/bug-bounty-tutorial',
+  '/guides/malware-analysis-tutorial',
+  '/guides/cloud-security-tutorial',
+  '/guides/linux-privilege-escalation',
+  '/guides/phishing-attack-lab',
   // Resources
   '/resources/cybersecurity-commands',
 ];
