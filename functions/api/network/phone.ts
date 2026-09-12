@@ -47,6 +47,7 @@ const IN_PREFIX_MAP: Record<string, string> = {
   // 9xx series — Jio blocks
   '919': 'Reliance Jio',
   '937': 'Reliance Jio', '938': 'Reliance Jio', '939': 'Reliance Jio',
+  '988': 'Reliance Jio',
 
   // ── BHARTI AIRTEL ─────────────────────────────────────────────────
   // 7xx series — Airtel blocks
@@ -63,7 +64,7 @@ const IN_PREFIX_MAP: Record<string, string> = {
   '786': 'Bharti Airtel', '787': 'Bharti Airtel', '788': 'Bharti Airtel',
   '789': 'Bharti Airtel',
   // 8xx series — Airtel blocks
-  '810': 'Bharti Airtel', '811': 'Bharti Airtel', '812': 'Bharti Airtel',
+  '810': 'Bharti Airtel', '811': 'Bharti Airtel',
   '813': 'Bharti Airtel', '814': 'Bharti Airtel', '815': 'Bharti Airtel',
   '816': 'Bharti Airtel', '817': 'Bharti Airtel', '818': 'Bharti Airtel',
   '819': 'Bharti Airtel',
@@ -102,8 +103,7 @@ const IN_PREFIX_MAP: Record<string, string> = {
   '979': 'Bharti Airtel',
   '980': 'Bharti Airtel', '981': 'Bharti Airtel', '982': 'Bharti Airtel',
   '983': 'Bharti Airtel', '984': 'Bharti Airtel', '985': 'Bharti Airtel',
-  '986': 'Bharti Airtel', '987': 'Bharti Airtel', '988': 'Bharti Airtel',
-  '989': 'Bharti Airtel',
+  '986': 'Bharti Airtel', '987': 'Bharti Airtel', '989': 'Bharti Airtel',
   '990': 'Bharti Airtel', '991': 'Bharti Airtel', '992': 'Bharti Airtel',
   '993': 'Bharti Airtel', '994': 'Bharti Airtel', '995': 'Bharti Airtel',
   '996': 'Bharti Airtel', '997': 'Bharti Airtel', '998': 'Bharti Airtel',
@@ -124,6 +124,7 @@ const IN_PREFIX_MAP: Record<string, string> = {
   '803': 'Vodafone Idea (Vi)', '804': 'Vodafone Idea (Vi)', '805': 'Vodafone Idea (Vi)',
   '806': 'Vodafone Idea (Vi)', '807': 'Vodafone Idea (Vi)', '808': 'Vodafone Idea (Vi)',
   '809': 'Vodafone Idea (Vi)',
+  '812': 'Vodafone Idea (Vi)',
   '820': 'Vodafone Idea (Vi)', '821': 'Vodafone Idea (Vi)', '822': 'Vodafone Idea (Vi)',
   '823': 'Vodafone Idea (Vi)', '824': 'Vodafone Idea (Vi)', '825': 'Vodafone Idea (Vi)',
   '826': 'Vodafone Idea (Vi)', '827': 'Vodafone Idea (Vi)', '828': 'Vodafone Idea (Vi)',

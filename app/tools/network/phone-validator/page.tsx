@@ -61,13 +61,13 @@ export default function PhoneValidatorPage() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="e.g. +91 98765 43210 or +1 415-555-2671"
-            className="w-full bg-[rgba(255,255,255,0.02)] border border-[var(--c-glass-border)] rounded-2xl px-6 py-5 text-lg outline-none focus:border-[rgb(var(--c-accent))] focus:bg-[rgba(255,255,255,0.05)] transition-all pr-48 placeholder:text-[rgb(var(--c-mute))]"
+            className="w-full bg-surface border border-[var(--c-glass-border)] rounded-2xl px-6 py-5 text-lg outline-none focus:border-[rgb(var(--c-ink))] focus:bg-surface transition-all pr-48 placeholder:text-[rgb(var(--c-mute))]"
             required
           />
           <button
             type="submit"
             disabled={loading || !phone}
-            className="absolute right-2 px-8 py-3.5 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="absolute right-2 px-8 py-3.5 bg-[rgb(var(--c-ink))] text-[rgb(var(--c-void))] font-bold rounded-xl hover:opacity-80 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Analyzing...' : 'Analyze Number'}
           </button>
@@ -116,7 +116,7 @@ export default function PhoneValidatorPage() {
                <div className="space-y-6">
                  <div>
                    <div className="text-[rgb(var(--c-mute))] text-xs mb-1">E.164 International Format</div>
-                   <div className="text-xl font-mono text-white bg-[rgba(255,255,255,0.05)] px-3 py-2 rounded border border-[rgba(255,255,255,0.1)] inline-block">
+                   <div className="text-xl font-mono text-[rgb(var(--c-ink))] bg-surface px-3 py-2 rounded border border-[var(--c-glass-border)] inline-block">
                      {result.formattedE164}
                    </div>
                  </div>
