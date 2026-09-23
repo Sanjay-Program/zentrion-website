@@ -112,8 +112,11 @@ export default function Navbar() {
   // theme, so the navbar should too.
   const overDarkHero = pathname === '/' && !scrolled;
 
-  // Do not render the standard Navbar inside interactive lab workspaces
-  if (pathname.startsWith('/labs/') && pathname !== '/labs') {
+  // Do not render the standard Navbar inside interactive lab/quiz workspaces
+  if (
+    (pathname.startsWith('/labs/') && pathname !== '/labs' && pathname !== '/labs/') ||
+    (pathname.startsWith('/quizzes/') && pathname !== '/quizzes' && pathname !== '/quizzes/')
+  ) {
     return null;
   }
 

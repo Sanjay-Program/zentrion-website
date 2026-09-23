@@ -48,7 +48,10 @@ const columns = [
 export default function Footer() {
   const pathname = usePathname();
 
-  if (pathname?.startsWith('/labs/') && pathname !== '/labs') {
+  if (
+    (pathname?.startsWith('/labs/') && pathname !== '/labs' && pathname !== '/labs/') ||
+    (pathname?.startsWith('/quizzes/') && pathname !== '/quizzes' && pathname !== '/quizzes/')
+  ) {
     return null;
   }
 
