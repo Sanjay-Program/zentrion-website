@@ -28,10 +28,10 @@ export default function AboutPage() {
       </section>
 
       <section className="container-x py-16 border-t border-line grid md:grid-cols-4 gap-8">
-        <StatBlock value="2" label="Founding engineers" />
-        <StatBlock value="6+" label="Service lines" />
+        <StatBlock value="100%" label="Engineer-Led" />
+        <StatBlock value="20+" label="Security Capabilities" />
         <StatBlock value="TN, India" label="Based in Chennai" />
-        <StatBlock value="24/7" label="Monitoring posture" />
+        <StatBlock value="Zero" label="False Promises" />
       </section>
 
       <section className="container-x py-20 border-t border-line">

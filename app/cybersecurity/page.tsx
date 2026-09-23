@@ -54,9 +54,9 @@ export default function CybersecurityPage() {
       </section>
 
       <section className="container-x pb-8 grid sm:grid-cols-3 gap-8 max-w-xl">
-        <StatBlock value="150+" label="Audits completed" />
-        <StatBlock value="24/7" label="Monitoring available" />
-        <StatBlock value="0" label="Missed critical CVEs" />
+        <StatBlock value="Learn" label="Academy" />
+        <StatBlock value="Practice" label="Cyber Range" />
+        <StatBlock value="Protect" label="Enterprise" />
       </section>
 
       <section className="container-x py-20 border-t border-line">

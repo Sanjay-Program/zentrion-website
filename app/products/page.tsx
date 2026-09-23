@@ -170,7 +170,7 @@ export default function ProductsPage() {
         />
         <p className="mt-4 max-w-2xl text-mute leading-relaxed">
           A small number of design partners get direct input into the roadmap, priority support,
-          and preferred pricing at general availability. Reach out with your environment and
+          and priority access at general availability. Reach out with your environment and
           what you’d want either platform to solve first.
         </p>
       </section>

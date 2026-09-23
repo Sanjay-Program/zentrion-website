@@ -77,10 +77,10 @@ export default function HomePage() {
 
             <Reveal delay={0.32}>
               <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-2xl">
-                <StatBlock value="24/7" label="Threat monitoring" />
-                <StatBlock value="150+" label="Security audits shipped" />
-                <StatBlock value="40+" label="AI systems deployed" />
-                <StatBlock value="99.9%" label="Uptime Maintained" />
+                <StatBlock value="Learn" label="Free Cyber Academy" />
+                <StatBlock value="Assess" label="Readiness Scans" />
+                <StatBlock value="Hunt" label="Cyber Range Labs" />
+                <StatBlock value="Protect" label="Enterprise Services" />
               </div>
             </Reveal>
           </div>
@@ -166,11 +166,16 @@ export default function HomePage() {
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-8 max-w-lg">
-                <StatBlock value="24,847" label="Active AI sensors" />
-                <StatBlock value="72" label="Countries monitored" />
-                <StatBlock value="12,406" label="Threats blocked / hour" />
-                <StatBlock value="1.2M+" label="BehaviorDNA profiles" />
+              <div className="mt-10 max-w-lg">
+                <div className="grid grid-cols-2 gap-x-8 gap-y-8 mb-4">
+                  <StatBlock value="24,847" label="Active AI sensors" />
+                  <StatBlock value="72" label="Countries monitored" />
+                  <StatBlock value="12,406" label="Threats blocked / hour" />
+                  <StatBlock value="1.2M+" label="BehaviorDNA profiles" />
+                </div>
+                <div className="text-[10px] text-mute uppercase tracking-widest font-mono text-center opacity-50">
+                  * Illustrative concept visualization
+                </div>
               </div>
             </Reveal>
           </div>
