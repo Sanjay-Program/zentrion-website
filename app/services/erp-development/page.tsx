@@ -2,11 +2,28 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Reveal, SectionHeading, GlassCard } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import Accordion, { AccordionItem } from '@/components/Accordion';
 
 export const metadata: Metadata = {
-  title: 'ERP Development Services',
-  description: 'Enterprise Resource Planning (ERP) systems built for modern, complex business operations.',
+  title: 'Custom ERP Development Company | Zentrion Technologies',
+  description: 'Enterprise Resource Planning (ERP) systems built for modern, complex business operations. Secure, modular, and tailored to your enterprise.',
+  keywords: ['erp development company', 'custom erp development', 'enterprise resource planning software', 'modular erp architecture', 'erp software developers'],
+  alternates: { canonical: 'https://zentriontechnologies.com/services/erp-development' },
+  openGraph: {
+    title: 'Custom ERP Development Company | Zentrion',
+    description: 'Custom Enterprise Resource Planning (ERP) systems for modern businesses.',
+    url: 'https://zentriontechnologies.com/services/erp-development',
+    siteName: 'Zentrion Technologies',
+    type: 'website',
+  }
 };
+
+const faqs: AccordionItem[] = [
+  { title: 'How does a custom ERP compare to SAP or Oracle?', meta: 'Comparison', content: 'Traditional enterprise ERPs have astronomical licensing fees and require years of implementation to bend your business to their software. A custom ERP is built specifically for your existing operational workflows with zero ongoing user-licensing costs.' },
+  { title: 'Can we build the ERP in phases?', meta: 'Process', content: 'Yes, this is our recommended approach. We use a modular architecture. We might start with Finance and HR, and then integrate Inventory and Procurement later. This ensures rapid ROI and lower risk.' },
+  { title: 'Will the ERP integrate with our existing banks and vendors?', meta: 'Integration', content: 'Absolutely. We build secure API integrations for banking platforms, vendor supply chains, and third-party logistics providers to ensure real-time data sync across the enterprise.' },
+  { title: 'Who owns the code?', meta: 'Ownership', content: 'You do. Upon completion of the contract, the entire codebase, intellectual property, and database structure are handed over to you completely.' },
+];
 
 const modules = [
   "Finance", "HR", "Payroll", "Inventory", "Procurement", "Sales", "Projects", "Operations"
@@ -62,6 +79,17 @@ export default function ERPPage() {
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
+        </div>
+      </section>
+
+      <section className="container-x pb-24">
+        <SectionHeading 
+          eyebrow="FAQ"
+          title="Common Questions"
+          description="Everything you need to know about our ERP engineering."
+        />
+        <div className="mt-12 max-w-3xl">
+          <Accordion items={faqs} />
         </div>
       </section>
 

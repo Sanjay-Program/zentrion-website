@@ -2,11 +2,28 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Reveal, SectionHeading, GlassCard } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import Accordion, { AccordionItem } from '@/components/Accordion';
 
 export const metadata: Metadata = {
-  title: 'Agentic AI Development',
-  description: 'Autonomous AI agents and multi-agent systems for complex business workflows.',
+  title: 'Agentic AI Development Company | Zentrion Technologies',
+  description: 'Autonomous AI agents and multi-agent systems built for complex business workflows with strict enterprise security boundaries.',
+  keywords: ['agentic ai development', 'ai agents', 'multi-agent systems', 'autonomous ai workflows', 'secure ai agent development'],
+  alternates: { canonical: 'https://zentriontechnologies.com/services/agentic-ai' },
+  openGraph: {
+    title: 'Agentic AI Development Company | Zentrion',
+    description: 'Autonomous AI agents built for complex enterprise workflows.',
+    url: 'https://zentriontechnologies.com/services/agentic-ai',
+    siteName: 'Zentrion Technologies',
+    type: 'website',
+  }
 };
+
+const faqs: AccordionItem[] = [
+  { title: 'What is the difference between Generative AI and Agentic AI?', meta: 'Definitions', content: 'Generative AI (like ChatGPT) waits for a human prompt, generates text, and stops. Agentic AI acts autonomously. It receives a high-level goal, creates a step-by-step plan, uses tools (APIs, browsers, databases) to gather information, and takes actions to complete the goal without constant human intervention.' },
+  { title: 'Is it safe to let AI take actions in our systems?', meta: 'Security', content: 'Only with strict boundaries. We implement "Human-in-the-Loop" architectures where the AI can draft an email or prepare a database query, but a human must click "Approve" before execution. We also strictly scope API keys (least-privilege) so the agent cannot perform unauthorized actions.' },
+  { title: 'What is a Multi-Agent System?', meta: 'Architecture', content: 'Instead of one massive AI trying to do everything, a multi-agent system orchestrates several specialized AI agents. For example, a "Researcher Agent" gathers data, hands it to a "Writer Agent" to draft a report, which hands it to a "Reviewer Agent" to fact-check.' },
+  { title: 'What tools can you equip an AI Agent with?', meta: 'Tools', content: 'Almost anything with an API. We can equip agents to read/write to your CRM, query SQL databases, search the web, execute terminal commands in sandboxes, read internal Confluence wikis, or send Slack messages.' },
+];
 
 export default function AgenticAIPage() {
   return (
@@ -46,6 +63,17 @@ export default function AgenticAIPage() {
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
+        </div>
+      </section>
+
+      <section className="container-x pb-24">
+        <SectionHeading 
+          eyebrow="FAQ"
+          title="Common Questions"
+          description="Understanding autonomous AI agents and security."
+        />
+        <div className="mt-12 max-w-3xl">
+          <Accordion items={faqs} />
         </div>
       </section>
 

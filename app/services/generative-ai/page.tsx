@@ -2,11 +2,28 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Reveal, SectionHeading, GlassCard } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import Accordion, { AccordionItem } from '@/components/Accordion';
 
 export const metadata: Metadata = {
-  title: 'Generative AI Development',
-  description: 'Custom LLM applications, RAG systems, and AI workflows.',
+  title: 'Generative AI & LLM Development Company | Zentrion Technologies',
+  description: 'Custom Generative AI applications, RAG systems, and AI workflows engineered for enterprise security and data privacy.',
+  keywords: ['generative ai development company', 'llm development', 'rag architecture', 'enterprise ai solutions', 'ai document intelligence'],
+  alternates: { canonical: 'https://zentriontechnologies.com/services/generative-ai' },
+  openGraph: {
+    title: 'Generative AI & LLM Development Company | Zentrion',
+    description: 'Custom LLM applications and RAG systems engineered for enterprise.',
+    url: 'https://zentriontechnologies.com/services/generative-ai',
+    siteName: 'Zentrion Technologies',
+    type: 'website',
+  }
 };
+
+const faqs: AccordionItem[] = [
+  { title: 'What is RAG (Retrieval-Augmented Generation)?', meta: 'Technology', content: 'RAG is a technique that connects a Large Language Model (like GPT-4 or Claude) to your private knowledge base. Instead of answering from general knowledge, the AI retrieves specific documents from your database and uses them to generate accurate, context-aware answers without hallucinations.' },
+  { title: 'Is our corporate data sent to OpenAI for training?', meta: 'Privacy', content: 'No. When using enterprise APIs (like Azure OpenAI or Anthropic API), strict data privacy agreements guarantee your prompts and data are never used to train their base models. For extreme security, we can deploy open-source models (like Llama 3) entirely within your private cloud.' },
+  { title: 'How do you prevent prompt injection attacks?', meta: 'Security', content: 'We implement rigorous input sanitization, semantic filtering, and output validation guardrails. We treat AI applications exactly like traditional web applications: never trust user input.' },
+  { title: 'Can the AI analyze our internal PDFs and contracts?', meta: 'Capabilities', content: 'Yes. Our Document Intelligence pipelines can ingest thousands of unstructured PDFs, OCR them, chunk the text, and vectorize it for instant semantic search and analysis by the LLM.' },
+];
 
 const architecture = [
   "Data", "Processing", "Retrieval", "Model", "Tools", "Guardrails", "Application", "Evaluation", "Monitoring"
@@ -67,6 +84,17 @@ export default function GenerativeAIPage() {
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
+        </div>
+      </section>
+
+      <section className="container-x pb-24">
+        <SectionHeading 
+          eyebrow="FAQ"
+          title="Common Questions"
+          description="Everything you need to know about enterprise Gen AI."
+        />
+        <div className="mt-12 max-w-3xl">
+          <Accordion items={faqs} />
         </div>
       </section>
 

@@ -1,12 +1,29 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Reveal, SectionHeading, GlassCard, StatBlock } from '@/components/ui';
+import { Reveal, SectionHeading, GlassCard } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import Accordion, { AccordionItem } from '@/components/Accordion';
 
 export const metadata: Metadata = {
-  title: 'Web Development Services',
-  description: 'Corporate websites, marketing platforms, and robust web experiences built for scale and security.',
+  title: 'Enterprise Web Development Services | Zentrion Technologies',
+  description: 'Corporate websites, marketing platforms, and robust web experiences built for scale and security by Zentrion Technologies.',
+  keywords: ['web development', 'corporate website development', 'secure web development', 'enterprise web applications', 'frontend engineering'],
+  alternates: { canonical: 'https://zentriontechnologies.com/services/web-development' },
+  openGraph: {
+    title: 'Enterprise Web Development Services | Zentrion',
+    description: 'Corporate websites and marketing platforms built for scale.',
+    url: 'https://zentriontechnologies.com/services/web-development',
+    siteName: 'Zentrion Technologies',
+    type: 'website',
+  }
 };
+
+const faqs: AccordionItem[] = [
+  { title: 'Do you build websites from scratch or use templates?', meta: 'Development', content: 'We build custom, bespoke web architectures from scratch using modern frameworks like React and Next.js. We do not use pre-built templates, ensuring your platform is completely unique and optimized.' },
+  { title: 'How do you ensure the website is secure?', meta: 'Security', content: 'Security is embedded from day one. We implement CSP headers, sanitize all inputs against XSS, prevent CSRF, and deploy on hardened infrastructure with DDoS protection.' },
+  { title: 'Will the website be optimized for SEO?', meta: 'SEO', content: 'Yes. Our Next.js architecture guarantees server-side rendering or static generation, providing maximum performance (90+ Lighthouse scores), semantic HTML, and dynamic metadata crucial for technical SEO.' },
+  { title: 'Can you integrate our existing marketing tools?', meta: 'Integrations', content: 'Absolutely. We seamlessly integrate CRMs (HubSpot, Salesforce), analytics platforms, marketing automation tools, and headless CMS systems via secure APIs.' },
+];
 
 const capabilities = [
   "Corporate Websites", "Marketing Platforms", "E-commerce Frontends", "Content Platforms", "Landing Pages", "Custom Web Portals"
@@ -62,6 +79,17 @@ export default function WebDevelopmentPage() {
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
+        </div>
+      </section>
+
+      <section className="container-x pb-24">
+        <SectionHeading 
+          eyebrow="FAQ"
+          title="Common Questions"
+          description="Everything you need to know about our web development process."
+        />
+        <div className="mt-12 max-w-3xl">
+          <Accordion items={faqs} />
         </div>
       </section>
 

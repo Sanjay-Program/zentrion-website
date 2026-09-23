@@ -2,11 +2,28 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Reveal, SectionHeading, GlassCard } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import Accordion, { AccordionItem } from '@/components/Accordion';
 
 export const metadata: Metadata = {
-  title: 'SaaS Development Services',
-  description: 'Custom Software-as-a-Service (SaaS) platform development with multi-tenant architecture.',
+  title: 'SaaS Development Company | Zentrion Technologies',
+  description: 'Custom Software-as-a-Service (SaaS) platform development with multi-tenant architecture, secure billing, and scalable infrastructure.',
+  keywords: ['saas development company', 'software as a service development', 'multi-tenant architecture', 'saas billing integration', 'custom saas platform'],
+  alternates: { canonical: 'https://zentriontechnologies.com/services/saas-development' },
+  openGraph: {
+    title: 'SaaS Development Company | Zentrion',
+    description: 'Custom SaaS platform development with enterprise multi-tenant architecture.',
+    url: 'https://zentriontechnologies.com/services/saas-development',
+    siteName: 'Zentrion Technologies',
+    type: 'website',
+  }
 };
+
+const faqs: AccordionItem[] = [
+  { title: 'How do you handle multi-tenant data security?', meta: 'Architecture', content: 'We employ rigorous data isolation strategies. Depending on compliance requirements, this ranges from row-level security (RLS) in a shared database to entirely separate schemas or databases per tenant to guarantee data never crosses boundaries.' },
+  { title: 'Can you integrate subscription billing?', meta: 'Payments', content: 'Yes. We natively integrate with enterprise billing providers like Stripe, Paddle, and Chargebee to handle complex metered billing, tiered subscriptions, prorations, and tax compliance globally.' },
+  { title: 'Do you build admin dashboards?', meta: 'Features', content: 'Every SaaS platform we build includes a secure "Super Admin" portal. This allows your team to monitor global usage, manage tenant subscriptions, impersonate users for support, and track core platform analytics.' },
+  { title: 'What is the typical timeline for an MVP?', meta: 'Timeline', content: 'A robust Minimum Viable Product (MVP) typically takes 3 to 5 months depending on complexity. We focus on shipping the core value proposition rapidly while ensuring the underlying architecture can scale without a future rewrite.' },
+];
 
 const capabilities = [
   "Multi-tenant Architecture", "Organizations & Roles", "Subscriptions & Billing", "Admin Panels", "Usage Tracking", "API Gateways"
@@ -62,6 +79,17 @@ export default function SaaSPage() {
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
+        </div>
+      </section>
+
+      <section className="container-x pb-24">
+        <SectionHeading 
+          eyebrow="FAQ"
+          title="Common Questions"
+          description="Everything you need to know about our SaaS development methodology."
+        />
+        <div className="mt-12 max-w-3xl">
+          <Accordion items={faqs} />
         </div>
       </section>
 

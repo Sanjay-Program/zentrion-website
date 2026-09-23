@@ -2,11 +2,28 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Reveal, SectionHeading, GlassCard } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import Accordion, { AccordionItem } from '@/components/Accordion';
 
 export const metadata: Metadata = {
-  title: 'Full-Stack Development',
-  description: 'Complete end-to-end application development encompassing frontend, backend, database, and infrastructure.',
+  title: 'Full-Stack Development Company | Zentrion Technologies',
+  description: 'End-to-end full stack application development encompassing frontend, backend, database architecture, and infrastructure.',
+  keywords: ['full stack development', 'backend architecture', 'frontend engineering', 'database design', 'API development', 'React Next.js Node.js'],
+  alternates: { canonical: 'https://zentriontechnologies.com/services/full-stack-development' },
+  openGraph: {
+    title: 'Full-Stack Development Company | Zentrion',
+    description: 'Complete end-to-end full stack development.',
+    url: 'https://zentriontechnologies.com/services/full-stack-development',
+    siteName: 'Zentrion Technologies',
+    type: 'website',
+  }
 };
+
+const faqs: AccordionItem[] = [
+  { title: 'What technology stack do you use?', meta: 'Tech Stack', content: 'We build modern architectures typically utilizing React/Next.js for the frontend, Node.js or Python for the backend, and PostgreSQL alongside Redis for data. We also support GraphQL and REST APIs.' },
+  { title: 'Do you build cloud-native applications?', meta: 'Cloud', content: 'Yes, our full-stack solutions are inherently cloud-native. We design infrastructure for AWS, Google Cloud, and Azure, utilizing containerization (Docker) and serverless architectures where appropriate.' },
+  { title: 'How is application security handled?', meta: 'Security', content: 'Security is a core pillar. We implement stringent Authentication/Authorization (OAuth, JWT, RBAC), data encryption in transit and at rest, and protect APIs against OWASP Top 10 vulnerabilities natively.' },
+  { title: 'Can you rescue or take over an existing project?', meta: 'Takeovers', content: 'Yes. Our engineering team can audit your existing codebase, map the technical debt, patch critical vulnerabilities, and smoothly transition to developing new features.' },
+];
 
 const techStack = [
   "React", "Next.js", "Node.js", "Python", "PostgreSQL", "Redis", "TypeScript", "GraphQL", "REST APIs"
@@ -62,6 +79,17 @@ export default function FullStackPage() {
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
+        </div>
+      </section>
+
+      <section className="container-x pb-24">
+        <SectionHeading 
+          eyebrow="FAQ"
+          title="Common Questions"
+          description="Everything you need to know about our full-stack engineering process."
+        />
+        <div className="mt-12 max-w-3xl">
+          <Accordion items={faqs} />
         </div>
       </section>
 

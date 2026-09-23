@@ -2,11 +2,28 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Reveal, SectionHeading, GlassCard } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import Accordion, { AccordionItem } from '@/components/Accordion';
 
 export const metadata: Metadata = {
-  title: 'Cloud Solutions & Architecture',
-  description: 'AWS, Azure, and Google Cloud infrastructure, migration, and deployment services.',
+  title: 'Cloud Solutions & Architecture Services | Zentrion Technologies',
+  description: 'Enterprise AWS, Azure, and Google Cloud infrastructure, migration, and deployment services engineered for scale and security.',
+  keywords: ['cloud architecture services', 'aws migration', 'azure development', 'gcp architecture', 'cloud devops services'],
+  alternates: { canonical: 'https://zentriontechnologies.com/services/cloud-solutions' },
+  openGraph: {
+    title: 'Cloud Solutions & Architecture Services | Zentrion',
+    description: 'Enterprise AWS, Azure, and GCP infrastructure and migration services.',
+    url: 'https://zentriontechnologies.com/services/cloud-solutions',
+    siteName: 'Zentrion Technologies',
+    type: 'website',
+  }
 };
+
+const faqs: AccordionItem[] = [
+  { title: 'Which cloud providers do you specialize in?', meta: 'Platforms', content: 'Our primary expertise lies in the "Big Three": Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). We also extensively utilize Cloudflare for edge computing, WAF, and global content delivery.' },
+  { title: 'Can you migrate our legacy on-premise servers to the cloud?', meta: 'Migration', content: 'Yes. We perform a complete architecture audit, design the target cloud environment, and execute a phased "lift-and-shift" or full refactoring migration to ensure zero data loss and minimal downtime.' },
+  { title: 'Do you use Infrastructure as Code (IaC)?', meta: 'DevOps', content: 'Always. We never configure servers manually via the console. Every piece of infrastructure we build is defined in code using Terraform or AWS CloudFormation, ensuring environments are reproducible, version-controlled, and immutable.' },
+  { title: 'How do you control runaway cloud costs?', meta: 'Optimization', content: 'We conduct rigorous FinOps audits. We identify orphaned resources, right-size over-provisioned EC2/VM instances, implement spot instances for non-critical workloads, and architect serverless solutions to ensure you only pay for what you compute.' },
+];
 
 const providers = [
   "Amazon Web Services (AWS)", "Microsoft Azure", "Google Cloud (GCP)", "Cloudflare"
@@ -62,6 +79,17 @@ export default function CloudSolutionsPage() {
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
+        </div>
+      </section>
+
+      <section className="container-x pb-24">
+        <SectionHeading 
+          eyebrow="FAQ"
+          title="Common Questions"
+          description="Everything you need to know about our cloud architecture."
+        />
+        <div className="mt-12 max-w-3xl">
+          <Accordion items={faqs} />
         </div>
       </section>
 
