@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import AdUnit from './AdUnit';
 
 interface Tool { name: string; url: string; }
 interface GuideLink { title: string; url: string; }
@@ -116,6 +117,10 @@ export default function GuideLayout({
                 </ul>
               </div>
             )}
+            
+            <div className="mt-6">
+              <AdUnit slotId="sidebar-slot-placeholder" format="rectangle" className="min-h-[250px] w-full" />
+            </div>
           </aside>
         </div>
 
