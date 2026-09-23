@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { CONSULT_EMAIL, HR_EMAIL, COMPANY_ADDRESS, MAPS_LINK } from '@/lib/contact';
 
 const columns = [
@@ -43,6 +46,12 @@ const columns = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith('/labs/') && pathname !== '/labs') {
+    return null;
+  }
+
   return (
     <footer className="border-t border-line bg-surface">
       <div className="container-x py-16 grid grid-cols-2 md:grid-cols-6 gap-10">

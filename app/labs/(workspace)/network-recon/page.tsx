@@ -1,13 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import LabLayout from '@/components/LabLayout';
+import LabWorkspace from '@/components/LabWorkspace';
 import { useProgress } from '@/lib/hooks/useProgress';
 
-function LabTerminal() {
+export default function NetworkReconLab() {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState<string[]>(['zentrion@lab:~$ Welcome to the Network Recon Lab. Type a command to begin.']);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [isSolved, setIsSolved] = useState(false);
   const { markLabComplete } = useProgress();
 
   const handleCommand = async (e: React.FormEvent) => {
@@ -36,7 +37,6 @@ function LabTerminal() {
         setOutput([...newOutput]);
         
         try {
-          // Using a public CORS proxy to ensure browser compatibility with external APIs
           const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(`https://api.hackertarget.com/dnslookup/?q=${target}`)}`);
           if (res.ok) {
             const data = await res.text();
@@ -64,7 +64,8 @@ function LabTerminal() {
               
               if (target === 'scanme.nmap.org' || target === '45.33.32.156') {
                 setTimeout(() => markLabComplete('network-recon'), 1000);
-                newOutput.push('\n[SYSTEM] Lab Objective Completed! Progress Saved.');
+                newOutput.push('\n[SYSTEM] Lab Objective Completed! Target Acquired.');
+                setIsSolved(true);
               }
             }
           } else {
@@ -88,74 +89,54 @@ function LabTerminal() {
     setIsProcessing(false);
   };
 
-  return (
-    <div className="font-mono text-sm">
-      <div className="bg-[#111115] border border-line rounded-xl overflow-hidden shadow-2xl">
-        <div className="h-8 bg-[#1a1a24] border-b border-line flex items-center px-4 gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500/80" />
-          <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-          <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-          <span className="ml-4 text-xs text-mute tracking-widest">TERMINAL</span>
-        </div>
-        <div className="p-4 h-[400px] overflow-y-auto">
-          {output.map((line, i) => (
-            <div key={i} className={`mb-1 ${line.startsWith('[SYSTEM]') ? 'text-emerald-400 font-bold' : 'text-[#a5b4fc]'}`}>
-              {line}
-            </div>
-          ))}
-          <form onSubmit={handleCommand} className="flex mt-2">
-            <span className="text-[#a5b4fc] mr-2">zentrion@lab:~$</span>
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              disabled={isProcessing}
-              className="flex-1 bg-transparent border-none outline-none text-[#e2e8f0] focus:ring-0 p-0 disabled:opacity-50"
-              autoFocus
-              autoComplete="off"
-              spellCheck="false"
-            />
-          </form>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default function NetworkReconLab() {
-  const instructions = (
+  const missionBriefing = (
     <>
-      <h3 className="text-lg font-semibold text-ink mt-6">Objective 1: DNS Resolution</h3>
       <p>
-        The first step in investigating a domain is finding its IP address. We can use the <code>host</code> or <code>ping</code> commands for this.
+        You have been tasked with investigating the domain <code>scanme.nmap.org</code>. Your goal is to find its underlying IP address and discover what services it is exposing to the public internet.
       </p>
-      <div className="bg-void border border-line p-4 rounded-lg my-4 font-mono text-sm text-cyan">
-        $ ping scanme.nmap.org<br/>
-        $ host scanme.nmap.org
-      </div>
-      
-      <h3 className="text-lg font-semibold text-ink mt-6">Objective 2: Port Scanning</h3>
-      <p>
-        Once we have the IP address (45.33.32.156), we can scan it to see what services are running. We use <code>nmap</code> for this.
-      </p>
-      <div className="bg-void border border-line p-4 rounded-lg my-4 font-mono text-sm text-cyan">
-        $ nmap 45.33.32.156
-      </div>
-      
-      <div className="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl mt-8">
-        <h4 className="text-emerald-400 font-semibold mb-2">Completion Criteria</h4>
-        <p className="text-emerald-400/80 text-sm">Successfully run the nmap scan against the target IP address in the terminal to complete this lab.</p>
+      <div className="p-3 bg-void rounded border border-line mt-4">
+        <span className="text-xs font-mono text-cyan block mb-1">Target:</span>
+        <span className="text-sm text-white">Successfully run an nmap scan against the target IP address.</span>
       </div>
     </>
   );
 
+  const hints = [
+    "The first step in investigating a domain is finding its IP address. Use the `host` or `ping` command (e.g. `host scanme.nmap.org`).",
+    "Once you have the IP address, use `nmap` to scan it (e.g. `nmap 45.33.32.156`).",
+  ];
+
   return (
-    <LabLayout
+    <LabWorkspace
+      labId="network-recon"
       title="Network Reconnaissance"
-      description="You have been tasked with investigating the domain 'scanme.nmap.org'. Your goal is to find its underlying IP address and discover what services it is exposing to the public internet."
+      category="Networking"
       difficulty="Beginner"
-      instructions={instructions}
-      interactiveComponent={<LabTerminal />}
-    />
+      missionBriefing={missionBriefing}
+      hints={hints}
+      isSolved={isSolved}
+      flagId="ZENTRION{n3tw0rk_r3c0n_m4st3r}"
+    >
+      <div className="font-mono text-sm h-full flex flex-col bg-[#0a0a0f] text-[#a5b4fc] p-6 overflow-y-auto">
+        {output.map((line, i) => (
+          <div key={i} className={`mb-1 ${line.startsWith('[SYSTEM]') ? 'text-emerald-400 font-bold' : ''}`}>
+            {line}
+          </div>
+        ))}
+        <form onSubmit={handleCommand} className="flex mt-2 shrink-0">
+          <span className="mr-2">zentrion@lab:~$</span>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            disabled={isProcessing}
+            className="flex-1 bg-transparent border-none outline-none text-[#e2e8f0] focus:ring-0 p-0 disabled:opacity-50"
+            autoFocus
+            autoComplete="off"
+            spellCheck="false"
+          />
+        </form>
+      </div>
+    </LabWorkspace>
   );
 }

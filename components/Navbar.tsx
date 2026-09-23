@@ -112,6 +112,11 @@ export default function Navbar() {
   // theme, so the navbar should too.
   const overDarkHero = pathname === '/' && !scrolled;
 
+  // Do not render the standard Navbar inside interactive lab workspaces
+  if (pathname.startsWith('/labs/') && pathname !== '/labs') {
+    return null;
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
