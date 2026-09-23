@@ -15,7 +15,20 @@ const labs = [
     difficulty: 'Beginner',
     category: 'Networking',
   },
-  // Add more labs here
+  {
+    id: 'prompt-injection',
+    title: 'Prompt Injection (AI Security)',
+    description: 'Bypass a system prompt by using natural language exploits to extract a secret key from an LLM.',
+    difficulty: 'Beginner',
+    category: 'AI Security',
+  },
+  {
+    id: 'rag-poisoning',
+    title: 'RAG Poisoning (Indirect Injection)',
+    description: 'Manipulate an AI assistant by injecting malicious instructions into the corporate knowledge base it reads from.',
+    difficulty: 'Intermediate',
+    category: 'AI Security',
+  },
 ];
 
 export default function LabsIndex() {
