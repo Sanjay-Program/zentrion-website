@@ -58,21 +58,22 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-xl text-lg text-mute leading-relaxed">
-                Zentrion Technologies builds AI-driven defenses, cloud infrastructure, and
-                automation systems for enterprises worldwide &mdash; detecting
-                breaches before they happen and hardening defenses on autopilot.
+                Free practical cybersecurity guides, interactive labs, security tools, challenges, research, and learning paths — built by Zentrion Technologies.
               </p>
             </Reveal>
             <Reveal delay={0.24}>
               <div className="mt-9 flex flex-wrap gap-4">
-                <Link href="/book-consultation" className="btn-primary">
-                  Book Consultation <ArrowIcon />
+                <Link href="/guides" className="btn-primary">
+                  Start Learning <ArrowIcon />
                 </Link>
-                <Link href="/services" className="btn-ghost">
-                  Explore Services
+                <Link href="/tools" className="btn-ghost">
+                  Explore Free Tools
                 </Link>
-                <Link href="/tools" className="btn-ghost text-[rgb(var(--c-accent))] border-[rgba(47,107,255,0.2)] hover:bg-[rgba(47,107,255,0.1)]">
-                  Free Security Tools (30+)
+                <Link href="/labs" className="btn-ghost">
+                  Try Cyber Labs
+                </Link>
+                <Link href="/guides" className="btn-ghost text-[rgb(var(--c-accent))] border-[rgba(47,107,255,0.2)] hover:bg-[rgba(47,107,255,0.1)]">
+                  Explore Security Guides
                 </Link>
               </div>
             </Reveal>
@@ -86,6 +87,101 @@ export default function HomePage() {
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* ACADEMY - FEATURED GUIDES */}
+      <section className="container-x py-20 md:py-28 border-t border-line">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-14">
+          <SectionHeading
+            eyebrow="Learn Cybersecurity"
+            title="Featured Security Guides"
+            description="Deep-dive tutorials with real commands, code examples, and practical labs. Completely free."
+          />
+          <Link href="/guides" className="hidden md:inline-flex items-center gap-2 text-cyan font-medium hover:gap-3 transition-all shrink-0">
+            View all guides <ArrowIcon />
+          </Link>
+        </div>
+        <div className="grid md:grid-cols-3 gap-5">
+          {[
+            { title: 'Nmap Scanning Tutorial', text: '50+ practical commands for network reconnaissance and security auditing.', href: '/guides/nmap-scanning-tutorial', category: 'Networking' },
+            { title: 'Wireshark Packet Analysis', text: 'Learn to capture, filter, and analyze network traffic like a SOC analyst.', href: '/guides/wireshark-packet-analysis', category: 'Defense' },
+            { title: 'LLM Prompt Injection', text: 'Understand AI security vulnerabilities and how to defend Agentic systems.', href: '/guides/owasp-llm-top-10-2026', category: 'AI Security' },
+          ].map((g, i) => (
+            <Reveal key={g.title} delay={i * 0.05}>
+              <Link href={g.href} className="group block">
+                <GlassCard>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-cyan px-2 py-1 bg-cyan/10 rounded">
+                    {g.category}
+                  </span>
+                  <h3 className="mt-5 font-display text-lg font-semibold group-hover:text-cyan transition-colors">{g.title}</h3>
+                  <p className="mt-3 text-sm text-mute leading-relaxed">{g.text}</p>
+                </GlassCard>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* ACADEMY - LABS & TOOLS TEASER */}
+      <section className="container-x py-20 md:py-28 border-t border-line">
+        <div className="grid lg:grid-cols-2 gap-10">
+          <Reveal>
+            <div className="glass-card p-10 h-full rounded-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-cyan">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <h3 className="font-display text-2xl font-semibold">Interactive Cyber Labs</h3>
+              <p className="mt-4 text-mute leading-relaxed">
+                Practice what you learn in safe, browser-based environments. Analyze PCAPs, detect SQL injection, and identify AI vulnerabilities.
+              </p>
+              <Link href="/labs" className="mt-8 inline-flex items-center gap-2 text-cyan font-medium hover:gap-3 transition-all">
+                Try a free lab <ArrowIcon />
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="glass-card p-10 h-full rounded-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-violet">
+                  <rect x="3" y="3" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 9h18M9 21V9" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <h3 className="font-display text-2xl font-semibold">Browser-Native Tools</h3>
+              <p className="mt-4 text-mute leading-relaxed">
+                Over 30+ free tools for security auditing, network reconnaissance, encoding, and forensics that run entirely in your browser.
+              </p>
+              <Link href="/tools" className="mt-8 inline-flex items-center gap-2 text-violet font-medium hover:gap-3 transition-all">
+                Explore tools <ArrowIcon />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ACADEMY - ROADMAPS */}
+      <section className="container-x py-20 md:py-28 border-t border-line">
+        <SectionHeading
+          eyebrow="Learning Paths"
+          title="Cybersecurity Roadmaps"
+          description="Structured paths to take you from fundamentals to advanced engineering."
+        />
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { title: 'Beginner', href: '/roadmaps#beginner' },
+            { title: 'Ethical Hacker', href: '/roadmaps#ethical-hacker' },
+            { title: 'SOC Analyst', href: '/roadmaps#soc-analyst' },
+            { title: 'AI Security', href: '/roadmaps#ai-security' },
+          ].map((r, i) => (
+            <Reveal key={r.title} delay={i * 0.05}>
+              <Link href={r.href} className="block text-center p-6 border border-line rounded-xl bg-ink/[0.02] hover:bg-ink/[0.05] transition-colors">
+                <span className="font-mono text-sm text-cyan tracking-wide">{r.title}</span>
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </section>
 

@@ -5,36 +5,40 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import ThemeToggle from './ThemeToggle';
+import GlobalSearch from './GlobalSearch';
 
 type NavLink = { href: string; label: string; blurb?: string };
 type NavItem = { label: string; href?: string; items?: NavLink[] };
 
 const navItems: NavItem[] = [
-  { label: 'About', href: '/about' },
   {
-    label: 'Services',
+    label: 'Learn',
+    items: [
+      { href: '/guides', label: 'All Guides', blurb: 'Explore all security guides' },
+      { href: '/guides#beginner', label: 'Beginner', blurb: 'Start your cybersecurity journey' },
+      { href: '/guides#networking', label: 'Networking', blurb: 'Nmap, DNS, protocols' },
+      { href: '/guides#offensive', label: 'Offensive Security', blurb: 'Pentesting & red teaming' },
+      { href: '/guides#ai-security', label: 'AI Security', blurb: 'LLM vulnerabilities & defenses' },
+    ],
+  },
+  {
+    label: 'Resources',
+    items: [
+      { href: '/tools', label: 'Security Tools', blurb: 'Free browser-based cyber tools' },
+      { href: '/resources/cybersecurity-commands', label: 'Cheat Sheets', blurb: 'CLI commands & references' },
+      { href: '/faq', label: 'FAQ', blurb: 'Common questions answered' },
+    ],
+  },
+  {
+    label: 'Enterprise',
     items: [
       { href: '/services', label: 'All Services', blurb: 'Full overview of what we offer' },
       { href: '/cybersecurity', label: 'Cybersecurity', blurb: 'VAPT, audits, monitoring' },
       { href: '/ai', label: 'AI & Automation', blurb: 'LLMs, agents, workflow automation' },
-      { href: '/cloud', label: 'Technology Consulting', blurb: 'Cloud & infrastructure' },
-    ],
-  },
-  { label: 'Industries', href: '/industries' },
-  { label: 'Free Guides', href: '/guides' },
-  {
-    label: 'Resources',
-    items: [
-      { href: '/resources', label: 'Deep Research', blurb: 'Cybersecurity research & insights' },
-      { href: '/tools', label: 'Networking Tools', blurb: 'DNS, IP, phone, GitHub, username checks' },
-      { href: '/guides', label: 'Security Guides', blurb: '17 free tutorials with real commands' },
-      { href: '/resources/cybersecurity-commands', label: 'Commands Cheat Sheet', blurb: '100+ Nmap, dig, openssl commands' },
       { href: '/case-studies', label: 'Case Studies', blurb: 'How we work with clients' },
-      { href: '/faq', label: 'FAQ', blurb: 'Common questions answered' },
     ],
   },
-  { label: 'Careers', href: '/careers' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'About', href: '/about' },
 ];
 
 function DesktopDropdown({ item }: { item: NavItem }) {
@@ -87,6 +91,7 @@ function DesktopDropdown({ item }: { item: NavItem }) {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const pathname = usePathname();
 
@@ -144,6 +149,17 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden xl:flex items-center gap-3 shrink-0">
+          <button 
+            onClick={() => setSearchOpen(true)}
+            className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-white/5 text-mute hover:text-ink transition-colors"
+            aria-label="Search"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span className="text-sm font-medium">Search...</span>
+          </button>
           <ThemeToggle />
           <Link href="/book-consultation" className="btn-primary text-sm !px-4 !py-2 whitespace-nowrap">
             Book Consultation
@@ -151,6 +167,16 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3 xl:hidden">
+          <button 
+            onClick={() => setSearchOpen(true)}
+            className="text-mute hover:text-ink p-1"
+            aria-label="Search"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
           <ThemeToggle />
           <button
             aria-label="Toggle menu"
@@ -222,6 +248,8 @@ export default function Navbar() {
           </ul>
         </div>
       )}
+
+      <GlobalSearch isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

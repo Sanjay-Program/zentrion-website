@@ -13,12 +13,15 @@ interface GuideLayoutProps {
   tools?: Tool[];
   relatedGuides?: GuideLink[];
   headings?: { id: string; label: string }[];
+  difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
+  author?: string;
   children: React.ReactNode;
 }
 
 export default function GuideLayout({
   title, description, timeToRead, lastUpdated, tags,
-  tools = [], relatedGuides = [], headings = [], children,
+  tools = [], relatedGuides = [], headings = [],
+  difficulty, author = 'Zentrion Security Team', children,
 }: GuideLayoutProps) {
   return (
     <div className="min-h-screen bg-[rgb(var(--c-void))] text-[rgb(var(--c-ink))]">
@@ -42,10 +45,19 @@ export default function GuideLayout({
           </div>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight mb-4 max-w-4xl leading-tight">{title}</h1>
           <p className="text-lg text-[rgb(var(--c-mute))] max-w-3xl mb-6">{description}</p>
-          <div className="flex items-center gap-5 text-sm text-[rgb(var(--c-mute))]">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-[rgb(var(--c-mute))]">
+            {difficulty && (
+              <span className={`px-2 py-0.5 rounded text-xs font-mono border ${
+                difficulty === 'Beginner' ? 'border-emerald-500/30 text-emerald-400 bg-emerald-500/10' :
+                difficulty === 'Intermediate' ? 'border-yellow-500/30 text-yellow-400 bg-yellow-500/10' :
+                'border-red-500/30 text-red-400 bg-red-500/10'
+              }`}>
+                {difficulty}
+              </span>
+            )}
             <span>⏱ {timeToRead}</span>
             <span>📅 Updated {lastUpdated}</span>
-            <span>✍️ Zentrion Security Team</span>
+            <span>✍️ {author}</span>
           </div>
         </div>
       </div>

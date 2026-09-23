@@ -1,0 +1,596 @@
+[
+  {
+    "title": "Active Directory Attacks Guide | Kerberoasting, BloodHound | Zentrion",
+    "description": "Complete tutorial on Active Directory attacks. Learn Kerberoasting, AS-REP Roasting, BloodHound enumeration, Pass-the-Hash, and AD CS exploitation.",
+    "url": "/guides/active-directory-attacks",
+    "type": "Guide"
+  },
+  {
+    "title": "AI-Generated Phishing Detection | Defensive Guide | Zentrion",
+    "description": "Understand the mechanics of AI-generated phishing attacks (email, voice cloning, deepfakes) and learn how organizations can implement technical and behavioral defenses.",
+    "url": "/guides/ai-phishing-detection",
+    "type": "Guide"
+  },
+  {
+    "title": "Bug Bounty Hunting Tutorial | Zero to Report | Zentrion",
+    "description": "Complete bug bounty workflow tutorial. Learn reconnaissance with Amass and Subfinder, vulnerability testing, logic bugs, and how to write a professional report.",
+    "url": "/guides/bug-bounty-tutorial",
+    "type": "Guide"
+  },
+  {
+    "title": "Burp Suite Complete Guide | Web App Pentesting | Zentrion",
+    "description": "Master Burp Suite with 40+ web app pentesting techniques. Learn manual SQLi, XSS, SSRF, JWT attacks, and how to configure proxy intercept for vulnerability discovery.",
+    "url": "/guides/burp-suite-web-pentesting",
+    "type": "Guide"
+  },
+  {
+    "title": "How to Check DNS Records of Any Domain – dig, nslookup Guide",
+    "description": "Complete DNS records guide using dig, nslookup and host commands. Check A, AAAA, MX, TXT, CNAME, NS, SOA, CAA, SRV records and test for zone transfers.",
+    "url": "/guides/check-dns-records",
+    "type": "Guide"
+  },
+  {
+    "title": "How to Check if Your Website Has Been Hacked (2026)",
+    "description": "Step-by-step guide to check if your website is hacked. Find malicious redirects, web shells, suspicious PHP functions, and outbound connections with CLI commands.",
+    "url": "/guides/check-if-website-hacked",
+    "type": "Guide"
+  },
+  {
+    "title": "How to Detect Phishing Emails",
+    "description": "",
+    "url": "/guides/check-website-safe",
+    "type": "Guide"
+  },
+  {
+    "title": "Cloud Security Misconfigurations | AWS & Azure Tutorial | Zentrion",
+    "description": "Learn how to audit AWS and Azure for security misconfigurations. Test S3 buckets, IAM roles, NSGs, and Entra ID in safe CloudGoat practice labs.",
+    "url": "/guides/cloud-security-tutorial",
+    "type": "Guide"
+  },
+  {
+    "title": "Kali Linux Pentesting",
+    "description": "",
+    "url": "/guides/ctf-walkthrough-beginner",
+    "type": "Guide"
+  },
+  {
+    "title": "How to Check Email Breach",
+    "description": "",
+    "url": "/guides/detect-phishing-email",
+    "type": "Guide"
+  },
+  {
+    "title": "How to Detect Phishing Emails",
+    "description": "",
+    "url": "/guides/email-leak-check",
+    "type": "Guide"
+  },
+  {
+    "title": "Nmap Scanning Tutorial – 50+ Commands",
+    "description": "",
+    "url": "/guides/find-open-ports",
+    "type": "Guide"
+  },
+  {
+    "title": "Google Dorking & OSINT Tutorial | Zentrion",
+    "description": "Learn Google Dorking with 100+ advanced search operators. Find exposed credentials, open directories, and vulnerable admin panels using free OSINT tools.",
+    "url": "/guides/google-dorking-osint",
+    "type": "Guide"
+  },
+  {
+    "title": "Kali Linux Pentesting",
+    "description": "",
+    "url": "/guides/home-lab-cybersecurity",
+    "type": "Guide"
+  },
+  {
+    "title": "Ransomware Incident Response",
+    "description": "",
+    "url": "/guides/home-soc-setup",
+    "type": "Guide"
+  },
+  {
+    "title": "Nmap Scanning Tutorial",
+    "description": "",
+    "url": "/guides/kali-linux-pentesting-tutorial",
+    "type": "Guide"
+  },
+  {
+    "title": "Linux Privilege Escalation Tutorial | 30+ Methods | Zentrion",
+    "description": "Complete guide to Linux Privilege Escalation. Learn how to exploit SUID binaries, misconfigured sudoers, cron jobs, and kernel vulnerabilities to gain root access.",
+    "url": "/guides/linux-privilege-escalation",
+    "type": "Guide"
+  },
+  {
+    "title": "LLM Security Evaluation & Red Teaming Principles | Zentrion",
+    "description": "Learn the theoretical principles behind evaluating LLM security. Understand how security teams assess models for prompt injection resilience, data leakage, and system prompt protection.",
+    "url": "/guides/llm-security-evaluation",
+    "type": "Guide"
+  },
+  {
+    "title": "Malware Analysis Tutorial | Static & Dynamic Labs | Zentrion",
+    "description": "Learn malware analysis with this complete tutorial. Set up a free lab, perform static analysis with Ghidra and YARA, and dynamic analysis in a sandbox.",
+    "url": "/guides/malware-analysis-tutorial",
+    "type": "Guide"
+  },
+  {
+    "title": "MCP Security Guide | Model Context Protocol Defenses | Zentrion",
+    "description": "Understand the theoretical security risks associated with the Model Context Protocol (MCP). Learn defensive architectural strategies for securing MCP servers against unauthorized access and tool abuse.",
+    "url": "/guides/mcp-security-tutorial",
+    "type": "Guide"
+  },
+  {
+    "title": "Complete Nmap Scanning Tutorial – 50+ Commands with Examples",
+    "description": "Master Nmap with 50+ real commands. Port scanning, OS detection, NSE scripts, stealth scans, output formats, and real-world scenarios explained with examples.",
+    "url": "/guides/nmap-scanning-tutorial",
+    "type": "Guide"
+  },
+  {
+    "title": "OWASP Agentic Top 10 (2026) | AI Agent Security | Zentrion",
+    "description": "A theoretical breakdown of the 2026 OWASP Top 10 for Agentic Applications. Understand the architectural risks of autonomous AI agents, including Goal Hijacking and Cascading Failures.",
+    "url": "/guides/owasp-agentic-top-10-2026",
+    "type": "Guide"
+  },
+  {
+    "title": "OWASP LLM Top 10 (2026) | AI Security Defenses | Zentrion",
+    "description": "A theoretical breakdown of the 2026 OWASP Top 10 for LLM Applications. Learn the architectural mechanisms behind prompt injection, excessive agency, and data leakage, along with defensive strategies.",
+    "url": "/guides/owasp-llm-top-10-2026",
+    "type": "Guide"
+  },
+  {
+    "title": "Kali Linux Pentesting",
+    "description": "",
+    "url": "/guides/password-cracking-tutorial",
+    "type": "Guide"
+  },
+  {
+    "title": "Phishing Attack Lab | Gophish & SET Tutorial | Zentrion",
+    "description": "Learn how to build a complete phishing attack lab using Gophish and the Social-Engineer Toolkit (SET) for security awareness training and credential harvesting.",
+    "url": "/guides/phishing-attack-lab",
+    "type": "Guide"
+  },
+  {
+    "title": "Phone Number Intelligence & OSINT Guide | Zentrion",
+    "description": "Learn how to perform Phone Intelligence and OSINT. Validate E.164 formats, identify carrier networks (Jio, Airtel, Vi, BSNL), detect line types, and perform advanced reconnaissance.",
+    "url": "/guides/phone-intelligence-osint",
+    "type": "Guide"
+  },
+  {
+    "title": "Kali Linux Pentesting",
+    "description": "",
+    "url": "/guides/python-cybersecurity-scripts",
+    "type": "Guide"
+  },
+  {
+    "title": "Home SOC Setup",
+    "description": "",
+    "url": "/guides/ransomware-incident-response",
+    "type": "Guide"
+  },
+  {
+    "title": "Secure AI Chatbot Architecture | LLM Guardrails | Zentrion",
+    "description": "Learn the architectural principles for building secure AI chatbots. Discover how to implement input/output guardrails, rate limiting, and PII redaction to protect enterprise LLM deployments.",
+    "url": "/guides/secure-ai-chatbot",
+    "type": "Guide"
+  },
+  {
+    "title": "How to Find Open Ports",
+    "description": "",
+    "url": "/guides/secure-wifi-home",
+    "type": "Guide"
+  },
+  {
+    "title": "Kali Linux Pentesting",
+    "description": "",
+    "url": "/guides/sql-injection-tutorial",
+    "type": "Guide"
+  },
+  {
+    "title": "Nmap Scanning Tutorial",
+    "description": "",
+    "url": "/guides/wireshark-packet-analysis",
+    "type": "Guide"
+  },
+  {
+    "title": "AES Encrypt / Decrypt",
+    "description": "",
+    "url": "/tools/aes-crypto",
+    "type": "Tool"
+  },
+  {
+    "title": "ASCII / Binary Converter",
+    "description": "",
+    "url": "/tools/ascii-converter",
+    "type": "Tool"
+  },
+  {
+    "title": "BGP ASN Lookup",
+    "description": "",
+    "url": "/tools/asn-lookup",
+    "type": "Tool"
+  },
+  {
+    "title": "Base32 Encoder / Decoder",
+    "description": "",
+    "url": "/tools/base32",
+    "type": "Tool"
+  },
+  {
+    "title": "Base64 Converter",
+    "description": "",
+    "url": "/tools/base64-converter",
+    "type": "Tool"
+  },
+  {
+    "title": "Caesar Cipher / ROT13",
+    "description": "",
+    "url": "/tools/caesar-cipher",
+    "type": "Tool"
+  },
+  {
+    "title": "String Case Converter",
+    "description": "",
+    "url": "/tools/case-converter",
+    "type": "Tool"
+  },
+  {
+    "title": "Certificate Decoder",
+    "description": "",
+    "url": "/tools/certificate-decoder",
+    "type": "Tool"
+  },
+  {
+    "title": "Chmod Calculator",
+    "description": "",
+    "url": "/tools/chmod-calculator",
+    "type": "Tool"
+  },
+  {
+    "title": "Color Converter",
+    "description": "",
+    "url": "/tools/color-converter",
+    "type": "Tool"
+  },
+  {
+    "title": "Common Network Ports",
+    "description": "File Transfer Protocol (Data Transfer)",
+    "url": "/tools/common-ports",
+    "type": "Tool"
+  },
+  {
+    "title": "Cron Schedule Generator",
+    "description": "",
+    "url": "/tools/cron-generator",
+    "type": "Tool"
+  },
+  {
+    "title": "CSV to JSON Converter",
+    "description": "",
+    "url": "/tools/csv-to-json",
+    "type": "Tool"
+  },
+  {
+    "title": "CVE Lookup",
+    "description": "",
+    "url": "/tools/cve-lookup",
+    "type": "Tool"
+  },
+  {
+    "title": "DMARC Checker",
+    "description": "",
+    "url": "/tools/dmarc-checker",
+    "type": "Tool"
+  },
+  {
+    "title": "DNS Lookup",
+    "description": "",
+    "url": "/tools/dns-lookup",
+    "type": "Tool"
+  },
+  {
+    "title": "DNS Propagation Checker",
+    "description": "",
+    "url": "/tools/dns-propagation",
+    "type": "Tool"
+  },
+  {
+    "title": "Encoding Toolkit",
+    "description": "",
+    "url": "/tools/encoding-toolkit",
+    "type": "Tool"
+  },
+  {
+    "title": "File Hash Calculator",
+    "description": "",
+    "url": "/tools/file-hasher",
+    "type": "Tool"
+  },
+  {
+    "title": "Hash Generator",
+    "description": "",
+    "url": "/tools/hash-generator",
+    "type": "Tool"
+  },
+  {
+    "title": "HMAC Generator",
+    "description": "",
+    "url": "/tools/hmac-generator",
+    "type": "Tool"
+  },
+  {
+    "title": "HTML Entity Encoder",
+    "description": "",
+    "url": "/tools/html-encoder",
+    "type": "Tool"
+  },
+  {
+    "title": "HTML Entity Converter",
+    "description": "",
+    "url": "/tools/html-entities",
+    "type": "Tool"
+  },
+  {
+    "title": "HTTP Headers Inspector",
+    "description": "",
+    "url": "/tools/http-headers",
+    "type": "Tool"
+  },
+  {
+    "title": "HTTP Headers Parser",
+    "description": "",
+    "url": "/tools/http-headers-parser",
+    "type": "Tool"
+  },
+  {
+    "title": "HTTP Status Checker",
+    "description": "",
+    "url": "/tools/http-status",
+    "type": "Tool"
+  },
+  {
+    "title": "HTTP Status Codes",
+    "description": "The server has received the request headers and the client should proceed to send the request body.",
+    "url": "/tools/http-status-codes",
+    "type": "Tool"
+  },
+  {
+    "title": "Image to Base64",
+    "description": "",
+    "url": "/tools/image-base64",
+    "type": "Tool"
+  },
+  {
+    "title": "IP Blacklist Checker",
+    "description": "Major aggregate of spam sources",
+    "url": "/tools/ip-blacklist",
+    "type": "Tool"
+  },
+  {
+    "title": "IP Classifier",
+    "description": "",
+    "url": "/tools/ip-classifier",
+    "type": "Tool"
+  },
+  {
+    "title": "IP Address Converter",
+    "description": "",
+    "url": "/tools/ip-converter",
+    "type": "Tool"
+  },
+  {
+    "title": "IPv4 Subnet Calculator",
+    "description": "",
+    "url": "/tools/ipv4-subnet-calculator",
+    "type": "Tool"
+  },
+  {
+    "title": "JSON Formatter",
+    "description": "",
+    "url": "/tools/json-formatter",
+    "type": "Tool"
+  },
+  {
+    "title": "JSON to CSV Converter",
+    "description": "",
+    "url": "/tools/json-to-csv",
+    "type": "Tool"
+  },
+  {
+    "title": "JWT Decoder",
+    "description": "",
+    "url": "/tools/jwt-decoder",
+    "type": "Tool"
+  },
+  {
+    "title": "JWT Inspector",
+    "description": "",
+    "url": "/tools/jwt-inspector",
+    "type": "Tool"
+  },
+  {
+    "title": "Lorem Ipsum Generator",
+    "description": "",
+    "url": "/tools/lorem-ipsum",
+    "type": "Tool"
+  },
+  {
+    "title": "MAC Address Generator",
+    "description": "",
+    "url": "/tools/mac-generator",
+    "type": "Tool"
+  },
+  {
+    "title": "MAC Address Lookup",
+    "description": "",
+    "url": "/tools/mac-lookup",
+    "type": "Tool"
+  },
+  {
+    "title": "MAC Vendor Lookup",
+    "description": "",
+    "url": "/tools/mac-vendor",
+    "type": "Tool"
+  },
+  {
+    "title": "MX Lookup",
+    "description": "",
+    "url": "/tools/mx-lookup",
+    "type": "Tool"
+  },
+  {
+    "title": "Nmap Command Generator",
+    "description": "",
+    "url": "/tools/nmap-generator",
+    "type": "Tool"
+  },
+  {
+    "title": "OTP / TOTP Generator",
+    "description": "",
+    "url": "/tools/otp-generator",
+    "type": "Tool"
+  },
+  {
+    "title": "Password Breach Checker",
+    "description": "",
+    "url": "/tools/password-breach",
+    "type": "Tool"
+  },
+  {
+    "title": "Password Generator",
+    "description": "",
+    "url": "/tools/password-generator",
+    "type": "Tool"
+  },
+  {
+    "title": "Password Strength",
+    "description": "",
+    "url": "/tools/password-strength",
+    "type": "Tool"
+  },
+  {
+    "title": "Web Ping",
+    "description": "",
+    "url": "/tools/ping",
+    "type": "Tool"
+  },
+  {
+    "title": "Port Scanner",
+    "description": "",
+    "url": "/tools/port-scanner",
+    "type": "Tool"
+  },
+  {
+    "title": "Regex Tester",
+    "description": "",
+    "url": "/tools/regex-tester",
+    "type": "Tool"
+  },
+  {
+    "title": "Reverse DNS Lookup",
+    "description": "",
+    "url": "/tools/reverse-dns",
+    "type": "Tool"
+  },
+  {
+    "title": "RSA Key Generator",
+    "description": "",
+    "url": "/tools/rsa-generator",
+    "type": "Tool"
+  },
+  {
+    "title": "SPF Checker",
+    "description": "",
+    "url": "/tools/spf-checker",
+    "type": "Tool"
+  },
+  {
+    "title": "Subdomain Finder",
+    "description": "",
+    "url": "/tools/subdomain-finder",
+    "type": "Tool"
+  },
+  {
+    "title": "Subnet Calculator",
+    "description": "",
+    "url": "/tools/subnet-calculator",
+    "type": "Tool"
+  },
+  {
+    "title": "Text Analyzer",
+    "description": "",
+    "url": "/tools/text-analyzer",
+    "type": "Tool"
+  },
+  {
+    "title": "Text String Hasher",
+    "description": "",
+    "url": "/tools/text-hasher",
+    "type": "Tool"
+  },
+  {
+    "title": "API Key & Token Generator",
+    "description": "",
+    "url": "/tools/token-generator",
+    "type": "Tool"
+  },
+  {
+    "title": "Unix Timestamp Converter",
+    "description": "",
+    "url": "/tools/unix-timestamp",
+    "type": "Tool"
+  },
+  {
+    "title": "URL Analyzer",
+    "description": "",
+    "url": "/tools/url-analyzer",
+    "type": "Tool"
+  },
+  {
+    "title": "URL Encoder / Decoder",
+    "description": "",
+    "url": "/tools/url-encoder",
+    "type": "Tool"
+  },
+  {
+    "title": "URL Parser & Analyzer",
+    "description": "",
+    "url": "/tools/url-parser",
+    "type": "Tool"
+  },
+  {
+    "title": "URL Safety Checker",
+    "description": "",
+    "url": "/tools/url-safety",
+    "type": "Tool"
+  },
+  {
+    "title": "UUID/GUID Generator",
+    "description": "",
+    "url": "/tools/uuid-generator",
+    "type": "Tool"
+  },
+  {
+    "title": "WAF Detector",
+    "description": "",
+    "url": "/tools/waf-detector",
+    "type": "Tool"
+  },
+  {
+    "title": "Website Security Scanner",
+    "description": "",
+    "url": "/tools/website-security-scanner",
+    "type": "Tool"
+  },
+  {
+    "title": "What Is My IP",
+    "description": "",
+    "url": "/tools/what-is-my-ip",
+    "type": "Tool"
+  },
+  {
+    "title": "WHOIS / RDAP Lookup",
+    "description": "",
+    "url": "/tools/whois-lookup",
+    "type": "Tool"
+  }
+]
