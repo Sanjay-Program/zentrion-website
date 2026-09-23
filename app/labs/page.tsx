@@ -36,6 +36,20 @@ const labs = [
     difficulty: 'Intermediate',
     category: 'Web Security',
   },
+  {
+    id: 'wireshark-analysis',
+    title: 'Packet Analysis (Wireshark)',
+    description: 'Use a browser-based packet analyzer to inspect network traffic and uncover cleartext credentials.',
+    difficulty: 'Beginner',
+    category: 'Network Defense',
+  },
+  {
+    id: 'soc-analyst',
+    title: 'SOC Log Analysis (SIEM)',
+    description: 'Investigate a cyber attack on a production web server by querying Apache and Linux system logs.',
+    difficulty: 'Intermediate',
+    category: 'Network Defense',
+  },
 ];
 
 export default function LabsIndex() {
