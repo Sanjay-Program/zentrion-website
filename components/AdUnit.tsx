@@ -9,7 +9,7 @@ interface AdUnitProps {
   clientId?: string;
 }
 
-export default function AdUnit({ slotId, format = 'auto', className = '', clientId = 'ca-pub-PLACEHOLDER' }: AdUnitProps) {
+export default function AdUnit({ slotId, format = 'auto', className = '', clientId = 'ca-pub-4559603839158157' }: AdUnitProps) {
   const adRef = useRef<HTMLModElement>(null);
   const initialized = useRef(false);
 

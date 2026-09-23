@@ -5,24 +5,24 @@ compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "./out"
 
 # D1 Database
-[[d1_databases]]
-binding = "DB"
-database_name = "zentrion-db"
-database_id = "INSERT_DATABASE_ID_HERE"
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "zentrion-db"
+# database_id = "INSERT_DATABASE_ID_HERE"
 
 # KV Namespace
-[[kv_namespaces]]
-binding = "KV"
-id = "INSERT_KV_NAMESPACE_ID_HERE"
+# [[kv_namespaces]]
+# binding = "KV"
+# id = "INSERT_KV_NAMESPACE_ID_HERE"
 
 # R2 Bucket
-[[r2_buckets]]
-binding = "BUCKET"
-bucket_name = "zentrion-files"
+# [[r2_buckets]]
+# binding = "BUCKET"
+# bucket_name = "zentrion-files"
 
 # Workers AI
-[ai]
-binding = "AI"
+# [ai]
+# binding = "AI"
 
 [vars]
 ADMIN_KEY = "your-super-secret-admin-key"
