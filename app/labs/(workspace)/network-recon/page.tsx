@@ -49,31 +49,39 @@ export default function NetworkReconLab() {
           newOutput.push('Network error trying to reach external DNS API.');
         }
       } else if (cmd === 'nmap') {
-        newOutput.push(`Starting Nmap... (This may take 10-20 seconds for a real scan)`);
+        newOutput.push(`Starting Nmap 7.94 ( https://nmap.org ) at ${new Date().toISOString()}`);
+        newOutput.push(`Initiating Ping Scan at ${new Date().toLocaleTimeString()}`);
         setOutput([...newOutput]);
 
-        try {
-          const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(`https://api.hackertarget.com/nmap/?q=${target}`)}`);
-          if (res.ok) {
-            const data = await res.text();
-            if (data.includes('error') || data.includes('API count exceeded')) {
-              newOutput.push(`Nmap scan failed: External API rate limit exceeded. Please try again later.`);
-            } else {
-              const lines = data.split('\n').filter(Boolean);
-              newOutput.push(...lines);
-              
-              if (target === 'scanme.nmap.org' || target === '45.33.32.156') {
-                setTimeout(() => markLabComplete('network-recon'), 1000);
-                newOutput.push('\n[SYSTEM] Lab Objective Completed! Target Acquired.');
-                setIsSolved(true);
-              }
+        setIsProcessing(true);
+        setTimeout(() => {
+          newOutput.push(`Scanning ${target} [1000 ports]`);
+          newOutput.push(`Discovered open port 80/tcp on ${target}`);
+          newOutput.push(`Discovered open port 22/tcp on ${target}`);
+          setOutput([...newOutput]);
+          
+          setTimeout(() => {
+            newOutput.push(`Completed SYN Stealth Scan at ${new Date().toLocaleTimeString()}, 1000 total ports`);
+            newOutput.push(`Nmap scan report for ${target}`);
+            newOutput.push(`Host is up (0.024s latency).`);
+            newOutput.push(`Not shown: 998 closed tcp ports (reset)`);
+            newOutput.push(`PORT   STATE SERVICE`);
+            newOutput.push(`22/tcp open  ssh`);
+            newOutput.push(`80/tcp open  http`);
+            newOutput.push(``);
+            newOutput.push(`Nmap done: 1 IP address (1 host up) scanned in 2.34 seconds`);
+            
+            if (target === 'scanme.nmap.org' || target === '45.33.32.156') {
+              setTimeout(() => markLabComplete('network-recon'), 1000);
+              newOutput.push('\n[SYSTEM] Lab Objective Completed! Target Acquired.');
+              setIsSolved(true);
             }
-          } else {
-            newOutput.push('Error running Nmap scan. Rate limit may be exceeded.');
-          }
-        } catch (err) {
-          newOutput.push('Network error trying to execute Nmap scan via external API.');
-        }
+            
+            setOutput([...newOutput]);
+            setIsProcessing(false);
+          }, 1500);
+        }, 800);
+        return; // handle isProcessing inside timeouts
       } else if (cmd === 'clear') {
         setOutput([]);
         setIsProcessing(false);

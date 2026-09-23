@@ -29,6 +29,13 @@ const labs = [
     difficulty: 'Intermediate',
     category: 'AI Security',
   },
+  {
+    id: 'sql-injection',
+    title: 'SQL Injection (Auth Bypass)',
+    description: 'Bypass a login portal by executing raw SQL queries against a real in-browser SQLite database engine.',
+    difficulty: 'Intermediate',
+    category: 'Web Security',
+  },
 ];
 
 export default function LabsIndex() {
