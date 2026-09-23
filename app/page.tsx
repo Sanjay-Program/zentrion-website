@@ -422,10 +422,10 @@ export default function HomePage() {
       </section>
 
       <CTASection
-        title="Ready to see where your defenses actually stand?"
-        description="Book a consultation and walk away with a real picture of your risk &mdash; not a sales pitch."
-        primary={{ href: '/book-consultation', label: 'Book Consultation' }}
-        secondary={{ href: '/request-demo', label: 'Request a Demo' }}
+        title="Does your security team actually build defenses?"
+        description="Or do they just run automated scanners and send you PDF reports? Book a technical discovery call and find your blind spots."
+        primary={{ href: '/book-consultation', label: 'Book Technical Discovery' }}
+        secondary={{ href: '/services', label: 'View Enterprise Services' }}
       />
     </>
   );
