@@ -14,11 +14,10 @@ const navItems: NavItem[] = [
   {
     label: 'Learn',
     items: [
-      { href: '/guides', label: 'All Guides', blurb: 'Explore all security guides' },
-      { href: '/guides#beginner', label: 'Beginner', blurb: 'Start your cybersecurity journey' },
-      { href: '/guides#networking', label: 'Networking', blurb: 'Nmap, DNS, protocols' },
-      { href: '/guides#offensive', label: 'Offensive Security', blurb: 'Pentesting & red teaming' },
-      { href: '/guides#ai-security', label: 'AI Security', blurb: 'LLM vulnerabilities & defenses' },
+      { href: '/roadmaps', label: 'Learning Paths', blurb: 'Structured curriculums' },
+      { href: '/guides', label: 'Security Guides', blurb: 'In-depth tutorials & how-tos' },
+      { href: '/labs', label: 'Interactive Labs', blurb: 'Real-world browser practice' },
+      { href: '/quizzes', label: 'Cyber Quizzes', blurb: 'Test your knowledge' },
     ],
   },
   {

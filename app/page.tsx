@@ -47,7 +47,7 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 border border-cyan/20">
                 <span className="h-2 w-2 rounded-full bg-cyan animate-pulseDot" />
                 <span className="font-mono text-[11px] uppercase tracking-widest text-cyan">
-                  Monitoring active
+                  Enterprise Engineering
                 </span>
               </div>
             </Reveal>
@@ -58,22 +58,19 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-xl text-lg text-mute leading-relaxed">
-                Free practical cybersecurity guides, interactive labs, security tools, challenges, research, and learning paths — built by Zentrion Technologies.
+                We build generative AI automation, secure cloud architectures, and proactive cyber defenses for organizations that need to scale safely.
               </p>
             </Reveal>
             <Reveal delay={0.24}>
               <div className="mt-9 flex flex-wrap gap-4">
-                <Link href="/guides" className="btn-primary">
-                  Start Learning <ArrowIcon />
+                <Link href="/book-consultation" className="btn-primary">
+                  Book Architecture Review <ArrowIcon />
                 </Link>
-                <Link href="/tools" className="btn-ghost">
-                  Explore Free Tools
+                <Link href="/services" className="btn-ghost text-[rgb(var(--c-accent))] border-[rgba(47,107,255,0.2)] hover:bg-[rgba(47,107,255,0.1)]">
+                  Explore Enterprise Services
                 </Link>
-                <Link href="/labs" className="btn-ghost">
-                  Try Cyber Labs
-                </Link>
-                <Link href="/guides" className="btn-ghost text-[rgb(var(--c-accent))] border-[rgba(47,107,255,0.2)] hover:bg-[rgba(47,107,255,0.1)]">
-                  Explore Security Guides
+                <Link href="/guides" className="btn-ghost">
+                  Zentrion Academy
                 </Link>
               </div>
             </Reveal>
@@ -83,105 +80,10 @@ export default function HomePage() {
                 <StatBlock value="24/7" label="Threat monitoring" />
                 <StatBlock value="150+" label="Security audits shipped" />
                 <StatBlock value="40+" label="AI systems deployed" />
-                <StatBlock value="500+" label="Learners trained" />
+                <StatBlock value="99.9%" label="Uptime Maintained" />
               </div>
             </Reveal>
           </div>
-        </div>
-      </section>
-
-      {/* ACADEMY - FEATURED GUIDES */}
-      <section className="container-x py-20 md:py-28 border-t border-line">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-14">
-          <SectionHeading
-            eyebrow="Learn Cybersecurity"
-            title="Featured Security Guides"
-            description="Deep-dive tutorials with real commands, code examples, and practical labs. Completely free."
-          />
-          <Link href="/guides" className="hidden md:inline-flex items-center gap-2 text-cyan font-medium hover:gap-3 transition-all shrink-0">
-            View all guides <ArrowIcon />
-          </Link>
-        </div>
-        <div className="grid md:grid-cols-3 gap-5">
-          {[
-            { title: 'Nmap Scanning Tutorial', text: '50+ practical commands for network reconnaissance and security auditing.', href: '/guides/nmap-scanning-tutorial', category: 'Networking' },
-            { title: 'Wireshark Packet Analysis', text: 'Learn to capture, filter, and analyze network traffic like a SOC analyst.', href: '/guides/wireshark-packet-analysis', category: 'Defense' },
-            { title: 'LLM Prompt Injection', text: 'Understand AI security vulnerabilities and how to defend Agentic systems.', href: '/guides/owasp-llm-top-10-2026', category: 'AI Security' },
-          ].map((g, i) => (
-            <Reveal key={g.title} delay={i * 0.05}>
-              <Link href={g.href} className="group block">
-                <GlassCard>
-                  <span className="text-[10px] uppercase font-mono tracking-wider text-cyan px-2 py-1 bg-cyan/10 rounded">
-                    {g.category}
-                  </span>
-                  <h3 className="mt-5 font-display text-lg font-semibold group-hover:text-cyan transition-colors">{g.title}</h3>
-                  <p className="mt-3 text-sm text-mute leading-relaxed">{g.text}</p>
-                </GlassCard>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* ACADEMY - LABS & TOOLS TEASER */}
-      <section className="container-x py-20 md:py-28 border-t border-line">
-        <div className="grid lg:grid-cols-2 gap-10">
-          <Reveal>
-            <div className="glass-card p-10 h-full rounded-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-cyan">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h3 className="font-display text-2xl font-semibold">Interactive Cyber Labs</h3>
-              <p className="mt-4 text-mute leading-relaxed">
-                Practice what you learn in safe, browser-based environments. Analyze PCAPs, detect SQL injection, and identify AI vulnerabilities.
-              </p>
-              <Link href="/labs" className="mt-8 inline-flex items-center gap-2 text-cyan font-medium hover:gap-3 transition-all">
-                Try a free lab <ArrowIcon />
-              </Link>
-            </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <div className="glass-card p-10 h-full rounded-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-violet">
-                  <rect x="3" y="3" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M3 9h18M9 21V9" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h3 className="font-display text-2xl font-semibold">Browser-Native Tools</h3>
-              <p className="mt-4 text-mute leading-relaxed">
-                Over 30+ free tools for security auditing, network reconnaissance, encoding, and forensics that run entirely in your browser.
-              </p>
-              <Link href="/tools" className="mt-8 inline-flex items-center gap-2 text-violet font-medium hover:gap-3 transition-all">
-                Explore tools <ArrowIcon />
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ACADEMY - ROADMAPS */}
-      <section className="container-x py-20 md:py-28 border-t border-line">
-        <SectionHeading
-          eyebrow="Learning Paths"
-          title="Cybersecurity Roadmaps"
-          description="Structured paths to take you from fundamentals to advanced engineering."
-        />
-        <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { title: 'Beginner', href: '/roadmaps#beginner' },
-            { title: 'Ethical Hacker', href: '/roadmaps#ethical-hacker' },
-            { title: 'SOC Analyst', href: '/roadmaps#soc-analyst' },
-            { title: 'AI Security', href: '/roadmaps#ai-security' },
-          ].map((r, i) => (
-            <Reveal key={r.title} delay={i * 0.05}>
-              <Link href={r.href} className="block text-center p-6 border border-line rounded-xl bg-ink/[0.02] hover:bg-ink/[0.05] transition-colors">
-                <span className="font-mono text-sm text-cyan tracking-wide">{r.title}</span>
-              </Link>
-            </Reveal>
-          ))}
         </div>
       </section>
 
@@ -206,145 +108,22 @@ export default function HomePage() {
         <div className="grid md:grid-cols-3 gap-5">
           {bentoServices.map((s, i) => (
             <Reveal key={s.title} delay={i * 0.05}>
-              <GlassCard>
-                <div className={`h-11 w-11 rounded-xl flex items-center justify-center font-mono text-sm ${s.color}`}>
-                  {s.icon}
-                </div>
-                <h3 className="mt-6 font-display text-lg font-semibold">{s.title}</h3>
-                <p className="mt-3 text-sm text-mute leading-relaxed">{s.text}</p>
-              </GlassCard>
+              <Link href="/services" className="block group h-full">
+                <GlassCard>
+                  <div className={`h-11 w-11 rounded-xl flex items-center justify-center font-mono text-sm ${s.color}`}>
+                    {s.icon}
+                  </div>
+                  <h3 className="mt-6 font-display text-lg font-semibold group-hover:text-cyan transition-colors">{s.title}</h3>
+                  <p className="mt-3 text-sm text-mute leading-relaxed">{s.text}</p>
+                </GlassCard>
+              </Link>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* PRODUCT SPOTLIGHT */}
-      <section className="container-x py-20 md:py-28">
-        <Reveal>
-          <div className="glass-card rounded-[32px] p-8 md:p-14 relative overflow-hidden">
-            <div className="absolute -top-24 -right-24 w-96 h-96 bg-signal/20 rounded-full blur-[110px] pointer-events-none" />
-            <div className="relative grid lg:grid-cols-2 gap-14 items-center">
-              <div className="order-2 lg:order-1 glass-card rounded-2xl p-6 md:p-8">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2.5 w-2.5 rounded-full bg-breach/70" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
-                  </div>
-                  <span className="font-mono text-[11px] text-mute/60">ZENTRION_SHIELD_UI</span>
-                </div>
-
-                <div className="flex justify-between items-end">
-                  <div>
-                    <p className="text-xs uppercase tracking-wide text-mute">Alerts triaged today</p>
-                    <p className="mt-1 text-4xl font-display font-semibold text-gradient">247</p>
-                  </div>
-                  <span className="font-mono text-sm text-emerald-400">&minus;18% noise</span>
-                </div>
-
-                <div className="mt-6 grid grid-cols-5 gap-3 h-24 items-end">
-                  {[35, 55, 40, 80, 60].map((h, i) => (
-                    <div
-                      key={i}
-                      style={{ height: `${h}%` }}
-                      className={`rounded-t-md ${i === 3 ? 'bg-signal shadow-glow' : 'bg-signal/30'}`}
-                    />
-                  ))}
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-line grid grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-ink/[0.03] border border-line">
-                    <p className="text-xs text-mute uppercase mb-2">Network health</p>
-                    <div className="flex items-center gap-2">
-                      <div className="flex-1 h-1.5 bg-ink/10 rounded-full overflow-hidden">
-                        <div className="h-full bg-cyan w-[97%]" />
-                      </div>
-                      <span className="font-mono text-xs">97%</span>
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-xl bg-ink/[0.03] border border-line">
-                    <p className="text-xs text-mute uppercase mb-2">Response latency</p>
-                    <div className="flex items-center gap-2">
-                      <div className="flex-1 h-1.5 bg-ink/10 rounded-full overflow-hidden">
-                        <div className="h-full bg-violet w-[14%]" />
-                      </div>
-                      <span className="font-mono text-xs">14ms</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="order-1 lg:order-2 space-y-7">
-                <div className="w-12 h-1 bg-signal" />
-                <h2 className="font-display text-3xl md:text-4xl font-semibold">
-                  The Zentrion <span className="text-gradient">Cyber Shield</span>
-                </h2>
-                <p className="text-mute leading-relaxed">
-                  A single view into your infrastructure&apos;s posture &mdash; concept mockup of
-                  the monitoring layer we build into every continuous-coverage engagement.
-                </p>
-                <ul className="space-y-3">
-                  {['Real-time alert triage', 'Automated first-response actions', 'Consolidated log intelligence'].map((f) => (
-                    <li key={f} className="flex items-center gap-3 text-ink">
-                      <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <Link href="/request-demo" className="btn-ghost inline-flex">
-                  Request Demo Walkthrough
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* UPCOMING PRODUCTS TEASER */}
-      <section className="container-x py-20 md:py-28 border-t border-line">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-14">
-          <SectionHeading
-            eyebrow="On the roadmap"
-            title="Two platforms we're building right now"
-            description="Everything we've learned running audits and AI engagements, going into product. Both are open for early access design partners."
-          />
-          <Link href="/products" className="hidden md:inline-flex items-center gap-2 text-cyan font-medium hover:gap-3 transition-all shrink-0">
-            See both products <ArrowIcon />
-          </Link>
-        </div>
-        <div className="grid md:grid-cols-2 gap-5">
-          {[
-            {
-              name: 'BehaviorDNA',
-              tagline: 'Intelligence engine for cloud & AI identity security',
-              text: 'Correlates every machine identity and AI agent in your stack into one graph, scoring behavioral drift in real time.',
-            },
-            {
-              name: 'Zentrion Command Center',
-              tagline: 'One SOC. 55+ tools. One pipeline.',
-              text: 'Unifies dozens of security tools into a single normalized pipeline with autonomous AI triage and a live command dashboard.',
-            },
-          ].map((p) => (
-            <Link key={p.name} href={`/products#${p.name === 'BehaviorDNA' ? 'behaviordna' : 'command-center'}`} className="group block">
-              <GlassCard>
-                <span className="inline-flex items-center gap-2 eyebrow !text-cyan">
-                  <span className="h-1.5 w-1.5 rounded-full bg-cyan animate-pulseDot" />
-                  In development
-                </span>
-                <h3 className="mt-3 font-display text-xl font-semibold">{p.name}</h3>
-                <p className="mt-1 text-sm text-cyan">{p.tagline}</p>
-                <p className="mt-3 text-sm text-mute leading-relaxed">{p.text}</p>
-                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-cyan group-hover:gap-2.5 transition-all">
-                  Learn more <ArrowIcon />
-                </span>
-              </GlassCard>
-            </Link>
-          ))}
-        </div>
-      </section>
-
       {/* PROCESS */}
-      <section className="container-x py-20 md:py-28 border-t border-line">
+      <section className="container-x py-20 border-t border-line">
         <SectionHeading
           eyebrow="How an engagement runs"
           title="From first audit to standing defense"
@@ -363,29 +142,6 @@ export default function HomePage() {
                 <p className="mt-2 font-display font-semibold text-lg">{s.step}</p>
                 <p className="mt-2 text-sm text-mute leading-relaxed" dangerouslySetInnerHTML={{ __html: s.text }} />
               </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* INDUSTRIES */}
-      <section className="container-x py-20 md:py-28 border-t border-line">
-        <SectionHeading
-          eyebrow="Who we work with"
-          title="Enterprises, startups, and organizations"
-          description="We secure operations and accelerate workflows for organizations across multiple sectors, ensuring compliance and robust defense."
-        />
-        <div className="mt-12 grid md:grid-cols-3 gap-5">
-          {[
-            { title: 'Tech Startups & SaaS', text: 'Secure cloud architectures, AI integration, and automated CI/CD security pipelines.' },
-            { title: 'Financial Services', text: 'Fintech compliance, secure API gateways, and real-time fraud detection systems.' },
-            { title: 'Healthcare & Enterprises', text: 'Data privacy compliance, endpoint security, and automated incident response.' },
-          ].map((c, i) => (
-            <Reveal key={c.title} delay={i * 0.08}>
-              <GlassCard>
-                <h3 className="font-display text-lg font-semibold">{c.title}</h3>
-                <p className="mt-3 text-sm text-mute leading-relaxed">{c.text}</p>
-              </GlassCard>
             </Reveal>
           ))}
         </div>
@@ -418,6 +174,95 @@ export default function HomePage() {
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* ACADEMY INTERLUDE */}
+      <section className="container-x py-24 text-center border-t border-line">
+        <Reveal>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet/10 border border-violet/20 mb-6">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-violet">
+              Free Education
+            </span>
+          </div>
+          <h2 className="font-display text-4xl md:text-5xl font-semibold max-w-3xl mx-auto leading-tight">
+            The Zentrion Academy
+          </h2>
+          <p className="mt-6 max-w-2xl mx-auto text-mute text-lg leading-relaxed">
+            We believe cybersecurity knowledge should be free. Explore our library of practical guides, interactive labs, and browser-native tools to level up your skills.
+          </p>
+        </Reveal>
+      </section>
+
+      {/* ACADEMY - LABS & TOOLS TEASER */}
+      <section className="container-x pb-20 md:pb-28">
+        <div className="grid lg:grid-cols-2 gap-10">
+          <Reveal>
+            <div className="glass-card p-10 h-full rounded-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-cyan">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <h3 className="font-display text-2xl font-semibold">Interactive Cyber Labs</h3>
+              <p className="mt-4 text-mute leading-relaxed">
+                Practice what you learn in safe, browser-based environments. Real Nmap scans, SQL injection analysis, and AI vulnerabilities.
+              </p>
+              <Link href="/labs" className="mt-8 inline-flex items-center gap-2 text-cyan font-medium hover:gap-3 transition-all">
+                Try a free lab <ArrowIcon />
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="glass-card p-10 h-full rounded-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-violet">
+                  <rect x="3" y="3" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 9h18M9 21V9" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <h3 className="font-display text-2xl font-semibold">Browser-Native Tools</h3>
+              <p className="mt-4 text-mute leading-relaxed">
+                Over 30+ free tools for security auditing, network reconnaissance, encoding, and forensics that run entirely in your browser.
+              </p>
+              <Link href="/tools" className="mt-8 inline-flex items-center gap-2 text-violet font-medium hover:gap-3 transition-all">
+                Explore tools <ArrowIcon />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ACADEMY - FEATURED GUIDES */}
+      <section className="container-x py-20 border-t border-line">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-14">
+          <SectionHeading
+            eyebrow="Learn Cybersecurity"
+            title="Featured Security Guides"
+            description="Deep-dive tutorials with real commands, code examples, and practical labs. Completely free."
+          />
+          <Link href="/guides" className="hidden md:inline-flex items-center gap-2 text-cyan font-medium hover:gap-3 transition-all shrink-0">
+            View all guides <ArrowIcon />
+          </Link>
+        </div>
+        <div className="grid md:grid-cols-3 gap-5">
+          {[
+            { title: 'Nmap Scanning Tutorial', text: '50+ practical commands for network reconnaissance and security auditing.', href: '/guides/nmap-scanning-tutorial', category: 'Networking' },
+            { title: 'Wireshark Packet Analysis', text: 'Learn to capture, filter, and analyze network traffic like a SOC analyst.', href: '/guides/wireshark-packet-analysis', category: 'Defense' },
+            { title: 'LLM Prompt Injection', text: 'Understand AI security vulnerabilities and how to defend Agentic systems.', href: '/guides/owasp-llm-top-10-2026', category: 'AI Security' },
+          ].map((g, i) => (
+            <Reveal key={g.title} delay={i * 0.05}>
+              <Link href={g.href} className="group block h-full">
+                <GlassCard>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-cyan px-2 py-1 bg-cyan/10 rounded">
+                    {g.category}
+                  </span>
+                  <h3 className="mt-5 font-display text-lg font-semibold group-hover:text-cyan transition-colors">{g.title}</h3>
+                  <p className="mt-3 text-sm text-mute leading-relaxed">{g.text}</p>
+                </GlassCard>
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </section>
 
