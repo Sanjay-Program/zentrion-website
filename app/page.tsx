@@ -53,12 +53,12 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.08}>
               <h1 className="mt-5 font-display font-semibold text-4xl sm:text-5xl md:text-[3.6rem] leading-[1.05] text-white">
-                Intelligence That <span className="text-gradient-hero">Protects.</span>
+                Build. Secure. <span className="text-gradient-hero">Automate.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-xl text-lg text-mute leading-relaxed">
-                We build generative AI automation, secure cloud architectures, and proactive cyber defenses for organizations that need to scale safely.
+                Zentrion Technologies builds, secures, and intelligently automates digital products and enterprise business systems.
               </p>
             </Reveal>
             <Reveal delay={0.24}>

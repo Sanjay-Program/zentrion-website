@@ -1,0 +1,84 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { Reveal, SectionHeading, GlassCard } from '@/components/ui';
+import Breadcrumbs from '@/components/Breadcrumbs';
+
+export const metadata: Metadata = {
+  title: 'Cloud Solutions & Architecture',
+  description: 'AWS, Azure, and Google Cloud infrastructure, migration, and deployment services.',
+};
+
+const providers = [
+  "Amazon Web Services (AWS)", "Microsoft Azure", "Google Cloud (GCP)", "Cloudflare"
+];
+
+export default function CloudSolutionsPage() {
+  return (
+    <>
+      <Breadcrumbs items={[
+        { href: '/services', label: 'Services' },
+        { href: '/services/cloud-solutions', label: 'Cloud Solutions' }
+      ]} />
+      
+      <section className="container-x pt-10 pb-16">
+        <Reveal>
+          <h1 className="font-display text-4xl md:text-5xl font-semibold max-w-4xl mb-6">
+            Enterprise <span className="text-cyan">Cloud Solutions</span>
+          </h1>
+          <p className="max-w-2xl text-mute leading-relaxed text-lg mb-8">
+            Build resilient, scalable, and secure infrastructure. Whether you are migrating legacy systems or building cloud-native applications from scratch, we architect environments that optimize performance and minimize costs.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="container-x pb-24">
+        <Reveal delay={0.1}>
+          <div className="flex flex-wrap items-center gap-3">
+            {providers.map((step, i) => (
+              <div key={i} className="px-4 py-2 bg-surface border border-line rounded font-mono text-sm text-ink">
+                {step}
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="container-x pb-24">
+        <SectionHeading 
+          eyebrow="Capabilities" 
+          title="Cloud Engineering Services"
+          description="Infrastructure as Code (IaC) and modern deployment methodologies."
+        />
+        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { title: "Cloud Architecture", desc: "Designing secure VPCs, subnet routing, and scalable multi-AZ or multi-region environments." },
+            { title: "Cloud Migration", desc: "Safely transitioning on-premise or legacy workloads to modern cloud infrastructure." },
+            { title: "Serverless & Containers", desc: "Deploying highly scalable applications via AWS Lambda, EKS, Azure Functions, or Cloud Run." },
+            { title: "Cost Optimization", desc: "Auditing over-provisioned resources and implementing cost-aware architectural changes." },
+            { title: "Cloud Security", desc: "Enforcing least-privilege IAM, logging, monitoring, and compliance from day one." }
+          ].map((item, i) => (
+            <GlassCard key={i} className="p-6">
+              <h3 className="font-bold text-white mb-2">{item.title}</h3>
+              <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
+            </GlassCard>
+          ))}
+        </div>
+      </section>
+
+      <section className="container-x pb-24">
+         <div className="bg-surface/50 border border-line p-8 md:p-12 rounded-2xl text-center max-w-4xl mx-auto">
+           <h2 className="text-3xl font-display font-bold text-white mb-4">Architect Your Infrastructure</h2>
+           <p className="text-mute mb-8 max-w-xl mx-auto">
+             Discuss your multi-cloud or hybrid deployment requirements.
+           </p>
+           <Link href="/contact/project?service=cloud-solutions" className="btn-primary inline-flex">
+             Discuss Your Cloud Requirements
+           </Link>
+           <div className="mt-6 pt-6 border-t border-line text-sm text-mute">
+             Related Capabilities: <Link href="/services/devops" className="text-cyan hover:underline">DevOps</Link> · <Link href="/services/cloud-security" className="text-cyan hover:underline">Cloud Security Assessment</Link>
+           </div>
+         </div>
+      </section>
+    </>
+  );
+}

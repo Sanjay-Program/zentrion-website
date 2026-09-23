@@ -87,7 +87,7 @@ export default function GlobalSearch({ isOpen, onClose }: { isOpen: boolean; onC
           <input
             ref={inputRef}
             type="text"
-            className="flex-1 bg-transparent border-none text-ink placeholder:text-mute focus:outline-none focus:ring-0 text-lg"
+            className="flex-1 bg-transparent border-none text-white placeholder:text-gray-500 focus:outline-none focus:ring-0 text-lg"
             placeholder="Search guides, tools, labs..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -118,15 +118,15 @@ export default function GlobalSearch({ isOpen, onClose }: { isOpen: boolean; onC
                     className="flex flex-col p-3 rounded-xl hover:bg-white/5 transition-colors group"
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-medium text-ink group-hover:text-cyan transition-colors">
+                      <span className="font-medium text-white group-hover:text-cyan transition-colors">
                         {result.title}
                       </span>
-                      <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 text-mute border border-line">
+                      <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-white/5 text-gray-400 border border-line">
                         {result.type}
                       </span>
                     </div>
                     {result.description && (
-                      <span className="text-sm text-mute mt-1 line-clamp-1">
+                      <span className="text-sm text-gray-400 mt-1 line-clamp-1">
                         {result.description}
                       </span>
                     )}
