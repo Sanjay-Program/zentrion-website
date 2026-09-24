@@ -10,8 +10,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const quiz = quizzesData.find(q => q.id === params.id);
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const quiz = quizzesData.find(q => q.id === resolvedParams.id);
   
   if (!quiz) {
     return {
@@ -25,8 +26,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   };
 }
 
-export default function QuizPage({ params }: { params: { id: string } }) {
-  const quiz = quizzesData.find(q => q.id === params.id);
+export default async function QuizPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const quiz = quizzesData.find(q => q.id === resolvedParams.id);
 
   if (!quiz) {
     notFound();
