@@ -108,11 +108,62 @@ export default function ToolsDashboard() {
           ))}
         </div>
 
+        {/* High Value Content Section for AdSense Compliance */}
+        <div className="mt-32 max-w-4xl mx-auto prose prose-invert prose-lg text-[rgb(var(--c-mute))]">
+          <h2 className="text-3xl font-display font-bold text-[rgb(var(--c-ink))] mb-6">Why Use the Zentrion Cyber Intelligence Suite?</h2>
+          <p>
+            In today’s rapidly evolving threat landscape, maintaining complete visibility over your digital infrastructure is not optional—it is a critical requirement. The <strong>Zentrion Cyber Intelligence Suite</strong> is a curated collection of advanced networking, open-source intelligence (OSINT), and cybersecurity utilities designed for security analysts, penetration testers, and IT administrators.
+          </p>
+          <p>
+            Unlike generic tool aggregates, our suite is strictly focused on actionable intelligence. Whether you are conducting a routine DNS audit, validating email security configurations (SPF/DMARC), or actively hunting for misconfigured ports, our toolset provides real-time, untampered data directly from the edge.
+          </p>
+
+          <h3 className="text-2xl font-display font-bold text-[rgb(var(--c-ink))] mt-10 mb-4">Core Capabilities & Threat Hunting</h3>
+          <p>
+            Our ecosystem is divided into specialized domains to assist in every phase of the reconnaissance and hardening process:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 mb-8">
+            <li><strong>Network Mapping:</strong> Utilize our port scanners and subnet calculators to accurately map out IP blocks, identify exposed services, and classify IPv4/IPv6 architectures before adversaries can exploit them.</li>
+            <li><strong>Domain & DNS Forensics:</strong> Investigate DNS propagation delays, verify reverse DNS records (PTR), and parse WHOIS data to uncover the infrastructure behind suspicious domains.</li>
+            <li><strong>Web Security Auditing:</strong> Inspect critical HTTP security headers (HSTS, CSP, X-Frame-Options), validate SSL/TLS certificate chains, and detect the presence of Web Application Firewalls (WAF) to ensure web application resilience.</li>
+            <li><strong>Email Authentication:</strong> Prevent domain spoofing and phishing attacks by validating your domain's SPF (Sender Policy Framework) and DMARC records to ensure strict alignment.</li>
+            <li><strong>OSINT & Reconnaissance:</strong> Leverage advanced sub-domain enumeration, repository analysis, and username lookups to build a comprehensive threat profile of a target organization.</li>
+          </ul>
+
+          <h3 className="text-2xl font-display font-bold text-[rgb(var(--c-ink))] mt-10 mb-4">Frequently Asked Questions</h3>
+          
+          <div className="space-y-6 mt-6">
+            <div>
+              <h4 className="text-xl font-bold text-white mb-2">Are these tools safe to use on production systems?</h4>
+              <p>Yes. All tools in the Zentrion Cyber Intelligence Suite operate passively. They perform standard network queries, DNS lookups, and header inspections without executing intrusive payloads or exploiting vulnerabilities, ensuring your production environments remain completely stable and unaffected.</p>
+            </div>
+            
+            <div>
+              <h4 className="text-xl font-bold text-white mb-2">How accurate is the Website Security Scanner?</h4>
+              <p>The flagship Website Security Scanner performs real-time edge requests to analyze the exact HTTP response headers, SSL configurations, and DNS records currently resolving for a given domain. It does not rely on cached databases, ensuring you receive up-to-the-second accuracy.</p>
+            </div>
+            
+            <div>
+              <h4 className="text-xl font-bold text-white mb-2">Can I use these tools for compliance auditing?</h4>
+              <p>Absolutely. IT teams regularly use our TLS/SSL decoders and HTTP header inspectors to quickly validate that their infrastructure meets the baseline requirements for standards like PCI-DSS, SOC 2, and ISO 27001 before initiating formal third-party audits.</p>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-bold text-white mb-2">Is the data I analyze logged or shared?</h4>
+              <p>No. Zentrion Technologies operates with a strict privacy-first architecture. Client-side tools (like the AES Crypto and JWT Inspector) process data entirely within your browser memory. Server-side queries (like DNS and Nmap) do not persist target data in our databases after the request is completed.</p>
+            </div>
+          </div>
+        </div>
+
         {/* AdSense Bottom */}
-        <AdBanner dataAdSlot="0987654321" />
+        <div className="mt-20">
+          <AdBanner dataAdSlot="0987654321" />
+        </div>
 
         {/* Sales CTA */}
-        <SalesCTA />
+        <div className="mt-16">
+          <SalesCTA />
+        </div>
 
       </div>
     </div>

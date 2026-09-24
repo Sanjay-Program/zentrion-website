@@ -198,39 +198,9 @@
     "type": "Tool"
   },
   {
-    "title": "ASCII / Binary Converter",
-    "description": "",
-    "url": "/tools/ascii-converter",
-    "type": "Tool"
-  },
-  {
     "title": "BGP ASN Lookup",
     "description": "",
     "url": "/tools/asn-lookup",
-    "type": "Tool"
-  },
-  {
-    "title": "Base32 Encoder / Decoder",
-    "description": "",
-    "url": "/tools/base32",
-    "type": "Tool"
-  },
-  {
-    "title": "Base64 Converter",
-    "description": "",
-    "url": "/tools/base64-converter",
-    "type": "Tool"
-  },
-  {
-    "title": "Caesar Cipher / ROT13",
-    "description": "",
-    "url": "/tools/caesar-cipher",
-    "type": "Tool"
-  },
-  {
-    "title": "String Case Converter",
-    "description": "",
-    "url": "/tools/case-converter",
     "type": "Tool"
   },
   {
@@ -240,33 +210,9 @@
     "type": "Tool"
   },
   {
-    "title": "Chmod Calculator",
-    "description": "",
-    "url": "/tools/chmod-calculator",
-    "type": "Tool"
-  },
-  {
-    "title": "Color Converter",
-    "description": "",
-    "url": "/tools/color-converter",
-    "type": "Tool"
-  },
-  {
     "title": "Common Network Ports",
     "description": "File Transfer Protocol (Data Transfer)",
     "url": "/tools/common-ports",
-    "type": "Tool"
-  },
-  {
-    "title": "Cron Schedule Generator",
-    "description": "",
-    "url": "/tools/cron-generator",
-    "type": "Tool"
-  },
-  {
-    "title": "CSV to JSON Converter",
-    "description": "",
-    "url": "/tools/csv-to-json",
     "type": "Tool"
   },
   {
@@ -294,18 +240,6 @@
     "type": "Tool"
   },
   {
-    "title": "Encoding Toolkit",
-    "description": "",
-    "url": "/tools/encoding-toolkit",
-    "type": "Tool"
-  },
-  {
-    "title": "File Hash Calculator",
-    "description": "",
-    "url": "/tools/file-hasher",
-    "type": "Tool"
-  },
-  {
     "title": "Hash Generator",
     "description": "",
     "url": "/tools/hash-generator",
@@ -318,45 +252,9 @@
     "type": "Tool"
   },
   {
-    "title": "HTML Entity Encoder",
-    "description": "",
-    "url": "/tools/html-encoder",
-    "type": "Tool"
-  },
-  {
-    "title": "HTML Entity Converter",
-    "description": "",
-    "url": "/tools/html-entities",
-    "type": "Tool"
-  },
-  {
     "title": "HTTP Headers Inspector",
     "description": "",
     "url": "/tools/http-headers",
-    "type": "Tool"
-  },
-  {
-    "title": "HTTP Headers Parser",
-    "description": "",
-    "url": "/tools/http-headers-parser",
-    "type": "Tool"
-  },
-  {
-    "title": "HTTP Status Checker",
-    "description": "",
-    "url": "/tools/http-status",
-    "type": "Tool"
-  },
-  {
-    "title": "HTTP Status Codes",
-    "description": "The server has received the request headers and the client should proceed to send the request body.",
-    "url": "/tools/http-status-codes",
-    "type": "Tool"
-  },
-  {
-    "title": "Image to Base64",
-    "description": "",
-    "url": "/tools/image-base64",
     "type": "Tool"
   },
   {
@@ -372,51 +270,9 @@
     "type": "Tool"
   },
   {
-    "title": "IP Address Converter",
-    "description": "",
-    "url": "/tools/ip-converter",
-    "type": "Tool"
-  },
-  {
-    "title": "IPv4 Subnet Calculator",
-    "description": "",
-    "url": "/tools/ipv4-subnet-calculator",
-    "type": "Tool"
-  },
-  {
-    "title": "JSON Formatter",
-    "description": "",
-    "url": "/tools/json-formatter",
-    "type": "Tool"
-  },
-  {
-    "title": "JSON to CSV Converter",
-    "description": "",
-    "url": "/tools/json-to-csv",
-    "type": "Tool"
-  },
-  {
-    "title": "JWT Decoder",
-    "description": "",
-    "url": "/tools/jwt-decoder",
-    "type": "Tool"
-  },
-  {
     "title": "JWT Inspector",
     "description": "",
     "url": "/tools/jwt-inspector",
-    "type": "Tool"
-  },
-  {
-    "title": "Lorem Ipsum Generator",
-    "description": "",
-    "url": "/tools/lorem-ipsum",
-    "type": "Tool"
-  },
-  {
-    "title": "MAC Address Generator",
-    "description": "",
-    "url": "/tools/mac-generator",
     "type": "Tool"
   },
   {
@@ -441,12 +297,6 @@
     "title": "Nmap Command Generator",
     "description": "",
     "url": "/tools/nmap-generator",
-    "type": "Tool"
-  },
-  {
-    "title": "OTP / TOTP Generator",
-    "description": "",
-    "url": "/tools/otp-generator",
     "type": "Tool"
   },
   {
@@ -480,21 +330,9 @@
     "type": "Tool"
   },
   {
-    "title": "Regex Tester",
-    "description": "",
-    "url": "/tools/regex-tester",
-    "type": "Tool"
-  },
-  {
     "title": "Reverse DNS Lookup",
     "description": "",
     "url": "/tools/reverse-dns",
-    "type": "Tool"
-  },
-  {
-    "title": "RSA Key Generator",
-    "description": "",
-    "url": "/tools/rsa-generator",
     "type": "Tool"
   },
   {
@@ -516,57 +354,15 @@
     "type": "Tool"
   },
   {
-    "title": "Text Analyzer",
-    "description": "",
-    "url": "/tools/text-analyzer",
-    "type": "Tool"
-  },
-  {
-    "title": "Text String Hasher",
-    "description": "",
-    "url": "/tools/text-hasher",
-    "type": "Tool"
-  },
-  {
-    "title": "API Key & Token Generator",
-    "description": "",
-    "url": "/tools/token-generator",
-    "type": "Tool"
-  },
-  {
-    "title": "Unix Timestamp Converter",
-    "description": "",
-    "url": "/tools/unix-timestamp",
-    "type": "Tool"
-  },
-  {
     "title": "URL Analyzer",
     "description": "",
     "url": "/tools/url-analyzer",
     "type": "Tool"
   },
   {
-    "title": "URL Encoder / Decoder",
-    "description": "",
-    "url": "/tools/url-encoder",
-    "type": "Tool"
-  },
-  {
-    "title": "URL Parser & Analyzer",
-    "description": "",
-    "url": "/tools/url-parser",
-    "type": "Tool"
-  },
-  {
     "title": "URL Safety Checker",
     "description": "",
     "url": "/tools/url-safety",
-    "type": "Tool"
-  },
-  {
-    "title": "UUID/GUID Generator",
-    "description": "",
-    "url": "/tools/uuid-generator",
     "type": "Tool"
   },
   {

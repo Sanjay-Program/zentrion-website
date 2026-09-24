@@ -144,6 +144,67 @@ export default function WebsiteScannerPage() {
             </div>
           </div>
         )}
+
+        {/* High Value Content Section for AdSense Compliance */}
+        <div className="mt-32 max-w-4xl mx-auto prose prose-invert prose-lg text-[rgb(var(--c-mute))]">
+          <h2 className="text-3xl font-display font-bold text-[rgb(var(--c-ink))] mb-6">Understanding Website Security: A Comprehensive Guide</h2>
+          <p>
+            The <strong>Zentrion Website Security Scanner</strong> is an advanced auditing utility designed to instantly evaluate the foundational security posture of any web application. By inspecting DNS configurations and critical HTTP security headers, this tool provides an immediate assessment of a domain's resilience against common cyber threats, including Man-in-the-Middle (MitM) attacks, Cross-Site Scripting (XSS), and Clickjacking.
+          </p>
+          
+          <h3 className="text-2xl font-display font-bold text-[rgb(var(--c-ink))] mt-10 mb-4">The Importance of HTTP Security Headers</h3>
+          <p>
+            Modern web browsers rely on HTTP response headers to understand how they should interact with your web server. Without explicit instructions, browsers default to permissive behaviors, leaving users vulnerable. Implementing the following headers is considered an industry best practice:
+          </p>
+
+          <div className="space-y-8 mt-8">
+            <div>
+              <h4 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-2">1. Strict-Transport-Security (HSTS)</h4>
+              <p>
+                <strong>What it does:</strong> HSTS forces web browsers to interact with your application exclusively over secure HTTPS connections, rather than insecure HTTP.
+              </p>
+              <p>
+                <strong>Why you need it:</strong> Without HSTS, attackers can intercept initial HTTP requests (such as a user typing `yourdomain.com` without `https://`) and downgrade the connection to execute SSL stripping attacks. HSTS eliminates this vulnerability window.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-2">2. Content-Security-Policy (CSP)</h4>
+              <p>
+                <strong>What it does:</strong> CSP restricts the origins from which a browser is permitted to load resources (scripts, images, stylesheets) onto your page.
+              </p>
+              <p>
+                <strong>Why you need it:</strong> It is the primary defense against Cross-Site Scripting (XSS) and data injection attacks. If an attacker manages to inject a malicious script into your site, a strong CSP will block the browser from executing it.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-2">3. X-Frame-Options</h4>
+              <p>
+                <strong>What it does:</strong> This header dictates whether a browser should be allowed to render a page within a <code>&lt;frame&gt;</code>, <code>&lt;iframe&gt;</code>, or <code>&lt;object&gt;</code>.
+              </p>
+              <p>
+                <strong>Why you need it:</strong> It prevents Clickjacking attacks, where an adversary embeds your site inside an invisible frame on their malicious site, tricking users into clicking buttons (like transferring funds or changing passwords) on your site while thinking they are clicking something else.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-xl font-bold text-[rgb(var(--c-ink))] mb-2">4. X-Content-Type-Options</h4>
+              <p>
+                <strong>What it does:</strong> Setting this header to <code>nosniff</code> prevents Google Chrome and Internet Explorer from attempting to "sniff" the MIME type of a response away from the declared content type.
+              </p>
+              <p>
+                <strong>Why you need it:</strong> It prevents MIME-sniffing vulnerabilities where an attacker uploads a malicious HTML file masquerading as a harmless image. If the browser sniffs it as HTML and executes it, the site is compromised.
+              </p>
+            </div>
+          </div>
+
+          <h3 className="text-2xl font-display font-bold text-[rgb(var(--c-ink))] mt-12 mb-4">How to Improve Your Security Score</h3>
+          <p>
+            If your domain received a failing grade, you must update your web server configuration (Nginx, Apache, IIS) or Edge/CDN rules (Cloudflare, AWS CloudFront) to append these missing headers. For a complete, in-depth Vulnerability Assessment and Penetration Test (VAPT), contact the Zentrion Technologies red team.
+          </p>
+        </div>
+
       </div>
     </div>
   );
