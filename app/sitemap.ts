@@ -1,169 +1,69 @@
-import type { MetadataRoute } from 'next';
+import { MetadataRoute } from 'next';
+import fs from 'fs';
+import path from 'path';
+import { quizzesData } from '@/lib/quizzes-data';
 
 export const dynamic = 'force-static';
 
-const routes = [
-  '/',
-  '/about',
-  '/ai',
-  '/book-consultation',
-  '/careers',
-  '/case-studies',
-  '/cloud',
-  '/contact',
-  '/crack-password',
-  '/ctf',
-  '/ctf-tutorial',
-  '/cybersecurity',
-  '/cybersecurity-commands',
-  '/faq',
-  '/guides',
-  '/guides/active-directory-attacks',
-  '/guides/ai-phishing-detection',
-  '/guides/bug-bounty-tutorial',
-  '/guides/burp-suite-web-pentesting',
-  '/guides/check-dns-records',
-  '/guides/check-if-website-hacked',
-  '/guides/check-website-safe',
-  '/guides/cloud-security-tutorial',
-  '/guides/ctf-walkthrough-beginner',
-  '/guides/detect-phishing-email',
-  '/guides/email-leak-check',
-  '/guides/find-open-ports',
-  '/guides/google-dorking-osint',
-  '/guides/home-lab-cybersecurity',
-  '/guides/home-soc-setup',
-  '/guides/kali-linux-pentesting-tutorial',
-  '/guides/linux-privilege-escalation',
-  '/guides/llm-security-evaluation',
-  '/guides/malware-analysis-tutorial',
-  '/guides/mcp-security-tutorial',
-  '/guides/nmap-scanning-tutorial',
-  '/guides/owasp-agentic-top-10-2026',
-  '/guides/owasp-llm-top-10-2026',
-  '/guides/password-cracking-tutorial',
-  '/guides/phishing-attack-lab',
-  '/guides/phone-intelligence-osint',
-  '/guides/python-cybersecurity-scripts',
-  '/guides/ransomware-incident-response',
-  '/guides/secure-ai-chatbot',
-  '/guides/secure-wifi-home',
-  '/guides/sql-injection-tutorial',
-  '/guides/wireshark-packet-analysis',
-  '/hashcat',
-  '/home-lab',
-  '/industries',
-  '/kali',
-  '/kali-linux',
-  '/maintenance',
-  '/metasploit',
-  '/nmap',
-  '/nmap-commands',
-  '/offline',
-  '/packet-analysis',
-  '/pentesting',
-  '/privacy',
-  '/products',
-  '/python',
-  '/python-security',
-  '/ransomware',
-  '/request-demo',
-  '/resources',
-  '/resources/cybersecurity-commands',
-  '/services',
-  '/services/website-security-audit',
-  '/sitemap',
-  '/soc',
-  '/sql-injection',
-  '/sqli',
-  '/terms',
-  '/tools',
-  '/tools/aes-crypto',
-  '/tools/ascii-converter',
-  '/tools/asn-lookup',
-  '/tools/base32',
-  '/tools/base64-converter',
-  '/tools/caesar-cipher',
-  '/tools/case-converter',
-  '/tools/certificate-decoder',
-  '/tools/chmod-calculator',
-  '/tools/color-converter',
-  '/tools/common-ports',
-  '/tools/cron-generator',
-  '/tools/csv-to-json',
-  '/tools/cve-lookup',
-  '/tools/dmarc-checker',
-  '/tools/dns-lookup',
-  '/tools/dns-propagation',
-  '/tools/encoding-toolkit',
-  '/tools/file-hasher',
-  '/tools/hash-generator',
-  '/tools/hmac-generator',
-  '/tools/html-encoder',
-  '/tools/html-entities',
-  '/tools/http-headers',
-  '/tools/http-headers-parser',
-  '/tools/http-status',
-  '/tools/http-status-codes',
-  '/tools/image-base64',
-  '/tools/ip-blacklist',
-  '/tools/ip-classifier',
-  '/tools/ip-converter',
-  '/tools/ipv4-subnet-calculator',
-  '/tools/json-formatter',
-  '/tools/json-to-csv',
-  '/tools/jwt-decoder',
-  '/tools/jwt-inspector',
-  '/tools/lorem-ipsum',
-  '/tools/mac-generator',
-  '/tools/mac-lookup',
-  '/tools/mac-vendor',
-  '/tools/mx-lookup',
-  '/tools/network/dns-lookup',
-  '/tools/network/github-analyzer',
-  '/tools/network/ip-lookup',
-  '/tools/network/phone-validator',
-  '/tools/network/speed-test',
-  '/tools/network/username-finder',
-  '/tools/nmap-generator',
-  '/tools/osint/github-analyzer',
-  '/tools/osint/repo-analyzer',
-  '/tools/osint/username-finder',
-  '/tools/otp-generator',
-  '/tools/password-breach',
-  '/tools/password-generator',
-  '/tools/password-strength',
-  '/tools/ping',
-  '/tools/port-scanner',
-  '/tools/regex-tester',
-  '/tools/reverse-dns',
-  '/tools/rsa-generator',
-  '/tools/spf-checker',
-  '/tools/subdomain-finder',
-  '/tools/subnet-calculator',
-  '/tools/text-analyzer',
-  '/tools/text-hasher',
-  '/tools/token-generator',
-  '/tools/unix-timestamp',
-  '/tools/url-analyzer',
-  '/tools/url-encoder',
-  '/tools/url-parser',
-  '/tools/url-safety',
-  '/tools/uuid-generator',
-  '/tools/waf-detector',
-  '/tools/website-security-scanner',
-  '/tools/what-is-my-ip',
-  '/tools/whois-lookup',
-  '/training',
-  '/wireshark',
-];
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://zentriontechnologies.com';
-  return routes.map((route) => ({
-    url: `${base}${route}`,
-    lastModified: new Date(),
-    changeFrequency: route === '' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1 : 0.7,
-  }));
+  const appDir = path.join(process.cwd(), 'app');
+  
+  const routes: MetadataRoute.Sitemap = [];
+  
+  // Exclude some directories that are not public routes or have special handling
+  const excludeDirs = ['api', 'quizzes/[id]', '(auth)'];
+
+  function walkDir(currentPath: string) {
+    if (!fs.existsSync(currentPath)) return;
+    
+    const entries = fs.readdirSync(currentPath, { withFileTypes: true });
+    
+    for (const entry of entries) {
+      if (entry.isDirectory()) {
+        // Skip hidden directories like .next, or directories starting with _
+        if (!entry.name.startsWith('.') && !entry.name.startsWith('_')) {
+          const nextPath = path.join(currentPath, entry.name);
+          // Check if this path should be excluded
+          const isExcluded = excludeDirs.some(ex => nextPath.replace(/\\/g, '/').includes(ex));
+          if (!isExcluded) {
+            walkDir(nextPath);
+          }
+        }
+      } else if (entry.name === 'page.tsx') {
+        let route = currentPath.replace(appDir, '').replace(/\\/g, '/');
+        // Handle route groups like (main)
+        route = route.replace(/\/\([^)]+\)/g, '');
+        
+        // Remove trailing slash if exists
+        if (route.endsWith('/')) {
+          route = route.slice(0, -1);
+        }
+        
+        routes.push({
+          url: `${base}${route}`,
+          lastModified: new Date(),
+          changeFrequency: route === '' ? 'weekly' : 'monthly',
+          priority: route === '' ? 1.0 : 0.7,
+        });
+      }
+    }
+  }
+
+  walkDir(appDir);
+
+  // Add dynamic quizzes
+  for (const quiz of quizzesData) {
+    routes.push({
+      url: `${base}/quizzes/${quiz.id}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    });
+  }
+
+  // Sort routes alphabetically for better readability in sitemap.xml
+  routes.sort((a, b) => a.url.localeCompare(b.url));
+
+  return routes;
 }
