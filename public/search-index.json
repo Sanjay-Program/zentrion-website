@@ -192,6 +192,18 @@
     "type": "Guide"
   },
   {
+    "title": "Nmap Scanning Tutorial",
+    "description": "A complete guide to network reconnaissance using Nmap, featuring 50+ practical commands.",
+    "url": "/guides/network/nmap-scanning-tutorial",
+    "type": "Guide"
+  },
+  {
+    "title": "{category.name} Tools",
+    "description": "",
+    "url": "/tools/[collection]",
+    "type": "Tool"
+  },
+  {
     "title": "AES Encrypt / Decrypt",
     "description": "",
     "url": "/tools/aes-crypto",
@@ -388,5 +400,17 @@
     "description": "",
     "url": "/tools/whois-lookup",
     "type": "Tool"
+  },
+  {
+    "title": "Nmap",
+    "description": "Network Mapper basic and advanced commands.",
+    "url": "/cheatsheets/nmap",
+    "type": "Cheatsheet"
+  },
+  {
+    "title": "Cybersecurity Encyclopedia",
+    "description": "A comprehensive dictionary of cybersecurity terms, concepts, and frameworks.",
+    "url": "/encyclopedia",
+    "type": "Reference"
   }
 ]

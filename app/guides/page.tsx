@@ -7,8 +7,9 @@ import {
   Map, Radio, Skull, Unlock, Syringe, Flag, Home, TerminalSquare, 
   Siren, Monitor, UserSearch, Bug, Building2, Banknote, ShieldAlert, 
   Cloud, Terminal, Brain, Bot, FlaskConical, Shield, MessageSquare, 
-  ClipboardList, Clock 
+  ClipboardList, Clock, FileText
 } from 'lucide-react';
+import { getAllGuides } from '@/lib/content-parser';
 
 export const metadata: Metadata = {
   title: 'Security Guides & Tutorials – Free Cybersecurity Learning | Zentrion',
@@ -61,6 +62,8 @@ const DIFF_COLORS: Record<string, string> = {
 };
 
 export default function GuidesIndexPage() {
+  const dynamicGuides = getAllGuides();
+
   return (
     <main className="min-h-screen bg-[rgb(var(--c-void))] text-[rgb(var(--c-ink))] transition-colors duration-250">
       {/* Hero */}
@@ -103,6 +106,33 @@ export default function GuidesIndexPage() {
       <div className="max-w-6xl mx-auto px-4 pb-24">
         {/* AdSense Top */}
         <AdBanner dataAdSlot="3456789012" />
+
+        {/* Dynamic Latest Guides */}
+        {dynamicGuides.length > 0 && (
+          <section className="mb-20">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1 h-8 rounded-full bg-cyan" />
+              <h2 className="text-2xl font-black tracking-tight">Latest from the Academy</h2>
+              <span className="ml-2 px-2.5 py-0.5 rounded-full text-xs font-bold bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] text-[rgb(var(--c-mute))]">{dynamicGuides.length}</span>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {dynamicGuides.map((g) => (
+                <Link
+                  key={g.metadata.slug}
+                  href={`/guides/${g.metadata.category}/${g.metadata.slug}`}
+                  className="group flex flex-col p-6 rounded-2xl bg-[var(--c-glass-bg)] border border-[var(--c-glass-border)] hover:border-[rgba(47,107,255,0.4)] transition-all duration-200"
+                >
+                  <div className="mb-4 text-[rgb(var(--c-ink))] group-hover:text-[rgb(var(--c-accent))] transition-colors"><FileText className="w-8 h-8" /></div>
+                  <h3 className="font-bold text-base mb-2 group-hover:text-[rgb(var(--c-accent))] transition-colors leading-snug">{g.metadata.title}</h3>
+                  <div className="mt-auto pt-4 flex items-center justify-between">
+                    <span className="text-xs text-[rgb(var(--c-mute))]">{g.metadata.readingTime}</span>
+                    <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold ${DIFF_COLORS[g.metadata.difficulty] || DIFF_COLORS['Intermediate']}`}>{g.metadata.difficulty}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* How-To Guides */}
         <section className="mb-20">

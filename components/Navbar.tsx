@@ -12,32 +12,40 @@ type NavItem = { label: string; href?: string; items?: NavLink[] };
 
 const navItems: NavItem[] = [
   {
-    label: 'Learn',
+    label: 'Academy',
     items: [
-      { href: '/roadmaps', label: 'Learning Paths', blurb: 'Structured curriculums' },
-      { href: '/guides', label: 'Security Guides', blurb: 'In-depth tutorials & how-tos' },
-      { href: '/labs', label: 'Interactive Labs', blurb: 'Real-world browser practice' },
-      { href: '/quizzes', label: 'Cyber Quizzes', blurb: 'Test your knowledge' },
+      { href: '/guides', label: 'Guides & Tutorials', blurb: 'Deep technical cybersecurity guides' },
+      { href: '/roadmaps', label: 'Learning Paths', blurb: 'Structured career roadmaps' },
+      { href: '/encyclopedia', label: 'Encyclopedia', blurb: 'Technical terms and concepts' },
+      { href: '/resources/cybersecurity-commands', label: 'Cheatsheets', blurb: 'Quick command references' },
     ],
   },
   {
-    label: 'Resources',
+    label: 'Cyber Range',
     items: [
-      { href: '/tools', label: 'Security Tools', blurb: 'Free browser-based cyber tools' },
-      { href: '/resources/cybersecurity-commands', label: 'Cheat Sheets', blurb: 'CLI commands & references' },
-      { href: '/faq', label: 'FAQ', blurb: 'Common questions answered' },
+      { href: '/labs', label: 'Interactive Labs', blurb: 'Browser-side vulnerability simulations' },
+      { href: '/tools', label: 'Security Tools', blurb: 'Free recon and web security utilities' },
+      { href: '/quizzes', label: 'Challenges', blurb: 'Test your cybersecurity knowledge' },
     ],
   },
   {
-    label: 'Enterprise',
+    label: 'Services',
     items: [
-      { href: '/services', label: 'All Services', blurb: 'Full overview of what we offer' },
-      { href: '/cybersecurity', label: 'Cybersecurity', blurb: 'VAPT, audits, monitoring' },
-      { href: '/ai', label: 'AI & Automation', blurb: 'LLMs, agents, workflow automation' },
-      { href: '/case-studies', label: 'Case Studies', blurb: 'How we work with clients' },
+      { href: '/services/custom-software-development', label: 'Software Engineering', blurb: 'Web, SaaS, CRM, and ERP' },
+      { href: '/services/ai-development', label: 'AI Solutions', blurb: 'Agents, RAG, and automation' },
+      { href: '/services/vapt', label: 'Cybersecurity', blurb: 'VAPT, API and Cloud Security' },
+      { href: '/services', label: 'All Services', blurb: 'Full overview of enterprise services' },
     ],
   },
-  { label: 'About', href: '/about' },
+  {
+    label: 'Company',
+    items: [
+      { href: '/about', label: 'About Zentrion', blurb: 'Our mission and team' },
+      { href: '/portfolio', label: 'Portfolio & Case Studies', blurb: 'Client success stories' },
+      { href: '/research', label: 'Research', blurb: 'Threat intelligence and reports' },
+      { href: '/resources', label: 'Resources', blurb: 'Checklists and templates' },
+    ],
+  },
 ];
 
 function DesktopDropdown({ item }: { item: NavItem }) {

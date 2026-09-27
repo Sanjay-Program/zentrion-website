@@ -61,11 +61,82 @@ function scanDirectory(dirPath, type, urlPrefix) {
 
 console.log('Generating search index...');
 
-// Scan Guides
+// Scan hardcoded Guides
 scanDirectory(path.join(APP_DIR, 'guides'), 'Guide', '/guides');
+
+// Scan dynamic markdown Guides
+const CONTENT_DIR = path.join(process.cwd(), 'content');
+const GUIDES_DIR = path.join(CONTENT_DIR, 'guides');
+if (fs.existsSync(GUIDES_DIR)) {
+  const categories = fs.readdirSync(GUIDES_DIR, { withFileTypes: true });
+  for (const category of categories) {
+    if (category.isDirectory()) {
+      const categoryPath = path.join(GUIDES_DIR, category.name);
+      const files = fs.readdirSync(categoryPath);
+      for (const file of files) {
+        if (file.endsWith('.md')) {
+          const filePath = path.join(categoryPath, file);
+          const content = fs.readFileSync(filePath, 'utf-8');
+          
+          let title = '';
+          let description = '';
+          
+          const titleMatch = content.match(/title:\s*['"]([^'"]+)['"]/);
+          if (titleMatch) title = titleMatch[1];
+          
+          const descMatch = content.match(/description:\s*['"]([^'"]+)['"]/);
+          if (descMatch) description = descMatch[1];
+          
+          if (title) {
+            searchIndex.push({
+              title,
+              description,
+              url: `/guides/${category.name}/${file.replace('.md', '')}`,
+              type: 'Guide',
+            });
+          }
+        }
+      }
+    }
+  }
+}
 
 // Scan Tools
 scanDirectory(path.join(APP_DIR, 'tools'), 'Tool', '/tools');
+
+// Scan Cheatsheets
+const CHEATSHEETS_DIR = path.join(CONTENT_DIR, 'cheatsheets');
+if (fs.existsSync(CHEATSHEETS_DIR)) {
+  const files = fs.readdirSync(CHEATSHEETS_DIR);
+  for (const file of files) {
+    if (file.endsWith('.md')) {
+      const filePath = path.join(CHEATSHEETS_DIR, file);
+      const content = fs.readFileSync(filePath, 'utf-8');
+      let title = '';
+      let description = '';
+      const titleMatch = content.match(/title:\s*['"]([^'"]+)['"]/);
+      if (titleMatch) title = titleMatch[1];
+      const descMatch = content.match(/description:\s*['"]([^'"]+)['"]/);
+      if (descMatch) description = descMatch[1];
+      if (title) {
+        searchIndex.push({
+          title,
+          description,
+          url: `/cheatsheets/${file.replace('.md', '')}`,
+          type: 'Cheatsheet',
+        });
+      }
+    }
+  }
+}
+
+// Add Encyclopedia
+searchIndex.push({
+  title: 'Cybersecurity Encyclopedia',
+  description: 'A comprehensive dictionary of cybersecurity terms, concepts, and frameworks.',
+  url: '/encyclopedia',
+  type: 'Reference',
+});
 
 // Additional static pages can be added here
 

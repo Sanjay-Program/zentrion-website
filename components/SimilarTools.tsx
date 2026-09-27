@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { CATEGORIES } from '@/lib/tools-data';
+import { ConversionCTA } from '@/components/ConversionCTA';
 
 export default function SimilarTools() {
   const pathname = usePathname();
@@ -52,33 +53,38 @@ export default function SimilarTools() {
   if (similar.length === 0) return null;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-[rgba(255,255,255,0.05)]">
-      <div className="flex items-center gap-2 mb-8">
-        <span className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent))] animate-pulseDot" />
-        <h3 className="text-xl font-display font-semibold text-white">Explore Similar Tools</h3>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {similar.map((tool) => (
-          <Link href={tool.url} key={tool.url} className="group">
-            <div className="glass-card rounded-xl p-5 border border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.01)] hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.1)] transition-all h-full flex flex-col justify-between">
-              <h4 className="font-semibold text-[rgb(var(--c-accent))] mb-3 group-hover:text-white transition-colors">
-                {tool.name}
-              </h4>
-              <div className="flex items-center justify-between mt-auto">
-                <span className="text-xs text-[rgb(var(--c-mute))] font-mono">Launch Tool</span>
-                <svg className="w-4 h-4 text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-accent))] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+    <>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-[rgba(255,255,255,0.05)]">
+        <div className="flex items-center gap-2 mb-8">
+          <span className="h-1.5 w-1.5 rounded-full bg-[rgb(var(--c-accent))] animate-pulseDot" />
+          <h3 className="text-xl font-display font-semibold text-white">Explore Similar Tools</h3>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {similar.map((tool) => (
+            <Link href={tool.url} key={tool.url} className="group">
+              <div className="glass-card rounded-xl p-5 border border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.01)] hover:bg-[rgba(255,255,255,0.03)] hover:border-[rgba(255,255,255,0.1)] transition-all h-full flex flex-col justify-between">
+                <h4 className="font-semibold text-[rgb(var(--c-accent))] mb-3 group-hover:text-white transition-colors">
+                  {tool.name}
+                </h4>
+                <div className="flex items-center justify-between mt-auto">
+                  <span className="text-xs text-[rgb(var(--c-mute))] font-mono">Launch Tool</span>
+                  <svg className="w-4 h-4 text-[rgb(var(--c-mute))] group-hover:text-[rgb(var(--c-accent))] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
               </div>
-            </div>
+            </Link>
+          ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-[rgb(var(--c-mute))] hover:text-white transition-colors">
+            View all 30+ security tools <span aria-hidden="true">&rarr;</span>
           </Link>
-        ))}
+        </div>
       </div>
-      <div className="mt-8 text-center">
-        <Link href="/tools" className="inline-flex items-center gap-2 text-sm text-[rgb(var(--c-mute))] hover:text-white transition-colors">
-          View all 30+ security tools <span aria-hidden="true">&rarr;</span>
-        </Link>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <ConversionCTA />
       </div>
-    </div>
+    </>
   );
 }

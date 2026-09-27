@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useProgress } from '@/lib/hooks/useProgress';
+import { useState, useEffect } from 'react';
+import { learningManager } from '@/lib/learning-state';
 
 export interface Question {
   id: string;
@@ -24,8 +24,11 @@ export default function QuizEngine({ quizId, title, description, questions }: Qu
   const [isAnswered, setIsAnswered] = useState(false);
   const [score, setScore] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const { progress, markGuideComplete, isLoaded } = useProgress();
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const currentQuestion = questions[currentQuestionIdx];
 
@@ -50,15 +53,14 @@ export default function QuizEngine({ quizId, title, description, questions }: Qu
         setIsAnswered(false);
       } else {
         setIsFinished(true);
-        // Save progress if passed
+        // Save progress
         const finalScore = score + (selectedOptionId === currentQuestion.correctOptionId ? 1 : 0);
-        const passThreshold = Math.ceil(questions.length * 0.7); // 70% to pass
-        if (finalScore >= passThreshold) {
-          markGuideComplete(`quiz_${quizId}`);
-        }
+        learningManager.markQuizCompleted(quizId, finalScore, questions.length);
       }
     }
   };
+
+  if (!mounted) return null;
 
   if (isFinished) {
     const passed = score >= Math.ceil(questions.length * 0.7);

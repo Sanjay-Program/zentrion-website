@@ -138,38 +138,85 @@ export default function SecurityAssessment() {
               </div>
               
               <h3 className="text-2xl font-bold mb-2">Assessment Complete</h3>
-              <p className="text-mute mb-8">We have calculated your security posture based on industry standards.</p>
+              <p className="text-mute mb-8 print:hidden">We have calculated your security posture based on industry standards.</p>
               
-              <div className="p-6 bg-void border border-line rounded-xl mb-8 text-left">
-                <div className="flex justify-between items-end mb-2">
+              <div id="scorecard" className="p-6 md:p-10 bg-void border border-line rounded-xl mb-8 text-left relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-10">
+                   <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                
+                <div className="border-b border-line pb-6 mb-6">
+                  <h4 className="text-lg font-display text-white mb-1">Zentrion Security Scorecard</h4>
+                  <p className="text-sm text-mute font-mono">{new Date().toLocaleDateString()} - Client-Side Assessment</p>
+                </div>
+
+                <div className="flex justify-between items-end mb-2 relative z-10">
                   <span className="text-sm text-mute uppercase tracking-widest font-mono">Risk Exposure Level</span>
-                  <span className={`text-2xl font-black ${calculateRisk().color}`}>{calculateRisk().level}</span>
+                  <span className={`text-3xl font-black ${calculateRisk().color}`}>{calculateRisk().level}</span>
                 </div>
                 
                 {/* Visual Risk Meter */}
-                <div className="w-full h-3 bg-surface rounded-full overflow-hidden mb-4 relative">
+                <div className="w-full h-4 bg-surface rounded-full overflow-hidden mb-6 relative z-10">
                   <div className={`absolute top-0 left-0 h-full ${calculateRisk().bar} transition-all duration-1000`} style={{ width: `${calculateRisk().pct}%` }} />
                 </div>
                 
-                <p className="text-ink/90 leading-relaxed">
-                  {calculateRisk().msg}
-                </p>
+                <div className="bg-surface/30 p-4 rounded-lg border border-[rgba(255,255,255,0.05)] mb-6 relative z-10">
+                  <h5 className="text-white font-semibold mb-2">Diagnostic Summary</h5>
+                  <p className="text-ink/90 leading-relaxed text-sm">
+                    {calculateRisk().msg}
+                  </p>
+                </div>
+
+                <div className="space-y-3 relative z-10">
+                  <h5 className="text-white font-semibold mb-2">Key Action Items</h5>
+                  {answers.reduce((a, b) => a + b, 0) >= 40 && (
+                    <div className="flex items-start gap-3 text-sm text-mute">
+                      <svg className="w-5 h-5 text-red-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                      <span>Your application is currently at high risk for exploitation. Immediate remediation of patch management and external testing is required.</span>
+                    </div>
+                  )}
+                  {answers[1] > 0 && (
+                    <div className="flex items-start gap-3 text-sm text-mute">
+                      <svg className="w-5 h-5 text-orange-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                      <span>Schedule a penetration test immediately. Stale application code is a primary vector for breaches.</span>
+                    </div>
+                  )}
+                  {answers[4] > 0 && (
+                    <div className="flex items-start gap-3 text-sm text-mute">
+                      <svg className="w-5 h-5 text-yellow-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                      <span>Deploy an active Web Application Firewall (WAF) to block automated exploitation attempts.</span>
+                    </div>
+                  )}
+                </div>
               </div>
 
-              <div className="space-y-4">
-                <Link 
-                  href="/book-consultation"
-                  className="block w-full py-4 bg-cyan text-void font-bold rounded-xl hover:bg-cyan/90 transition-colors shadow-[0_0_20px_rgba(47,107,255,0.3)] hover:shadow-[0_0_30px_rgba(47,107,255,0.5)]"
-                >
-                  Book a Free Vulnerability Consultation
-                </Link>
+              <div className="space-y-4 print:hidden">
+                {answers.reduce((a, b) => a + b, 0) >= 40 && (
+                  <p className="text-red-400 font-semibold mb-4">
+                    Exposure Score Critical. Schedule a free consultation with our security engineers.
+                  </p>
+                )}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link 
+                    href="/contact/project"
+                    className="flex-1 py-4 bg-cyan text-void font-bold rounded-xl hover:bg-cyan/90 transition-colors shadow-[0_0_20px_rgba(47,107,255,0.3)] hover:shadow-[0_0_30px_rgba(47,107,255,0.5)]"
+                  >
+                    Discuss Remediation
+                  </Link>
+                  <button 
+                    onClick={() => window.print()}
+                    className="flex-1 py-4 bg-surface text-white font-bold rounded-xl border border-line hover:bg-surface/80 transition-colors"
+                  >
+                    Print Scorecard
+                  </button>
+                </div>
                 <button 
                   onClick={() => {
                     setCurrentStep(0);
                     setAnswers([]);
                     setIsComplete(false);
                   }}
-                  className="block w-full py-3 bg-transparent text-mute hover:text-ink transition-colors font-medium text-sm"
+                  className="block w-full py-4 bg-transparent text-mute hover:text-ink transition-colors font-medium text-sm mt-4"
                 >
                   Retake Assessment
                 </button>

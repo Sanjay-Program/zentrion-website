@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { SectionHeading, Reveal, GlassCard } from '@/components/ui';
+import ReactMarkdown from 'react-markdown';
 
 export const metadata: Metadata = {
   title: 'Cybersecurity Encyclopedia & Glossary',
@@ -7,22 +8,33 @@ export const metadata: Metadata = {
 };
 
 const glossary = [
-  { term: "Advanced Persistent Threat (APT)", definition: "A prolonged and targeted cyberattack in which an intruder gains access to a network and remains undetected for an extended period, typically to steal data." },
-  { term: "Botnet", definition: "A network of private computers infected with malicious software and controlled as a group without the owners' knowledge, e.g., to send spam messages." },
-  { term: "Cross-Site Scripting (XSS)", definition: "A vulnerability where attackers inject malicious scripts into web pages viewed by other users. This occurs when an application includes untrusted data in a web page without proper validation or escaping." },
-  { term: "Denial-of-Service (DoS)", definition: "An attack meant to shut down a machine or network, making it inaccessible to its intended users, usually by flooding the target with traffic." },
-  { term: "Encryption", definition: "The process of converting information or data into a code, especially to prevent unauthorized access. The data can only be read if decrypted with the correct key." },
-  { term: "Firewall", definition: "A network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules." },
-  { term: "Incident Response (IR)", definition: "An organized approach to addressing and managing the aftermath of a security breach or cyberattack, with the goal of handling the situation in a way that limits damage." },
-  { term: "Malware", definition: "Software that is specifically designed to disrupt, damage, or gain unauthorized access to a computer system (e.g., viruses, ransomware, spyware)." },
+  { term: "Advanced Persistent Threat (APT)", definition: "A prolonged and targeted cyberattack in which an intruder gains access to a network and remains undetected for an extended period." },
+  { term: "Botnet", definition: "A network of private computers infected with malicious software and controlled as a group without the owners' knowledge." },
+  { term: "Cross-Site Scripting (XSS)", definition: "A vulnerability where attackers inject malicious scripts into web pages. See also our [URL Safety Checker](/tools/url-safety)." },
+  { term: "Common Vulnerabilities and Exposures (CVE)", definition: "A list of publicly disclosed cybersecurity vulnerabilities. Look up known vulnerabilities using our [CVE Lookup](/tools/cve-lookup) tool." },
+  { term: "Common Vulnerability Scoring System (CVSS)", definition: "A free and open industry standard for assessing the severity of computer system security vulnerabilities." },
+  { term: "Common Weakness Enumeration (CWE)", definition: "A community-developed list of common software and hardware weakness types that have security ramifications." },
+  { term: "Cross-Site Request Forgery (CSRF)", definition: "An attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated." },
+  { term: "Digital Forensics", definition: "The recovery and investigation of material found in digital devices." },
+  { term: "Domain Name System (DNS)", definition: "The phonebook of the Internet. Use our [DNS Lookup](/tools/dns-lookup) or [DNS Propagation Checker](/tools/dns-propagation) tools to investigate records." },
+  { term: "Dynamic Application Security Testing (DAST)", definition: "A process of testing an application from the outside to find security vulnerabilities." },
+  { term: "Endpoint Detection and Response (EDR)", definition: "An integrated endpoint security solution that combines real-time continuous monitoring and collection of endpoint data with rules-based automated response." },
+  { term: "Identity and Access Management (IAM)", definition: "A framework of policies and technologies to ensure that the right users have the appropriate access to technology resources." },
+  { term: "Insecure Direct Object Reference (IDOR)", definition: "A type of access control vulnerability that arises when an application uses user-supplied input to access objects directly." },
+  { term: "Intrusion Detection System (IDS)", definition: "A device or software application that monitors a network or systems for malicious activity or policy violations." },
+  { term: "JSON Web Token (JWT)", definition: "An open standard that defines a compact and self-contained way for securely transmitting information. Analyze tokens using our [JWT Inspector](/tools/jwt-inspector)." },
+  { term: "MITRE ATT&CK", definition: "A globally-accessible knowledge base of adversary tactics and techniques based on real-world observations." },
+  { term: "Multi-Factor Authentication (MFA)", definition: "An authentication method that requires the user to provide two or more verification factors to gain access to a resource." },
+  { term: "OAuth", definition: "An open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords." },
   { term: "Penetration Testing (Pentesting)", definition: "An authorized simulated cyberattack on a computer system, performed to evaluate the security of the system." },
-  { term: "Phishing", definition: "The fraudulent practice of sending emails purporting to be from reputable companies in order to induce individuals to reveal personal information, such as passwords and credit card numbers." },
-  { term: "Ransomware", definition: "A type of malicious software designed to block access to a computer system or encrypt its data until a sum of money is paid." },
-  { term: "Social Engineering", definition: "The use of deception to manipulate individuals into divulging confidential or personal information that may be used for fraudulent purposes." },
-  { term: "SQL Injection (SQLi)", definition: "A code injection technique used to attack data-driven applications, in which malicious SQL statements are inserted into entry fields for execution." },
-  { term: "Virtual Private Network (VPN)", definition: "A technology that creates a safe and encrypted connection over a less secure network, such as the internet." },
-  { term: "Zero-Day Vulnerability", definition: "A software vulnerability that is discovered by attackers before the vendor has become aware of it. No patch exists, making attacks highly likely to succeed." },
-  { term: "Zero Trust Architecture", definition: "A security concept centered on the belief that organizations should not automatically trust anything inside or outside its perimeters and must verify anything trying to connect to its systems before granting access." }
+  { term: "Phishing", definition: "The fraudulent practice of sending emails purporting to be from reputable companies. Learn more in our [Phishing Attack Lab](/guides/phishing-attack-lab)." },
+  { term: "Public Key Infrastructure (PKI)", definition: "A set of roles, policies, hardware, software and procedures needed to create, manage, distribute, use, store and revoke digital certificates." },
+  { term: "Security Information and Event Management (SIEM)", definition: "A solution that provides real-time analysis of security alerts generated by applications and network hardware." },
+  { term: "Server-Side Request Forgery (SSRF)", definition: "A web security vulnerability that allows an attacker to induce the server-side application to make HTTP requests to an arbitrary domain of the attacker's choosing." },
+  { term: "SQL Injection (SQLi)", definition: "A code injection technique used to attack data-driven applications. Learn more in our [SQL Injection Tutorial](/guides/sql-injection-tutorial)." },
+  { term: "Static Application Security Testing (SAST)", definition: "A set of technologies designed to analyze application source code, byte code and binaries for coding and design conditions that are indicative of security vulnerabilities." },
+  { term: "Transport Layer Security (TLS)", definition: "A cryptographic protocol designed to provide communications security over a computer network." },
+  { term: "Web Application Firewall (WAF)", definition: "A specific form of application firewall that filters, monitors, and blocks HTTP traffic to and from a web service. Detect WAFs using our [WAF Detector](/tools/waf-detector)." }
 ];
 
 export default function Encyclopedia() {
@@ -44,9 +56,9 @@ export default function Encyclopedia() {
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan inline-block"></span>
                 {item.term}
               </h3>
-              <p className="text-mute text-sm leading-relaxed">
-                {item.definition}
-              </p>
+              <div className="text-mute text-sm leading-relaxed prose prose-invert prose-cyan prose-p:my-0 prose-a:text-cyan prose-a:no-underline hover:prose-a:underline">
+                <ReactMarkdown>{item.definition}</ReactMarkdown>
+              </div>
             </GlassCard>
           </Reveal>
         ))}

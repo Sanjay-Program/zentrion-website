@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import GridGlow from '@/components/GridGlow';
 import MagneticButtons from '@/components/MagneticButtons';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 const display = Chakra_Petch({
   subsets: ['latin'],
@@ -207,6 +208,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MagneticButtons />
         <div className="relative z-10">
           <Navbar />
+          <Breadcrumbs />
           <main id="main-content">{children}</main>
           <Footer />
         </div>

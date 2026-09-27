@@ -226,6 +226,18 @@ export default function DnsPropagationPage() {
           </div>
         )}
       </div>
-    </div>
+    
+        <div className="mt-12 glass-card rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-md p-6 sm:p-8 mb-8">
+          <h2 className="text-xl font-bold font-display text-[rgb(var(--c-ink))] mb-4">About this Tool</h2>
+          <div className="space-y-4 text-[rgb(var(--c-mute))] text-sm leading-relaxed">
+            <p>
+              <strong>How it works:</strong> This tool performs all calculations and processing directly in your browser using standard Web APIs and client-side JavaScript.
+            </p>
+            <p>
+              <strong>Privacy Note:</strong> Processing happens locally in your browser. We do not send your sensitive input (such as IP addresses, hashes, or text) to any backend server. Your data remains on your device.
+            </p>
+          </div>
+        </div>
+        </div>
   );
 }

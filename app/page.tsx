@@ -23,14 +23,6 @@ const stack = [
   'Terraform',
 ];
 
-const bentoServices = [
-  { icon: '01', title: 'AI Automation', text: 'Agentic workflows and generative pipelines that adapt to how your team actually works.', color: 'bg-signal/10 text-signal' },
-  { icon: '02', title: 'Cybersecurity', text: 'Offensive testing and defensive monitoring built on zero-trust fundamentals.', color: 'bg-cyan/10 text-cyan' },
-  { icon: '03', title: 'Cloud Consulting', text: 'Multi-cloud architecture and cost review that scales with real growth.', color: 'bg-violet/10 text-violet' },
-  { icon: '04', title: 'Blockchain', text: 'Solidity smart contracts and on-chain systems for transparent auditing.', color: 'bg-signal/10 text-signal' },
-  { icon: '05', title: 'Threat Analytics', text: 'Forensic analysis of logs and traffic to surface what dashboards miss.', color: 'bg-cyan/10 text-cyan' },
-  { icon: '06', title: 'API & Endpoint Security', text: 'Hardened gateways and device policies for the surfaces attackers hit first.', color: 'bg-violet/10 text-violet' },
-];
 
 export default function HomePage() {
   return (
@@ -93,27 +85,67 @@ export default function HomePage() {
         <Marquee items={stack} />
       </section>
 
-      {/* SERVICES — BENTO GRID */}
+      {/* INTENT ROUTING */}
       <section className="container-x py-20 md:py-28">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-14">
           <SectionHeading
-            eyebrow="What we build"
-            title="Six disciplines, one defense system"
-            description="Every engagement starts from the same question: what protects this organization's data, uptime, and reputation five years from now?"
+            eyebrow="What are you looking for?"
+            title="Choose your path"
+            description="Whether you're here to learn, build, or secure your infrastructure, Zentrion has the resources and expertise to help."
           />
-          <Link href="/services" className="hidden md:inline-flex items-center gap-2 text-cyan font-medium hover:gap-3 transition-all shrink-0">
-            View all services <ArrowIcon />
-          </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-5">
-          {bentoServices.map((s, i) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            {
+              title: 'Learn Cybersecurity',
+              text: 'Free guides, labs, tools, and learning paths for offensive and defensive security.',
+              icon: '🎓',
+              color: 'bg-cyan/10 text-cyan border-cyan/20',
+              link: '/guides',
+            },
+            {
+              title: 'Build Software',
+              text: 'Websites, web applications, SaaS, CRM, ERP, mobile, and custom software.',
+              icon: '💻',
+              color: 'bg-signal/10 text-signal border-signal/20',
+              link: '/services/custom-software-development',
+            },
+            {
+              title: 'Build with AI',
+              text: 'AI applications, RAG, AI agents, automation, and enterprise AI integrations.',
+              icon: '🧠',
+              color: 'bg-violet/10 text-violet border-violet/20',
+              link: '/services/ai-development',
+            },
+            {
+              title: 'Secure Your Business',
+              text: 'VAPT, application security, API security, cloud security, and risk assessments.',
+              icon: '🛡️',
+              color: 'bg-cyan/10 text-cyan border-cyan/20',
+              link: '/services/vapt',
+            },
+            {
+              title: 'Automate Operations',
+              text: 'AI workflows, intelligent integrations, and comprehensive business automation.',
+              icon: '⚡',
+              color: 'bg-signal/10 text-signal border-signal/20',
+              link: '/services/ai-automation',
+            },
+            {
+              title: 'Use Free Tools',
+              text: 'Browser-based recon, web security, cryptography, and developer utilities.',
+              icon: '🛠️',
+              color: 'bg-violet/10 text-violet border-violet/20',
+              link: '/tools',
+            }
+          ].map((s, i) => (
             <Reveal key={s.title} delay={i * 0.05}>
-              <Link href="/services" className="block group h-full">
-                <GlassCard>
-                  <div className={`h-11 w-11 rounded-xl flex items-center justify-center font-mono text-sm ${s.color}`}>
+              <Link href={s.link} className="block group h-full">
+                <GlassCard className="h-full border border-glass-border hover:border-current transition-colors">
+                  <div className={`h-12 w-12 rounded-xl flex items-center justify-center text-2xl ${s.color} border`}>
                     {s.icon}
                   </div>
-                  <h3 className="mt-6 font-display text-lg font-semibold group-hover:text-cyan transition-colors">{s.title}</h3>
+                  <h3 className="mt-6 font-display text-xl font-semibold group-hover:text-[rgb(var(--c-accent))] transition-colors">{s.title}</h3>
                   <p className="mt-3 text-sm text-mute leading-relaxed">{s.text}</p>
                 </GlassCard>
               </Link>
