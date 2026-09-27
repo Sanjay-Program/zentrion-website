@@ -12,15 +12,6 @@ type NavItem = { label: string; href?: string; items?: NavLink[] };
 
 const navItems: NavItem[] = [
   {
-    label: 'Academy',
-    items: [
-      { href: '/guides', label: 'Guides & Tutorials', blurb: 'Deep technical cybersecurity guides' },
-      { href: '/roadmaps', label: 'Learning Paths', blurb: 'Structured career roadmaps' },
-      { href: '/encyclopedia', label: 'Encyclopedia', blurb: 'Technical terms and concepts' },
-      { href: '/resources/cybersecurity-commands', label: 'Cheatsheets', blurb: 'Quick command references' },
-    ],
-  },
-  {
     label: 'Cyber Range',
     items: [
       { href: '/labs', label: 'Interactive Labs', blurb: 'Browser-side vulnerability simulations' },
@@ -31,8 +22,8 @@ const navItems: NavItem[] = [
   {
     label: 'Services',
     items: [
-      { href: '/services/custom-software-development', label: 'Software Engineering', blurb: 'Web, SaaS, CRM, and ERP' },
-      { href: '/services/ai-development', label: 'AI Solutions', blurb: 'Agents, RAG, and automation' },
+      { href: '/services/web-development', label: 'Software Engineering', blurb: 'Web, SaaS, CRM, and ERP' },
+      { href: '/services/generative-ai', label: 'AI Solutions', blurb: 'Agents, RAG, and automation' },
       { href: '/services/vapt', label: 'Cybersecurity', blurb: 'VAPT, API and Cloud Security' },
       { href: '/services', label: 'All Services', blurb: 'Full overview of enterprise services' },
     ],
@@ -41,8 +32,8 @@ const navItems: NavItem[] = [
     label: 'Company',
     items: [
       { href: '/about', label: 'About Zentrion', blurb: 'Our mission and team' },
-      { href: '/portfolio', label: 'Portfolio & Case Studies', blurb: 'Client success stories' },
-      { href: '/research', label: 'Research', blurb: 'Threat intelligence and reports' },
+      { href: '/case-studies', label: 'Portfolio & Case Studies', blurb: 'Client success stories' },
+      { href: '/encyclopedia', label: 'Research', blurb: 'Threat intelligence and reports' },
       { href: '/resources', label: 'Resources', blurb: 'Checklists and templates' },
     ],
   },
@@ -138,9 +129,11 @@ export default function Navbar() {
     >
       <nav className="container-x flex items-center justify-between h-[72px] gap-4">
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-white p-1 shadow-[0_0_16px_rgba(0,212,255,0.25)] shrink-0">
-            <Image src="/logo-mark.png" alt="" width={32} height={35} className="h-full w-auto object-contain" priority />
-          </span>
+          {pathname !== '/' && (
+            <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-white p-1 shadow-[0_0_16px_rgba(0,212,255,0.25)] shrink-0">
+              <Image src="/logo-mark.png" alt="" width={32} height={35} className="h-full w-auto object-contain" priority />
+            </span>
+          )}
           <span className="font-display font-semibold text-lg leading-none whitespace-nowrap">
             ZENTR<span className="text-breach">ION</span>
             <span className="block text-mute font-body font-normal text-[11px] tracking-wide -mt-0.5">

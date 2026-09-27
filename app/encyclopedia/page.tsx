@@ -52,11 +52,11 @@ export default function Encyclopedia() {
         {glossary.map((item, i) => (
           <Reveal key={i} delay={i * 0.05}>
             <GlassCard className="h-full flex flex-col p-6 hover:border-cyan/50 transition-colors">
-              <h3 className="text-xl font-bold font-display text-white mb-3 flex items-center gap-2">
+              <h3 className="text-xl font-bold font-display text-ink mb-3 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-cyan inline-block"></span>
                 {item.term}
               </h3>
-              <div className="text-mute text-sm leading-relaxed prose prose-invert prose-cyan prose-p:my-0 prose-a:text-cyan prose-a:no-underline hover:prose-a:underline">
+              <div className="text-mute text-sm leading-relaxed prose dark:prose-invert prose-cyan prose-p:my-0 prose-a:text-cyan prose-a:no-underline hover:prose-a:underline max-w-none">
                 <ReactMarkdown>{item.definition}</ReactMarkdown>
               </div>
             </GlassCard>

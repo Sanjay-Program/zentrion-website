@@ -61,15 +61,12 @@ export default function HomePage() {
                 <Link href="/services" className="btn-ghost text-[rgb(var(--c-accent))] border-[rgba(47,107,255,0.2)] hover:bg-[rgba(47,107,255,0.1)]">
                   Explore Enterprise Services
                 </Link>
-                <Link href="/guides" className="btn-ghost">
-                  Zentrion Academy
-                </Link>
               </div>
             </Reveal>
 
             <Reveal delay={0.32}>
               <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-2xl">
-                <StatBlock value="Learn" label="Free Cyber Academy" />
+                <StatBlock value="Build" label="Custom Software" />
                 <StatBlock value="Assess" label="Readiness Scans" />
                 <StatBlock value="Hunt" label="Cyber Range Labs" />
                 <StatBlock value="Protect" label="Enterprise Services" />
@@ -97,25 +94,25 @@ export default function HomePage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
             {
-              title: 'Learn Cybersecurity',
-              text: 'Free guides, labs, tools, and learning paths for offensive and defensive security.',
-              icon: '🎓',
+              title: 'Free Tools & Labs',
+              text: 'Browser-based recon, web security utilities, and interactive vulnerability labs.',
+              icon: '🛠️',
               color: 'bg-cyan/10 text-cyan border-cyan/20',
-              link: '/guides',
+              link: '/tools',
             },
             {
               title: 'Build Software',
               text: 'Websites, web applications, SaaS, CRM, ERP, mobile, and custom software.',
               icon: '💻',
               color: 'bg-signal/10 text-signal border-signal/20',
-              link: '/services/custom-software-development',
+              link: '/services/web-development',
             },
             {
               title: 'Build with AI',
               text: 'AI applications, RAG, AI agents, automation, and enterprise AI integrations.',
               icon: '🧠',
               color: 'bg-violet/10 text-violet border-violet/20',
-              link: '/services/ai-development',
+              link: '/services/generative-ai',
             },
             {
               title: 'Secure Your Business',
@@ -129,14 +126,14 @@ export default function HomePage() {
               text: 'AI workflows, intelligent integrations, and comprehensive business automation.',
               icon: '⚡',
               color: 'bg-signal/10 text-signal border-signal/20',
-              link: '/services/ai-automation',
+              link: '/services/agentic-ai',
             },
             {
-              title: 'Use Free Tools',
-              text: 'Browser-based recon, web security, cryptography, and developer utilities.',
-              icon: '🛠️',
+              title: 'Assess Readiness',
+              text: 'Interactive security assessments, threat hunting, and infrastructure review.',
+              icon: '📊',
               color: 'bg-violet/10 text-violet border-violet/20',
-              link: '/tools',
+              link: '/assessments/website-security',
             }
           ].map((s, i) => (
             <Reveal key={s.title} delay={i * 0.05}>
