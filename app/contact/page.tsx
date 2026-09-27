@@ -40,7 +40,7 @@ export default function ContactPage() {
               <a href={`mailto:${HR_EMAIL}`} className="text-cyan hover:underline">
                 {HR_EMAIL}
               </a>
-              <span className="block text-xs text-mute mt-0.5">Careers &amp; internships</span>
+              <span className="block text-xs text-mute mt-0.5">Internship applications</span>
             </p>
           </GlassCard>
           <GlassCard hover={false}>

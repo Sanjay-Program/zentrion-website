@@ -10,12 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/careers' },
 };
 
-const openings = [
-  { title: 'Security Engineer', type: 'Full-time', location: 'Chennai / Hybrid' },
-  { title: 'AI/ML Engineer', type: 'Full-time', location: 'Chennai / Hybrid' },
-  { title: 'Full Stack Developer', type: 'Full-time', location: 'Remote' },
-  { title: 'Cybersecurity Trainer', type: 'Contract', location: 'Chennai' },
-];
+const openings: { title: string; type: string; location: string }[] = [];
 
 const internships = [
   {
@@ -103,10 +98,7 @@ export default function CareersPage() {
             Build the defense, not just describe it.
           </h1>
           <p className="mt-6 max-w-2xl text-mute leading-relaxed text-lg">
-            We&rsquo;re a small, hands-on team working across cybersecurity, AI and cloud. Everyone here
-            ships code, runs assessments, or teaches &mdash; often all three in the same week. Our
-            internship program pairs you with a mentor on a live client or product engagement, not a
-            simulated one, and rewards real contribution with a performance-based stipend.
+            We&rsquo;re a small, hands-on team working across cybersecurity, AI and cloud. While we aren&rsquo;t currently hiring for full-time roles, we are actively looking for passionate interns! Our internship program pairs you with a mentor on a live client or product engagement, not a simulated one, and rewards real contribution with a performance-based stipend.
           </p>
         </Reveal>
       </section>
@@ -114,41 +106,48 @@ export default function CareersPage() {
       <section className="container-x py-20 border-t border-line">
         <SectionHeading eyebrow="Current openings" title="Full-time roles we're hiring for" />
         <div className="mt-12 space-y-4">
-          {openings.map((o) => {
-            const message = `Hi Zentrion Technologies, I\u2019d like to apply for the ${o.title} role (${o.type} \u00b7 ${o.location}). Here\u2019s a bit about me and my resume:`;
-            const waLink = buildWhatsAppLink(message);
-            const mailLink = buildMailtoLink(`Application: ${o.title}`, message, HR_EMAIL);
-            return (
-              <Reveal key={o.title}>
-                <GlassCard hover={false} className="flex flex-wrap items-center justify-between gap-4">
-                  <div>
-                    <h3 className="font-display font-semibold text-lg">{o.title}</h3>
-                    <p className="mt-1 text-sm text-mute">
-                      {o.type} &middot; {o.location}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <a
-                      href={mailLink}
-                      className="text-mute hover:text-cyan transition-colors text-sm"
-                      aria-label={`Email your application for ${o.title}`}
-                      title="Apply via email"
-                    >
-                      Email HR
-                    </a>
-                    <a
-                      href={waLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-ghost text-sm !px-4 !py-2"
-                    >
-                      Apply <ArrowIcon />
-                    </a>
-                  </div>
-                </GlassCard>
-              </Reveal>
-            );
-          })}
+          {openings.length === 0 ? (
+            <GlassCard hover={false} className="text-center py-12">
+              <h3 className="font-display font-semibold text-xl text-white">We are not currently hiring for full-time roles.</h3>
+              <p className="text-mute mt-3 max-w-md mx-auto">However, we are actively recruiting for our paid internship program! Scroll down to see open positions and job descriptions.</p>
+            </GlassCard>
+          ) : (
+            openings.map((o) => {
+              const message = `Hi Zentrion Technologies, I\u2019d like to apply for the ${o.title} role (${o.type} \u00b7 ${o.location}). Here\u2019s a bit about me and my resume:`;
+              const waLink = buildWhatsAppLink(message);
+              const mailLink = buildMailtoLink(`Application: ${o.title}`, message, HR_EMAIL);
+              return (
+                <Reveal key={o.title}>
+                  <GlassCard hover={false} className="flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                      <h3 className="font-display font-semibold text-lg">{o.title}</h3>
+                      <p className="mt-1 text-sm text-mute">
+                        {o.type} &middot; {o.location}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={mailLink}
+                        className="text-mute hover:text-cyan transition-colors text-sm"
+                        aria-label={`Email your application for ${o.title}`}
+                        title="Apply via email"
+                      >
+                        Email HR
+                      </a>
+                      <a
+                        href={waLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-ghost text-sm !px-4 !py-2"
+                      >
+                        Apply <ArrowIcon />
+                      </a>
+                    </div>
+                  </GlassCard>
+                </Reveal>
+              );
+            })
+          )}
         </div>
       </section>
 
