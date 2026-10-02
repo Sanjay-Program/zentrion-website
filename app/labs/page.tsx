@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SectionHeading, Reveal, GlassCard, ArrowIcon } from '@/components/ui';
 
 export const metadata: Metadata = {
@@ -54,7 +55,7 @@ const labs = [
 
 export default function LabsIndex() {
   return (
-    <div className="pt-32 pb-24 container-x min-h-screen">
+    <div className="pt-20 pb-24 container-x min-h-screen">
       <Reveal>
         <SectionHeading
           eyebrow="Interactive Practice"
@@ -67,8 +68,11 @@ export default function LabsIndex() {
         {labs.map((lab, i) => (
           <Reveal key={lab.id} delay={i * 0.1}>
             <Link href={`/labs/${lab.id}`} className="block group">
-              <GlassCard>
-                <div className="flex items-center justify-between mb-4">
+              <GlassCard className="h-full flex flex-col relative pt-10">
+                <div className="absolute top-5 right-5 opacity-40">
+                  <Image src="/logo-mark.png" alt="" width={24} height={24} />
+                </div>
+                <div className="flex items-center justify-between mb-4 pr-8">
                   <span className="text-[10px] uppercase font-mono tracking-wider px-2 py-1 rounded bg-cyan/10 text-cyan">
                     {lab.category}
                   </span>

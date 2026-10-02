@@ -201,7 +201,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MagneticButtons />
         <div className="relative z-10">
           <Navbar />
-          <Breadcrumbs />
           <main id="main-content">{children}</main>
           <Footer />
         </div>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import ShaderHero from '@/components/ShaderHero';
 import Marquee from '@/components/Marquee';
 import HeroVideoBackground from '@/components/HeroVideoBackground';
@@ -83,7 +84,7 @@ export default function HomePage() {
       </section>
 
       {/* INTENT ROUTING */}
-      <section className="container-x py-20 md:py-28">
+      <section className="container-x py-14 md:py-20">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-14">
           <SectionHeading
             eyebrow="What are you looking for?"
@@ -102,35 +103,35 @@ export default function HomePage() {
             },
             {
               title: 'Build Software',
-              text: 'Websites, web applications, SaaS, CRM, ERP, mobile, and custom software.',
+              text: 'Websites, web applications, SaaS, CRM, ERP, mobile and custom software.',
               icon: '💻',
               color: 'bg-signal/10 text-signal border-signal/20',
               link: '/services/web-development',
             },
             {
               title: 'Build with AI',
-              text: 'AI applications, RAG, AI agents, automation, and enterprise AI integrations.',
+              text: 'AI applications, RAG, AI agents, automation and enterprise AI integrations.',
               icon: '🧠',
               color: 'bg-violet/10 text-violet border-violet/20',
               link: '/services/generative-ai',
             },
             {
               title: 'Secure Your Business',
-              text: 'VAPT, application security, API security, cloud security, and risk assessments.',
+              text: 'VAPT, application security, API security, cloud security and risk assessments.',
               icon: '🛡️',
               color: 'bg-cyan/10 text-cyan border-cyan/20',
               link: '/services/vapt',
             },
             {
               title: 'Automate Operations',
-              text: 'AI workflows, intelligent integrations, and comprehensive business automation.',
+              text: 'AI workflows, intelligent integrations and comprehensive business automation.',
               icon: '⚡',
               color: 'bg-signal/10 text-signal border-signal/20',
               link: '/services/agentic-ai',
             },
             {
               title: 'Assess Readiness',
-              text: 'Interactive security assessments, threat hunting, and infrastructure review.',
+              text: 'Interactive security assessments, threat hunting and infrastructure review.',
               icon: '📊',
               color: 'bg-violet/10 text-violet border-violet/20',
               link: '/assessments/website-security',
@@ -138,7 +139,10 @@ export default function HomePage() {
           ].map((s, i) => (
             <Reveal key={s.title} delay={i * 0.05}>
               <Link href={s.link} className="block group h-full">
-                <GlassCard className="h-full border border-glass-border hover:border-current transition-colors">
+                <GlassCard className="h-full border border-glass-border hover:border-current transition-colors relative">
+                  <div className="absolute top-6 right-6 opacity-40">
+                    <Image src="/logo-mark.png" alt="" width={24} height={24} />
+                  </div>
                   <div className={`h-12 w-12 rounded-xl flex items-center justify-center text-2xl ${s.color} border`}>
                     {s.icon}
                   </div>
