@@ -99,7 +99,6 @@ export default function Footer() {
               </a>{' '}
               <span className="text-xs">(careers & internships)</span>
             </p>
-            <p>+91 73057 71789</p>
             <p>+91 82204 37738</p>
           </div>
         </div>

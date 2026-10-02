@@ -1,4 +1,4 @@
-export const CONTACT_WHATSAPP = '917305771789';
+export const CONTACT_WHATSAPP = '918220437738';
 
 // General business, sales, services & consultation inquiries
 export const CONSULT_EMAIL = 'consultancy@zentriontechnologies.com';

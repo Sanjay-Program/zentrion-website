@@ -100,16 +100,9 @@ const orgSchema = {
   contactPoint: [
     {
       '@type': 'ContactPoint',
-      telephone: '+91-7305771789',
-      email: 'consultancy@zentriontechnologies.com',
-      contactType: 'customer service',
-      areaServed: 'IN',
-    },
-    {
-      '@type': 'ContactPoint',
       telephone: '+91-8220437738',
       email: 'consultancy@zentriontechnologies.com',
-      contactType: 'sales',
+      contactType: 'sales / customer service',
       areaServed: 'IN',
     },
     {
@@ -136,7 +129,7 @@ const localBusinessSchema = {
   name: 'Zentrion Technologies',
   image: `${SITE_URL}/logo-full.png`,
   url: SITE_URL,
-  telephone: '+91-7305771789',
+  telephone: '+91-8220437738',
   email: 'consultancy@zentriontechnologies.com',
   priceRange: '₹₹',
   address: {

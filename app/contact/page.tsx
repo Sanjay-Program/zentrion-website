@@ -44,9 +44,7 @@ export default function ContactPage() {
             </p>
           </GlassCard>
           <GlassCard hover={false}>
-            <p className="eyebrow">Phone</p>
-            <p className="mt-2 text-lg">+91 73057 71789</p>
-            <p className="mt-1 text-lg">+91 82204 37738</p>
+            <p className="mt-2 text-lg">+91 82204 37738</p>
           </GlassCard>
           <GlassCard hover={false}>
             <p className="eyebrow">Social</p>
