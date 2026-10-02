@@ -92,7 +92,7 @@ export default function ToolsDashboard() {
                       <span className="flex items-center gap-2">
                         {tool.name}
                         {tool.priority && (
-                          <span className="text-[10px] uppercase tracking-wider bg-[rgba(255,255,255,0.1)] px-1.5 py-0.5 rounded text-[rgb(var(--c-mute))] group-hover:bg-[rgb(var(--c-accent))] group-hover:text-white transition-colors">
+                          <span className="text-[10px] uppercase font-bold tracking-wider bg-red-500/15 border border-red-500/30 px-2 py-0.5 rounded text-red-500 shadow-[0_0_10px_rgba(239,68,68,0.4)] animate-pulse">
                             Hot
                           </span>
                         )}

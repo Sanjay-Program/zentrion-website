@@ -30,6 +30,26 @@ const cases = [
     outcome:
       'The client received a clear, evidence-backed readiness score and a phased remediation roadmap rather than a generic compliance checklist.',
   },
+  {
+    tag: 'Financial Services · Cloud Security',
+    title: 'Zero-Trust cloud migration for a regional FinTech provider',
+    problem:
+      'A rapidly scaling FinTech company needed to migrate their legacy on-premise infrastructure to AWS without exposing sensitive customer financial data to new cloud attack vectors.',
+    approach:
+      'We architected a Zero-Trust AWS environment with strict IAM roles, continuous compliance monitoring, VPC peering, and automated threat hunting capabilities integrated directly into their CI/CD pipeline.',
+    outcome:
+      'The client successfully migrated to the cloud with zero downtime, passing their ISO 27001 and PCI-DSS audits flawlessly in the first attempt, while reducing security operations overhead by 40%.',
+  },
+  {
+    tag: 'Enterprise · AI Security',
+    title: 'Securing LLM deployments for a Fortune 500 logistics firm',
+    problem:
+      'The client built an internal AI copilot for supply chain management but faced critical risks involving prompt injection, data exfiltration, and unauthorized access to proprietary logistics databases.',
+    approach:
+      'We implemented a comprehensive AI security gateway, integrating input sanitization, RBAC for the RAG pipeline, and real-time anomaly detection to identify and block malicious prompts.',
+    outcome:
+      'The AI copilot was safely deployed to 2,000+ employees. Our solution successfully blocked over 15,000 simulated prompt injection attempts during the red-teaming phase, ensuring total data confidentiality.',
+  },
 ];
 
 export default function CaseStudiesPage() {
