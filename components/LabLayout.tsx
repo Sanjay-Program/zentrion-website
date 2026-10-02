@@ -4,7 +4,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { GlassCard, Reveal, ArrowIcon } from '@/components/ui';
 
+import { useRangeStore } from '@/lib/range-store';
+
 interface LabLayoutProps {
+  labId: string;
+  xpReward: number;
   title: string;
   category: string;
   difficulty: string;
@@ -21,6 +25,8 @@ interface LabLayoutProps {
 }
 
 export function LabLayout({
+  labId,
+  xpReward,
   title,
   category,
   difficulty,
@@ -39,13 +45,14 @@ export function LabLayout({
   const [isSolved, setIsSolved] = useState(false);
   const [error, setError] = useState(false);
   const [visibleHints, setVisibleHints] = useState<number>(0);
+  const { markLabSolved } = useRangeStore();
 
   const handleFlagSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (flagInput.trim() === flag) {
       setIsSolved(true);
       setError(false);
-      // In a real app, we would save to localStorage here
+      markLabSolved(labId, xpReward);
     } else {
       setError(true);
       setTimeout(() => setError(false), 3000);

@@ -66,6 +66,8 @@ Nmap done: 1 IP address (1 host up) scanned in 2.11 seconds`,
 
   return (
     <LabLayout
+      labId="network-recon"
+      xpReward={150}
       title="Nmap Practice Range"
       category="Reconnaissance"
       difficulty="Beginner"

@@ -80,6 +80,8 @@ Finished
 
   return (
     <LabLayout
+      labId="web-enumeration"
+      xpReward={150}
       title="Web Enumeration & Discovery"
       category="Web Security"
       difficulty="Beginner"

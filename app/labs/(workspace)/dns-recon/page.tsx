@@ -94,6 +94,8 @@ DNSSEC: unsigned`
 
   return (
     <LabLayout
+      labId="dns-recon"
+      xpReward={100}
       title="DNS Reconnaissance"
       category="Reconnaissance"
       difficulty="Beginner"

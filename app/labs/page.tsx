@@ -1,40 +1,40 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Reveal, GlassCard, ArrowIcon } from '@/components/ui';
+import { CyberProfile } from '@/components/CyberProfile';
 
 export const metadata: Metadata = {
   title: 'Zentrion Cyber Range',
   description: 'Practice real cybersecurity skills in browser-based environments and isolated Linux targets.',
 };
 
-const labCategories = [
+const progressiveLevels = [
   {
-    title: 'Web Security',
+    title: 'Level 1 — Rookie',
+    description: 'Fundamental reconnaissance and basic web vulnerabilities.',
     labs: [
-      { id: 'web-enumeration', title: 'Web Enumeration & Discovery', desc: 'Find hidden directories and sensitive files.', diff: 'Beginner' },
-      { id: 'sql-injection', title: 'SQL Injection (Auth Bypass)', desc: 'Bypass a login portal using raw SQL.', diff: 'Intermediate' },
-      { id: 'xss-simulation', title: 'Cross-Site Scripting (XSS)', desc: 'Steal admin cookies via stored payload.', diff: 'Intermediate' },
+      { id: 'network-recon', title: 'Nmap Practice Range', desc: 'Perform port scanning and service detection.', diff: 'Beginner', category: 'Recon' },
+      { id: 'dns-recon', title: 'DNS Reconnaissance', desc: 'Query records and find subdomains.', diff: 'Beginner', category: 'Recon' },
+      { id: 'web-enumeration', title: 'Web Enumeration & Discovery', desc: 'Find hidden directories and sensitive files.', diff: 'Beginner', category: 'Web' },
     ]
   },
   {
-    title: 'Reconnaissance',
+    title: 'Level 2 — Apprentice',
+    description: 'Exploitation of common web and API vulnerabilities.',
     labs: [
-      { id: 'network-recon', title: 'Nmap Practice Range', desc: 'Perform port scanning and service detection.', diff: 'Beginner' },
-      { id: 'dns-recon', title: 'DNS Reconnaissance', desc: 'Query records and find subdomains.', diff: 'Beginner' },
+      { id: 'xss-simulation', title: 'Cross-Site Scripting (XSS)', desc: 'Steal admin cookies via stored payload.', diff: 'Intermediate', category: 'Web' },
+      { id: 'sql-injection', title: 'SQL Injection (Auth Bypass)', desc: 'Bypass a login portal using raw SQL.', diff: 'Intermediate', category: 'Web' },
+      { id: 'prompt-injection', title: 'Prompt Injection', desc: 'Extract secrets from an LLM system prompt.', diff: 'Beginner', category: 'AI' },
     ]
   },
   {
-    title: 'AI Security',
+    title: 'Level 3 — Practitioner',
+    description: 'Advanced network defense, log analysis, and forensics.',
     labs: [
-      { id: 'prompt-injection', title: 'Prompt Injection', desc: 'Extract secrets from an LLM system prompt.', diff: 'Beginner' },
-      { id: 'rag-poisoning', title: 'RAG Poisoning', desc: 'Manipulate a knowledge base to exploit AI.', diff: 'Intermediate' },
-    ]
-  },
-  {
-    title: 'Network Defense',
-    labs: [
-      { id: 'wireshark-analysis', title: 'Packet Analysis', desc: 'Inspect PCAP files for cleartext credentials.', diff: 'Beginner' },
-      { id: 'soc-analyst', title: 'SOC Log Analysis', desc: 'Investigate a cyber attack in server logs.', diff: 'Intermediate' },
+      { id: 'wireshark-analysis', title: 'Packet Analysis', desc: 'Inspect PCAP files for cleartext credentials.', diff: 'Beginner', category: 'Network' },
+      { id: 'soc-analyst', title: 'SOC Log Analysis', desc: 'Investigate a cyber attack in server logs.', diff: 'Intermediate', category: 'SOC' },
+      { id: 'forensics-01', title: 'Digital Forensics 01', desc: 'Analyze server logs using terminal commands to find an attacker.', diff: 'Beginner', category: 'Forensics' },
+      { id: 'rag-poisoning', title: 'RAG Poisoning', desc: 'Manipulate a knowledge base to exploit AI.', diff: 'Intermediate', category: 'AI' },
     ]
   }
 ];
@@ -55,6 +55,14 @@ export default function LabsPage() {
             </p>
           </div>
         </Reveal>
+      </section>
+
+      <section className="container-x mb-20">
+        <div className="max-w-4xl mx-auto">
+          <Reveal delay={0.1}>
+            <CyberProfile />
+          </Reveal>
+        </div>
       </section>
 
       <section className="container-x mb-20">
@@ -87,19 +95,23 @@ export default function LabsPage() {
       </section>
 
       <section className="container-x">
-        <div className="grid lg:grid-cols-2 gap-x-12 gap-y-16 max-w-5xl mx-auto">
-          {labCategories.map((category, catIdx) => (
-            <div key={category.title}>
-              <Reveal delay={catIdx * 0.1}>
-                <h2 className="font-display text-2xl font-semibold mb-6 pb-2 border-b border-line">
-                  {category.title}
-                </h2>
+        <div className="max-w-4xl mx-auto space-y-16">
+          {progressiveLevels.map((level, levelIdx) => (
+            <div key={level.title}>
+              <Reveal delay={levelIdx * 0.1}>
+                <div className="mb-6 pb-4 border-b border-line">
+                  <h2 className="font-display text-2xl font-semibold mb-2">{level.title}</h2>
+                  <p className="text-mute text-sm">{level.description}</p>
+                </div>
                 <div className="space-y-4">
-                  {category.labs.map((lab) => (
+                  {level.labs.map((lab) => (
                     <Link href={`/labs/${lab.id}`} key={lab.id} className="block group">
                       <div className="bg-surface/30 border border-line rounded-lg p-5 hover:border-cyan/50 hover:bg-surface/50 transition-all flex items-center justify-between">
                         <div>
                           <div className="flex items-center gap-3 mb-2">
+                            <span className="text-[10px] uppercase font-mono tracking-wider px-2 py-0.5 rounded bg-cyan/10 text-cyan">
+                              {lab.category}
+                            </span>
                             <h3 className="font-bold group-hover:text-cyan transition-colors text-lg">{lab.title}</h3>
                             <span className={`text-[10px] uppercase font-mono tracking-wider px-2 py-0.5 rounded ${
                               lab.diff === 'Beginner' ? 'bg-emerald-500/10 text-emerald-400' :
