@@ -144,7 +144,7 @@ export default function HomePage() {
                     <Image src="/logo-mark.png" alt="" width={24} height={24} />
                   </div>
                   <div className={`h-12 w-12 rounded-xl flex items-center justify-center text-2xl ${s.color} border`}>
-                    {s.icon}
+                    <Image src="/logo-mark.png" alt="" width={24} height={24} className="opacity-90" />
                   </div>
                   <h3 className="mt-6 font-display text-xl font-semibold group-hover:text-[rgb(var(--c-accent))] transition-colors">{s.title}</h3>
                   <p className="mt-3 text-sm text-mute leading-relaxed">{s.text}</p>
