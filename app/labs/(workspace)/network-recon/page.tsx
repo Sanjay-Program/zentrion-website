@@ -1,150 +1,105 @@
 'use client';
 
-import { useState } from 'react';
-import LabWorkspace from '@/components/LabWorkspace';
-import { useProgress } from '@/lib/hooks/useProgress';
+import React from 'react';
+import { LabLayout } from '@/components/LabLayout';
+import { Terminal, TerminalCommandMap } from '@/components/Terminal';
 
-export default function NetworkReconLab() {
-  const [input, setInput] = useState('');
-  const [output, setOutput] = useState<string[]>(['zentrion@lab:~$ Welcome to the Network Recon Lab. Type a command to begin.']);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [isSolved, setIsSolved] = useState(false);
-  const { markLabComplete } = useProgress();
+export default function NmapPracticeRange() {
+  const commandMap: TerminalCommandMap = {
+    'help': `Zentrion Web Terminal commands:
+clear    - Clear the terminal screen
+nmap     - Network exploration tool and security / port scanner
+ping     - Send ICMP ECHO_REQUEST to network hosts
+whoami   - Print effective userid`,
+    'whoami': 'student',
+    'ping target.lab': `PING target.lab (10.10.10.10) 56(84) bytes of data.
+64 bytes from 10.10.10.10: icmp_seq=1 ttl=64 time=0.042 ms
+64 bytes from 10.10.10.10: icmp_seq=2 ttl=64 time=0.039 ms
+64 bytes from 10.10.10.10: icmp_seq=3 ttl=64 time=0.041 ms
 
-  const handleCommand = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || isProcessing) return;
+--- target.lab ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2043ms`,
+    'ping': 'Usage: ping <destination>',
+    'nmap target.lab': `Starting Nmap 7.93 ( https://nmap.org ) at 2026-10-02
+Nmap scan report for target.lab (10.10.10.10)
+Host is up (0.000041s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+443/tcp  open  https
+3306/tcp open  mysql
 
-    const cmdLine = input.trim().toLowerCase();
-    const args = cmdLine.split(' ').filter(Boolean);
-    const cmd = args[0];
-    const target = args[args.length - 1]; // Assume last arg is target for simplicity
+Nmap done: 1 IP address (1 host up) scanned in 0.13 seconds`,
+    'nmap -sv target.lab': `Starting Nmap 7.93 ( https://nmap.org ) at 2026-10-02
+Nmap scan report for target.lab (10.10.10.10)
+Host is up (0.000045s latency).
+Not shown: 996 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.4
+80/tcp   open  http    Apache httpd 2.4.52 ((Ubuntu))
+443/tcp  open  https   Apache httpd 2.4.52 ((Ubuntu))
+3306/tcp open  mysql   MySQL 5.7.40-log
 
-    const newOutput = [...output, `zentrion@lab:~$ ${cmdLine}`];
-    setOutput(newOutput);
-    setInput('');
-    setIsProcessing(true);
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.42 seconds`,
+    'nmap -p- target.lab': `Starting Nmap 7.93 ( https://nmap.org ) at 2026-10-02
+Nmap scan report for target.lab (10.10.10.10)
+Host is up (0.000045s latency).
+Not shown: 65530 closed tcp ports (reset)
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+443/tcp  open  https
+3306/tcp open  mysql
+8080/tcp open  http-proxy
 
-    try {
-      if (cmd === 'ping') {
-        newOutput.push(`PING ${target}: 56 data bytes`);
-        newOutput.push(`64 bytes from ${target}: icmp_seq=0 ttl=53 time=23.4 ms`);
-        newOutput.push(`64 bytes from ${target}: icmp_seq=1 ttl=53 time=24.1 ms`);
-        newOutput.push(`--- ${target} ping statistics ---`);
-        newOutput.push(`2 packets transmitted, 2 packets received, 0.0% packet loss`);
-      } else if (cmd === 'host') {
-        newOutput.push(`Querying DNS for ${target}...`);
-        setOutput([...newOutput]);
-        
-        try {
-          const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(`https://api.hackertarget.com/dnslookup/?q=${target}`)}`);
-          if (res.ok) {
-            const data = await res.text();
-            const lines = data.split('\n').filter(Boolean);
-            newOutput.push(...lines);
-          } else {
-            newOutput.push('Error fetching DNS records. Rate limit may be exceeded.');
-          }
-        } catch (err) {
-          newOutput.push('Network error trying to reach external DNS API.');
-        }
-      } else if (cmd === 'nmap') {
-        newOutput.push(`Starting Nmap 7.94 ( https://nmap.org ) at ${new Date().toISOString()}`);
-        newOutput.push(`Initiating Ping Scan at ${new Date().toLocaleTimeString()}`);
-        setOutput([...newOutput]);
-
-        setIsProcessing(true);
-        setTimeout(() => {
-          newOutput.push(`Scanning ${target} [1000 ports]`);
-          newOutput.push(`Discovered open port 80/tcp on ${target}`);
-          newOutput.push(`Discovered open port 22/tcp on ${target}`);
-          setOutput([...newOutput]);
-          
-          setTimeout(() => {
-            newOutput.push(`Completed SYN Stealth Scan at ${new Date().toLocaleTimeString()}, 1000 total ports`);
-            newOutput.push(`Nmap scan report for ${target}`);
-            newOutput.push(`Host is up (0.024s latency).`);
-            newOutput.push(`Not shown: 998 closed tcp ports (reset)`);
-            newOutput.push(`PORT   STATE SERVICE`);
-            newOutput.push(`22/tcp open  ssh`);
-            newOutput.push(`80/tcp open  http`);
-            newOutput.push(``);
-            newOutput.push(`Nmap done: 1 IP address (1 host up) scanned in 2.34 seconds`);
-            
-            if (target === 'scanme.nmap.org' || target === '45.33.32.156') {
-              setTimeout(() => markLabComplete('network-recon'), 1000);
-              newOutput.push('\n[SYSTEM] Lab Objective Completed! Target Acquired.');
-              setIsSolved(true);
-            }
-            
-            setOutput([...newOutput]);
-            setIsProcessing(false);
-          }, 1500);
-        }, 800);
-        return; // handle isProcessing inside timeouts
-      } else if (cmd === 'clear') {
-        setOutput([]);
-        setIsProcessing(false);
-        return;
-      } else {
-        newOutput.push(`bash: ${cmd}: command not found. Try 'ping', 'host', or 'nmap'`);
-      }
-    } catch (error) {
-      newOutput.push(`[SYSTEM] Internal error executing command.`);
+Nmap done: 1 IP address (1 host up) scanned in 2.11 seconds`,
+    'nmap': (args: string[]) => {
+      if (args.length === 1) return 'Nmap 7.93\nUsage: nmap [Scan Type(s)] [Options] {target specification}';
+      if (args[1] === 'target.lab') return commandMap['nmap target.lab'] as string;
+      if (args[1] === '-sV' && args[2] === 'target.lab') return commandMap['nmap -sv target.lab'] as string;
+      if (args[1] === '-p-' && args[2] === 'target.lab') return commandMap['nmap -p- target.lab'] as string;
+      return `Failed to resolve "${args[args.length - 1]}".`;
     }
-
-    setOutput([...newOutput]);
-    setIsProcessing(false);
   };
 
-  const missionBriefing = (
-    <>
-      <p>
-        You have been tasked with investigating the domain <code>scanme.nmap.org</code>. Your goal is to find its underlying IP address and discover what services it is exposing to the public internet.
-      </p>
-      <div className="p-3 bg-void rounded border border-line mt-4">
-        <span className="text-xs font-mono text-cyan block mb-1">Target:</span>
-        <span className="text-sm text-white">Successfully run an nmap scan against the target IP address.</span>
-      </div>
-    </>
-  );
-
-  const hints = [
-    "The first step in investigating a domain is finding its IP address. Use the `host` or `ping` command (e.g. `host scanme.nmap.org`).",
-    "Once you have the IP address, use `nmap` to scan it (e.g. `nmap 45.33.32.156`).",
-  ];
-
   return (
-    <LabWorkspace
-      labId="network-recon"
-      title="Network Reconnaissance"
-      category="Networking"
+    <LabLayout
+      title="Nmap Practice Range"
+      category="Reconnaissance"
       difficulty="Beginner"
-      missionBriefing={missionBriefing}
-      hints={hints}
-      isSolved={isSolved}
-      flagId="ZENTRION{n3tw0rk_r3c0n_m4st3r}"
+      objective="Perform a full port scan on the target to discover a hidden administration service."
+      scope="target.lab (10.10.10.10)"
+      target="target.lab"
+      hints={[
+        "Use the 'ping' command to verify the host is reachable.",
+        "A standard 'nmap target.lab' scan only checks the top 1,000 most common ports.",
+        "Try scanning all 65,535 ports using the '-p-' flag to find services running on non-standard ports."
+      ]}
+      flag="ZT{p0rt_8080_d1sc0v3r3d}"
+      explanation={
+        <>
+          <p className="mb-4">
+            By default, Nmap scans the top 1,000 most common TCP ports. Since the hidden administration service was running on port <code>8080</code> (which is not in the top 1000 list by default on some configurations, or was deliberately placed on a high port), a standard scan missed it.
+          </p>
+          <p>
+            Using <code>nmap -p- target.lab</code> forces Nmap to scan all 65,535 TCP ports, revealing the hidden <code>http-proxy</code> service. This illustrates why comprehensive scanning is critical during the reconnaissance phase.
+          </p>
+        </>
+      }
+      remediation={
+        <p>
+          Services should not rely on "security by obscurity" (running on a non-standard port). The hidden administration portal should be protected by a VPN, IP allowlisting, and strong Multi-Factor Authentication (MFA).
+        </p>
+      }
+      relatedGuide={{ title: 'Complete Nmap Scanning Tutorial', url: '/guides/nmap-scanning-tutorial' }}
+      nextLab={{ title: 'Web Enumeration & Discovery', url: '/labs/web-enumeration' }}
     >
-      <div className="font-mono text-sm h-full flex flex-col bg-[#0a0a0f] text-[#a5b4fc] p-6 overflow-y-auto">
-        {output.map((line, i) => (
-          <div key={i} className={`mb-1 ${line.startsWith('[SYSTEM]') ? 'text-emerald-400 font-bold' : ''}`}>
-            {line}
-          </div>
-        ))}
-        <form onSubmit={handleCommand} className="flex mt-2 shrink-0">
-          <span className="mr-2">zentrion@lab:~$</span>
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            disabled={isProcessing}
-            className="flex-1 bg-transparent border-none outline-none text-[#e2e8f0] focus:ring-0 p-0 disabled:opacity-50"
-            autoFocus
-            autoComplete="off"
-            spellCheck="false"
-          />
-        </form>
-      </div>
-    </LabWorkspace>
+      <Terminal 
+        commandMap={commandMap} 
+        successCommand="nmap -p- target.lab"
+      />
+    </LabLayout>
   );
 }
