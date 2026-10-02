@@ -19,6 +19,7 @@
   --c-glass-bg: rgba(255, 255, 255, 0.05);
   --c-glass-border: rgba(255, 255, 255, 0.08);
   --c-btn-ghost-border: rgba(255, 255, 255, 0.16);
+  --c-cyan: 0 212 255;
 }
 
 /* Light theme — matches the brand reference: white surfaces, near-black
@@ -38,6 +39,7 @@ html.light {
   --c-glass-bg: rgba(255, 255, 255, 0.7);
   --c-glass-border: rgba(0, 0, 0, 0.1);
   --c-btn-ghost-border: rgba(0, 0, 0, 0.16);
+  --c-cyan: 220 38 38;
 }
 
 /* Scopes (hero visuals, transparent navbar-over-hero) that must stay on the
@@ -53,6 +55,7 @@ html.light {
   --c-glass-bg: rgba(255, 255, 255, 0.035);
   --c-glass-border: rgba(255, 255, 255, 0.08);
   --c-btn-ghost-border: rgba(255, 255, 255, 0.16);
+  --c-cyan: 0 212 255;
 }
 
 * {

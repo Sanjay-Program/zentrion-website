@@ -6,7 +6,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import GridGlow from '@/components/GridGlow';
 import MagneticButtons from '@/components/MagneticButtons';
-import Breadcrumbs from '@/components/Breadcrumbs';
 
 const display = Chakra_Petch({
   subsets: ['latin'],

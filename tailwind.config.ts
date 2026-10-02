@@ -12,7 +12,7 @@ const config: Config = {
         line: 'var(--c-line)',
         accent: 'rgb(var(--c-accent) / <alpha-value>)',
         signal: '#2f6bff',
-        cyan: '#00d4ff',
+        cyan: 'rgb(var(--c-cyan) / <alpha-value>)',
         breach: '#ff4d5e',
         violet: '#7c5cff',
       },
