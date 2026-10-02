@@ -6,7 +6,7 @@ export default function CTFWalkthroughPage() {
       description="Solve 10 beginner CTF challenges step by step. Covers file discovery, Base64 decoding, XOR cipher, steganography, hash cracking, FTP exploitation, and privilege escalation."
       timeToRead="40 min read" lastUpdated="September 2026"
       tags={['CTF','Beginner','Wargames','PicoCTF']}
-      tools={[{name:'Hash Generator',url:'/tools/hash-generator'},{name:'Base64 Encoder/Decoder',url:'/tools/base64-converter'},{name:'JWT Decoder',url:'/tools/jwt-inspector'}]}
+      tools={[{name:'Hash Generator',url:'/tools/hash-generator'},{name:'JWT Decoder',url:'/tools/jwt-inspector'}]}
       relatedGuides={[{title:'Kali Linux Pentesting',url:'/guides/kali-linux-pentesting-tutorial'},{title:'Python Security Scripts',url:'/guides/python-cybersecurity-scripts'},{title:'SQL Injection Tutorial',url:'/guides/sql-injection-tutorial'}]}
       headings={[{id:'what',label:'What is CTF?'},{id:'platforms',label:'Free Platforms'},{id:'challenges',label:'10 Challenges'},{id:'tools-list',label:'Essential Tools'}]}
     >
@@ -39,7 +39,7 @@ FLAG{h1dd3n_f1l3s_ar3_3asy}`}</code></pre>
 $ echo "VGhpcyBpcyB0aGUgZmxhZyE=" | base64 -d
 This is the flag!
 
-# Or use our tool: /tools/base64-converter`}</code></pre>
+# Or use our tool: /tools/hash-generator`}</code></pre>
 
       <h3>Challenge 3: Reverse the String</h3>
       <pre><code>{`Given: }galf_eht_si_sihT{GALF
@@ -133,7 +133,7 @@ cat /etc/crontab                         # Cron jobs`}</code></pre>
       <h2 id="tools-list">Essential CTF Tools</h2>
       <ul>
         <li><strong>CyberChef</strong> — <a href="https://gchq.github.io/CyberChef/" target="_blank" rel="noopener noreferrer">gchq.github.io/CyberChef</a> — Encode/decode/analyse anything</li>
-        <li><strong>Base64/Hex/ROT13</strong> — <a href="/tools/base64-converter">Our Base64 Tool →</a></li>
+        <li><strong>Base64/Hex/ROT13</strong> — <a href="/tools/hash-generator">Our Crypto Tool →</a></li>
         <li><strong>Hash identifier + cracker</strong> — <a href="/tools/hash-generator">Hash Generator →</a></li>
         <li><strong>Strings/binwalk/steghide</strong> — For binary/image challenges</li>
         <li><strong>Wireshark/tshark</strong> — For PCAP analysis challenges</li>

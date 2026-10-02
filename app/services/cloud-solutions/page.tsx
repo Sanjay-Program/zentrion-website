@@ -103,7 +103,7 @@ export default function CloudSolutionsPage() {
              Discuss Your Cloud Requirements
            </Link>
            <div className="mt-6 pt-6 border-t border-line text-sm text-mute">
-             Related Capabilities: <Link href="/services/devops" className="text-cyan hover:underline">DevOps</Link> · <Link href="/services/cloud-security" className="text-cyan hover:underline">Cloud Security Assessment</Link>
+             Related Capabilities: <Link href="/services/full-stack-development" className="text-cyan hover:underline">DevOps</Link> · <Link href="/services/cloud-security" className="text-cyan hover:underline">Cloud Security Assessment</Link>
            </div>
          </div>
       </section>

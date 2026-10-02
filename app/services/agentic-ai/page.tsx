@@ -87,7 +87,7 @@ export default function AgenticAIPage() {
              Discuss an AI Agent Project
            </Link>
            <div className="mt-6 pt-6 border-t border-line text-sm text-mute">
-             Related Capabilities: <Link href="/services/ai-security" className="text-cyan hover:underline">AI Security</Link> · <Link href="/services/api-development" className="text-cyan hover:underline">API Development</Link>
+             Related Capabilities: <Link href="/services/cloud-security" className="text-cyan hover:underline">AI Security</Link> · <Link href="/services/full-stack-development" className="text-cyan hover:underline">API Development</Link>
            </div>
          </div>
       </section>

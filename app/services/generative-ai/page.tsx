@@ -108,7 +108,7 @@ export default function GenerativeAIPage() {
              Discuss Your AI Project
            </Link>
            <div className="mt-6 pt-6 border-t border-line text-sm text-mute">
-             Related Capabilities: <Link href="/services/ai-security" className="text-cyan hover:underline">AI Security</Link> · <Link href="/services/cloud-solutions" className="text-cyan hover:underline">Cloud Infrastructure</Link>
+             Related Capabilities: <Link href="/services/cloud-security" className="text-cyan hover:underline">AI Security</Link> · <Link href="/services/cloud-solutions" className="text-cyan hover:underline">Cloud Infrastructure</Link>
            </div>
          </div>
       </section>

@@ -103,7 +103,7 @@ export default function WebDevelopmentPage() {
              Discuss Your Web Development Project
            </Link>
            <div className="mt-6 pt-6 border-t border-line text-sm text-mute">
-             Related Capabilities: <Link href="/services/application-security" className="text-cyan hover:underline">Application Security</Link> · <Link href="/services/ui-ux" className="text-cyan hover:underline">UI/UX Design</Link>
+             Related Capabilities: <Link href="/services/vapt" className="text-cyan hover:underline">Application Security</Link> · <Link href="/services/full-stack-development" className="text-cyan hover:underline">UI/UX Design</Link>
            </div>
          </div>
       </section>

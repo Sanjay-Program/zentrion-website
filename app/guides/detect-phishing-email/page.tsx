@@ -66,7 +66,7 @@ whois suspicious.com | grep "Creation Date"`}</code></pre>
         <li><strong>Don&apos;t enter any credentials</strong> — close the tab immediately</li>
         <li>Clear browser cache and cookies</li>
         <li>Change password for that service from a different, clean device</li>
-        <li>Enable 2FA using our <a href="/tools/otp-generator">TOTP Generator</a></li>
+        <li>Enable 2FA using our <a href="/tools/password-generator">Password Generator</a> for strong passwords</li>
         <li>Report to: <a href="https://apwg.org/report-phishing/" target="_blank" rel="noopener noreferrer">APWG</a>, <a href="https://www.ic3.gov/" target="_blank" rel="noopener noreferrer">FBI IC3</a>, <a href="https://cybercrime.gov.in/" target="_blank" rel="noopener noreferrer">Cyber Crime Portal India</a></li>
       </ol>
     </GuideLayout>

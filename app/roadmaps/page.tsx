@@ -14,7 +14,7 @@ const roadmaps = [
     description: 'The essential starting point. Learn networking, web protocols, and basic security hygiene.',
     duration: '4-6 weeks',
     steps: [
-      { name: 'Networking Basics', link: '/guides/networking-basics' },
+      { name: 'Networking Basics', link: '/guides/network/nmap-scanning-tutorial' },
       { name: 'DNS & Domains', link: '/guides/check-dns-records' },
       { name: 'Phishing Fundamentals', link: '/quizzes/phishing-fundamentals' },
     ]
@@ -37,8 +37,8 @@ const roadmaps = [
     duration: '8-10 weeks',
     steps: [
       { name: 'Wireshark & Packet Analysis', link: '/guides/wireshark-packet-analysis' },
-      { name: 'Detecting Intrusions', link: '/guides/detect-intrusions' },
-      { name: 'Log Analysis', link: '/guides/log-analysis-tutorial' },
+      { name: 'Detecting Intrusions', link: '/guides/home-soc-setup' },
+      { name: 'Log Analysis', link: '/guides/wireshark-packet-analysis' },
     ]
   },
   {
@@ -49,7 +49,7 @@ const roadmaps = [
     steps: [
       { name: 'OWASP LLM Top 10', link: '/guides/owasp-llm-top-10-2026' },
       { name: 'Prompt Injection Lab', link: '/labs/prompt-injection' },
-      { name: 'Securing AI Workflows', link: '/guides/secure-ai-workflows' },
+      { name: 'Securing AI Workflows', link: '/guides/owasp-agentic-top-10-2026' },
     ]
   }
 ];

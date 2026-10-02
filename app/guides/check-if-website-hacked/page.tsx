@@ -137,7 +137,7 @@ ss -tlnp | grep -v -E "(80|443|22|25|3306)"`}</code></pre>
       <ul>
         <li>Keep your CMS (WordPress, Drupal, etc.) and all plugins updated</li>
         <li>Use strong unique passwords — generate one: <a href="/tools/password-generator">Password Generator →</a></li>
-        <li>Enable 2FA on all admin accounts using <a href="/tools/otp-generator">our TOTP Generator</a></li>
+        <li>Enable 2FA on all admin accounts using <a href="/tools/password-generator">our Password Generator</a></li>
         <li>Use a Web Application Firewall (WAF) — check yours with our <a href="/tools/waf-detector">WAF Detector</a></li>
         <li>Set up file integrity monitoring (inotifywait, OSSEC, or Wordfence)</li>
         <li>Take daily automated off-site backups</li>

@@ -103,7 +103,7 @@ export default function SaaSPage() {
              Build Your SaaS Product With Zentrion
            </Link>
            <div className="mt-6 pt-6 border-t border-line text-sm text-mute">
-             Related Capabilities: <Link href="/services/full-stack-development" className="text-cyan hover:underline">Full-Stack</Link> · <Link href="/services/cloud-solutions" className="text-cyan hover:underline">Cloud</Link> · <Link href="/services/application-security" className="text-cyan hover:underline">Security</Link>
+             Related Capabilities: <Link href="/services/full-stack-development" className="text-cyan hover:underline">Full-Stack</Link> · <Link href="/services/cloud-solutions" className="text-cyan hover:underline">Cloud</Link> · <Link href="/services/vapt" className="text-cyan hover:underline">Security</Link>
            </div>
          </div>
       </section>

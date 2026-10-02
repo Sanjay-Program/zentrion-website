@@ -103,7 +103,7 @@ export default function CRMPage() {
              Discuss Your CRM Requirements
            </Link>
            <div className="mt-6 pt-6 border-t border-line text-sm text-mute">
-             Related Capabilities: <Link href="/services/automation" className="text-cyan hover:underline">Automation</Link> · <Link href="/services/ai-chatbots" className="text-cyan hover:underline">AI Integration</Link> · <Link href="/services/system-integration" className="text-cyan hover:underline">System Integration</Link>
+             Related Capabilities: <Link href="/services/agentic-ai" className="text-cyan hover:underline">Automation</Link> · <Link href="/services/generative-ai" className="text-cyan hover:underline">AI Integration</Link> · <Link href="/services/full-stack-development" className="text-cyan hover:underline">System Integration</Link>
            </div>
          </div>
       </section>

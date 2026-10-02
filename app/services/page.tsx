@@ -15,9 +15,9 @@ const servicePillars = [
     services: [
       { name: "Web Development", url: "/services/web-development", desc: "Corporate sites, portals, and robust web experiences." },
       { name: "Full-Stack Development", url: "/services/full-stack-development", desc: "Complete frontend and backend application architecture." },
-      { name: "Web Applications", url: "/services/web-application-development", desc: "Complex business applications and internal tools." },
+      { name: "Web Applications", url: "/services/web-development", desc: "Complex business applications and internal tools." },
       { name: "SaaS Development", url: "/services/saas-development", desc: "Multi-tenant software-as-a-service platforms." },
-      { name: "Custom Software", url: "/services/software-development", desc: "Bespoke systems solving unique business challenges." }
+      { name: "Custom Software", url: "/services/full-stack-development", desc: "Bespoke systems solving unique business challenges." }
     ]
   },
   {
@@ -26,9 +26,9 @@ const servicePillars = [
     services: [
       { name: "CRM Development", url: "/services/crm-development", desc: "Custom Customer Relationship Management systems." },
       { name: "ERP Development", url: "/services/erp-development", desc: "Enterprise Resource Planning for complete operations." },
-      { name: "E-Commerce", url: "/services/ecommerce-development", desc: "Scalable online stores and digital marketplaces." },
-      { name: "Portal Development", url: "/services/portal-development", desc: "Secure access for customers, vendors, and employees." },
-      { name: "Business Software", url: "/services/business-software", desc: "Inventory, HR, Payroll, and management tools." }
+      { name: "E-Commerce", url: "/services/web-development", desc: "Scalable online stores and digital marketplaces." },
+      { name: "Portal Development", url: "/services/web-development", desc: "Secure access for customers, vendors, and employees." },
+      { name: "Business Software", url: "/services/erp-development", desc: "Inventory, HR, Payroll, and management tools." }
     ]
   },
   {
@@ -37,9 +37,9 @@ const servicePillars = [
     services: [
       { name: "Generative AI", url: "/services/generative-ai", desc: "Custom LLMs, RAG, and document intelligence." },
       { name: "Agentic AI", url: "/services/agentic-ai", desc: "Autonomous AI agents and multi-agent workflows." },
-      { name: "AI & Machine Learning", url: "/services/ai-ml-development", desc: "Predictive models, computer vision, and NLP." },
-      { name: "AI Chatbots", url: "/services/ai-chatbots", desc: "Intelligent assistants for support and knowledge." },
-      { name: "Business Automation", url: "/services/automation", desc: "End-to-end digital workflow automation." }
+      { name: "AI & Machine Learning", url: "/services/generative-ai", desc: "Predictive models, computer vision, and NLP." },
+      { name: "AI Chatbots", url: "/services/generative-ai", desc: "Intelligent assistants for support and knowledge." },
+      { name: "Business Automation", url: "/services/agentic-ai", desc: "End-to-end digital workflow automation." }
     ]
   },
   {
@@ -47,21 +47,21 @@ const servicePillars = [
     description: "The secure foundation for digital transformation.",
     services: [
       { name: "Cloud Solutions", url: "/services/cloud-solutions", desc: "AWS, Azure, and GCP architecture and migration." },
-      { name: "DevOps", url: "/services/devops", desc: "CI/CD, infrastructure as code, and deployment." },
-      { name: "Cybersecurity", url: "/services", desc: "VAPT, Threat Hunting, and Security Monitoring." },
-      { name: "DevSecOps", url: "/services/devsecops", desc: "Security integrated directly into the development pipeline." },
-      { name: "System Integration", url: "/services/system-integration", desc: "Secure connection of disparate enterprise systems." }
+      { name: "DevOps", url: "/services/cloud-solutions", desc: "CI/CD, infrastructure as code, and deployment." },
+      { name: "Cybersecurity", url: "/services/vapt", desc: "VAPT, Threat Hunting, and Security Monitoring." },
+      { name: "DevSecOps", url: "/services/cloud-security", desc: "Security integrated directly into the development pipeline." },
+      { name: "System Integration", url: "/services/full-stack-development", desc: "Secure connection of disparate enterprise systems." }
     ]
   },
   {
     title: "Engineering Specialties",
     description: "Targeted expertise for complex technical requirements.",
     services: [
-      { name: "Mobile App Development", url: "/services/mobile-app-development", desc: "Native and cross-platform mobile experiences." },
-      { name: "API Development", url: "/services/api-development", desc: "REST and GraphQL secure API engineering." },
-      { name: "Database Engineering", url: "/services/database-development", desc: "Schema design, optimization, and data modeling." },
-      { name: "UI/UX Design", url: "/services/ui-ux", desc: "User research, prototyping, and design systems." },
-      { name: "Legacy Modernization", url: "/services/modernization", desc: "Updating and migrating legacy applications safely." }
+      { name: "Mobile App Development", url: "/services/full-stack-development", desc: "Native and cross-platform mobile experiences." },
+      { name: "API Development", url: "/services/full-stack-development", desc: "REST and GraphQL secure API engineering." },
+      { name: "Database Engineering", url: "/services/full-stack-development", desc: "Schema design, optimization, and data modeling." },
+      { name: "UI/UX Design", url: "/services/web-development", desc: "User research, prototyping, and design systems." },
+      { name: "Legacy Modernization", url: "/services/cloud-solutions", desc: "Updating and migrating legacy applications safely." }
     ]
   }
 ];

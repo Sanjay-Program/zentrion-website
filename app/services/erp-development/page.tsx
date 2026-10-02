@@ -103,7 +103,7 @@ export default function ERPPage() {
              Discuss Your ERP Requirements
            </Link>
            <div className="mt-6 pt-6 border-t border-line text-sm text-mute">
-             Related Capabilities: <Link href="/services/api-development" className="text-cyan hover:underline">APIs</Link> · <Link href="/services/automation" className="text-cyan hover:underline">Automation</Link> · <Link href="/services/database-development" className="text-cyan hover:underline">Data Architecture</Link>
+             Related Capabilities: <Link href="/services/full-stack-development" className="text-cyan hover:underline">APIs</Link> · <Link href="/services/agentic-ai" className="text-cyan hover:underline">Automation</Link> · <Link href="/services/full-stack-development" className="text-cyan hover:underline">Data Architecture</Link>
            </div>
          </div>
       </section>

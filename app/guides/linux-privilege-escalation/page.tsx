@@ -16,8 +16,7 @@ export default function LinuxPrivEscTutorialPage() {
       lastUpdated="September 2026"
       tags={['Linux', 'Privilege Escalation', 'Red Teaming']}
       tools={[
-        { name: 'Unix Timestamp Converter', url: '/tools/unix-timestamp' },
-        { name: 'Regex Tester', url: '/tools/regex-tester' }
+        { name: 'All Security Tools', url: '/tools' }
       ]}
       relatedGuides={[
         { title: 'Kali Linux Pentesting', url: '/guides/kali-linux-pentesting-tutorial' },

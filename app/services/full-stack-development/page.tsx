@@ -103,7 +103,7 @@ export default function FullStackPage() {
              Discuss Your Full-Stack Project
            </Link>
            <div className="mt-6 pt-6 border-t border-line text-sm text-mute">
-             Related Capabilities: <Link href="/services/cloud-solutions" className="text-cyan hover:underline">Cloud Solutions</Link> · <Link href="/services/api-security" className="text-cyan hover:underline">API Security</Link>
+             Related Capabilities: <Link href="/services/cloud-solutions" className="text-cyan hover:underline">Cloud Solutions</Link> · <Link href="/services/vapt" className="text-cyan hover:underline">API Security</Link>
            </div>
          </div>
       </section>

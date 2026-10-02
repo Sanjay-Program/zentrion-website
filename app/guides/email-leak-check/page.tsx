@@ -61,7 +61,7 @@ grep -i "dmarc=" email_raw.txt
       <h2 id="compromised">Step 4: What To Do If You're Compromised</h2>
       <ol>
         <li>Change password immediately on the breached service</li>
-        <li>Enable 2FA — generate a TOTP code with our <a href="/tools/otp-generator">OTP Generator</a></li>
+        <li>Enable 2FA — generate strong passwords with our <a href="/tools/password-generator">Password Generator</a></li>
         <li>Check bank and financial accounts for suspicious activity</li>
         <li>Report to <a href="https://cybercrime.gov.in/" target="_blank" rel="noopener noreferrer">Cyber Crime Portal India</a> or <a href="https://www.ic3.gov/" target="_blank" rel="noopener noreferrer">FBI IC3 (US)</a></li>
       </ol>
