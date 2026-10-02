@@ -11,16 +11,6 @@ export const metadata: Metadata = {
 
 const cases = [
   {
-    tag: 'Education · Awareness Training',
-    title: 'CyberSafe Student rollout across a 1,200-student CBSE campus',
-    problem:
-      'A private CBSE school wanted practical cyber-safety and AI-awareness education for Classes 8–10 but had no prior technology-partner relationship.',
-    approach:
-      'We ran a 2-hour CyberSafe Student workshop covering phishing, password hygiene, social media privacy and AI/deepfake awareness, followed by an assessment and certificate for participating students.',
-    outcome:
-      'High engagement across three batches, positive feedback from the computer science department, and a follow-on FutureTech (AI + Cybersecurity + Careers) session booked for Classes 11–12.',
-  },
-  {
     tag: 'SaaS · Application Security',
     title: 'Application & API security review for a growing SaaS platform',
     problem:

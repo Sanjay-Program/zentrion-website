@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Eyebrow, Reveal, GlassCard, CTASection, SectionHeading, ArrowIcon } from '@/components/ui';
 import { buildMailtoLink, buildWhatsAppLink, HR_EMAIL, INTERNSHIP_APPLICATION_FORM } from '@/lib/contact';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -17,43 +18,43 @@ const internships = [
     title: 'Cybersecurity & Privacy Engineering Intern',
     tags: ['VAPT', 'Application Security', 'Cloud Security', 'Privacy Engineering'],
     text: 'Work on web/API security, vulnerability assessment, security automation and privacy-engineering support for real client and product work.',
-    stipend: 'Performance-based stipend + certificate',
+    stipend: 'Fully Remote \u2022 Performance-based stipend + certificate',
   },
   {
     title: 'Full Stack Developer Intern',
     tags: ['React.js', 'Next.js', 'Node.js', 'FastAPI', 'PostgreSQL'],
-    text: 'Ship real product features across our AI and security dashboards — frontend, backend, APIs and databases.',
-    stipend: 'Performance-based stipend + certificate',
+    text: 'Ship real product features across our AI and security dashboards \u2014 frontend, backend, APIs and databases.',
+    stipend: 'Fully Remote \u2022 Performance-based stipend + certificate',
   },
   {
     title: 'AI/ML Intern',
     tags: ['LLMs', 'RAG', 'NLP', 'AI Agents', 'Python'],
     text: 'Build LLM applications, RAG pipelines and intelligent automation that power our AI Compliance & Security Copilots.',
-    stipend: 'Performance-based stipend + certificate',
+    stipend: 'Fully Remote \u2022 Performance-based stipend + certificate',
   },
   {
     title: 'Backend Developer Intern',
     tags: ['Python', 'FastAPI', 'Node.js', 'PostgreSQL', 'REST APIs'],
     text: 'Design and build the backend services, authentication and data pipelines behind our security and compliance platform.',
-    stipend: 'Performance-based stipend + certificate',
+    stipend: 'Fully Remote \u2022 Performance-based stipend + certificate',
   },
   {
     title: 'Frontend Developer Intern',
     tags: ['React.js', 'Next.js', 'TypeScript', 'UI Engineering'],
     text: 'Turn requirements into fast, accessible interfaces for security dashboards and AI product experiences.',
-    stipend: 'Performance-based stipend + certificate',
+    stipend: 'Fully Remote \u2022 Performance-based stipend + certificate',
   },
   {
     title: 'QA Automation Intern',
     tags: ['Selenium', 'Playwright', 'Postman', 'API Testing'],
     text: 'Design and automate test coverage across our web, API and security-critical product surfaces.',
-    stipend: 'Performance-based stipend + certificate',
+    stipend: 'Fully Remote \u2022 Performance-based stipend + certificate',
   },
   {
     title: 'Product & Privacy Research Intern',
     tags: ['DPDP', 'Product Research', 'Competitive Intelligence'],
     text: 'Research privacy regulation, competitive products and user workflows to shape our product roadmap.',
-    stipend: 'Performance-based stipend + certificate',
+    stipend: 'Fully Remote \u2022 Performance-based stipend + certificate',
   },
   {
     title: 'UI/UX Design Intern',
@@ -151,19 +152,21 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* INTERNSHIPS */}
       <section id="internships" className="container-x py-20 border-t border-line">
         <SectionHeading
           eyebrow="Internships"
-          title="Paid internships across Cybersecurity, AI, Engineering, Product & Growth"
-          description="Every internship comes with real mentorship, a live project, a performance-based stipend, and a completion certificate — projects matter more to us than certificates alone."
+          title="Paid internships across Cybersecurity, AI, Engineering and Product & Growth"
+          description="Every internship comes with real mentorship, a live project, a performance-based stipend and a completion certificate. Projects matter more to us than certificates alone."
         />
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {internships.map((i) => (
             <Reveal key={i.title}>
-              <GlassCard className="h-full flex flex-col">
-                <h3 className="font-display font-semibold text-lg">{i.title}</h3>
-                <p className="mt-2 text-xs font-medium text-cyan">{i.stipend}</p>
+              <GlassCard className="h-full flex flex-col relative pt-10">
+                <div className="absolute top-5 right-5 opacity-40">
+                  <Image src="/logo-mark.png" alt="" width={24} height={24} />
+                </div>
+                <h3 className="font-display font-semibold text-lg pr-8">{i.title}</h3>
+                <p className="mt-2 text-xs font-semibold text-cyan">{i.stipend}</p>
                 <p className="mt-3 text-sm text-mute leading-relaxed flex-1">{i.text}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {i.tags.map((t) => (
@@ -212,7 +215,7 @@ export default function CareersPage() {
                 q: 'Is the internship paid?',
                 a: 'Yes. Zentrion internships carry a performance-based stipend that is confirmed at offer stage based on the track, duration and your contribution.',
               },
-              { q: 'Is it remote or in-person?', a: 'Both, depending on the project. Most cohorts run hybrid out of Chennai, with remote options for several tracks.' },
+              { q: 'Is it remote or in-person?', a: 'Yes, all our internships are fully remote. We provide you with the flexibility to work and learn from anywhere.' },
               { q: 'What background do I need?', a: 'Basic programming, networking or design fundamentals depending on the track. Projects and demonstrated skill matter more than certificates.' },
               { q: 'Do I get a certificate either way?', a: 'Yes, all interns who complete the program receive a certificate of completion, and high performers may be considered for extended or full-time roles.' },
               { q: 'How do I apply?', a: 'Use the internship application form above, or email your resume and portfolio links directly to hr@zentriontechnologies.com.' },

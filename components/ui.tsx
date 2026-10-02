@@ -61,11 +61,15 @@ export function GlassCard({
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      className={`glass-card rounded-xl p-6 md:p-7 ${
-        hover ? 'transition-[transform,border-color,box-shadow] duration-300 ease-out hover:border-cyan/40' : ''
+      style={{
+        transition: hover ? 'transform 0.1s ease-out' : 'none',
+      }}
+      className={`relative overflow-hidden rounded-2xl border border-[var(--c-glass-border)] bg-[var(--c-glass-bg)] backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] p-6 md:p-7 ${
+        hover ? 'transition-all duration-300 ease-out hover:border-cyan/40 hover:shadow-[0_0_25px_rgba(47,107,255,0.2)] cursor-pointer' : ''
       } ${className}`}
     >
-      {children}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent pointer-events-none" />
+      <div className="relative z-10 h-full">{children}</div>
     </div>
   );
 }

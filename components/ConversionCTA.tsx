@@ -5,7 +5,7 @@ export function ConversionCTA() {
   return (
     <div className="mt-16 bg-surface/30 border border-line rounded-2xl p-8 text-center glass-card relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-[rgb(var(--c-accent))]/5 to-transparent pointer-events-none" />
-      <h3 className="text-2xl font-bold text-white mb-4 relative z-10">
+      <h3 className="text-2xl font-display font-bold text-[rgb(var(--c-ink))] mb-4 relative z-10">
         Need Expert Help with Your Security Infrastructure?
       </h3>
       <p className="text-mute mb-8 max-w-2xl mx-auto relative z-10">

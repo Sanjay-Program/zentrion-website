@@ -109,7 +109,7 @@ export default function ToolsDashboard() {
         </div>
 
         {/* High Value Content Section for AdSense Compliance */}
-        <div className="mt-32 max-w-4xl mx-auto prose prose-invert prose-lg text-[rgb(var(--c-mute))]">
+        <div className="mt-32 max-w-4xl mx-auto prose prose-invert prose-lg text-[rgb(var(--c-mute))] text-left">
           <h2 className="text-3xl font-display font-bold text-[rgb(var(--c-ink))] mb-6">Why Use the Zentrion Cyber Intelligence Suite?</h2>
           <p>
             In today’s rapidly evolving threat landscape, maintaining complete visibility over your digital infrastructure is not optional—it is a critical requirement. The <strong>Zentrion Cyber Intelligence Suite</strong> is a curated collection of advanced networking, open-source intelligence (OSINT), and cybersecurity utilities designed for security analysts, penetration testers, and IT administrators.
