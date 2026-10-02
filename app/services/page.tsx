@@ -96,7 +96,6 @@ export default function ServicesPage() {
             {pillar.services.map((service, i) => (
               <ServiceCard 
                 key={i}
-                eyebrow="Capability"
                 title={service.name}
                 description={service.desc}
                 href={service.url}
@@ -110,7 +109,7 @@ export default function ServicesPage() {
       {/* CLIENT ACQUISITION / CTA */}
       <section className="container-x py-24">
          <div className="bg-surface/50 border border-line p-8 md:p-12 rounded-2xl max-w-4xl mx-auto flex flex-col items-center text-center">
-           <h2 className="text-3xl font-display font-bold text-white mb-4">What Do You Need to Build?</h2>
+           <h2 className="text-3xl font-display font-bold mb-4">What Do You Need to Build?</h2>
            <p className="text-mute mb-8 max-w-xl">
              Whether you have a raw idea, a prototype, or a legacy system that needs modernization, our engineering team can help.
            </p>

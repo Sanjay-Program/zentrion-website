@@ -32,6 +32,7 @@ export default function LabWorkspace({
   const [activeHint, setActiveHint] = useState<number>(-1);
   const [flagInput, setFlagInput] = useState('');
   const [flagValidated, setFlagValidated] = useState(false);
+  const [showDisclaimer, setShowDisclaimer] = useState(true);
 
   useEffect(() => {
     const timer = setInterval(() => setTime((t) => t + 1), 1000);
@@ -56,7 +57,38 @@ export default function LabWorkspace({
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen w-screen bg-void text-ink overflow-hidden font-mono selection:bg-cyan/30">
+    <>
+      {showDisclaimer && (
+        <div className="fixed inset-0 z-50 bg-void/90 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-surface border border-red-500/30 max-w-2xl w-full p-8 rounded-2xl shadow-2xl">
+            <h2 className="text-2xl font-display font-bold text-red-500 mb-4 flex items-center gap-3">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              Lab Safety & Rules of Engagement
+            </h2>
+            <div className="space-y-4 text-sm text-mute leading-relaxed max-h-[50vh] overflow-y-auto mb-6">
+              <p>By proceeding, you acknowledge and agree to the following conditions:</p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>These labs are strictly educational simulations. Some environments intentionally reproduce vulnerabilities for training purposes.</li>
+                <li>Your behavior in this lab <strong>does not authorize</strong> testing against real, production, or external systems.</li>
+                <li>Examples and architectures may be simplified for educational clarity.</li>
+                <li>You must follow lab instructions and must <strong>not</strong> modify, attack, or scan any infrastructure outside the permitted laboratory environment.</li>
+                <li>Zentrion may modify, suspend, or remove labs at any time without notice. Lab availability is not guaranteed.</li>
+                <li>Completion of a lab does not constitute a professional certification, and scores/flags do not constitute proof of real-world security competence.</li>
+              </ul>
+              <p className="text-white font-semibold">Any offensive or unauthorized use of these techniques outside this environment is strictly prohibited and illegal.</p>
+            </div>
+            <div className="flex justify-end gap-4">
+              <Link href="/labs" className="btn-ghost">Decline & Exit</Link>
+              <button onClick={() => setShowDisclaimer(false)} className="btn-primary !bg-red-500/20 !text-red-500 !border-red-500/50 hover:!bg-red-500 hover:!text-white">
+                I Agree, Start Lab
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className={`flex flex-col md:flex-row h-screen w-screen bg-void text-ink overflow-hidden font-mono selection:bg-cyan/30 ${showDisclaimer ? 'blur-sm pointer-events-none' : ''}`}>
+
       
       {/* SIDEBAR */}
       <aside className="w-full md:w-80 border-r border-line bg-surface/30 flex flex-col shrink-0 h-full">
@@ -188,5 +220,6 @@ export default function LabWorkspace({
         </div>
       </main>
     </div>
+    </>
   );
 }

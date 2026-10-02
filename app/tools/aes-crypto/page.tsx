@@ -306,7 +306,7 @@ export default function AesCryptoPage() {
             <li>• <strong className="text-[rgb(var(--c-ink))]">Key derivation:</strong> PBKDF2 with SHA-256, 100,000 iterations, 128-bit random salt</li>
             <li>• <strong className="text-[rgb(var(--c-ink))]">IV:</strong> 96-bit random initialisation vector, unique per encryption</li>
             <li>• <strong className="text-[rgb(var(--c-ink))]">Output format:</strong> <code className="font-mono bg-[rgba(255,255,255,0.06)] px-1 py-0.5 rounded">base64(salt).base64(iv).base64(ciphertext+tag)</code></li>
-            <li>• <strong className="text-[rgb(var(--c-ink))]">Privacy:</strong> 100% client-side — nothing is transmitted or stored</li>
+            <li>• <strong className="text-[rgb(var(--c-ink))]">Privacy:</strong> Fully client-side — nothing is transmitted or stored</li>
           </ul>
         </div>
       </div>

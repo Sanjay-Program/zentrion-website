@@ -186,6 +186,12 @@
     "type": "Guide"
   },
   {
+    "title": "Web Security Master Hub",
+    "description": "The ultimate knowledge hub for web security. Explore web fundamentals, authentication mechanisms, common vulnerabilities, tools, and interactive labs.",
+    "url": "/guides/web-security",
+    "type": "Guide"
+  },
+  {
     "title": "Nmap Scanning Tutorial",
     "description": "",
     "url": "/guides/wireshark-packet-analysis",

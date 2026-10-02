@@ -34,7 +34,7 @@ export default function IncidentResponsePage() {
       {/* LIFECYCLE WORKFLOW */}
       <section className="container-x pb-24">
         <Reveal delay={0.1}>
-          <h2 className="text-2xl font-display font-bold text-white mb-8">Incident Response Lifecycle</h2>
+          <h2 className="text-2xl font-display font-bold mb-8">Incident Response Lifecycle</h2>
           
           <div className="flex flex-wrap items-center gap-3">
             {lifecycle.map((step, i) => (
@@ -66,7 +66,7 @@ export default function IncidentResponsePage() {
             { title: "Root Cause Analysis", desc: "Detailed technical reporting on how the breach occurred to prevent recurrence." }
           ].map((item, i) => (
             <GlassCard key={i} className="p-6">
-              <h3 className="font-bold text-white mb-2">{item.title}</h3>
+              <h3 className="font-bold mb-2">{item.title}</h3>
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}

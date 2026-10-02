@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const faqs: AccordionItem[] = [
   { title: 'Which cloud providers do you specialize in?', meta: 'Platforms', content: 'Our primary expertise lies in the "Big Three": Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). We also extensively utilize Cloudflare for edge computing, WAF, and global content delivery.' },
-  { title: 'Can you migrate our legacy on-premise servers to the cloud?', meta: 'Migration', content: 'Yes. We perform a complete architecture audit, design the target cloud environment, and execute a phased "lift-and-shift" or full refactoring migration to ensure zero data loss and minimal downtime.' },
+  { title: 'Can you migrate our legacy on-premise servers to the cloud?', meta: 'Migration', content: 'Yes. We perform a complete architecture audit, design the target cloud environment, and execute a phased "lift-and-shift" or full refactoring migration designed to minimize data loss and reduce downtime.' },
   { title: 'Do you use Infrastructure as Code (IaC)?', meta: 'DevOps', content: 'Always. We never configure servers manually via the console. Every piece of infrastructure we build is defined in code using Terraform or AWS CloudFormation, ensuring environments are reproducible, version-controlled, and immutable.' },
   { title: 'How do you control runaway cloud costs?', meta: 'Optimization', content: 'We conduct rigorous FinOps audits. We identify orphaned resources, right-size over-provisioned EC2/VM instances, implement spot instances for non-critical workloads, and architect serverless solutions to ensure you only pay for what you compute.' },
 ];
@@ -75,7 +75,7 @@ export default function CloudSolutionsPage() {
             { title: "Cloud Security", desc: "Enforcing least-privilege IAM, logging, monitoring, and compliance from day one." }
           ].map((item, i) => (
             <GlassCard key={i} className="p-6">
-              <h3 className="font-bold text-white mb-2">{item.title}</h3>
+              <h3 className="font-bold mb-2">{item.title}</h3>
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
@@ -95,7 +95,7 @@ export default function CloudSolutionsPage() {
 
       <section className="container-x pb-24">
          <div className="bg-surface/50 border border-line p-8 md:p-12 rounded-2xl text-center max-w-4xl mx-auto">
-           <h2 className="text-3xl font-display font-bold text-white mb-4">Architect Your Infrastructure</h2>
+           <h2 className="text-3xl font-display font-bold mb-4">Architect Your Infrastructure</h2>
            <p className="text-mute mb-8 max-w-xl mx-auto">
              Discuss your multi-cloud or hybrid deployment requirements.
            </p>

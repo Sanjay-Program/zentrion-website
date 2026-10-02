@@ -80,7 +80,7 @@ export default function GenerativeAIPage() {
             { title: "Secure AI Architecture", desc: "Data boundaries, PII redacting, and prompt injection defenses built-in by default." }
           ].map((item, i) => (
             <GlassCard key={i} className="p-6">
-              <h3 className="font-bold text-white mb-2">{item.title}</h3>
+              <h3 className="font-bold mb-2">{item.title}</h3>
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
@@ -100,7 +100,7 @@ export default function GenerativeAIPage() {
 
       <section className="container-x pb-24">
          <div className="bg-surface/50 border border-line p-8 md:p-12 rounded-2xl text-center max-w-4xl mx-auto">
-           <h2 className="text-3xl font-display font-bold text-white mb-4">Build an AI Solution</h2>
+           <h2 className="text-3xl font-display font-bold mb-4">Build an AI Solution</h2>
            <p className="text-mute mb-8 max-w-xl mx-auto">
              Discuss your data and how AI can optimize your workflows.
            </p>

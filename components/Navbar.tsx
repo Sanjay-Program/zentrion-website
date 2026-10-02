@@ -129,11 +129,9 @@ export default function Navbar() {
     >
       <nav className="container-x flex items-center justify-between h-[72px] gap-4">
         <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          {pathname !== '/' && (
-            <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-white p-1 shadow-[0_0_16px_rgba(0,212,255,0.25)] shrink-0">
-              <Image src="/logo-mark.png" alt="" width={32} height={35} className="h-full w-auto object-contain" priority />
-            </span>
-          )}
+          <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-white p-1 shadow-[0_0_16px_rgba(0,212,255,0.25)] shrink-0">
+            <Image src="/logo-mark.png" alt="" width={32} height={35} className="h-full w-auto object-contain" priority />
+          </span>
           <span className="font-display font-semibold text-lg leading-none whitespace-nowrap">
             ZENTR<span className="text-breach">ION</span>
             <span className="block text-mute font-body font-normal text-[11px] tracking-wide -mt-0.5">

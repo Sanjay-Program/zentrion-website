@@ -1,103 +1,105 @@
 import type { Metadata } from 'next';
-import { CONSULT_EMAIL, HR_EMAIL, COMPANY_ADDRESS } from '@/lib/contact';
+import { SectionHeading, Reveal, GlassCard, Eyebrow } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description:
-    'How Zentrion Technologies collects, uses, discloses and protects personal information across our website, services, training programs and internship applications.',
-  alternates: { canonical: '/privacy' },
+  description: 'How Zentrion Technologies processes, stores, and protects your information.',
 };
 
-const sections = [
-  {
-    title: '1. Scope of this Policy',
-    body: `This Privacy Policy applies to personal information collected by Zentrion Technologies ("Zentrion", "we", "us", "our") through zentriontechnologies.com, our client engagements, cybersecurity/AI training programs, internship applications, and any related communication channels (email, WhatsApp, contact and application forms). By using our website or submitting information to us, you agree to the practices described here. If you do not agree, please do not submit personal information to us.`,
-  },
-  {
-    title: '2. Information We Collect',
-    body: `We may collect: (a) identity and contact details such as name, email address, phone number, organization name and designation; (b) information submitted through contact forms, consultation requests, internship applications, training enrolments and the internship application form (currently hosted on Google Forms); (c) technical information such as IP address, browser type, device information, pages visited and referring URLs, collected automatically through standard web analytics; (d) communications you send us by email, WhatsApp or through this website; and (e) where relevant to an engagement, limited organizational or system information you choose to share with us for the purpose of scoping or delivering security, AI or consulting services.`,
-  },
-  {
-    title: '3. How We Use Information',
-    body: `We use the information we collect to: respond to inquiries and provide requested information; evaluate and process internship and job applications (using hr@zentriontechnologies.com and our internship application form); schedule and deliver consultations, assessments, training sessions and workshops; communicate about our services, courses and internship programs; maintain records required for business, accounting, contractual or legal purposes; improve our website, services and security posture; and comply with applicable law, including the Digital Personal Data Protection Act, 2023 ("DPDP Act") and its rules, to the extent applicable to us as a data fiduciary.`,
-  },
-  {
-    title: '4. Legal Basis and Consent',
-    body: `Where the DPDP Act or other applicable law requires consent, we process personal data on the basis of your consent, given when you submit a form, send us an email, or otherwise voluntarily provide information to us, or on the basis of a legitimate use recognized under applicable law (such as responding to a request you initiated). You may withdraw consent at any time by contacting us at the email addresses listed below; withdrawal will not affect the lawfulness of processing carried out before withdrawal, and may affect our ability to continue providing a requested service.`,
-  },
-  {
-    title: '5. Cookies & Website Analytics',
-    body: `Our website may use cookies, local storage and similar technologies to remember your theme preference, understand aggregate usage patterns, and improve site performance. You can control or disable cookies through your browser settings; doing so may affect some website functionality. We do not use cookies to sell personal information to third parties.`,
-  },
-  {
-    title: '6. How We Share Information',
-    body: `We do not sell, rent or trade personal information. We may share information with: employees, contractors and mentors involved in delivering a service, course or internship you requested, on a need-to-know basis; service providers who help us operate the website, forms, email and communication tools (e.g. Google Forms, email providers, WhatsApp Business), who are only permitted to use the information to provide services to us; professional advisors (legal, accounting) where necessary; and law enforcement, regulators or courts where disclosure is required by applicable law, legal process, or to protect the rights, property or safety of Zentrion, our clients, our students/interns, or the public.`,
-  },
-  {
-    title: '7. Data Retention',
-    body: `We retain personal information only for as long as reasonably necessary to fulfil the purposes described in this Policy, comply with our legal, accounting or reporting obligations, resolve disputes, and enforce our agreements. Internship and job application data is generally retained for the duration of the recruitment cycle and a reasonable period thereafter for record-keeping, unless you request earlier deletion and no legal or contractual reason requires us to retain it.`,
-  },
-  {
-    title: '8. Data Security',
-    body: `As a cybersecurity company, we take the security of personal information seriously and apply reasonable technical and organizational safeguards — including access controls, encryption in transit, and restricted internal access — appropriate to the sensitivity of the data involved. No method of transmission or storage is 100% secure, and while we work to protect your information, we cannot guarantee absolute security.`,
-  },
-  {
-    title: '9. Your Rights',
-    body: `Subject to applicable law (including the DPDP Act, where applicable), you may have the right to: access the personal information we hold about you; request correction of inaccurate or incomplete information; request erasure of your personal information, subject to any legal or contractual retention requirement; withdraw consent to processing; and raise a grievance regarding how we handle your personal information. To exercise any of these rights, write to us at consultancy@zentriontechnologies.com (general/services) or hr@zentriontechnologies.com (careers/internships). We will respond within a reasonable time and in line with applicable law.`,
-  },
-  {
-    title: '10. Children\u2019s Data & Training Programs',
-    body: `Some of our training and awareness programs may be delivered to students. Where we collect any personal information relating to a child in connection with such a program, we do so only through or with the involvement of the relevant institution and, where required by applicable law, with appropriate parental/guardian consent, and we limit collection to what is reasonably necessary to deliver the program (such as name for attendance and certificates). We do not knowingly use such information for behavioural monitoring, tracking or targeted advertising directed at children.`,
-  },
-  {
-    title: '11. Third-Party Links',
-    body: `Our website may link to third-party sites (such as our internship application form, social media pages, or Google Maps for our office location). We are not responsible for the privacy practices or content of third-party websites. We encourage you to review the privacy policies of any third-party site you visit.`,
-  },
-  {
-    title: '12. International Users',
-    body: `Zentrion Technologies is based in Tamil Nadu, India, and primarily serves clients, students and applicants in India. If you access our website or services from outside India, you understand that your information may be processed in India, where data protection laws may differ from those in your jurisdiction.`,
-  },
-  {
-    title: '13. Changes to this Policy',
-    body: `We may update this Privacy Policy from time to time to reflect changes in our practices, services or applicable law. The "Last updated" date below indicates when this Policy was last revised. Continued use of our website or services after an update constitutes acceptance of the revised Policy.`,
-  },
-  {
-    title: '14. Contact Us',
-    body: `For privacy-related questions, requests or grievances: General & services — ${CONSULT_EMAIL}. Careers & internship applications — ${HR_EMAIL}.`,
-  },
-];
-
-export default function PrivacyPage() {
+export default function PrivacyPolicy() {
   return (
     <>
-    <Breadcrumbs items={[{ href: '/privacy', label: 'Privacy Policy' }]} />
-      <section className="container-x pt-10 pb-24 max-w-3xl">
-      <p className="eyebrow">Legal</p>
-      <h1 className="mt-4 font-display text-4xl font-semibold">Privacy Policy</h1>
-      <p className="mt-4 text-sm text-mute">Last updated: August 2026</p>
-      <p className="mt-6 text-mute leading-relaxed">
-        Zentrion Technologies (&ldquo;Zentrion&rdquo;) respects your privacy. This Privacy Policy
-        explains what personal information we collect through our website, services, training
-        programs and internship applications, how we use and protect it, and the choices and rights
-        available to you.
-      </p>
+      <Breadcrumbs items={[{ label: 'Privacy Policy', href: '/privacy' }]} />
+      
+      <section className="container-x pt-10 pb-16">
+        <Reveal>
+          <Eyebrow>Privacy</Eyebrow>
+          <h1 className="mt-4 font-display text-4xl md:text-5xl font-semibold max-w-2xl">
+            Privacy Policy
+          </h1>
+          <p className="mt-6 text-mute">
+            <strong>Last Updated:</strong> October 2026<br/>
+            <strong>Version:</strong> 2.0
+          </p>
+        </Reveal>
+      </section>
 
-      <div className="mt-10 space-y-8 text-mute leading-relaxed">
-        {sections.map((s) => (
-          <div key={s.title}>
-            <h2 className="font-display text-xl font-semibold text-ink">{s.title}</h2>
-            <p className="mt-3">{s.body}</p>
+      <section className="container-x py-16 border-t border-line">
+        <div className="prose prose-invert max-w-4xl">
+          <h2>1. Who We Are & Scope</h2>
+          <p>
+            Zentrion Technologies ("we," "us," or "our") respects your privacy. This Privacy Policy describes how we process, store, and protect information when you use our website (zentriontechnologies.com), educational tools, cyber range labs, and associated free services. 
+          </p>
+
+          <h2>2. Information We Collect (Actual Data Flows)</h2>
+          <p>
+            We strongly believe in collecting only the information necessary for the operation of our services. The following outlines our factual data-handling practices:
+          </p>
+          
+          <h3>Forms and Enquiries</h3>
+          <p>
+            Our website utilizes client-side form processing. When you fill out a "Contact Us," "Project Inquiry," or "Request Demo" form, the data is <strong>not stored in a backend database by the website</strong>. Instead, it generates a pre-formatted `mailto:` or `whatsapp:` link, opening your local email client or WhatsApp application. Any information you voluntarily submit (name, email, organization, message) is processed directly through standard email or messaging protocols.
+          </p>
+
+          <h3>Learning Progress & Local Storage</h3>
+          <p>
+            Our "My Learning" features, completed labs, guides, and quiz results are stored entirely locally in your browser using <code>localStorage</code>. <strong>Zentrion does not track or store your learning progress on our servers.</strong> Please note that clearing your browser cache or local storage will remove your local learning progress. Locally stored information is not equivalent to an account record.
+          </p>
+
+          <h3>Automatically Collected Information (Cookies)</h3>
+          <p>
+            We use a first-party tracking script that sets a simple <code>visitorId</code> cookie to analyze basic website performance and traffic. We currently do not use pervasive third-party analytics networks (such as Google Analytics or Facebook Pixel) to track you across the internet.
+          </p>
+
+          <h3>Security Tools & Labs</h3>
+          <p>
+            When you use our free browser-native security tools (e.g., DNS Lookups, Port Scanners, OSINT tools), your query (e.g., domain names, IP addresses) may be routed through our server-side proxies or directly to third-party APIs (such as HackerTarget, Cloudflare DNS, GitHub API). We do not attach your personal identity to these queries, but the target strings are processed by those third-party providers to return the results.
+          </p>
+
+          <h2>3. Client Engagement Information</h2>
+          <p>
+            Information shared during formal consulting engagements (such as Vulnerability Assessments or Software Development) is governed by a separate, signed Master Services Agreement (MSA) or Non-Disclosure Agreement (NDA).
+          </p>
+
+          <h2>4. Internships & Careers</h2>
+          <p>
+            If you apply for an internship or employment, we may collect your name, email, phone, CV/resume, education details, GitHub/LinkedIn links, and interview information. This information is processed for recruitment purposes and is subject to the specific offer or contract terms. Application submission does not guarantee employment.
+          </p>
+
+          <h2>5. Children & Educational Institutions</h2>
+          <p>
+            When working with schools and colleges, we collect only the information necessary to facilitate the program. We work through the educational institution to obtain required permissions where applicable. We do not use student data for advertising, we do not sell student information, and we restrict internal access.
+          </p>
+
+          <h2>6. Data Retention</h2>
+          <p>
+            We retain information for as long as reasonably necessary for the purpose for which it was collected, including providing services, communicating with you via email, maintaining business records, meeting legal obligations, and resolving disputes. Because we do not store website form submissions in a central database, we do not have a universal automated deletion mechanism for website visitors.
+          </p>
+
+          <h2>7. Security Safeguards</h2>
+          <p>
+            We use reasonable technical and organizational safeguards appropriate to the nature of the information. However, no system can be guaranteed to be absolutely impervious to compromise.
+          </p>
+
+          <h2>8. International Processing</h2>
+          <p>
+            Zentrion is based in Tamil Nadu, India. If you access our website from outside India, please note that your information may be processed across borders in accordance with this policy.
+          </p>
+
+          <h2>9. User Rights</h2>
+          <p>
+            Depending on applicable law (such as the DPDP Act), you may have rights relating to access, correction, erasure, withdrawal of consent, and grievance redressal. Since the website does not maintain central user accounts, any data requests should be directed to us via email.
+          </p>
+
+          <div className="mt-12 p-6 bg-surface/30 border border-glass-border rounded-xl">
+            <h3 className="text-xl font-semibold mt-0">Contact & Privacy Requests</h3>
+            <p className="mb-0">
+              For privacy-related inquiries or to exercise your rights, please contact us at <a href="mailto:privacy@zentriontechnologies.com" className="text-cyan hover:underline">privacy@zentriontechnologies.com</a>.
+            </p>
           </div>
-        ))}
-      </div>
-
-      <p className="mt-10 text-xs text-mute">
-        This Privacy Policy is provided for general informational purposes and does not constitute
-        legal advice. Zentrion Technologies recommends periodic review of this Policy by qualified
-        legal counsel to ensure ongoing compliance with applicable law.
-      </p>
-    </section>
+        </div>
+      </section>
     </>
   );
 }

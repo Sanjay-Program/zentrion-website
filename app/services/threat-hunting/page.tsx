@@ -34,7 +34,7 @@ export default function ThreatHuntingPage() {
       {/* LIFECYCLE WORKFLOW */}
       <section className="container-x pb-24">
         <Reveal delay={0.1}>
-          <h2 className="text-2xl font-display font-bold text-white mb-8">Hunt Methodology</h2>
+          <h2 className="text-2xl font-display font-bold mb-8">Hunt Methodology</h2>
           
           <div className="flex flex-wrap items-center gap-3">
             {lifecycle.map((step, i) => (
@@ -66,7 +66,7 @@ export default function ThreatHuntingPage() {
             { title: "Data Exfiltration", desc: "Identifying abnormal outbound data transfers and unauthorized use of cloud storage APIs." }
           ].map((item, i) => (
             <GlassCard key={i} className="p-6 border-t-2 border-t-indigo-500/50">
-              <h3 className="font-bold text-white mb-2">{item.title}</h3>
+              <h3 className="font-bold mb-2">{item.title}</h3>
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
@@ -75,7 +75,7 @@ export default function ThreatHuntingPage() {
 
       <section className="container-x pb-24">
          <div className="bg-surface/50 border border-line p-8 md:p-12 rounded-2xl text-center max-w-4xl mx-auto">
-           <h2 className="text-3xl font-display font-bold text-white mb-4">Assume Compromise</h2>
+           <h2 className="text-3xl font-display font-bold mb-4">Assume Compromise</h2>
            <p className="text-mute mb-8 max-w-xl mx-auto">
              Discuss a proactive threat hunting engagement to ensure your environment is clean.
            </p>

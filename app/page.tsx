@@ -83,75 +83,77 @@ export default function HomePage() {
         <Marquee items={stack} />
       </section>
 
-      {/* INTENT ROUTING */}
+      {/* START HERE */}
       <section className="container-x py-14 md:py-20">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-14">
           <SectionHeading
-            eyebrow="What are you looking for?"
+            eyebrow="Start Here"
             title="Choose your path"
             description="Whether you're here to learn, build, or secure your infrastructure, Zentrion has the resources and expertise to help."
           />
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            {
-              title: 'Free Tools & Labs',
-              text: 'Browser-based recon, web security utilities, and interactive vulnerability labs.',
-              icon: '🛠️',
-              color: 'bg-cyan/10 text-cyan border-cyan/20',
-              link: '/tools',
-            },
-            {
-              title: 'Build Software',
-              text: 'Websites, web applications, SaaS, CRM, ERP, mobile and custom software.',
-              icon: '💻',
-              color: 'bg-signal/10 text-signal border-signal/20',
-              link: '/services/web-development',
-            },
-            {
-              title: 'Build with AI',
-              text: 'AI applications, RAG, AI agents, automation and enterprise AI integrations.',
-              icon: '🧠',
-              color: 'bg-violet/10 text-violet border-violet/20',
-              link: '/services/generative-ai',
-            },
-            {
-              title: 'Secure Your Business',
-              text: 'VAPT, application security, API security, cloud security and risk assessments.',
-              icon: '🛡️',
-              color: 'bg-cyan/10 text-cyan border-cyan/20',
-              link: '/services/vapt',
-            },
-            {
-              title: 'Automate Operations',
-              text: 'AI workflows, intelligent integrations and comprehensive business automation.',
-              icon: '⚡',
-              color: 'bg-signal/10 text-signal border-signal/20',
-              link: '/services/agentic-ai',
-            },
-            {
-              title: 'Assess Readiness',
-              text: 'Interactive security assessments, threat hunting and infrastructure review.',
-              icon: '📊',
-              color: 'bg-violet/10 text-violet border-violet/20',
-              link: '/assessments/website-security',
-            }
-          ].map((s, i) => (
-            <Reveal key={s.title} delay={i * 0.05}>
-              <Link href={s.link} className="block group h-full">
-                <GlassCard className="h-full border border-glass-border hover:border-current transition-colors relative">
-                  <div className="absolute top-6 right-6 opacity-40">
-                    <Image src="/logo-mark.png" alt="" width={24} height={24} />
-                  </div>
-                  <div className={`h-12 w-12 rounded-xl flex items-center justify-center text-2xl ${s.color} border`}>
-                    <Image src="/logo-mark.png" alt="" width={24} height={24} className="opacity-90" />
-                  </div>
-                  <h3 className="mt-6 font-display text-xl font-semibold group-hover:text-[rgb(var(--c-accent))] transition-colors">{s.title}</h3>
-                  <p className="mt-3 text-sm text-mute leading-relaxed">{s.text}</p>
-                </GlassCard>
-              </Link>
-            </Reveal>
-          ))}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          <Reveal delay={0}>
+            <Link href="/academy/cybersecurity" className="block group h-full">
+              <GlassCard className="h-full border border-glass-border hover:border-cyan/50 transition-colors relative">
+                <div className="h-12 w-12 rounded-xl flex items-center justify-center text-2xl bg-cyan/10 text-cyan border border-cyan/20 mb-6">
+                  🎓
+                </div>
+                <h3 className="font-display text-2xl font-semibold group-hover:text-cyan transition-colors">I'm learning cybersecurity</h3>
+                <p className="mt-4 text-mute leading-relaxed">Start with the Beginner Academy, explore practical labs, and follow structured roadmaps.</p>
+                <div className="mt-8 text-sm font-medium text-cyan flex items-center gap-2 group-hover:gap-3 transition-all">Beginner Academy <ArrowIcon /></div>
+              </GlassCard>
+            </Link>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <Link href="/guides/web-security" className="block group h-full">
+              <GlassCard className="h-full border border-glass-border hover:border-signal/50 transition-colors relative">
+                <div className="h-12 w-12 rounded-xl flex items-center justify-center text-2xl bg-signal/10 text-signal border border-signal/20 mb-6">
+                  💻
+                </div>
+                <h3 className="font-display text-2xl font-semibold group-hover:text-signal transition-colors">I'm a developer</h3>
+                <p className="mt-4 text-mute leading-relaxed">Learn secure coding practices, explore API security, and build hardened applications.</p>
+                <div className="mt-8 text-sm font-medium text-signal flex items-center gap-2 group-hover:gap-3 transition-all">Developer Security <ArrowIcon /></div>
+              </GlassCard>
+            </Link>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <Link href="/assessments/website-security" className="block group h-full">
+              <GlassCard className="h-full border border-glass-border hover:border-violet/50 transition-colors relative">
+                <div className="h-12 w-12 rounded-xl flex items-center justify-center text-2xl bg-violet/10 text-violet border border-violet/20 mb-6">
+                  🛡️
+                </div>
+                <h3 className="font-display text-2xl font-semibold group-hover:text-violet transition-colors">I'm protecting a business</h3>
+                <p className="mt-4 text-mute leading-relaxed">Assess your security posture, review threat models, and explore our enterprise services.</p>
+                <div className="mt-8 text-sm font-medium text-violet flex items-center gap-2 group-hover:gap-3 transition-all">Security Assessment <ArrowIcon /></div>
+              </GlassCard>
+            </Link>
+          </Reveal>
+        </div>
+
+        {/* EXPLORE ZENTRION LIBRARY */}
+        <div className="border-t border-line pt-14">
+          <SectionHeading
+            eyebrow="Knowledge Base"
+            title="Explore Zentrion"
+            description="The complete ecosystem of free tools, interactive labs, and deep-dive technical guides."
+          />
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              { label: 'Guides', href: '/guides' },
+              { label: 'Tools', href: '/tools' },
+              { label: 'Labs', href: '/labs' },
+              { label: 'Roadmaps', href: '/roadmaps' },
+              { label: 'Research', href: '/research' },
+              { label: 'Cheatsheets', href: '/cheatsheets' },
+            ].map((link, i) => (
+              <Reveal key={link.label} delay={i * 0.05}>
+                <Link href={link.href} className="block text-center p-4 border border-glass-border rounded-xl bg-surface/30 hover:bg-surface/80 hover:border-accent transition-all text-sm font-medium">
+                  {link.label}
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -201,13 +203,10 @@ export default function HomePage() {
             <Reveal delay={0.1}>
               <div className="mt-10 max-w-lg">
                 <div className="grid grid-cols-2 gap-x-8 gap-y-8 mb-4">
-                  <StatBlock value="24,847" label="Active AI sensors" />
-                  <StatBlock value="72" label="Countries monitored" />
-                  <StatBlock value="12,406" label="Threats blocked / hour" />
-                  <StatBlock value="1.2M+" label="BehaviorDNA profiles" />
-                </div>
-                <div className="text-[10px] text-mute uppercase tracking-widest font-mono text-center opacity-50">
-                  * Illustrative concept visualization
+                  <StatBlock value="Identify" label="Detect anomalies instantly" />
+                  <StatBlock value="Defend" label="Block known indicators" />
+                  <StatBlock value="Respond" label="Automate remediation" />
+                  <StatBlock value="Adapt" label="Evolve defensive posture" />
                 </div>
               </div>
             </Reveal>

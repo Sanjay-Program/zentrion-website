@@ -75,7 +75,7 @@ export default function WebDevelopmentPage() {
             { title: "Headless CMS Integration", desc: "Connecting modern frontends to Sanity, Contentful, or custom backends." }
           ].map((item, i) => (
             <GlassCard key={i} className="p-6">
-              <h3 className="font-bold text-white mb-2">{item.title}</h3>
+              <h3 className="font-bold mb-2">{item.title}</h3>
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
@@ -95,7 +95,7 @@ export default function WebDevelopmentPage() {
 
       <section className="container-x pb-24">
          <div className="bg-surface/50 border border-line p-8 md:p-12 rounded-2xl text-center max-w-4xl mx-auto">
-           <h2 className="text-3xl font-display font-bold text-white mb-4">Start Your Project</h2>
+           <h2 className="text-3xl font-display font-bold mb-4">Start Your Project</h2>
            <p className="text-mute mb-8 max-w-xl mx-auto">
              Discuss your web development requirements with our engineering team.
            </p>

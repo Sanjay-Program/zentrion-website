@@ -41,6 +41,7 @@ const columns = [
     links: [
       { href: '/privacy', label: 'Privacy Policy' },
       { href: '/terms', label: 'Terms & Conditions' },
+      { href: '/security', label: 'Responsible Disclosure' },
     ],
   },
 ];

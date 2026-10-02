@@ -1,113 +1,149 @@
 import type { Metadata } from 'next';
-import { CONSULT_EMAIL, HR_EMAIL, COMPANY_ADDRESS } from '@/lib/contact';
+import { SectionHeading, Reveal, GlassCard, Eyebrow } from '@/components/ui';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions',
-  description:
-    'Terms and Conditions governing the use of the Zentrion Technologies website, services, training programs, courses and internship program.',
-  alternates: { canonical: '/terms' },
+  title: 'Terms and Conditions',
+  description: 'Terms and conditions governing the use of Zentrion Technologies website, tools, and services.',
 };
 
-const sections = [
-  {
-    title: '1. Acceptance of Terms',
-    body: `These Terms & Conditions ("Terms") govern your access to and use of zentriontechnologies.com and any services, courses, training programs, workshops or internship program described on it (collectively, the "Services"), offered by Zentrion Technologies ("Zentrion", "we", "us", "our"). By accessing this website or engaging any Service, you agree to be bound by these Terms. If you do not agree, please discontinue use of the website and Services.`,
-  },
-  {
-    title: '2. Description of Services',
-    body: `Zentrion Technologies provides cybersecurity services (including vulnerability assessment and penetration testing, security audits, security awareness training and consulting), AI & automation solutions, cloud and technology consulting, cybersecurity/AI education programs (courses, bootcamps, certifications, school and college workshops), and an internship program. Service descriptions on this website are for general informational purposes; specific scope, deliverables, pricing, timelines and terms for any paid engagement are set out in a separate signed proposal, quotation, agreement or statement of work, which will take precedence over this website in the event of any conflict.`,
-  },
-  {
-    title: '3. Eligibility',
-    body: `Use of this website and application for our courses, training or internship program is intended for individuals who are legally capable of entering into binding agreements, or who have appropriate parental/guardian or institutional consent (for school/college programs involving minors). By submitting an application or enquiry, you confirm that the information you provide is accurate and that you have the authority to provide it.`,
-  },
-  {
-    title: '4. Training, Courses & Certifications',
-    body: `Course content, curriculum, batch schedules, formats (online/hybrid/in-person) and certification criteria are subject to change and will be communicated at enrolment. Completion certificates recognize participation and/or satisfactory completion of a course as defined by Zentrion at the time and do not, by themselves, constitute a professional license, degree, or guarantee of employment. All security techniques taught in our bootcamps and workshops are demonstrated strictly within authorized lab environments, intentionally vulnerable test systems, or the participant's own accounts/devices. Using techniques learned through our training against any system without explicit written authorization is illegal and is solely the responsibility of the individual who does so; Zentrion disclaims liability for any such unauthorized use.`,
-  },
-  {
-    title: '5. Internship Program',
-    body: `Our internship program is offered at Zentrion's discretion and is subject to the specific terms communicated at the offer stage, including duration, stipend, mentorship structure and expected deliverables. Zentrion does not charge any application, training, certificate or placement fee for its internship program. Submission of an application (including via our internship application form) does not guarantee selection, an offer, or continuation for the full stated duration. References to "future full-time opportunities" or "extended engagement" for high-performing interns are expressions of potential opportunity, not a guarantee of employment, and remain subject to business requirements, available positions and individual performance.`,
-  },
-  {
-    title: '6. Client Engagements & Security Testing',
-    body: `Where Zentrion is engaged to perform security testing, assessments, or other technical work for a client, such work will only be performed against systems and within scope explicitly authorized in writing by the client. No security assessment, audit, monitoring service or AI system can guarantee the discovery of all vulnerabilities or the prevention of all incidents. Zentrion's engagements are conducted on a reasonable-efforts, industry-standard-practice basis and do not constitute a warranty that a client's systems are or will remain free of vulnerabilities or secure from compromise.`,
-  },
-  {
-    title: '7. Intellectual Property',
-    body: `All content on this website — including text, graphics, logos, product names (such as "Zentrion Compliance", "BehaviourDNA" and related marks), course materials, illustrations and design — is the property of Zentrion Technologies or its licensors and is protected by applicable intellectual property laws. You may view and use this content for personal, non-commercial reference. You may not copy, reproduce, republish, distribute, modify or create derivative works from our content, branding or course materials without our prior written consent.`,
-  },
-  {
-    title: '8. User Conduct',
-    body: `You agree not to: use this website or our Services for any unlawful purpose; attempt to gain unauthorized access to our systems, other users' data, or any system referenced in our training environments; misrepresent your identity or affiliation when applying for a role, internship or course; or use content, techniques or materials obtained from Zentrion to test, attack or compromise any system without explicit written authorization from that system's owner.`,
-  },
-  {
-    title: '9. Third-Party Links, Tools & Forms',
-    body: `Our website may link to or embed third-party tools, including our internship application form (currently hosted on Google Forms), WhatsApp, and map/location services. These third-party services are governed by their own terms and privacy policies, over which Zentrion has no control. Zentrion is not responsible for the availability, content, or practices of any third-party service.`,
-  },
-  {
-    title: '10. Disclaimers',
-    body: `This website and its content are provided on an "as is" and "as available" basis without warranties of any kind, express or implied, including implied warranties of merchantability, fitness for a particular purpose, accuracy or non-infringement. Blog, resource and research content on this website (including summaries of laws such as the DPDP Act and its rules, or industry reports) is provided for general informational and educational purposes only and does not constitute legal, compliance, financial or professional advice. You should seek independent professional advice before relying on such content for compliance or business decisions.`,
-  },
-  {
-    title: '11. Limitation of Liability',
-    body: `To the maximum extent permitted by applicable law, Zentrion Technologies, its founders, employees, contractors, mentors and affiliates shall not be liable for any indirect, incidental, special, consequential or punitive damages, or any loss of data, revenue, profits, or business opportunity, arising out of or related to your use of this website, our Services, our training programs, or our internship program, even if advised of the possibility of such damages. Where liability cannot be excluded under applicable law, Zentrion's total aggregate liability in respect of any claim arising from the website or a free/no-cost Service shall not exceed INR 5,000; liability for paid engagements is governed exclusively by the applicable signed agreement or statement of work.`,
-  },
-  {
-    title: '12. Indemnification',
-    body: `You agree to indemnify and hold harmless Zentrion Technologies and its founders, employees, contractors and mentors from and against any claims, liabilities, damages, losses and expenses (including reasonable legal fees) arising out of or in any way connected with: your breach of these Terms; your misuse of any technique, tool or knowledge obtained through our training or internship program; or any content or information you submit to us that infringes the rights of, or causes harm to, a third party.`,
-  },
-  {
-    title: '13. Termination',
-    body: `Zentrion may suspend or terminate your access to this website, a course, or the internship/employment relationship at its discretion, including for violation of these Terms, misconduct, unauthorized or unethical use of security techniques, or misrepresentation in an application, subject to any specific terms in a signed offer letter or agreement governing that relationship.`,
-  },
-  {
-    title: '14. Governing Law & Jurisdiction',
-    body: `These Terms are governed by the laws of India. Subject to any dispute resolution clause in a specific signed agreement, the courts at Chennai, Tamil Nadu shall have exclusive jurisdiction over any dispute arising out of or relating to these Terms, this website, or our Services.`,
-  },
-  {
-    title: '15. Force Majeure',
-    body: `Zentrion shall not be liable for any delay or failure to perform any obligation under these Terms where such delay or failure results from causes beyond its reasonable control, including natural disasters, internet or infrastructure outages, government action, or other events of force majeure.`,
-  },
-  {
-    title: '16. Changes to these Terms',
-    body: `We may revise these Terms from time to time. The "Last updated" date below reflects the most recent revision. Continued use of this website or our Services after changes are posted constitutes your acceptance of the revised Terms.`,
-  },
-  {
-    title: '17. Contact',
-    body: `Questions about these Terms can be directed to: General & services — ${CONSULT_EMAIL}. Careers, internships & HR matters — ${HR_EMAIL}. Registered address — ${COMPANY_ADDRESS}.`,
-  },
-];
-
-export default function TermsPage() {
+export default function TermsAndConditions() {
   return (
     <>
-    <Breadcrumbs items={[{ href: '/terms', label: 'Terms & Conditions' }]} />
-      <section className="container-x pt-10 pb-24 max-w-3xl">
-      <p className="eyebrow">Legal</p>
-      <h1 className="mt-4 font-display text-4xl font-semibold">Terms &amp; Conditions</h1>
-      <p className="mt-4 text-sm text-mute">Last updated: August 2026</p>
-      <p className="mt-6 text-mute leading-relaxed">
-        Please read these Terms &amp; Conditions carefully before using our website, engaging our
-        services, enrolling in a course, or applying to our internship program.
-      </p>
+      <Breadcrumbs items={[{ label: 'Terms and Conditions', href: '/terms' }]} />
+      
+      <section className="container-x pt-10 pb-16">
+        <Reveal>
+          <Eyebrow>Legal</Eyebrow>
+          <h1 className="mt-4 font-display text-4xl md:text-5xl font-semibold max-w-2xl">
+            Terms and Conditions
+          </h1>
+          <p className="mt-6 text-mute">
+            <strong>Last Updated:</strong> October 2026<br/>
+            <strong>Version:</strong> 2.0
+          </p>
+        </Reveal>
+      </section>
 
-      <div className="mt-10 space-y-8 text-mute leading-relaxed">
-        {sections.map((s) => (
-          <div key={s.title}>
-            <h2 className="font-display text-xl font-semibold text-ink">{s.title}</h2>
-            <p className="mt-3">{s.body}</p>
+      <section className="container-x py-16 border-t border-line">
+        <div className="prose prose-invert max-w-4xl">
+          <h2>1. Introduction & Acceptance</h2>
+          <p>
+            Welcome to Zentrion Technologies ("Zentrion," "we," "our," or "us"). These Terms and Conditions ("Terms") govern your access to and use of our website (zentriontechnologies.com), educational resources, browser-based tools, cyber range laboratories, and related free services (collectively, the "Services"). By accessing or using the Services, you agree to be bound by these Terms. If you do not agree to these Terms, do not use the Services.
+          </p>
+          <p>
+            Please note that professional consulting engagements, software development, and formal client services are governed by separate, signed agreements.
+          </p>
+
+          <h2>2. Cybersecurity Protection & Authorized Testing Only</h2>
+          <p>
+            <strong>CRITICAL NOTICE:</strong> Zentrion provides cybersecurity educational materials, browser-native tools, demonstrations, and simulated labs strictly for lawful education, defensive testing, authorized security assessment, and academic research. 
+          </p>
+          <p>
+            By using our security tools or educational materials, you agree that you will <strong>only</strong> test:
+          </p>
+          <ul>
+            <li>Systems, networks, and applications that you own.</li>
+            <li>Systems for which you have explicit, written authorization to test.</li>
+            <li>Intentionally vulnerable laboratory environments provided by Zentrion or third parties specifically for testing.</li>
+          </ul>
+          <p>You must <strong>NOT</strong> use Zentrion resources or tools to:</p>
+          <ul>
+            <li>Attack, exploit, or scan third-party systems without authorization.</li>
+            <li>Bypass authentication mechanisms on systems you do not control.</li>
+            <li>Deploy malware, steal credentials, or exfiltrate data.</li>
+            <li>Conduct Denial-of-Service (DoS) attacks.</li>
+            <li>Evade security controls or perform unauthorized persistence.</li>
+            <li>Conduct destructive testing or violate any applicable laws.</li>
+          </ul>
+          <p>
+            You are solely responsible for obtaining necessary authorizations. Zentrion does not authorize attacks against any third-party infrastructure. The existence of a technique in our guides does not constitute permission to use it against unauthorized targets.
+          </p>
+
+          <h2>3. Free Tools & Cyber Labs Disclaimer</h2>
+          <p>
+            Our interactive cyber labs are educational simulations. Some environments intentionally reproduce vulnerabilities. Behavior in a lab does not authorize testing against real systems. Users must follow lab instructions and must not modify or attack infrastructure outside the permitted environment. We may modify, suspend, or remove labs at any time without notice. Completion of a lab does not constitute professional certification, and scores do not constitute proof of real-world security competence.
+          </p>
+          <p>
+            Similarly, our browser-native Free Tools are provided for diagnostic and authorized security purposes. Output may be incomplete or inaccurate, and you must independently verify the results. Zentrion does not guarantee tool accuracy or availability. The use of our free tools does not constitute a professional security audit.
+          </p>
+
+          <h2>4. Client Services & Statements of Work</h2>
+          <p>
+            For paid client engagements (including Vulnerability Assessments, Penetration Testing, Software Development, Cloud Consulting, and AI/Automation engagements), the relationship is strictly governed by a signed Statement of Work (SOW), Master Services Agreement (MSA), or formal Proposal. 
+          </p>
+          <p>
+            <strong>Security Engagements:</strong> Security testing occurs only after written authorization and agreed scope. No penetration test, automated scanner, or security review can guarantee the discovery of every vulnerability. The client is responsible for identifying prohibited systems, ensuring backups, and obtaining third-party permissions. Zentrion is not responsible for vulnerabilities outside the agreed scope, pre-existing vulnerabilities, undocumented dependencies, or outages caused by third parties.
+          </p>
+          <p>
+            <strong>Software Development:</strong> Development engagements are governed by the signed project agreement. Zentrion does not promise that delivered software is entirely vulnerability-free, as software security is a continuous process.
+          </p>
+
+          <h2>5. AI & Automation Disclaimer</h2>
+          <p>
+            Zentrion provides content and services related to Generative AI, Large Language Models (LLMs), AI Agents, and automated workflows. AI outputs may be inaccurate, incomplete, outdated, misleading, or non-deterministic. Users and clients must independently validate important AI outputs. 
+          </p>
+          <p>
+            You must not rely solely on AI-generated output for legal, medical, financial, security-critical, employment, or compliance decisions. AI systems are not infallible.
+          </p>
+
+          <h2>6. Educational Content & Assessments</h2>
+          <p>
+            Our guides, tutorials, cheatsheets, research articles, encyclopedia entries, videos, and examples are strictly educational resources. They are <strong>not</strong> legal advice, compliance certification, professional advice, or a substitute for an independent professional assessment. 
+          </p>
+          <p>
+            Security examples may become outdated. Users must verify current vendor documentation and applicable laws. Furthermore, any security readiness assessment or "score" provided by our free tools is merely an informational risk indicator. It is NOT a compliance certification, security guarantee, audit opinion, or regulatory approval.
+          </p>
+
+          <h2>7. Intellectual Property Rights</h2>
+          <p>
+            Zentrion retains all rights, title, and interest in and to the Zentrion name, logos, website design, proprietary software, original documentation, guides, diagrams, labs, quizzes, and assessment methodologies. You may not reproduce or distribute these materials without explicit written permission.
+          </p>
+          <p>
+            We do not claim ownership over third-party materials, open-source software, or client-owned data.
+          </p>
+
+          <h2>8. Third-Party Services</h2>
+          <p>
+            The Services may utilize or link to third-party APIs, hosting providers, or external resources. Third-party services have their own availability, security, privacy policies, terms, and data-processing practices. Zentrion cannot guarantee third-party availability or behavior.
+          </p>
+
+          <h2>9. Limitation of Liability</h2>
+          <p>
+            To the maximum extent permitted by applicable mandatory law, Zentrion provides the free website resources "as is" and without guarantees of accuracy, availability, or fitness for a particular purpose. Zentrion shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your use of the free website resources.
+          </p>
+          <p>
+            For paid client engagements, the applicable signed agreement controls the allocation of risk, warranties, liability, confidentiality, indemnity, and remedies.
+          </p>
+
+          <h2>10. Indemnification</h2>
+          <p>
+            You agree to indemnify and hold Zentrion harmless from any claims, damages, liabilities, and expenses arising from your unauthorized security testing, unlawful use of the Services, misuse of tools, breach of these Terms, or harmful content submitted by you.
+          </p>
+
+          <h2>11. Website Availability & Force Majeure</h2>
+          <p>
+            We do not promise uninterrupted service or error-free operation. The website may be modified or become temporarily unavailable. Zentrion is not liable for failure or delay in performance caused by circumstances beyond our reasonable control, including natural disasters, infrastructure outages, telecommunications failures, cloud-provider outages, cyber incidents affecting upstream infrastructure, government actions, or civil unrest.
+          </p>
+
+          <h2>12. Governing Law & Dispute Resolution</h2>
+          <p>
+            These Terms shall be governed by and construed in accordance with the laws of Tamil Nadu, India. Any disputes arising under or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in Chennai, Tamil Nadu, subject to review and final determination by legal counsel.
+          </p>
+
+          <h2>13. Changes to These Terms</h2>
+          <p>
+            We reserve the right to modify these Terms at any time. If we make material changes, we will update the "Last Updated" date at the top of this page. Your continued use of the Services following the posting of changes constitutes your acceptance of such changes.
+          </p>
+          
+          <div className="mt-12 p-6 bg-surface/30 border border-glass-border rounded-xl">
+            <h3 className="text-xl font-semibold mt-0">Contact Us</h3>
+            <p className="mb-0">
+              If you have any questions regarding these Terms, please contact us at <a href="mailto:info@zentriontechnologies.com" className="text-cyan hover:underline">info@zentriontechnologies.com</a>.
+            </p>
           </div>
-        ))}
-      </div>
-
-      <p className="mt-10 text-xs text-mute">
-        These Terms are provided for general informational purposes and do not constitute legal
-        advice. Zentrion Technologies recommends periodic review by qualified legal counsel to ensure
-        ongoing compliance with applicable law.
-      </p>
-    </section>
+        </div>
+      </section>
     </>
   );
 }

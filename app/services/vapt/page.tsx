@@ -37,7 +37,7 @@ export default function VaptServicePage() {
       {/* LIFECYCLE WORKFLOW */}
       <section className="container-x pb-24">
         <Reveal delay={0.1}>
-          <h2 className="text-2xl font-display font-bold text-white mb-8">Professional Engagement Lifecycle</h2>
+          <h2 className="text-2xl font-display font-bold mb-8">Professional Engagement Lifecycle</h2>
           
           <div className="flex flex-wrap items-center gap-3">
             {lifecycle.map((step, i) => (
@@ -69,7 +69,7 @@ export default function VaptServicePage() {
             { title: "Mobile App Security", desc: "Static and dynamic analysis of iOS and Android applications and their backend communications." }
           ].map((item, i) => (
             <GlassCard key={i} className="p-6">
-              <h3 className="font-bold text-white mb-2">{item.title}</h3>
+              <h3 className="font-bold mb-2">{item.title}</h3>
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
@@ -78,7 +78,7 @@ export default function VaptServicePage() {
 
       <section className="container-x pb-24">
          <div className="bg-surface/50 border border-line p-8 md:p-12 rounded-2xl text-center max-w-4xl mx-auto">
-           <h2 className="text-3xl font-display font-bold text-white mb-4">Request a Consultation</h2>
+           <h2 className="text-3xl font-display font-bold mb-4">Request a Consultation</h2>
            <p className="text-mute mb-8 max-w-xl mx-auto">
              Discuss your scope, compliance requirements, and architecture with our security engineering team.
            </p>

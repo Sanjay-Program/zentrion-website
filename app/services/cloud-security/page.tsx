@@ -34,7 +34,7 @@ export default function CloudSecurityPage() {
       {/* LIFECYCLE WORKFLOW */}
       <section className="container-x pb-24">
         <Reveal delay={0.1}>
-          <h2 className="text-2xl font-display font-bold text-white mb-8">Assessment Methodology</h2>
+          <h2 className="text-2xl font-display font-bold mb-8">Assessment Methodology</h2>
           
           <div className="flex flex-wrap items-center gap-3">
             {lifecycle.map((step, i) => (
@@ -66,7 +66,7 @@ export default function CloudSecurityPage() {
             { title: "Kubernetes & Containers", desc: "Evaluating EKS, AKS, and GKE cluster security, RBAC, and pod security admission controls." }
           ].map((item, i) => (
             <GlassCard key={i} className="p-6">
-              <h3 className="font-bold text-white mb-2">{item.title}</h3>
+              <h3 className="font-bold mb-2">{item.title}</h3>
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
@@ -75,7 +75,7 @@ export default function CloudSecurityPage() {
 
       <section className="container-x pb-24">
          <div className="bg-surface/50 border border-line p-8 md:p-12 rounded-2xl text-center max-w-4xl mx-auto">
-           <h2 className="text-3xl font-display font-bold text-white mb-4">Secure Your Cloud Infrastructure</h2>
+           <h2 className="text-3xl font-display font-bold mb-4">Secure Your Cloud Infrastructure</h2>
            <p className="text-mute mb-8 max-w-xl mx-auto">
              Discuss your multi-cloud or hybrid architecture with our cloud security engineers.
            </p>

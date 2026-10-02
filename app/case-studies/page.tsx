@@ -74,23 +74,25 @@ export default function CaseStudiesPage() {
         <div className="space-y-8">
           {cases.map((c) => (
             <Reveal key={c.title}>
-              <GlassCard hover={false} className="grid md:grid-cols-[220px,1fr] gap-8">
-                <div>
-                  <span className="eyebrow text-cyan">{c.tag}</span>
-                  <h3 className="mt-3 font-display font-semibold text-lg leading-snug">{c.title}</h3>
-                </div>
-                <div className="grid sm:grid-cols-3 gap-6 text-sm">
+              <GlassCard hover={false} className="p-0 md:p-0">
+                <div className="grid md:grid-cols-[220px,1fr] gap-8 p-6 md:p-8">
                   <div>
-                    <p className="text-xs uppercase tracking-wide text-mute mb-2">Challenge</p>
-                    <p className="text-mute leading-relaxed">{c.problem}</p>
+                    <span className="eyebrow text-cyan">{c.tag}</span>
+                    <h3 className="mt-3 font-display font-semibold text-lg leading-snug">{c.title}</h3>
                   </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-wide text-mute mb-2">Approach</p>
-                    <p className="text-mute leading-relaxed">{c.approach}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-wide text-mute mb-2">Outcome</p>
-                    <p className="text-mute leading-relaxed">{c.outcome}</p>
+                  <div className="grid sm:grid-cols-3 gap-6 text-sm">
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-mute mb-2">Challenge</p>
+                      <p className="text-mute leading-relaxed">{c.problem}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-mute mb-2">Approach</p>
+                      <p className="text-mute leading-relaxed">{c.approach}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-mute mb-2">Outcome</p>
+                      <p className="text-mute leading-relaxed">{c.outcome}</p>
+                    </div>
                   </div>
                 </div>
               </GlassCard>

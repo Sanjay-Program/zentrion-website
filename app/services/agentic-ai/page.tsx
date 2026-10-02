@@ -59,7 +59,7 @@ export default function AgenticAIPage() {
             { title: "Agent Security", desc: "Strict RBAC, prompt injection defenses, and isolated execution environments for safe AI operations." }
           ].map((item, i) => (
             <GlassCard key={i} className="p-6 border-t-2 border-t-purple-500/50">
-              <h3 className="font-bold text-white mb-2">{item.title}</h3>
+              <h3 className="font-bold mb-2">{item.title}</h3>
               <p className="text-sm text-mute leading-relaxed">{item.desc}</p>
             </GlassCard>
           ))}
@@ -79,7 +79,7 @@ export default function AgenticAIPage() {
 
       <section className="container-x pb-24">
          <div className="bg-surface/50 border border-line p-8 md:p-12 rounded-2xl text-center max-w-4xl mx-auto">
-           <h2 className="text-3xl font-display font-bold text-white mb-4">Deploy Agentic Workflows</h2>
+           <h2 className="text-3xl font-display font-bold mb-4">Deploy Agentic Workflows</h2>
            <p className="text-mute mb-8 max-w-xl mx-auto">
              Discuss an AI Agent project and the necessary security guardrails.
            </p>

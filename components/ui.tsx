@@ -68,8 +68,8 @@ export function GlassCard({
         hover ? 'transition-all duration-300 ease-out hover:border-cyan/40 hover:shadow-[0_0_25px_rgba(47,107,255,0.2)] cursor-pointer' : ''
       } ${className}`}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent pointer-events-none" />
-      <div className="relative z-10 h-full">{children}</div>
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent pointer-events-none -z-10" />
+      {children}
     </div>
   );
 }
@@ -81,26 +81,28 @@ export function ServiceCard({
   href,
   points,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description: string;
   href: string;
-  points: string[];
+  points?: string[];
 }) {
   return (
     <Link href={href} className="group block">
       <GlassCard className="h-full">
-        <Eyebrow>{eyebrow}</Eyebrow>
+        {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
         <h3 className="mt-3 font-display text-xl font-semibold">{title}</h3>
         <p className="mt-3 text-sm text-mute leading-relaxed">{description}</p>
-        <ul className="mt-4 space-y-2">
-          {points.map((p) => (
-            <li key={p} className="flex items-start gap-2 text-sm text-mute">
-              <span className="mt-1.5 h-1 w-1 rounded-full bg-cyan shrink-0" />
-              {p}
-            </li>
-          ))}
-        </ul>
+        {points && points.length > 0 && (
+          <ul className="mt-4 space-y-2">
+            {points.map((p) => (
+              <li key={p} className="flex items-start gap-2 text-sm text-mute">
+                <span className="mt-1.5 h-1 w-1 rounded-full bg-cyan shrink-0" />
+                {p}
+              </li>
+            ))}
+          </ul>
+        )}
         <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-cyan group-hover:gap-2.5 transition-all">
           Explore <ArrowIcon />
         </span>

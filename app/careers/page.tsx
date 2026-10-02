@@ -162,9 +162,6 @@ export default function CareersPage() {
           {internships.map((i) => (
             <Reveal key={i.title}>
               <GlassCard className="h-full flex flex-col relative pt-10">
-                <div className="absolute top-5 right-5 opacity-40">
-                  <Image src="/logo-mark.png" alt="" width={24} height={24} />
-                </div>
                 <h3 className="font-display font-semibold text-lg pr-8">{i.title}</h3>
                 <p className="mt-2 text-xs font-semibold text-cyan">{i.stipend}</p>
                 <p className="mt-3 text-sm text-mute leading-relaxed flex-1">{i.text}</p>
