@@ -24,7 +24,7 @@ const navItems: NavItem[] = [
     label: 'Learn',
     items: [
       { href: '/guides', label: 'Guides', blurb: 'Practical cybersecurity tutorials' },
-      { href: '/knowledge', label: 'Knowledge Base', blurb: 'Structured security concepts' },
+      { href: '/encyclopedia', label: 'Knowledge Base', blurb: 'Structured security concepts' },
       { href: '/cheatsheets', label: 'Cheatsheets', blurb: 'Quick reference commands' },
       { href: '/roadmaps', label: 'Roadmaps', blurb: 'Step-by-step learning paths' },
     ],

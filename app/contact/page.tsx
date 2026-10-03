@@ -85,8 +85,8 @@ export default function ContactPage() {
 
             {/* WhatsApp — Most Prominent */}
             <GlassCard hover={false} className="border-emerald-500/30 bg-emerald-500/5">
-              <p className="eyebrow text-emerald-400">WhatsApp</p>
-              <p className="mt-2 font-bold text-xl text-white">+91 82204 37738</p>
+              <p className="eyebrow text-emerald-600 dark:text-emerald-400">WhatsApp</p>
+              <p className="mt-2 font-bold text-xl text-emerald-950 dark:text-white">+91 82204 37738</p>
               <p className="text-xs text-mute mt-1 mb-4">Fastest way to reach us — usually replies within hours</p>
               <a
                 id="contact-whatsapp-general"
