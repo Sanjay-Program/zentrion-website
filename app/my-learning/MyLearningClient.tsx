@@ -5,11 +5,13 @@ import Link from 'next/link';
 import { learningManager, LearningState } from '@/lib/learning-state';
 import { useRangeStore } from '@/lib/range-store';
 import { CATEGORIES } from '@/lib/tools-data';
+import { CertificateGenerator } from '@/components/CertificateGenerator';
 
 export default function MyLearningClient() {
   const [state, setState] = useState<LearningState | null>(null);
   const rangeState = useRangeStore();
   const [exportStatus, setExportStatus] = useState<'idle' | 'exporting' | 'success' | 'error'>('idle');
+  const [showCertificate, setShowCertificate] = useState(false);
 
   useEffect(() => {
     // Initial load
@@ -320,6 +322,17 @@ export default function MyLearningClient() {
                  'Export Signed Profile'}
               </button>
 
+              <h3 className="font-semibold text-sm uppercase tracking-wider text-mute mb-2 mt-4">Visual Certificate</h3>
+              <p className="text-xs text-mute leading-relaxed mb-4">
+                Generate a beautiful, shareable PDF certificate of your learning achievements.
+              </p>
+              <button 
+                onClick={() => setShowCertificate(true)}
+                className="w-full btn-secondary py-2 px-4 text-xs mb-6"
+              >
+                View & Download Certificate
+              </button>
+
               <h3 className="font-semibold text-sm uppercase tracking-wider text-mute mb-2 mt-4">Privacy Note</h3>
               <p className="text-xs text-mute leading-relaxed mb-4">
                 Your learning progress is stored entirely in your browser's LocalStorage. Zentrion does not track this data on our servers.
@@ -338,6 +351,15 @@ export default function MyLearningClient() {
           </aside>
 
         </div>
+      )}
+
+      {showCertificate && state && (
+        <CertificateGenerator 
+          xp={rangeState.xp} 
+          completedLabs={state.completedLabs.length} 
+          badges={(rangeState.badges?.length || 0) + (state.completedQuizzes?.length || 0)}
+          onClose={() => setShowCertificate(false)}
+        />
       )}
     </div>
   );
