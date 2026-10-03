@@ -45,7 +45,7 @@ const navItems: NavItem[] = [
     items: [
       { href: '/my-learning', label: 'My Learning', blurb: 'Track your progress locally' },
       { href: '/career-paths', label: 'Career Paths', blurb: 'SOC, AppSec, Cloud paths' },
-      { href: '/assessments', label: 'Assessments', blurb: 'Test your skill readiness' },
+      { href: '/assessments/website-security', label: 'Assessments', blurb: 'Test your skill readiness' },
       { href: '/verify', label: 'Verify Credentials', blurb: 'Cryptographic proof of learning' },
     ],
   },

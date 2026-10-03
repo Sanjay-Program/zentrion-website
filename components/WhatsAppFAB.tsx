@@ -82,7 +82,7 @@ export default function WhatsAppFAB() {
               {opt.icon}
             </div>
             <div className="flex-1">
-              <p className="text-sm font-semibold text-white group-hover:text-white transition-colors">{opt.label}</p>
+              <p className="text-sm font-semibold text-ink group-hover:text-ink transition-colors">{opt.label}</p>
               <p className="text-[12px] text-[rgb(var(--c-mute))] mt-0.5 group-hover:text-[rgb(var(--c-mute))]/80">{opt.description}</p>
             </div>
             <div className="opacity-0 group-hover:opacity-100 transition-opacity">

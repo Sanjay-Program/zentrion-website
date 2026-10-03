@@ -35,7 +35,7 @@ export default function HubPage() {
             </Link>
           </Reveal>
           <Reveal delay={0.2}>
-            <Link href="/assessments" className="block h-full">
+            <Link href="/assessments/website-security" className="block h-full">
               <GlassCard hover className="h-full flex flex-col cursor-pointer">
                 <h3 className="text-xl font-bold mb-2">Assessments</h3>
                 <p className="text-mute text-sm flex-1 mb-4">Explore our assessments section.</p>

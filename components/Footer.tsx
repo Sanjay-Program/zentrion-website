@@ -21,7 +21,7 @@ const columns = [
     links: [
       { href: '/roadmaps', label: 'Learning Roadmaps' },
       { href: '/my-learning', label: 'My Learning Progress' },
-      { href: '/assessments', label: 'Skills Assessments' },
+      { href: '/assessments/website-security', label: 'Skills Assessments' },
       { href: '/career-paths', label: 'Career Paths' },
       { href: '/careers', label: 'Zentrion Careers' },
     ],
@@ -60,7 +60,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-line bg-surface">
-      <div className="container-x py-16 grid grid-cols-2 md:grid-cols-6 gap-10">
+      <div className="container-x pt-16 pb-32 grid grid-cols-2 md:grid-cols-6 gap-10">
         <div className="col-span-2">
           <div className="flex items-center gap-2.5">
             <span className="inline-flex items-center justify-center h-9 w-9 rounded-lg bg-white p-1">
