@@ -9,6 +9,30 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 // This ensures that looking at the client-side code doesn't reveal the flags directly.
 const CTF_CHALLENGES = [
   {
+    id: 'docker-escape',
+    title: 'Container Escape (Privileged)',
+    points: 600,
+    difficulty: 'Expert',
+    hash: '395e5c709942824295959b6bea8b89afe875a9a3adb9bb303df219c0f818dc9a', // ZENTRION{d0ck3r_3sc4p3_m0unt3d}
+    labPath: '/labs/docker-escape'
+  },
+  {
+    id: 'ssrf-cloud',
+    title: 'Cloud SSRF (AWS IMDS)',
+    points: 400,
+    difficulty: 'Advanced',
+    hash: 'be4346ba6e0bf5404c0a94010452ad878721e42b9c0c180459fbef0234444174', // ZENTRION{c10ud_m3t4d4t4_st0l3n}
+    labPath: '/labs/ssrf-cloud'
+  },
+  {
+    id: 'jwt-forgery',
+    title: 'JWT Signature Forgery',
+    points: 400,
+    difficulty: 'Advanced',
+    hash: '2528eba3d022df6d9585c3fdb7ea8a700dfa7b543eb3b076fa94909c916bdf65', // ZENTRION{jwt_4lg_n0n3_byp4ss}
+    labPath: '/labs/jwt-forgery'
+  },
+  {
     id: 'xss-simulation',
     title: 'Cross-Site Scripting (XSS)',
     points: 100,
