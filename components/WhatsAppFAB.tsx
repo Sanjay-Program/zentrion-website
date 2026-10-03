@@ -2,30 +2,35 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { buildWhatsAppLink } from '@/lib/contact';
+import { ShieldCheck, Bot, GraduationCap, MessageSquareText } from 'lucide-react';
 
 const WHATSAPP_OPTIONS = [
   {
     label: 'Cybersecurity Services',
     description: 'VAPT, Audits, SOC, Cloud Security',
-    icon: '🛡️',
+    icon: <ShieldCheck className="w-5 h-5 text-cyan drop-shadow-[0_0_8px_rgba(0,212,255,0.8)]" />,
+    bg: 'bg-cyan/10 border-cyan/20 group-hover:border-cyan/50',
     message: "Hi Zentrion! I'm interested in your Cybersecurity Services. I'd like to discuss an audit or security solution for my business."
   },
   {
     label: 'AI & Automation',
     description: 'LLMs, RAG, Enterprise Agents',
-    icon: '🤖',
+    icon: <Bot className="w-5 h-5 text-signal drop-shadow-[0_0_8px_rgba(255,51,102,0.8)]" />,
+    bg: 'bg-signal/10 border-signal/20 group-hover:border-signal/50',
     message: "Hi Zentrion! I'd like to learn more about your AI & Automation solutions and how they can help my business."
   },
   {
     label: 'Internships / Careers',
     description: 'Join the team, training & roles',
-    icon: '🎓',
+    icon: <GraduationCap className="w-5 h-5 text-violet drop-shadow-[0_0_8px_rgba(138,43,226,0.8)]" />,
+    bg: 'bg-violet/10 border-violet/20 group-hover:border-violet/50',
     message: "Hi Zentrion HR! I'm reaching out regarding internships and career opportunities."
   },
   {
     label: 'General Enquiry',
     description: 'Questions, partnerships, other',
-    icon: '💬',
+    icon: <MessageSquareText className="w-5 h-5 text-[#25D366] drop-shadow-[0_0_8px_rgba(37,211,102,0.8)]" />,
+    bg: 'bg-[#25D366]/10 border-[#25D366]/20 group-hover:border-[#25D366]/50',
     message: "Hi Zentrion! I have a general enquiry and would like to speak with someone."
   }
 ];
@@ -71,15 +76,20 @@ export default function WhatsAppFAB() {
             href={buildWhatsAppLink(opt.message)}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 bg-[rgb(var(--c-surface))] border border-[var(--c-glass-border)] hover:border-[#25D366]/50 p-3 rounded-xl shadow-xl transition-colors min-w-[260px] group"
+            className="flex items-center gap-3 bg-[rgb(var(--c-surface))] border border-[var(--c-glass-border)] hover:bg-[rgb(var(--c-surface))]/80 p-3.5 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-md transition-all duration-300 min-w-[280px] group hover:scale-[1.02]"
           >
-            <div className="w-10 h-10 rounded-lg bg-[#25D366]/10 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+            <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-colors duration-300 ${opt.bg}`}>
               {opt.icon}
             </div>
-            <div>
-              <p className="text-sm font-semibold text-[rgb(var(--c-ink))]">{opt.label}</p>
-              <p className="text-[11px] text-[rgb(var(--c-mute))] mt-0.5">{opt.description}</p>
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-white group-hover:text-white transition-colors">{opt.label}</p>
+              <p className="text-[12px] text-[rgb(var(--c-mute))] mt-0.5 group-hover:text-[rgb(var(--c-mute))]/80">{opt.description}</p>
+            </div>
+            <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mute">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
             </div>
           </a>
         ))}
