@@ -83,7 +83,7 @@ function ProjectForm() {
         <div className="w-16 h-16 bg-cyan/10 border border-cyan/20 text-cyan rounded-full flex items-center justify-center mx-auto mb-6">
           <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">Message ready to send</h3>
+        <h3 className="text-2xl font-bold text-ink mb-2">Message ready to send</h3>
         <p className="text-mute mb-8">We opened WhatsApp with your project details filled in — just hit send. If it didn’t open, use the buttons below.</p>
         
         <div className="flex flex-col sm:flex-row justify-center gap-3 mb-8">

@@ -74,11 +74,12 @@ export default function LeaderboardClient() {
               Live P2P Network
             </span>
           </div>
-          <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-4 text-[rgb(var(--c-ink))]">
-            Global Leaderboard
+          <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-4 text-[rgb(var(--c-ink))] flex items-center gap-3">
+            <svg className="w-10 h-10 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            World Leaderboard
           </h1>
           <p className="text-lg text-[rgb(var(--c-mute))] max-w-2xl">
-            Rankings are synchronized globally using a zero-backend, decentralized peer-to-peer network via Gun.js.
+            See rankings for all users in the world. Scores are synchronized globally across the hacker network using a zero-backend, decentralized peer-to-peer system.
           </p>
         </header>
 

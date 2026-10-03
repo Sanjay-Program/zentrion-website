@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import LeaderboardClient from './LeaderboardClient';
 
 export const metadata: Metadata = {
-  title: 'Global Cyber Range Leaderboard | Zentrion',
-  description: 'Compete with hackers worldwide on the Zentrion decentralized P2P leaderboard. Earn XP by solving CTF challenges and completing cyber security labs.',
-  keywords: ['cybersecurity leaderboard', 'CTF competition', 'hacker ranking', 'cyber range XP', 'Zentrion ranking'],
+  title: 'World Cyber Range Leaderboard | Zentrion',
+  description: 'Compete with hackers worldwide on the Zentrion decentralized P2P leaderboard. See rankings for all users in the world.',
+  keywords: ['cybersecurity leaderboard', 'CTF competition', 'hacker ranking', 'cyber range XP', 'Zentrion ranking', 'world leaderboard'],
   openGraph: {
-    title: 'Global Cyber Range Leaderboard | Zentrion',
-    description: 'Compete with hackers worldwide on the Zentrion decentralized P2P leaderboard. Earn XP by solving CTF challenges.',
+    title: 'World Cyber Range Leaderboard | Zentrion',
+    description: 'Compete with hackers worldwide on the Zentrion decentralized P2P leaderboard. See rankings for all users in the world.',
     url: 'https://zentriontechnologies.com/leaderboard',
     type: 'website',
   },

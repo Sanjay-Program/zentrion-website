@@ -60,14 +60,14 @@ export default function HackerHubPage() {
           <Reveal delay={0.4}>
             <div className="glass-card p-4 rounded-xl border border-cyan/30 bg-cyan/5">
               <div className="text-xs text-cyan uppercase tracking-wider mb-1">Global Rank</div>
-              <Link href="/leaderboard" className="text-sm font-bold text-white hover:underline flex items-center gap-1 mt-1">
+              <Link href="/leaderboard" className="text-sm font-bold text-ink hover:underline flex items-center gap-1 mt-1">
                 View Network <span className="w-2 h-2 rounded-full bg-cyan animate-pulse inline-block ml-2"></span>
               </Link>
             </div>
           </Reveal>
         </div>
 
-        <h2 className="text-xl font-bold text-white mb-6 uppercase tracking-wider border-b border-line pb-4">Training Modules</h2>
+        <h2 className="text-xl font-bold text-ink mb-6 uppercase tracking-wider border-b border-line pb-4">Training Modules</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           
@@ -79,7 +79,7 @@ export default function HackerHubPage() {
                     <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">Interactive Labs</h3>
+                <h3 className="text-xl font-bold mb-2 text-ink">Interactive Labs</h3>
                 <p className="text-mute text-sm flex-1 mb-6">Hands-on, browser-native simulations of real-world vulnerabilities and attack vectors.</p>
                 <div className="text-cyan text-xs font-bold uppercase tracking-wider group-hover:underline">Engage Module &rarr;</div>
               </GlassCard>
@@ -95,7 +95,7 @@ export default function HackerHubPage() {
                     <line x1="4" y1="22" x2="4" y2="15"></line>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">Capture The Flag</h3>
+                <h3 className="text-xl font-bold mb-2 text-ink">Capture The Flag</h3>
                 <p className="text-mute text-sm flex-1 mb-6">Test your skills in competitive challenges. Find the hidden ZENTRION{'{...}'} flags to earn massive XP.</p>
                 <div className="text-red-400 text-xs font-bold uppercase tracking-wider group-hover:underline">Enter Arena &rarr;</div>
               </GlassCard>
@@ -112,7 +112,7 @@ export default function HackerHubPage() {
                     <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white flex items-center gap-2">
+                <h3 className="text-xl font-bold mb-2 text-ink flex items-center gap-2">
                   Live Threat Map
                   <span className="px-2 py-0.5 rounded bg-emerald-500 text-void text-[10px] uppercase font-bold tracking-wider">New</span>
                 </h3>
@@ -134,7 +134,7 @@ export default function HackerHubPage() {
                     <polyline points="10 9 9 9 8 9"></polyline>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">Knowledge Checks</h3>
+                <h3 className="text-xl font-bold mb-2 text-ink">Knowledge Checks</h3>
                 <p className="text-mute text-sm flex-1 mb-6">Assess your theoretical understanding with quick-fire cybersecurity quizzes and earn XP.</p>
                 <div className="text-yellow-500 text-xs font-bold uppercase tracking-wider group-hover:underline">Start Quiz &rarr;</div>
               </GlassCard>
@@ -151,7 +151,7 @@ export default function HackerHubPage() {
                     <polyline points="2 12 12 17 22 12"></polyline>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">Scenario Builder</h3>
+                <h3 className="text-xl font-bold mb-2 text-ink">Scenario Builder</h3>
                 <p className="text-mute text-sm flex-1 mb-6">Create your own zero-backend CTF challenges and generate shareable links for your friends.</p>
                 <div className="text-violet text-xs font-bold uppercase tracking-wider group-hover:underline">Create Scenario &rarr;</div>
               </GlassCard>
@@ -166,7 +166,7 @@ export default function HackerHubPage() {
                     <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">Security Toolkit</h3>
+                <h3 className="text-xl font-bold mb-2 text-ink">Security Toolkit</h3>
                 <p className="text-mute text-sm flex-1 mb-6">Access 30+ browser-native utilities for DNS lookups, hashing, crypto, and network scanning.</p>
                 <div className="text-pink-500 text-xs font-bold uppercase tracking-wider group-hover:underline">Access Tools &rarr;</div>
               </GlassCard>
