@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import GridGlow from '@/components/GridGlow';
 import MagneticButtons from '@/components/MagneticButtons';
+import WhatsAppFAB from '@/components/WhatsAppFAB';
 
 const display = Chakra_Petch({
   subsets: ['latin'],
@@ -35,27 +36,48 @@ export const metadata: Metadata = {
   description:
     'Zentrion Technologies delivers AI-powered cybersecurity, cloud security, AI automation, and enterprise software for businesses worldwide. Intelligence That Protects.',
   keywords: [
+    // Core Business
     'AI cybersecurity company',
-    'penetration testing services',
-    'vulnerability assessment',
+    'penetration testing services India',
+    'vulnerability assessment and penetration testing',
+    'VAPT services India',
     'cloud security consulting',
-    'AI automation agency',
+    'AI automation agency India',
     'LLM development company',
+    'cybersecurity company Chennai',
+    'best cybersecurity company in Chennai',
+    // Training & Education
     'cybersecurity internship India',
+    'cybersecurity internship Tamil Nadu',
     'cybersecurity training Chennai',
     'cybersecurity courses in Chennai',
-    'cybersecurity courses in Tamil Nadu',
+    'cybersecurity courses Tamil Nadu',
     'ethical hacking course India',
+    'free cybersecurity course online',
+    'CTF challenges online',
+    'cyber range practice labs',
+    'cybersecurity certification course',
+    // Services
     'DPDP compliance software',
     'data privacy management platform',
-    'VAPT services India',
     'SOC as a service India',
-    'cybersecurity awareness training schools',
-    'cyber security certification course online',
     'AI security company India',
     'cloud security audit India',
-    'best cybersecurity company in Chennai',
     'cybersecurity institute Minjur Chennai',
+    // Tools
+    'free cybersecurity tools online',
+    'free OSINT tools',
+    'free password strength checker',
+    'free DNS lookup tool',
+    'free IP lookup tool',
+    'free subdomain finder',
+    'free website security scanner',
+    'free hash generator online',
+    // Careers
+    'cybersecurity jobs India',
+    'internship cybersecurity remote',
+    'AI ML internship India',
+    'full stack developer internship remote India',
   ],
   authors: [{ name: 'Zentrion Technologies' }],
   openGraph: {
@@ -203,6 +225,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main-content">{children}</main>
           <Footer />
         </div>
+        <WhatsAppFAB />
       </body>
     </html>
   );

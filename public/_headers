@@ -3,14 +3,69 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Strict-Transport-Security: max-age=31536000; includeSubDomains
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://pagead2.googlesyndication.com https://avatars.githubusercontent.com; connect-src 'self' https://api.zentriontechnologies.com https://api.github.com https://cloudflareinsights.com https://ipwho.is https://api.pwnedpasswords.com https://cloudflare-dns.com https://api.bgpview.io https://macvendors.co; frame-src 'self' https://googleads.g.doubleclick.net; frame-ancestors 'none';
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://pagead2.googlesyndication.com https://avatars.githubusercontent.com; connect-src 'self' https://api.zentriontechnologies.com https://api.github.com https://cloudflareinsights.com https://ipwho.is https://api.pwnedpasswords.com https://cloudflare-dns.com https://api.bgpview.io https://macvendors.co https://gun-us.herokuapp.com https://gun-eu.herokuapp.com; frame-src 'self' https://googleads.g.doubleclick.net; frame-ancestors 'none';
+  Cache-Control: public, max-age=0, must-revalidate
 
+# Immutable static assets - max cache (1 year)
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images
 /*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.avif
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.gif
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ico
   Cache-Control: public, max-age=31536000, immutable
 
 /*.svg
   Cache-Control: public, max-age=31536000, immutable
 
-/_next/static/*
+# Fonts
+/*.woff2
   Cache-Control: public, max-age=31536000, immutable
+
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+# JavaScript and CSS chunks
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# Web Workers
+/workers/*
+  Cache-Control: public, max-age=86400
+
+# Service Worker - never cache (must check for updates)
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# JSON data files (search index, etc.)
+/search-index.json
+  Cache-Control: public, max-age=3600
+
+# Sitemap and robots
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml
+
+/robots.txt
+  Cache-Control: public, max-age=86400

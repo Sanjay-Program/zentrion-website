@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import ShaderHero from '@/components/ShaderHero';
-import { ThreatGlobeClient } from '@/components/ThreatGlobeClient';
 import Marquee from '@/components/Marquee';
 import HeroVideoBackground from '@/components/HeroVideoBackground';
 import WorldMapGraph from '@/components/WorldMapGraph';
@@ -31,10 +30,7 @@ export default function HomePage() {
     <>
       {/* HERO */}
       <section className="force-dark relative overflow-hidden min-h-[100vh] flex items-center pt-28 pb-16 bg-void">
-        <HeroVideoBackground opacity="opacity-10" />
-        <div className="absolute inset-0 z-0">
-          <ThreatGlobeClient />
-        </div>
+        <HeroVideoBackground opacity="opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-b from-void/20 via-void/60 to-void" />
 
         <div className="container-x relative z-10">
