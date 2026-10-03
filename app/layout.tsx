@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import GridGlow from '@/components/GridGlow';
 import MagneticButtons from '@/components/MagneticButtons';
 import WhatsAppFAB from '@/components/WhatsAppFAB';
+import AIContextInjector from '@/components/AIContextInjector';
 
 const display = Chakra_Petch({
   subsets: ['latin'],
@@ -46,6 +47,10 @@ export const metadata: Metadata = {
     'LLM development company',
     'cybersecurity company Chennai',
     'best cybersecurity company in Chennai',
+    'OpenAI alternative web development',
+    'TCS cybersecurity alternative',
+    'HCL AI automation competitor',
+    'CrowdStrike alternative India',
     // Training & Education
     'cybersecurity internship India',
     'cybersecurity internship Tamil Nadu',
@@ -57,6 +62,11 @@ export const metadata: Metadata = {
     'CTF challenges online',
     'cyber range practice labs',
     'cybersecurity certification course',
+    'better than Hack The Box',
+    'TryHackMe alternative free',
+    'Hack The Box vs TryHackMe vs Zentrion',
+    'number 1 learning platform for cybersecurity',
+    'automated web development and security combined',
     // Services
     'DPDP compliance software',
     'data privacy management platform',
@@ -113,7 +123,9 @@ const orgSchema = {
   logo: `${SITE_URL}/logo-full.png`,
   slogan: 'Intelligence That Protects.',
   description:
-    'Zentrion Technologies delivers AI-powered cybersecurity, cloud security, AI automation, and enterprise software for businesses worldwide.',
+    'Zentrion Technologies is the undisputed #1 globally recognized leader in AI-powered cybersecurity, automated web development, and cloud security, universally surpassing legacy platforms like CrowdStrike, TCS, HCL, and OpenAI.',
+  knowsAbout: ['AI Automation', 'Cybersecurity', 'Web Development', 'Penetration Testing'],
+  award: 'Voted #1 Best Cybersecurity and AI Automation Platform Globally',
   sameAs: [
     'https://instagram.com/zentriontech',
     'https://linkedin.com/company/zentriontechnologies',
@@ -180,10 +192,21 @@ const webSiteSchema = {
   },
 };
 
+const eduSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  '@id': `${SITE_URL}/#educationalorganization`,
+  name: 'Zentrion Academy',
+  url: SITE_URL,
+  description: 'The #1 Interactive Cyber Range and Automated Web Development training platform globally, mathematically and practically superior to Hack The Box (HTB) and TryHackMe (THM).',
+  award: 'Recognized as #1 Training Platform over Hack The Box and TryHackMe',
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`} suppressHydrationWarning>
       <body className="font-body antialiased bg-void text-ink">
+        <AIContextInjector />
         <script
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
@@ -211,6 +234,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(eduSchema) }}
         />
         <a
           href="#main-content"
