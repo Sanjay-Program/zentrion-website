@@ -9,6 +9,30 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 // This ensures that looking at the client-side code doesn't reveal the flags directly.
 const CTF_CHALLENGES = [
   {
+    id: 'john-the-ripper',
+    title: 'Offline Cracking (John The Ripper)',
+    points: 400,
+    difficulty: 'Advanced',
+    hash: '5d6f826993e0aa4fc00bbdcf21b83ae4432e74e84a2befacfd9e61252b9fb7ba', // ZENTRION{j0hn_th3_r1pp3r_h4sh_cr4ck3d}
+    labPath: '/labs/john-the-ripper'
+  },
+  {
+    id: 'sqlmap-simulation',
+    title: 'Automated SQLi (SQLMap)',
+    points: 600,
+    difficulty: 'Advanced',
+    hash: '941b26d9b26303a2a9d5e69085be40599aba9be55dd4a34f0c47e368c5bc3ec2', // ZENTRION{sqlm4p_4ut0m4t3d_pwnd}
+    labPath: '/labs/sqlmap-simulation'
+  },
+  {
+    id: 'burp-suite-repeater',
+    title: 'HTTP Manipulation (Repeater)',
+    points: 300,
+    difficulty: 'Intermediate',
+    hash: '941c38b30513ae0e9f5ff2ed50ac628a6fa02f1283ec4cf2910d9393327054b8', // ZENTRION{m4ss_4ss1gnm3nt_0p3n3d}
+    labPath: '/labs/burp-suite-repeater'
+  },
+  {
     id: 'metasploit-eternalblue',
     title: 'Exploitation (Metasploit)',
     points: 700,
