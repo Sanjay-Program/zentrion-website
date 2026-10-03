@@ -208,106 +208,20 @@ export default function ResourcesPage() {
       </section>
 
       <section className="container-x py-16 border-t border-line">
-        <Reveal>
-          <Eyebrow>Deep Research Brief</Eyebrow>
-          <h2 className="mt-4 font-display text-3xl md:text-4xl font-semibold max-w-3xl leading-tight">
-            Cybersecurity in 2026: why vulnerability management, AI security and identity are
-            becoming one problem.
-          </h2>
-          <p className="mt-6 max-w-2xl text-mute leading-relaxed text-lg">
-            An independent research brief from the Zentrion Technologies security team on how the
-            expanding attack surface, generative-AI-driven attacks, and identity-centric
-            architecture are converging into a single, continuous discipline — and what
-            organizations can practically do about it.
-          </p>
-        </Reveal>
-      </section>
-
-      <section className="container-x pb-16">
-        <Reveal>
-          <SecurityMeshIllustration className="w-full h-auto max-w-3xl text-ink/70" />
-        </Reveal>
-      </section>
-
-      <section className="container-x py-16 border-t border-line">
-        <div className="max-w-3xl space-y-14">
-          {sections.map((s) => (
-            <Reveal key={s.id}>
-              <div id={s.id} className="scroll-mt-24">
-                <h2 className="font-display text-2xl md:text-3xl font-semibold leading-tight">
-                  {s.title}
-                </h2>
-                <div className="mt-4 space-y-4 text-mute leading-relaxed">
-                  {s.body.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-                {s.checklist && (
-                  <ol className="mt-4 space-y-3">
-                    {s.checklist.map((c, i) => (
-                      <li key={i} className="flex gap-3 text-sm text-mute leading-relaxed">
-                        <span className="font-mono text-cyan shrink-0">{String(i + 1).padStart(2, '0')}</span>
-                        <span>{c}</span>
-                      </li>
-                    ))}
-                  </ol>
-                )}
-              </div>
-            </Reveal>
-          ))}
-
+        <div className="flex flex-col md:flex-row items-start justify-between gap-8 mb-12">
           <Reveal>
-            <div id="zentrion-approach" className="scroll-mt-24">
-              <h2 className="font-display text-2xl md:text-3xl font-semibold leading-tight">
-                How Zentrion approaches this
-              </h2>
-              <div className="mt-4 space-y-4 text-mute leading-relaxed">
-                <p>
-                  Our approach is built around connecting cybersecurity, AI, cloud infrastructure,
-                  threat analytics, automation and API/endpoint security rather than treating each
-                  as an isolated problem. Current work spans security assessment and monitoring
-                  services, with product development underway across identity and cloud security
-                  intelligence, and unified security operations tooling for AI-assisted triage.
-                </p>
-                <p>
-                  The goal is simple: give organizations a clearer picture of where their risk
-                  actually is, and help them move from detection to action.
-                </p>
-              </div>
-            </div>
+            <Eyebrow>Deep Research</Eyebrow>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl font-semibold max-w-2xl leading-tight">
+              Explore our library of independent research publications.
+            </h2>
+            <p className="mt-6 max-w-2xl text-mute leading-relaxed text-lg">
+              Our security team publishes deep-dive analysis on vulnerability management, AI security, identity, cloud security, and the future of continuous cyber defense.
+            </p>
           </Reveal>
-
-          <Reveal>
-            <GlassCard hover={false}>
-              <p className="text-xs uppercase tracking-wide text-mute mb-2">Further reading</p>
-              <ul className="space-y-2 text-sm">
-                <li>
-                  <a href="https://www.nist.gov/cyberframework" target="_blank" rel="noopener noreferrer" className="text-cyan hover:underline">
-                    NIST Cybersecurity Framework 2.0
-                  </a>
-                </li>
-                <li>
-                  <a href="https://owasp.org/Top10/" target="_blank" rel="noopener noreferrer" className="text-cyan hover:underline">
-                    OWASP Top 10:2025
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener noreferrer" className="text-cyan hover:underline">
-                    Verizon Data Breach Investigations Report
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer" className="text-cyan hover:underline">
-                    CISA Known Exploited Vulnerabilities Catalog
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.cisa.gov/securebydesign" target="_blank" rel="noopener noreferrer" className="text-cyan hover:underline">
-                    CISA Secure by Design
-                  </a>
-                </li>
-              </ul>
-            </GlassCard>
+          <Reveal delay={0.2} className="shrink-0 pt-4 md:pt-14">
+            <Link href="/resources/research" className="inline-flex items-center justify-center h-12 px-6 rounded-lg bg-white text-black font-medium hover:bg-white/90 transition-colors">
+              Browse All Research
+            </Link>
           </Reveal>
         </div>
       </section>

@@ -144,7 +144,7 @@ export default function HomePage() {
               { label: 'Tools', href: '/tools' },
               { label: 'Labs', href: '/labs' },
               { label: 'Roadmaps', href: '/roadmaps' },
-              { label: 'Research', href: '/research' },
+              { label: 'Research', href: '/resources' },
               { label: 'Cheatsheets', href: '/cheatsheets' },
             ].map((link, i) => (
               <Reveal key={link.label} delay={i * 0.05}>
