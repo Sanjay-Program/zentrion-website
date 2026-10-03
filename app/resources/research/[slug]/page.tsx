@@ -48,7 +48,7 @@ export default async function ResearchArticlePage({ params }: { params: { slug: 
         <Reveal delay={0.1}>
           {/* Prose styles for markdown content */}
           <article 
-            className="mt-12 max-w-3xl prose prose-slate prose-invert:prose-invert prose-headings:font-display prose-headings:font-semibold prose-a:text-cyan prose-p:leading-relaxed prose-p:text-mute prose-li:text-mute"
+            className="mt-12 max-w-3xl prose dark:prose-invert prose-headings:font-display prose-headings:font-semibold prose-headings:text-ink prose-a:text-cyan prose-p:leading-relaxed prose-p:text-mute prose-li:text-mute prose-strong:text-ink"
             dangerouslySetInnerHTML={{ __html: article.content }}
           />
         </Reveal>

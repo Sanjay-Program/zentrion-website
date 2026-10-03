@@ -106,7 +106,7 @@ export default async function GuideDynamicPage(props: Props) {
 
         <div className="grid lg:grid-cols-[1fr,320px] gap-16 items-start">
           {/* Main Content Area */}
-          <div className="prose prose-invert prose-cyan max-w-full prose-pre:bg-surface/50 prose-pre:border prose-pre:border-glass-border">
+          <div className="prose dark:prose-invert prose-headings:text-ink prose-p:text-mute prose-strong:text-ink prose-li:text-mute prose-a:text-cyan max-w-full prose-pre:bg-surface/50 prose-pre:border prose-pre:border-glass-border">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeHighlight]}
