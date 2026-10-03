@@ -7,35 +7,33 @@ import { CONSULT_EMAIL, HR_EMAIL, COMPANY_ADDRESS, MAPS_LINK } from '@/lib/conta
 
 const columns = [
   {
-    title: 'Services',
+    title: 'Learn & Practice',
     links: [
-      { href: '/cybersecurity', label: 'Cybersecurity' },
-      { href: '/ai', label: 'AI Automation' },
-      { href: '/cloud', label: 'Cloud Consulting' },
-      { href: '/services', label: 'Software Development' },
-      { href: '/tools', label: 'Free Security Tools (30+)' },
-    ],
-  },
-  {
-    title: 'Cyber Range',
-    links: [
-      { href: '/labs', label: 'Interactive Labs' },
       { href: '/guides', label: 'Guides & Tutorials' },
-      { href: '/resources/cybersecurity-commands', label: 'Commands Cheat Sheet' },
-      { href: '/encyclopedia', label: 'Encyclopedia' },
-      { href: '/quizzes', label: 'Quizzes' },
+      { href: '/knowledge', label: 'Knowledge Base' },
+      { href: '/labs', label: 'Interactive Labs' },
+      { href: '/ctf', label: 'CTF Challenges' },
+      { href: '/tools', label: 'Security Tools' },
     ],
   },
   {
-    title: 'Company',
+    title: 'Career & Community',
     links: [
-      { href: '/about', label: 'About Us' },
-      { href: '/industries', label: 'Industries' },
+      { href: '/roadmaps', label: 'Learning Roadmaps' },
+      { href: '/my-learning', label: 'My Learning Progress' },
+      { href: '/assessments', label: 'Skills Assessments' },
+      { href: '/career-paths', label: 'Career Paths' },
+      { href: '/careers', label: 'Zentrion Careers' },
+    ],
+  },
+  {
+    title: 'Company & Services',
+    links: [
+      { href: '/services', label: 'Enterprise Services' },
+      { href: '/cybersecurity', label: 'Cybersecurity Testing' },
       { href: '/case-studies', label: 'Case Studies' },
-      { href: '/resources', label: 'Resources' },
-      { href: '/careers', label: 'Careers' },
-      { href: '/sitemap', label: 'Sitemap' },
-      { href: '/faq', label: 'FAQ' },
+      { href: '/research', label: 'Security Research' },
+      { href: '/about', label: 'About Us' },
       { href: '/contact', label: 'Contact' },
     ],
   },
@@ -45,6 +43,7 @@ const columns = [
       { href: '/privacy', label: 'Privacy Policy' },
       { href: '/terms', label: 'Terms & Conditions' },
       { href: '/security', label: 'Responsible Disclosure' },
+      { href: '/editorial-policy', label: 'Editorial Policy' },
     ],
   },
 ];

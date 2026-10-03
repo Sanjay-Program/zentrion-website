@@ -79,7 +79,7 @@ Nmap done: 1 IP address (1 host up) scanned in 2.11 seconds`,
         "A standard 'nmap target.lab' scan only checks the top 1,000 most common ports.",
         "Try scanning all 65,535 ports using the '-p-' flag to find services running on non-standard ports."
       ]}
-      flag="ZT{p0rt_8080_d1sc0v3r3d}"
+      flag="ZENTRION{p0rt_8080_d1sc0v3r3d}"
       explanation={
         <>
           <p className="mb-4">

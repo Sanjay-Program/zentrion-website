@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
-import rehypeSanitize from 'rehype-sanitize';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import Link from 'next/link';
 
@@ -109,10 +109,29 @@ export default async function GuideDynamicPage(props: Props) {
           <div className="prose dark:prose-invert prose-headings:text-ink prose-p:text-mute prose-strong:text-ink prose-li:text-mute prose-a:text-cyan max-w-full prose-pre:bg-surface/50 prose-pre:border prose-pre:border-glass-border">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeHighlight]}
+              rehypePlugins={[
+                rehypeRaw, 
+                [rehypeSanitize, defaultSchema], 
+                rehypeHighlight
+              ]}
             >
               {content}
             </ReactMarkdown>
+
+            {metadata.actionComponent && (
+              <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-cyan/10 to-indigo-500/10 border border-cyan/30 flex flex-col items-center text-center">
+                <h3 className="text-xl font-bold mb-3">Ready to practice what you learned?</h3>
+                <p className="text-mute mb-6 max-w-lg">
+                  Put your knowledge to the test in our browser-native cyber range. No installation required.
+                </p>
+                <Link 
+                  href={`/${metadata.actionComponent.type}s/${metadata.actionComponent.targetId}`}
+                  className="btn-primary"
+                >
+                  {metadata.actionComponent.label} &rarr;
+                </Link>
+              </div>
+            )}
 
             <div className="mt-16 pt-8 border-t border-line flex flex-col md:flex-row justify-between items-center gap-6 bg-surface/30 p-8 rounded-2xl">
               <div>

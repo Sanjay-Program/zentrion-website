@@ -20,7 +20,7 @@ export default function XSSGuide() {
         tags={['Web Security', 'Vulnerabilities', 'XSS']}
         difficulty="Beginner"
       >
-        <div className="prose prose-invert max-w-none">
+        <div className="prose dark:prose-invert max-w-none prose-headings:text-[rgb(var(--c-ink))] text-[rgb(var(--c-ink))]">
           <h2>What is it?</h2>
           <p>
             Cross-Site Scripting (XSS) is a widespread vulnerability that occurs when an application includes untrusted data in a web page without proper validation or escaping. This allows an attacker to execute malicious scripts (usually JavaScript) in the victim's browser.

@@ -125,8 +125,8 @@ export default function GuidesIndexPage() {
                   <div className="mb-4 text-[rgb(var(--c-ink))] group-hover:text-[rgb(var(--c-accent))] transition-colors"><FileText className="w-8 h-8" /></div>
                   <h3 className="font-bold text-base mb-2 group-hover:text-[rgb(var(--c-accent))] transition-colors leading-snug">{g.metadata.title}</h3>
                   <div className="mt-auto pt-4 flex items-center justify-between">
-                    <span className="text-xs text-[rgb(var(--c-mute))]">{g.metadata.readingTime}</span>
-                    <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold ${DIFF_COLORS[g.metadata.difficulty] || DIFF_COLORS['Intermediate']}`}>{g.metadata.difficulty}</span>
+                    <span className={`text-xs text-[rgb(var(--c-mute))]`}>{g.metadata.readingTime || '10 min read'}</span>
+                    <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold ${DIFF_COLORS[g.metadata.difficulty || 'Intermediate'] || DIFF_COLORS['Intermediate']}`}>{g.metadata.difficulty || 'Intermediate'}</span>
                   </div>
                 </Link>
               ))}

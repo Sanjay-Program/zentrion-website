@@ -88,7 +88,7 @@ const DashboardPage = () => {
         <ul className="space-y-3">
           <li className="flex items-start gap-3 text-gray-600">
             <span className="text-blue-500 font-bold">[INFO]</span>
-            <span>Flag for Zentrion Cyber Range: <code className="ml-2 px-2 py-1 bg-gray-100 text-red-600 rounded font-mono font-bold">ZT{'{'}sqli_l0g1n_byp4ss{'}'}</code></span>
+            <span>Flag for Zentrion Cyber Range: <code className="ml-2 px-2 py-1 bg-gray-100 text-red-600 rounded font-mono font-bold">ZENTRION{'{'}sqli_l0g1n_byp4ss{'}'}</code></span>
           </li>
           <li className="flex items-start gap-3 text-gray-600">
             <span className="text-yellow-500 font-bold">[WARN]</span>
@@ -122,7 +122,7 @@ export default function SqlInjectionRange() {
         "Try injecting: admin' OR '1'='1",
         "If successful, the query becomes true for the entire row, bypassing the password check."
       ]}
-      flag="ZT{sqli_l0g1n_byp4ss}"
+      flag="ZENTRION{sqli_l0g1n_byp4ss}"
       explanation={
         <>
           <p className="mb-4">

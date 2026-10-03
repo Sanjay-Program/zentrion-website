@@ -176,7 +176,11 @@ export default function LabWorkspace({
            {flagValidated ? (
              <div className="p-4 border border-emerald-500 bg-emerald-500/10 rounded flex flex-col items-center text-center">
                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-emerald-500 mb-2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-               <span className="text-sm font-bold text-emerald-500">Mission Accomplished</span>
+               <span className="text-sm font-bold text-emerald-500 mb-2">Flag Validated</span>
+               <p className="text-xs text-emerald-100/80 mb-3">Submit this flag on the CTF dashboard to claim your points.</p>
+               <Link href="/ctf" className="btn-primary py-1.5 px-4 text-xs w-full">
+                 Claim Points in CTF
+               </Link>
              </div>
            ) : (
             <form onSubmit={handleFlagSubmit} className="flex gap-2">

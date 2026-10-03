@@ -59,8 +59,7 @@ const GuestbookPage = () => {
             <p className="mb-6 font-mono bg-gray-100 p-2 rounded">{alertContent}</p>
             <p className="mb-6 text-sm text-gray-600 border-t pt-4">
               <strong>XSS Executed!</strong> Here is your flag: 
-              <br/>
-              <code className="text-red-600 font-bold bg-red-50 px-2 py-1 mt-2 block w-fit rounded">ZT{'{'}xss_p4yl04d_f1r3d{'}'}</code>
+              <code className="text-red-600 font-bold bg-red-50 px-2 py-1 mt-2 block w-fit rounded">ZENTRION{'{'}xss_p4yl04d_f1r3d{'}'}</code>
             </p>
             <div className="flex justify-end">
               <button 
@@ -130,7 +129,7 @@ export default function XssSimulationRange() {
         "Try wrapping JavaScript code inside standard HTML script tags.",
         "Your payload should look like: <script>alert(1)</script>"
       ]}
-      flag="ZT{xss_p4yl04d_f1r3d}"
+      flag="ZENTRION{xss_p4yl04d_f1r3d}"
       explanation={
         <>
           <p className="mb-4">

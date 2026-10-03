@@ -99,7 +99,7 @@ export default function HttpCookiesRange() {
         "Take a look at the 'Simulated Developer Tools' panel below the browser.",
         "Change the value of the 'role' cookie from 'guest' to 'admin', then click Refresh on the browser."
       ]}
-      flag="ZT{c00k13_m4n1pul4t10n_ftw}"
+      flag="ZENTRION{c00k13_m4n1pul4t10n_ftw}"
       explanation={
         <>
           <p className="mb-4">

@@ -19,7 +19,7 @@ export default function EditorialPolicyPage() {
         </div>
       </Reveal>
 
-      <div className="prose prose-invert prose-cyan max-w-none space-y-8">
+      <div className="prose dark:prose-invert prose-cyan max-w-none space-y-8 prose-headings:text-[rgb(var(--c-ink))] text-[rgb(var(--c-ink))]">
         <Reveal delay={0.1}>
           <section className="p-8 rounded-2xl glass-card border border-line">
             <h2 className="text-2xl font-display font-semibold mb-4 text-ink">1. Educational Purpose & Safety</h2>

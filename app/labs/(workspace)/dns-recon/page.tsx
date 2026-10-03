@@ -108,7 +108,7 @@ DNSSEC: unsigned`
         "Organizations often hide verification tokens, SPF rules, and third-party integrations in 'TXT' records.",
         "Try running 'dig target.lab txt' or 'dig target.lab any'."
       ]}
-      flag="ZT{dn5_z0n3_tr4nsf3r}"
+      flag="ZENTRION{dn5_z0n3_tr4nsf3r}"
       explanation={
         <>
           <p className="mb-4">

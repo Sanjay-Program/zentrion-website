@@ -26,7 +26,7 @@ export default function TermsAndConditions() {
       </section>
 
       <section className="container-x py-16 border-t border-line">
-        <div className="prose prose-invert max-w-4xl">
+        <div className="prose dark:prose-invert max-w-4xl prose-headings:text-[rgb(var(--c-ink))] text-[rgb(var(--c-ink))]">
           <h2>1. Introduction & Acceptance</h2>
           <p>
             Welcome to Zentrion Technologies ("Zentrion," "we," "our," or "us"). These Terms and Conditions ("Terms") govern your access to and use of our website (zentriontechnologies.com), educational resources, browser-based tools, cyber range laboratories, and related free services (collectively, the "Services"). By accessing or using the Services, you agree to be bound by these Terms. If you do not agree to these Terms, do not use the Services.

@@ -4,31 +4,77 @@ import matter from 'gray-matter';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
-export interface GuideMetadata {
+export type ContentType = 
+  | 'guides' 
+  | 'cheatsheets' 
+  | 'knowledge' 
+  | 'labs' 
+  | 'ctf' 
+  | 'tools' 
+  | 'courses' 
+  | 'roadmaps'
+  | 'projects';
+
+export interface BaseMetadata {
   title: string;
   slug: string;
   description: string;
-  category: string;
+  category: string; // The subfolder or main category
   subcategory?: string;
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
-  readingTime: string;
-  author: string;
+  difficulty?: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+  author?: string;
   publishedDate: string;
   updatedDate?: string;
   tags: string[];
+  // Relationships for the Knowledge Graph
   relatedGuides?: string[];
   relatedTools?: string[];
   relatedLabs?: string[];
+  relatedKnowledge?: string[];
+  relatedChallenges?: string[];
+  relatedRoadmaps?: string[];
+  // Interactive action block at the end of the guide (Knowledge Graph)
+  actionComponent?: {
+    type: 'lab' | 'tool' | 'ctf' | 'quiz' | 'external';
+    targetId: string;
+    label: string;
+  };
 }
 
-export interface ParsedGuide {
-  metadata: GuideMetadata;
+export interface GuideMetadata extends BaseMetadata {
+  readingTime: string;
+}
+
+export interface LabMetadata extends BaseMetadata {
+  estimatedTime: string;
+  isBrowserNative?: boolean;
+}
+
+export interface CTFMetadata extends BaseMetadata {
+  points: number;
+  flagFormat?: string;
+}
+
+export interface ParsedContent<T extends BaseMetadata = BaseMetadata> {
+  metadata: T;
   content: string;
 }
 
-export function getGuideBySlug(category: string, slug: string): ParsedGuide | null {
+/**
+ * Generic parser for any content type. 
+ * Supports flat directories (e.g. content/knowledge/slug.md) 
+ * and nested categories (e.g. content/guides/networking/slug.md)
+ */
+export function getContentBySlug<T extends BaseMetadata>(
+  type: ContentType,
+  slug: string,
+  category?: string
+): ParsedContent<T> | null {
   try {
-    const fullPath = path.join(CONTENT_DIR, 'guides', category, `${slug}.md`);
+    const fullPath = category 
+      ? path.join(CONTENT_DIR, type, category, `${slug}.md`)
+      : path.join(CONTENT_DIR, type, `${slug}.md`);
+
     if (!fs.existsSync(fullPath)) {
       return null;
     }
@@ -40,87 +86,68 @@ export function getGuideBySlug(category: string, slug: string): ParsedGuide | nu
       metadata: {
         ...data,
         slug,
-        category,
-      } as GuideMetadata,
+        category: category || data.category || type,
+      } as T,
       content,
     };
   } catch (error) {
-    console.error(`Error parsing guide ${category}/${slug}:`, error);
+    console.error(`Error parsing ${type} ${category ? category + '/' : ''}${slug}:`, error);
     return null;
   }
 }
 
-export function getAllGuides(): ParsedGuide[] {
-  const guidesDir = path.join(CONTENT_DIR, 'guides');
-  if (!fs.existsSync(guidesDir)) return [];
+/**
+ * Gets all content for a specific type. 
+ * Can handle both flat and nested directories.
+ */
+export function getAllContent<T extends BaseMetadata>(type: ContentType): ParsedContent<T>[] {
+  const typeDir = path.join(CONTENT_DIR, type);
+  if (!fs.existsSync(typeDir)) return [];
   
-  const guides: ParsedGuide[] = [];
-  const categories = fs.readdirSync(guidesDir);
+  const results: ParsedContent<T>[] = [];
+  const entries = fs.readdirSync(typeDir, { withFileTypes: true });
   
-  for (const category of categories) {
-    const categoryPath = path.join(guidesDir, category);
-    if (!fs.statSync(categoryPath).isDirectory()) continue;
-    
-    const files = fs.readdirSync(categoryPath);
-    for (const file of files) {
-      if (!file.endsWith('.md')) continue;
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      // It's a category folder (like in guides/)
+      const category = entry.name;
+      const categoryPath = path.join(typeDir, category);
+      const files = fs.readdirSync(categoryPath);
       
-      const slug = file.replace(/\.md$/, '');
-      const guide = getGuideBySlug(category, slug);
-      if (guide) {
-        guides.push(guide);
+      for (const file of files) {
+        if (!file.endsWith('.md')) continue;
+        const slug = file.replace(/\.md$/, '');
+        const parsed = getContentBySlug<T>(type, slug, category);
+        if (parsed) results.push(parsed);
       }
+    } else if (entry.name.endsWith('.md')) {
+      // It's a flat file (like in cheatsheets/)
+      const slug = entry.name.replace(/\.md$/, '');
+      const parsed = getContentBySlug<T>(type, slug);
+      if (parsed) results.push(parsed);
     }
   }
   
   // Sort by newest first
-  return guides.sort((a, b) => 
-    new Date(b.metadata.publishedDate).getTime() - new Date(a.metadata.publishedDate).getTime()
+  return results.sort((a, b) => 
+    new Date(b.metadata.publishedDate || 0).getTime() - new Date(a.metadata.publishedDate || 0).getTime()
   );
 }
 
-export function getCheatsheetBySlug(slug: string): ParsedGuide | null {
-  try {
-    const fullPath = path.join(CONTENT_DIR, 'cheatsheets', `${slug}.md`);
-    if (!fs.existsSync(fullPath)) {
-      return null;
-    }
-    
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
-    
-    return {
-      metadata: {
-        ...data,
-        slug,
-        category: 'cheatsheet',
-      } as GuideMetadata,
-      content,
-    };
-  } catch (error) {
-    console.error(`Error parsing cheatsheet ${slug}:`, error);
-    return null;
-  }
+// Backward compatibility wrappers for existing code
+export function getGuideBySlug(category: string, slug: string) {
+  return getContentBySlug<GuideMetadata>('guides', slug, category);
 }
 
-export function getAllCheatsheets(): ParsedGuide[] {
-  const cheatsheetsDir = path.join(CONTENT_DIR, 'cheatsheets');
-  if (!fs.existsSync(cheatsheetsDir)) return [];
-  
-  const cheatsheets: ParsedGuide[] = [];
-  const files = fs.readdirSync(cheatsheetsDir);
-  
-  for (const file of files) {
-    if (!file.endsWith('.md')) continue;
-    
-    const slug = file.replace(/\.md$/, '');
-    const sheet = getCheatsheetBySlug(slug);
-    if (sheet) {
-      cheatsheets.push(sheet);
-    }
-  }
-  
-  return cheatsheets.sort((a, b) => 
-    new Date(b.metadata.publishedDate).getTime() - new Date(a.metadata.publishedDate).getTime()
-  );
+export function getAllGuides() {
+  return getAllContent<GuideMetadata>('guides');
 }
+
+export function getCheatsheetBySlug(slug: string) {
+  return getContentBySlug<BaseMetadata>('cheatsheets', slug);
+}
+
+export function getAllCheatsheets() {
+  return getAllContent<BaseMetadata>('cheatsheets');
+}
+

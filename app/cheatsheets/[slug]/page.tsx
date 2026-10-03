@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
-import rehypeSanitize from 'rehype-sanitize';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
 type Props = {
@@ -54,15 +54,20 @@ export default async function CheatsheetDynamicPage(props: Props) {
             {metadata.description}
           </p>
         </header>
-
-        <div className="prose prose-invert prose-cyan max-w-5xl mx-auto prose-pre:bg-surface/50 prose-pre:border prose-pre:border-glass-border">
+      <div className="mt-8">
+        <div className="prose dark:prose-invert prose-cyan max-w-5xl mx-auto prose-pre:bg-surface/50 prose-pre:border prose-pre:border-glass-border prose-headings:text-[rgb(var(--c-ink))] text-[rgb(var(--c-ink))]">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeRaw, rehypeSanitize, rehypeHighlight]}
+            rehypePlugins={[
+              rehypeRaw, 
+              [rehypeSanitize, defaultSchema], 
+              rehypeHighlight
+            ]}
           >
             {content}
           </ReactMarkdown>
         </div>
+      </div>
       </article>
     </>
   );

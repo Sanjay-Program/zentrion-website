@@ -208,7 +208,7 @@ export function Terminal({
   return (
     <div
       onClick={handleFocus}
-      className={`bg-[#0a0a0a] border border-line rounded-lg p-4 font-mono text-sm text-gray-300 h-[400px] overflow-y-auto cursor-text shadow-inner ${className}`}
+      className={`bg-[#0a0a0a] border border-line rounded-lg p-4 font-mono text-sm text-gray-300 h-[400px] overflow-y-auto cursor-text shadow-inner crt-terminal ${className}`}
     >
       {history.map((item, i) => (
         <div key={i} className="mb-2 whitespace-pre-wrap break-words leading-relaxed">

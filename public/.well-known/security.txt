@@ -1,0 +1,4 @@
+Contact: mailto:security@zentriontechnologies.com
+Policy: https://zentriontechnologies.com/security
+Preferred-Languages: en
+Canonical: https://zentriontechnologies.com/.well-known/security.txt

@@ -94,7 +94,7 @@ Finished
         "Look for directories returning HTTP Status 200 (OK). Status 403 means Forbidden, 301 means Redirect.",
         "A large file size (Size: 21459203) usually indicates an archive or database dump."
       ]}
-      flag="ZT{unpr0t3ct3d_b4ckup_f0und}"
+      flag="ZENTRION{unpr0t3ct3d_b4ckup_f0und}"
       explanation={
         <>
           <p className="mb-4">

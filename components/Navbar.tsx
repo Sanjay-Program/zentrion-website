@@ -12,29 +12,40 @@ type NavItem = { label: string; href?: string; items?: NavLink[] };
 
 const navItems: NavItem[] = [
   {
-    label: 'Cyber Range',
+    label: 'Learn',
     items: [
-      { href: '/labs', label: 'Interactive Labs', blurb: 'Browser-side vulnerability simulations' },
-      { href: '/tools', label: 'Security Tools', blurb: 'Free recon and web security utilities' },
-      { href: '/quizzes', label: 'Challenges', blurb: 'Test your cybersecurity knowledge' },
+      { href: '/guides', label: 'Guides', blurb: 'Practical cybersecurity tutorials' },
+      { href: '/knowledge', label: 'Knowledge Base', blurb: 'Structured security concepts' },
+      { href: '/cheatsheets', label: 'Cheatsheets', blurb: 'Quick reference commands' },
+      { href: '/roadmaps', label: 'Roadmaps', blurb: 'Step-by-step learning paths' },
     ],
   },
   {
-    label: 'Services',
+    label: 'Practice',
     items: [
-      { href: '/services/web-development', label: 'Software Engineering', blurb: 'Web, SaaS, CRM, and ERP' },
-      { href: '/services/generative-ai', label: 'AI Solutions', blurb: 'Agents, RAG, and automation' },
-      { href: '/services/vapt', label: 'Cybersecurity', blurb: 'VAPT, API and Cloud Security' },
-      { href: '/services', label: 'All Services', blurb: 'Full overview of enterprise services' },
+      { href: '/labs', label: 'Interactive Labs', blurb: 'Browser-side simulations' },
+      { href: '/ctf', label: 'CTF Challenges', blurb: 'Capture the flag exercises' },
+      { href: '/campaigns', label: 'Cyber Campaigns', blurb: 'Multi-stage kill chain sims' },
+      { href: '/leaderboard', label: 'Leaderboard', blurb: 'Global P2P hacker rankings' },
+      { href: '/tools', label: 'Security Tools', blurb: 'Free recon & web utilities' },
+    ],
+  },
+  {
+    label: 'Career',
+    items: [
+      { href: '/my-learning', label: 'My Learning', blurb: 'Track your progress locally' },
+      { href: '/career-paths', label: 'Career Paths', blurb: 'SOC, AppSec, Cloud paths' },
+      { href: '/assessments', label: 'Assessments', blurb: 'Test your skill readiness' },
+      { href: '/verify', label: 'Verify Credentials', blurb: 'Cryptographic proof of learning' },
     ],
   },
   {
     label: 'Company',
     items: [
-      { href: '/about', label: 'About Zentrion', blurb: 'Our mission and team' },
-      { href: '/case-studies', label: 'Portfolio & Case Studies', blurb: 'Client success stories' },
-      { href: '/encyclopedia', label: 'Research', blurb: 'Threat intelligence and reports' },
-      { href: '/resources', label: 'Resources', blurb: 'Checklists and templates' },
+      { href: '/services', label: 'Enterprise Services', blurb: 'Security & engineering' },
+      { href: '/research', label: 'Research', blurb: 'Zentrion threat intelligence' },
+      { href: '/case-studies', label: 'Case Studies', blurb: 'Client success stories' },
+      { href: '/about', label: 'About Us', blurb: 'Mission and team' },
     ],
   },
 ];

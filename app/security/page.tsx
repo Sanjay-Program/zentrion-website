@@ -25,7 +25,7 @@ export default function SecurityPolicy() {
       </section>
 
       <section className="container-x py-16 border-t border-line">
-        <div className="prose prose-invert max-w-4xl">
+        <div className="prose dark:prose-invert max-w-4xl prose-headings:text-[rgb(var(--c-ink))] text-[rgb(var(--c-ink))]">
           <h2>Authorization & Safe Harbor</h2>
           <p>
             If you make a good faith effort to comply with this policy during your security research, we will consider your research to be authorized, we will work with you to understand and resolve the issue quickly, and Zentrion will not initiate or recommend legal action related to your research.

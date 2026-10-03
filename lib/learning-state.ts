@@ -8,6 +8,8 @@ export interface LearningState {
   completedQuizzes: { id: string, score: number, total: number }[];
   bookmarks: string[];
   recentlyViewed: { url: string; title: string; timestamp: number }[];
+  ctfScore: number;
+  capturedFlags: string[];
 }
 
 const STORAGE_KEY = 'zentrion_learning_state';
@@ -18,6 +20,8 @@ const defaultState: LearningState = {
   completedQuizzes: [],
   bookmarks: [],
   recentlyViewed: [],
+  ctfScore: 0,
+  capturedFlags: [],
 };
 
 // Internal helper to get/set state
@@ -99,6 +103,26 @@ export const learningManager = {
       state.recentlyViewed = state.recentlyViewed.slice(0, 10);
     }
     saveState(state);
+  },
+  
+  captureFlag: (flagId: string, points: number) => {
+    const state = getState();
+    if (!state.capturedFlags) {
+      state.capturedFlags = [];
+      state.ctfScore = 0;
+    }
+    if (!state.capturedFlags.includes(flagId)) {
+      state.capturedFlags.push(flagId);
+      state.ctfScore += points;
+      saveState(state);
+      return true; // Newly captured
+    }
+    return false; // Already captured
+  },
+
+  hasFlag: (flagId: string) => {
+    const state = getState();
+    return state.capturedFlags?.includes(flagId) || false;
   },
   
   isCompleted: (type: 'guide' | 'lab', slug: string) => {

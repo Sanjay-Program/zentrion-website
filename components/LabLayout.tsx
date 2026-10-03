@@ -45,7 +45,7 @@ export function LabLayout({
   const [isSolved, setIsSolved] = useState(false);
   const [error, setError] = useState(false);
   const [visibleHints, setVisibleHints] = useState<number>(0);
-  const { markLabSolved } = useRangeStore();
+  const { markLabSolved, updateCampaignProgress } = useRangeStore();
 
   const handleFlagSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,6 +53,14 @@ export function LabLayout({
       setIsSolved(true);
       setError(false);
       markLabSolved(labId, xpReward);
+      
+      // Handle Campaign Progress
+      const params = new URLSearchParams(window.location.search);
+      const campaignId = params.get('campaign');
+      if (campaignId) {
+        // Next lab logic can be inferred by the store if needed, or left empty
+        updateCampaignProgress(campaignId, labId);
+      }
     } else {
       setError(true);
       setTimeout(() => setError(false), 3000);
@@ -157,7 +165,7 @@ export function LabLayout({
           <GlassCard>
             <h3 className="font-bold mb-4">Submit Flag</h3>
             <p className="text-xs text-mute mb-4">
-              Complete the objective to find the flag. Format: ZT&#123;...&#125;
+              Complete the objective to find the flag. Format: ZENTRION&#123;...&#125;
             </p>
             <form onSubmit={handleFlagSubmit} className="space-y-3">
               <input
@@ -165,7 +173,7 @@ export function LabLayout({
                 value={flagInput}
                 onChange={(e) => setFlagInput(e.target.value)}
                 disabled={isSolved}
-                placeholder="ZT{...}"
+                placeholder="ZENTRION{...}"
                 className={`w-full bg-surface border ${error ? 'border-red-500' : isSolved ? 'border-emerald-500' : 'border-line'} rounded px-3 py-2 text-sm focus:outline-none focus:border-cyan transition-colors disabled:opacity-50`}
               />
               <button 
@@ -177,6 +185,14 @@ export function LabLayout({
               </button>
               {error && <p className="text-xs text-red-500 text-center">Incorrect flag. Try again.</p>}
             </form>
+            {isSolved && (
+              <div className="mt-4 p-3 border border-emerald-500/30 bg-emerald-500/10 rounded text-center">
+                <p className="text-xs text-emerald-100/80 mb-2">Claim your points in the CTF dashboard!</p>
+                <Link href="/ctf" className="text-emerald-400 hover:text-emerald-300 text-xs font-bold hover:underline">
+                  Go to CTF Dashboard &rarr;
+                </Link>
+              </div>
+            )}
           </GlassCard>
         </Reveal>
 

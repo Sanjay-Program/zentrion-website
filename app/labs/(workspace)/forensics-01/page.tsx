@@ -80,7 +80,7 @@ exit`
         "Look for multiple 'Failed password' or '401' responses indicating a brute force attack, followed by a success ('Accepted password' or '200').",
         "The flag is ZT{IP_ADDRESS} where IP_ADDRESS is the attacker's IP."
       ]}
-      flag="ZT{185.15.22.1}"
+      flag="ZENTRION{185.15.22.1}"
       explanation={
         <>
           <p className="mb-4">

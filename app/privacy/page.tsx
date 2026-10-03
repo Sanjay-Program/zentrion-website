@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="container-x py-16 border-t border-line">
-        <div className="prose prose-invert max-w-4xl">
+        <div className="prose dark:prose-invert max-w-4xl prose-headings:text-[rgb(var(--c-ink))] text-[rgb(var(--c-ink))]">
           <h2>1. Who We Are & Scope</h2>
           <p>
             Zentrion Technologies ("we," "us," or "our") respects your privacy. This Privacy Policy describes how we process, store, and protect information when you use our website (zentriontechnologies.com), educational tools, cyber range labs, and associated free services. 
