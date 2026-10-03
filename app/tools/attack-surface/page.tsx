@@ -176,9 +176,6 @@ export default function AttackSurfaceScanner() {
                   <p className="text-sm text-emerald-100/80 mb-6">
                     Check your inbox at <strong>{email}</strong>. The full threat intelligence report should arrive within 2 minutes.
                   </p>
-                  <Link href="/pricing" className="btn-primary text-sm px-6">
-                    Upgrade to Continuous Monitoring
-                  </Link>
                 </div>
               )}
             </div>
