@@ -1,6 +1,8 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import { generateKeyPair, exportPublicKey, signData } from '@/lib/crypto-utils';
+import { gun } from '@/lib/gun';
 
 interface CertificateProps {
   xp: number;
@@ -11,16 +13,104 @@ interface CertificateProps {
 
 export function CertificateGenerator({ xp, completedLabs, badges, onClose }: CertificateProps) {
   const printRef = useRef<HTMLDivElement>(null);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [shareableUrl, setShareableUrl] = useState<string | null>(null);
+  const [handle, setHandle] = useState('ANONYMOUS');
+
+  useEffect(() => {
+    const storedHandle = localStorage.getItem('zentrion_hacker_handle');
+    if (storedHandle) setHandle(storedHandle);
+  }, []);
 
   const handlePrint = () => {
     window.print();
   };
 
+  const generateShareableLink = async () => {
+    try {
+      setIsGenerating(true);
+      const certId = crypto.randomUUID();
+      const payload = {
+        handle,
+        xp,
+        completedLabs,
+        badges,
+        date: new Date().toLocaleDateString(),
+        type: 'Zentrion Academy Certificate of Achievement'
+      };
+
+      const keyPair = await generateKeyPair();
+      const publicKey = await exportPublicKey(keyPair.publicKey);
+      const signature = await signData(keyPair.privateKey, payload);
+
+      const certData = {
+        payload,
+        signature,
+        publicKey
+      };
+
+      // Store in GUN DHT
+      if (!gun) {
+        throw new Error("P2P Network not initialized");
+      }
+      
+      gun.get('certificates').get(certId).put(JSON.stringify(certData), (ack: any) => {
+        if (ack.err) {
+          console.error("Error storing certificate:", ack.err);
+          alert("Failed to generate link. P2P network error.");
+        } else {
+          const url = `${window.location.origin}/verify?id=${certId}`;
+          setShareableUrl(url);
+        }
+        setIsGenerating(false);
+      });
+    } catch (e) {
+      console.error(e);
+      alert("Failed to sign certificate.");
+      setIsGenerating(false);
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm print:bg-white print:p-0 print:block">
       
+      {/* Shareable Link Modal */}
+      {shareableUrl && (
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 z-50 bg-surface border border-cyan/30 rounded-xl p-6 shadow-[0_0_40px_rgba(47,107,255,0.3)] max-w-lg w-full">
+          <h3 className="text-xl font-bold text-white mb-2">Certificate Published!</h3>
+          <p className="text-mute mb-4 text-sm">Your cryptographically signed certificate has been stored on the decentralized P2P network. Anyone with this link can verify your achievements.</p>
+          <div className="flex gap-2">
+            <input 
+              type="text" 
+              readOnly 
+              value={shareableUrl} 
+              className="flex-1 bg-void border border-line text-white px-3 py-2 rounded focus:outline-none focus:border-cyan"
+            />
+            <button 
+              onClick={() => navigator.clipboard.writeText(shareableUrl)}
+              className="bg-cyan/20 text-cyan px-4 py-2 rounded hover:bg-cyan/30 transition-colors"
+            >
+              Copy
+            </button>
+          </div>
+          <button 
+            onClick={() => setShareableUrl(null)}
+            className="w-full mt-4 bg-void border border-line text-mute py-2 rounded hover:text-white transition-colors"
+          >
+            Close
+          </button>
+        </div>
+      )}
+
       {/* Non-print controls */}
       <div className="absolute top-6 right-6 flex gap-4 print:hidden z-10">
+        <button 
+          onClick={generateShareableLink}
+          disabled={isGenerating}
+          className="bg-cyan/20 border border-cyan/30 text-cyan py-2 px-6 rounded hover:bg-cyan/30 transition-colors disabled:opacity-50"
+        >
+          {isGenerating ? 'Signing...' : 'Create Shareable Link'}
+        </button>
         <button 
           onClick={handlePrint}
           className="btn-primary py-2 px-6 shadow-[0_0_20px_rgba(47,107,255,0.4)]"
@@ -60,7 +150,7 @@ export function CertificateGenerator({ xp, completedLabs, badges, onClose }: Cer
 
           <div className="max-w-xl mx-auto space-y-6 py-8">
             <p className="text-mute text-lg print:text-gray-700">
-              This certifies that the bearer of this document has successfully demonstrated practical cybersecurity skills by achieving the following milestones:
+              This certifies that operative <span className="text-white font-bold print:text-black">{handle}</span> has successfully demonstrated practical cybersecurity skills by achieving the following milestones:
             </p>
             
             <div className="grid grid-cols-3 gap-6 pt-4">

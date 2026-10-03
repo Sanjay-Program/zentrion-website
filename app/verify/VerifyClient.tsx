@@ -4,14 +4,27 @@
 // Note: metadata for this page is in a server wrapper if needed.
 // This page uses crypto.subtle which requires client-side execution.
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GlassCard, Reveal } from '@/components/ui';
+import VerifySharedClient from './VerifySharedClient';
 
 export default function VerifyClient() {
   const [jsonInput, setJsonInput] = useState('');
   const [status, setStatus] = useState<'idle' | 'verifying' | 'valid' | 'invalid' | 'error'>('idle');
   const [verifiedData, setVerifiedData] = useState<any>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [sharedCertId, setSharedCertId] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Check if we have an ID in the URL for the P2P verified cert
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+      if (id) {
+        setSharedCertId(id);
+      }
+    }
+  }, []);
 
   const handleVerify = async () => {
     try {
@@ -67,6 +80,10 @@ export default function VerifyClient() {
       }
     }
   };
+
+  if (sharedCertId) {
+    return <VerifySharedClient certId={sharedCertId} />;
+  }
 
   return (
     <div className="container-x py-20 md:py-32 flex flex-col items-center">
