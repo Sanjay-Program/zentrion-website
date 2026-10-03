@@ -75,7 +75,7 @@ export default function LabWorkspace({
                 <li>Zentrion may modify, suspend, or remove labs at any time without notice. Lab availability is not guaranteed.</li>
                 <li>Completion of a lab does not constitute a professional certification, and scores/flags do not constitute proof of real-world security competence.</li>
               </ul>
-              <p className="text-white font-semibold">Any offensive or unauthorized use of these techniques outside this environment is strictly prohibited and illegal.</p>
+              <p className="text-ink font-semibold">Any offensive or unauthorized use of these techniques outside this environment is strictly prohibited and illegal.</p>
             </div>
             <div className="flex justify-end gap-4">
               <Link href="/labs" className="btn-ghost">Decline & Exit</Link>
@@ -112,7 +112,7 @@ export default function LabWorkspace({
                 {difficulty}
               </span>
             </div>
-            <h1 className="text-xl font-bold font-display text-white">{title}</h1>
+            <h1 className="text-xl font-bold font-display text-cyan">{title}</h1>
           </div>
 
           <div className="mb-6 p-3 bg-red-500/10 border border-red-500/30 rounded text-red-400">
@@ -167,7 +167,7 @@ export default function LabWorkspace({
              <div className="mb-3 p-3 border border-emerald-500/30 bg-emerald-500/10 rounded">
                <p className="text-xs text-emerald-400 font-bold mb-1">Target Acquired!</p>
                <p className="text-[10px] text-emerald-100/70">Submit the flag below to complete the mission.</p>
-               <p className="text-xs font-mono text-white mt-2 p-1.5 bg-void border border-line rounded select-all">
+               <p className="text-xs font-mono text-cyan mt-2 p-1.5 bg-void border border-line rounded select-all">
                  {flagId}
                </p>
              </div>
@@ -189,7 +189,7 @@ export default function LabWorkspace({
                 placeholder="ZENTRION{...}"
                 value={flagInput}
                 onChange={(e) => setFlagInput(e.target.value)}
-                className="flex-1 bg-surface border border-line rounded px-3 py-2 text-xs text-white placeholder:text-mute focus:outline-none focus:border-cyan"
+                className="flex-1 bg-surface border border-line rounded px-3 py-2 text-xs text-ink placeholder:text-mute focus:outline-none focus:border-cyan"
               />
               <button 
                 type="submit"
@@ -207,7 +207,7 @@ export default function LabWorkspace({
         {/* Topbar */}
         <header className="h-12 border-b border-white/10 bg-black/40 flex items-center justify-between px-4 shrink-0">
           <div className="flex items-center gap-4 text-xs text-mute font-mono">
-             <span>SYS.TIME: <span className="text-white">{formatTime(time)}</span></span>
+             <span>SYS.TIME: <span className="text-cyan">{formatTime(time)}</span></span>
              <span className="hidden sm:inline-block">ENV: <span className="text-cyan">SANDBOX</span></span>
           </div>
           <div className="flex items-center gap-3">

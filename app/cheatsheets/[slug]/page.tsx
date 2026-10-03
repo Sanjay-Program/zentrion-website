@@ -55,7 +55,7 @@ export default async function CheatsheetDynamicPage(props: Props) {
           </p>
         </header>
       <div className="mt-8">
-        <div className="prose dark:prose-invert prose-cyan max-w-5xl mx-auto prose-pre:bg-surface/50 prose-pre:border prose-pre:border-glass-border prose-headings:text-[rgb(var(--c-ink))] text-[rgb(var(--c-ink))]">
+        <div className="prose max-w-5xl mx-auto prose-headings:text-ink prose-p:text-mute prose-a:text-accent prose-strong:text-ink prose-code:text-ink prose-code:bg-surface/50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-pre:bg-surface/50 prose-pre:border prose-pre:border-glass-border prose-pre:text-mute prose-td:text-mute prose-th:text-ink prose-li:text-mute text-ink">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[
