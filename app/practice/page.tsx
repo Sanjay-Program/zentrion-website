@@ -31,7 +31,7 @@ export default function HackerHubPage() {
             </div>
             <div>
               <Eyebrow>Operative Profile</Eyebrow>
-              <h1 className="font-mono text-3xl md:text-4xl font-bold text-white uppercase tracking-wider">
+              <h1 className="font-mono text-3xl md:text-4xl font-bold text-ink uppercase tracking-wider">
                 {isMounted ? handle : 'Loading...'}
               </h1>
             </div>
