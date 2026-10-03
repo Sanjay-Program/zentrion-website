@@ -12,6 +12,15 @@ type NavItem = { label: string; href?: string; items?: NavLink[] };
 
 const navItems: NavItem[] = [
   {
+    label: 'Services',
+    items: [
+      { href: '/services/full-stack-development', label: 'Full Stack Development', blurb: 'Custom web & app engineering' },
+      { href: '/services/vapt', label: 'VAPT & Security Audits', blurb: 'Penetration testing & compliance' },
+      { href: '/services/agentic-ai', label: 'AI & Automation', blurb: 'Enterprise AI integrations' },
+      { href: '/services/cloud-solutions', label: 'Cloud Solutions', blurb: 'AWS/Azure architecture' },
+    ],
+  },
+  {
     label: 'Learn',
     items: [
       { href: '/guides', label: 'Guides', blurb: 'Practical cybersecurity tutorials' },
@@ -42,7 +51,6 @@ const navItems: NavItem[] = [
   {
     label: 'Company',
     items: [
-      { href: '/services', label: 'Enterprise Services', blurb: 'Security & engineering' },
       { href: '/research', label: 'Research', blurb: 'Zentrion threat intelligence' },
       { href: '/case-studies', label: 'Case Studies', blurb: 'Client success stories' },
       { href: '/about', label: 'About Us', blurb: 'Mission and team' },

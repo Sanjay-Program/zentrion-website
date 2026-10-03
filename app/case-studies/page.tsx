@@ -21,6 +21,16 @@ const cases = [
       'Findings were triaged into critical/high/medium/low, remediated by the client engineering team, and re-verified — giving the client a clean security summary to share with enterprise prospects.',
   },
   {
+    tag: 'Full Stack · Custom Software Engineering',
+    title: 'Architecting a scalable, secure AI platform for a healthcare startup',
+    problem:
+      'A rapidly growing startup needed to build a complex SaaS platform integrating real-time telemetry, AI models, and HIPAA-compliant data, but lacked the internal full-stack engineering expertise to build securely and launch on time.',
+    approach:
+      'We deployed a dedicated squad of senior full-stack developers to architect and build the entire platform from scratch (Next.js, Node, AWS). We embedded security into the SDLC from day one, implementing robust RBAC, end-to-end encryption, and automated CI/CD pipeline gating.',
+    outcome:
+      'The platform launched 2 months ahead of schedule, scaling seamlessly to support 100,000+ active users. It passed rigorous external penetration testing with zero critical findings and achieved perfect HIPAA compliance audit scores.',
+  },
+  {
     tag: 'Privacy Engineering · DPDP Readiness',
     title: 'DPDP readiness assessment for a data-processing organization',
     problem:
