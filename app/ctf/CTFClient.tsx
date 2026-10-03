@@ -127,6 +127,30 @@ const CTF_CHALLENGES = [
     difficulty: 'Intermediate',
     hash: 'fb1da68a89c5012aba930870c9a00abc1393b7ff6e3b6ded2eb8e95cd0dfb1a5', // ZENTRION{w3b_w0rk3rs_cr4ck3d_1t}
     labPath: '/labs/hash-cracking'
+  },
+  {
+    id: 'crypto-basics',
+    title: 'Cryptography Basics',
+    points: 150,
+    difficulty: 'Beginner',
+    hash: '76bc0f0d066688cae124859871100e19d1d5a246a12690bf12eb003f130ce400', // ZENTRION{b4s364_1s_n0t_3ncrypt10n}
+    labPath: '/labs/crypto-basics'
+  },
+  {
+    id: 'idor-vulnerability',
+    title: 'IDOR Vulnerability',
+    points: 250,
+    difficulty: 'Intermediate',
+    hash: '087aff048c97fde86fc3e955fca03d04665383899f2e44b9bc00c33a6e490765', // ZENTRION{1d0r_4dm1n_4cc3ss_gr4nt3d}
+    labPath: '/labs/idor-vulnerability'
+  },
+  {
+    id: 'steganography-101',
+    title: 'Steganography 101',
+    points: 200,
+    difficulty: 'Beginner',
+    hash: '283b3aeea030a37938e2e5a0f7369e0f1582bc4952f07972dc4aa3534104abf5', // ZENTRION{h1dd3n_1n_pl41n_s1ght}
+    labPath: '/labs/steganography-101'
   }
 ];
 

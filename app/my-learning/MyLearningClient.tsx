@@ -9,6 +9,7 @@ import { CATEGORIES } from '@/lib/tools-data';
 export default function MyLearningClient() {
   const [state, setState] = useState<LearningState | null>(null);
   const rangeState = useRangeStore();
+  const [exportStatus, setExportStatus] = useState<'idle' | 'exporting' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     // Initial load
@@ -269,6 +270,7 @@ export default function MyLearningClient() {
               <button 
                 onClick={async () => {
                   try {
+                    setExportStatus('exporting');
                     const { generateKeyPair, exportPublicKey, signData } = await import('@/lib/crypto-utils');
                     const keyPair = await generateKeyPair();
                     const pubKeyJwk = await exportPublicKey(keyPair.publicKey);
@@ -296,13 +298,26 @@ export default function MyLearningClient() {
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
+                    
+                    setExportStatus('success');
+                    setTimeout(() => setExportStatus('idle'), 3000);
                   } catch (e) {
-                    alert('Failed to export verifiable profile.');
+                    console.error(e);
+                    setExportStatus('error');
+                    setTimeout(() => setExportStatus('idle'), 3000);
                   }
                 }}
-                className="w-full btn-primary py-2 px-4 text-xs mb-6"
+                disabled={exportStatus !== 'idle'}
+                className={`w-full py-2 px-4 text-xs mb-6 transition-all duration-300 ${
+                  exportStatus === 'success' ? 'bg-green-500 text-white rounded-full' :
+                  exportStatus === 'error' ? 'bg-red-500 text-white rounded-full' :
+                  'btn-primary'
+                }`}
               >
-                Export Signed Profile
+                {exportStatus === 'exporting' ? 'Generating Keys...' :
+                 exportStatus === 'success' ? 'Profile Exported! ✓' :
+                 exportStatus === 'error' ? 'Export Failed ✗' :
+                 'Export Signed Profile'}
               </button>
 
               <h3 className="font-semibold text-sm uppercase tracking-wider text-mute mb-2 mt-4">Privacy Note</h3>

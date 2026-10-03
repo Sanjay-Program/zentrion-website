@@ -11,6 +11,7 @@ export default function VerifyClient() {
   const [jsonInput, setJsonInput] = useState('');
   const [status, setStatus] = useState<'idle' | 'verifying' | 'valid' | 'invalid' | 'error'>('idle');
   const [verifiedData, setVerifiedData] = useState<any>(null);
+  const [isDragging, setIsDragging] = useState(false);
 
   const handleVerify = async () => {
     try {
@@ -38,6 +39,35 @@ export default function VerifyClient() {
     }
   };
 
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      const file = e.dataTransfer.files[0];
+      if (file.type === 'application/json' || file.name.endsWith('.json')) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          if (event.target && typeof event.target.result === 'string') {
+            setJsonInput(event.target.result);
+            setStatus('idle');
+          }
+        };
+        reader.readAsText(file);
+      }
+    }
+  };
+
   return (
     <div className="container-x py-20 md:py-32 flex flex-col items-center">
       <Reveal className="text-center mb-12">
@@ -52,18 +82,31 @@ export default function VerifyClient() {
 
       <GlassCard className="w-full max-w-2xl p-6 md:p-10">
         <div className="mb-6">
-          <label className="block text-sm font-semibold uppercase tracking-wider text-mute mb-3">
-            Paste JSON Token
+          <label className="block text-sm font-semibold uppercase tracking-wider text-mute mb-3 flex items-center justify-between">
+            <span>Paste JSON Token</span>
+            <span className="text-xs bg-surface border border-line px-2 py-1 rounded text-cyan">Or Drag & Drop .json File</span>
           </label>
-          <textarea 
-            value={jsonInput}
-            onChange={(e) => {
-              setJsonInput(e.target.value);
-              setStatus('idle');
-            }}
-            placeholder='{"data": {...}, "publicKey": {...}, "signature": "..."}'
-            className="w-full h-48 bg-[#05070d] border border-line rounded-lg p-4 font-mono text-xs text-white focus:outline-none focus:border-cyan transition-colors"
-          />
+          <div 
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+            className={`relative rounded-lg overflow-hidden transition-all duration-300 ${isDragging ? 'ring-2 ring-cyan shadow-[0_0_20px_rgba(47,107,255,0.4)]' : ''}`}
+          >
+            {isDragging && (
+              <div className="absolute inset-0 bg-cyan/10 backdrop-blur-[2px] flex items-center justify-center border-2 border-dashed border-cyan rounded-lg z-10 pointer-events-none">
+                <span className="text-cyan font-bold text-lg animate-pulse">Drop File Here</span>
+              </div>
+            )}
+            <textarea 
+              value={jsonInput}
+              onChange={(e) => {
+                setJsonInput(e.target.value);
+                setStatus('idle');
+              }}
+              placeholder='{"data": {...}, "publicKey": {...}, "signature": "..."}'
+              className="w-full h-48 bg-[#05070d] border border-line rounded-lg p-4 font-mono text-xs text-white focus:outline-none focus:border-cyan transition-colors"
+            />
+          </div>
         </div>
         
         <button 
