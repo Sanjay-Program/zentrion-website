@@ -9,6 +9,22 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 // This ensures that looking at the client-side code doesn't reveal the flags directly.
 const CTF_CHALLENGES = [
   {
+    id: 'metasploit-eternalblue',
+    title: 'Exploitation (Metasploit)',
+    points: 700,
+    difficulty: 'Advanced',
+    hash: 'e70704cb0374b6fdfbe6ccd0ef86a0d87d54199e5cfe196891c2abffc6b432bd', // ZENTRION{3t3rn4lblu3_pwn3d}
+    labPath: '/labs/metasploit-eternalblue'
+  },
+  {
+    id: 'hydra-brute-force',
+    title: 'Password Cracking (Hydra)',
+    points: 300,
+    difficulty: 'Intermediate',
+    hash: 'cc6685f27365475d6ae5ee7c66c665bb8f8f60ab35a3589adc5acd32443bf47a', // ZENTRION{hydr4_brut3_f0rc3d}
+    labPath: '/labs/hydra-brute-force'
+  },
+  {
     id: 'docker-escape',
     title: 'Container Escape (Privileged)',
     points: 600,
