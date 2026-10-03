@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Eyebrow, Reveal, GlassCard, CTASection, SectionHeading } from '@/components/ui';
 import SecurityMeshIllustration from '@/components/SecurityMeshIllustration';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -127,13 +128,92 @@ export default function ResourcesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
       <Breadcrumbs items={[{ href: '/resources', label: 'Resources' }]} />
-      <section className="container-x pt-10 pb-10">
+      <section className="container-x pt-10 pb-16">
         <Reveal>
-          <Eyebrow>Resources &middot; Deep Research</Eyebrow>
+          <Eyebrow>Resources Hub</Eyebrow>
           <h1 className="mt-4 font-display text-4xl md:text-5xl font-semibold max-w-3xl leading-tight">
+            Knowledge is the strongest defense.
+          </h1>
+          <p className="mt-6 max-w-2xl text-mute leading-relaxed text-lg mb-12">
+            Access our free interactive labs, open-source security tools, training guides, and deep-dive research to strengthen your cybersecurity posture.
+          </p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Reveal delay={0.1}>
+            <Link href="/labs" className="block h-full">
+              <GlassCard hover className="h-full flex flex-col cursor-pointer">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface border border-line">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan"><path d="M4 17l6-6-6-6"/><path d="M12 19h8"/></svg>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Zentrion Cyber Range</h3>
+                <p className="text-mute text-sm flex-1 mb-4">Hands-on, browser-native CTF platform. Practice SQLi, XSS, Forensics, and network analysis safely.</p>
+                <div className="text-cyan text-sm font-semibold flex items-center gap-1">Start Hacking <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              </GlassCard>
+            </Link>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <Link href="/tools" className="block h-full">
+              <GlassCard hover className="h-full flex flex-col cursor-pointer">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface border border-line">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Security Tools Library</h3>
+                <p className="text-mute text-sm flex-1 mb-4">30+ free tools for IP analysis, subnet calculation, hashing, DNS lookup, and password strength testing.</p>
+                <div className="text-cyan text-sm font-semibold flex items-center gap-1">Explore Tools <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              </GlassCard>
+            </Link>
+          </Reveal>
+
+          <Reveal delay={0.3}>
+            <Link href="/guides" className="block h-full">
+              <GlassCard hover className="h-full flex flex-col cursor-pointer">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface border border-line">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Guides & Tutorials</h3>
+                <p className="text-mute text-sm flex-1 mb-4">Comprehensive guides on Nmap, Wireshark, AI Security, and Web Vulnerability mitigation.</p>
+                <div className="text-cyan text-sm font-semibold flex items-center gap-1">Read Guides <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              </GlassCard>
+            </Link>
+          </Reveal>
+          
+          <Reveal delay={0.4}>
+            <Link href="/quizzes" className="block h-full">
+              <GlassCard hover className="h-full flex flex-col cursor-pointer">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface border border-line">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Knowledge Quizzes</h3>
+                <p className="text-mute text-sm flex-1 mb-4">Test your knowledge on phishing, password security, OWASP Top 10, and cloud misconfigurations.</p>
+                <div className="text-cyan text-sm font-semibold flex items-center gap-1">Take a Quiz <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              </GlassCard>
+            </Link>
+          </Reveal>
+
+          <Reveal delay={0.5}>
+            <Link href="/resources/cybersecurity-commands" className="block h-full">
+              <GlassCard hover className="h-full flex flex-col cursor-pointer">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-surface border border-line">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Commands Cheat Sheet</h3>
+                <p className="text-mute text-sm flex-1 mb-4">Quick reference for essential Nmap, Netcat, Hashcat, and Linux privilege escalation commands.</p>
+                <div className="text-cyan text-sm font-semibold flex items-center gap-1">View Cheat Sheet <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+              </GlassCard>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="container-x py-16 border-t border-line">
+        <Reveal>
+          <Eyebrow>Deep Research Brief</Eyebrow>
+          <h2 className="mt-4 font-display text-3xl md:text-4xl font-semibold max-w-3xl leading-tight">
             Cybersecurity in 2026: why vulnerability management, AI security and identity are
             becoming one problem.
-          </h1>
+          </h2>
           <p className="mt-6 max-w-2xl text-mute leading-relaxed text-lg">
             An independent research brief from the Zentrion Technologies security team on how the
             expanding attack surface, generative-AI-driven attacks, and identity-centric

@@ -17,12 +17,13 @@ const columns = [
     ],
   },
   {
-    title: 'Learn (Free)',
+    title: 'Cyber Range',
     links: [
-      { href: '/guides', label: 'Security Guides & Tutorials' },
+      { href: '/labs', label: 'Interactive Labs' },
+      { href: '/guides', label: 'Guides & Tutorials' },
       { href: '/resources/cybersecurity-commands', label: 'Commands Cheat Sheet' },
-      { href: '/careers', label: 'Careers' },
-      { href: '/sitemap', label: 'Sitemap' },
+      { href: '/encyclopedia', label: 'Encyclopedia' },
+      { href: '/quizzes', label: 'Quizzes' },
     ],
   },
   {
@@ -32,6 +33,8 @@ const columns = [
       { href: '/industries', label: 'Industries' },
       { href: '/case-studies', label: 'Case Studies' },
       { href: '/resources', label: 'Resources' },
+      { href: '/careers', label: 'Careers' },
+      { href: '/sitemap', label: 'Sitemap' },
       { href: '/faq', label: 'FAQ' },
       { href: '/contact', label: 'Contact' },
     ],
