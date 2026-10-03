@@ -51,17 +51,17 @@ export default function ToolsDashboard() {
 
         {/* Flagship Tool Callout */}
         <div className="mb-20">
-          <Link href="/tools/website-security-scanner" className="block w-full">
-            <div className="relative group overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.15)] bg-gradient-to-r from-[rgba(47,107,255,0.1)] to-[rgba(10,14,23,0.8)] backdrop-blur-xl p-8 md:p-12 transition-all hover:border-[rgba(255,255,255,0.3)] hover:shadow-2xl hover:shadow-[rgb(var(--c-accent))]/20">
-              <div className="absolute inset-0 bg-gradient-to-r from-[rgb(var(--c-accent))] to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+          <Link href="/tools/attack-surface" className="block w-full">
+            <div className="relative group overflow-hidden rounded-2xl border border-violet/30 bg-gradient-to-r from-violet/10 to-[rgba(10,14,23,0.8)] backdrop-blur-xl p-8 md:p-12 transition-all hover:border-violet/60 hover:shadow-2xl hover:shadow-violet/20">
+              <div className="absolute inset-0 bg-gradient-to-r from-violet to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div>
-                  <span className="inline-block px-3 py-1 bg-[rgb(var(--c-accent))] text-white text-xs font-bold uppercase tracking-wider rounded-full mb-4 shadow-[0_0_15px_rgba(47,107,255,0.5)]">
-                    Flagship Tool
+                  <span className="inline-block px-3 py-1 bg-violet text-white text-xs font-bold uppercase tracking-wider rounded-full mb-4 shadow-[0_0_15px_rgba(139,92,246,0.5)]">
+                    Enterprise Lead Magnet
                   </span>
-                  <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">Zentrion Website Security Scanner</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">Attack Surface Scanner</h2>
                   <p className="text-[rgb(var(--c-mute))] text-lg max-w-xl">
-                    Run an all-in-one AI-powered audit checking DNS, SSL, Security Headers, WHOIS, Email Security (SPF/DMARC), and Blacklist status. Get a complete security score in seconds.
+                    Discover what hackers see. Enter your company domain to generate a comprehensive OSINT footprint and instantly download your full 12-page threat intelligence report.
                   </p>
                 </div>
                 <div className="flex-shrink-0">

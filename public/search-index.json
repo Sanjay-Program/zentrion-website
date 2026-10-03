@@ -222,6 +222,12 @@
     "type": "Tool"
   },
   {
+    "title": "Attack Surface Scanner",
+    "description": "",
+    "url": "/tools/attack-surface",
+    "type": "Tool"
+  },
+  {
     "title": "Certificate Decoder",
     "description": "",
     "url": "/tools/certificate-decoder",
