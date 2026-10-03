@@ -145,6 +145,14 @@ const CTF_CHALLENGES = [
     labPath: '/labs/idor-vulnerability'
   },
   {
+    id: 'phishing-simulation',
+    title: 'Spear Phishing Simulation',
+    points: 150,
+    difficulty: 'Beginner',
+    hash: '7e9e4076da4487998585b5f92fcf615d92c1fef7c975c8678328fb4acd68441c', // ZENTRION{ph1sh1ng_c4mp41gn_d3f34t3d}
+    labPath: '/labs/phishing-simulation'
+  },
+  {
     id: 'steganography-101',
     title: 'Steganography 101',
     points: 200,

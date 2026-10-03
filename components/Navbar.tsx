@@ -32,9 +32,10 @@ const navItems: NavItem[] = [
   {
     label: 'Practice',
     items: [
+      { href: '/practice', label: 'Hacker Hub', blurb: 'Command center & stats' },
+      { href: '/threat-map', label: 'Threat Map', blurb: 'Live global cyber attacks' },
       { href: '/labs', label: 'Interactive Labs', blurb: 'Browser-side simulations' },
       { href: '/ctf', label: 'CTF Challenges', blurb: 'Capture the flag exercises' },
-      { href: '/campaigns', label: 'Cyber Campaigns', blurb: 'Multi-stage kill chain sims' },
       { href: '/leaderboard', label: 'Leaderboard', blurb: 'Global P2P hacker rankings' },
       { href: '/tools', label: 'Security Tools', blurb: 'Free recon & web utilities' },
     ],
