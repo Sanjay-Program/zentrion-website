@@ -79,7 +79,6 @@ export default function AboutPage() {
           <SectionHeading 
             eyebrow="What we believe" 
             title="Principles we build against" 
-            center 
           />
         </div>
         <div className="grid md:grid-cols-3 gap-6">

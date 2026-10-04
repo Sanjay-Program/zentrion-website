@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Eyebrow, Reveal, GlassCard, CTASection, SectionHeading } from '@/components/ui';
 import { buildWhatsAppLink } from '@/lib/contact';
 
