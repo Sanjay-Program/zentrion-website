@@ -39,37 +39,37 @@ export default function HomePage() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 border border-cyan/20">
                 <span className="h-2 w-2 rounded-full bg-cyan animate-pulseDot" />
                 <span className="font-mono text-[11px] uppercase tracking-widest text-cyan">
-                  Enterprise Engineering
+                  Zentrion Terminal v1.14.0
                 </span>
               </div>
             </Reveal>
             <Reveal delay={0.08}>
               <h1 className="mt-5 font-display font-semibold text-4xl sm:text-5xl md:text-[3.6rem] leading-[1.05] text-white">
-                Build. Secure. <span className="text-gradient-hero">Automate.</span>
+                The Future of <span className="text-gradient-hero">Secure Intelligence.</span>
               </h1>
             </Reveal>
             <Reveal delay={0.16}>
               <p className="mt-6 max-w-xl text-lg text-mute leading-relaxed">
-                Zentrion Technologies builds, secures, and intelligently automates digital products and enterprise business systems.
+                Zentrion Technologies builds the zero-trust infrastructure for the next generation of autonomous AI, enterprise security, and unified developer environments.
               </p>
             </Reveal>
             <Reveal delay={0.24}>
               <div className="mt-9 flex flex-wrap gap-4">
-                <Link href="/book-consultation" className="btn-primary">
-                  Book Architecture Review <ArrowIcon />
+                <Link href="/terminal" className="btn-primary">
+                  Explore ZENTRION TERMINAL <ArrowIcon />
                 </Link>
-                <Link href="/services" className="btn-ghost text-[rgb(var(--c-accent))] border-[rgba(47,107,255,0.2)] hover:bg-[rgba(47,107,255,0.1)]">
-                  Explore Enterprise Services
+                <Link href="/terminal/architecture" className="btn-ghost text-[rgb(var(--c-accent))] border-[rgba(47,107,255,0.2)] hover:bg-[rgba(47,107,255,0.1)]">
+                  Read the Whitepaper
                 </Link>
               </div>
             </Reveal>
 
             <Reveal delay={0.32}>
               <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-8 max-w-2xl">
-                <StatBlock value="Build" label="Custom Software" />
-                <StatBlock value="Assess" label="Readiness Scans" />
-                <StatBlock value="Hunt" label="Cyber Range Labs" />
-                <StatBlock value="Protect" label="Enterprise Services" />
+                <StatBlock value="Native" label="OS Sandboxing" />
+                <StatBlock value="Zero" label="Trust Execution" />
+                <StatBlock value="AES-256" label="Audit Ledger" />
+                <StatBlock value="14-Phase" label="Rust Architecture" />
               </div>
             </Reveal>
           </div>
@@ -78,7 +78,7 @@ export default function HomePage() {
 
       {/* TRUST MARQUEE */}
       <section className="py-14 border-y border-line bg-surface/50 overflow-hidden">
-        <p className="container-x eyebrow text-center mb-8">Built on tools security teams trust</p>
+        <p className="container-x eyebrow text-center mb-8">Built for Enterprise DevSecOps, Autonomous AI Researchers, and Forward-Thinking Cybersecurity Teams.</p>
         <Marquee items={stack} />
       </section>
 
@@ -86,47 +86,44 @@ export default function HomePage() {
       <section className="container-x py-14 md:py-20">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-14">
           <SectionHeading
-            eyebrow="Start Here"
-            title="Choose your path"
-            description="Whether you're here to learn, build, or secure your infrastructure, Zentrion has the resources and expertise to help."
+            eyebrow="Core Architecture"
+            title="The Zentrion Ecosystem"
+            description="Our foundation rests on three unshakeable pillars designed to empower builders while mathematically constraining execution."
           />
         </div>
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           <Reveal delay={0}>
-            <Link href="/academy/cybersecurity" className="block group h-full">
+            <div className="block group h-full">
               <GlassCard className="h-full border border-glass-border hover:border-cyan/50 transition-colors relative">
                 <div className="h-12 w-12 rounded-xl flex items-center justify-center text-2xl bg-cyan/10 text-cyan border border-cyan/20 mb-6">
-                  🎓
+                  🔒
                 </div>
-                <h3 className="font-display text-2xl font-semibold group-hover:text-cyan transition-colors">I'm learning cybersecurity</h3>
-                <p className="mt-4 text-mute leading-relaxed">Start with the Beginner Academy, explore practical labs, and follow structured roadmaps.</p>
-                <div className="mt-8 text-sm font-medium text-cyan flex items-center gap-2 group-hover:gap-3 transition-all">Beginner Academy <ArrowIcon /></div>
+                <h3 className="font-display text-2xl font-semibold group-hover:text-cyan transition-colors">Uncompromising Security</h3>
+                <p className="mt-4 text-mute leading-relaxed">Zero-trust architecture with built-in OS-level sandboxing (Linux Landlock, macOS Seatbelt, Windows Job Objects). Every action is cryptographically audited.</p>
               </GlassCard>
-            </Link>
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <Link href="/guides/web-security" className="block group h-full">
+            <div className="block group h-full">
               <GlassCard className="h-full border border-glass-border hover:border-signal/50 transition-colors relative">
                 <div className="h-12 w-12 rounded-xl flex items-center justify-center text-2xl bg-signal/10 text-signal border border-signal/20 mb-6">
-                  💻
+                  🧠
                 </div>
-                <h3 className="font-display text-2xl font-semibold group-hover:text-signal transition-colors">I'm a developer</h3>
-                <p className="mt-4 text-mute leading-relaxed">Learn secure coding practices, explore API security, and build hardened applications.</p>
-                <div className="mt-8 text-sm font-medium text-signal flex items-center gap-2 group-hover:gap-3 transition-all">Developer Security <ArrowIcon /></div>
+                <h3 className="font-display text-2xl font-semibold group-hover:text-signal transition-colors">Autonomous AI Runtime</h3>
+                <p className="mt-4 text-mute leading-relaxed">Native integrations with OpenAI, Anthropic, and local Ollama models. Deploy autonomous DevSecOps agents safely inside strict resource governors.</p>
               </GlassCard>
-            </Link>
+            </div>
           </Reveal>
           <Reveal delay={0.2}>
-            <Link href="/assessments/website-security" className="block group h-full">
+            <div className="block group h-full">
               <GlassCard className="h-full border border-glass-border hover:border-violet/50 transition-colors relative">
                 <div className="h-12 w-12 rounded-xl flex items-center justify-center text-2xl bg-violet/10 text-violet border border-violet/20 mb-6">
-                  🛡️
+                  ⚡
                 </div>
-                <h3 className="font-display text-2xl font-semibold group-hover:text-violet transition-colors">I'm protecting a business</h3>
-                <p className="mt-4 text-mute leading-relaxed">Assess your security posture, review threat models, and explore our enterprise services.</p>
-                <div className="mt-8 text-sm font-medium text-violet flex items-center gap-2 group-hover:gap-3 transition-all">Security Assessment <ArrowIcon /></div>
+                <h3 className="font-display text-2xl font-semibold group-hover:text-violet transition-colors">Cross-Platform Supremacy</h3>
+                <p className="mt-4 text-mute leading-relaxed">A unified, monolithic runtime across Linux, macOS, and Windows. No WSL, no Docker, no VMs required. Pure native performance.</p>
               </GlassCard>
-            </Link>
+            </div>
           </Reveal>
         </div>
 
