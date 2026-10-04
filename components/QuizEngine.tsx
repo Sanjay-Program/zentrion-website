@@ -116,7 +116,7 @@ export default function QuizEngine({ quizId, title, description, questions }: Qu
         
         {/* Progress bar */}
         <div className="mt-6 flex items-center gap-4">
-          <div className="flex-1 h-2 bg-[rgba(255,255,255,0.05)] rounded-full overflow-hidden">
+          <div className="flex-1 h-2 bg-surface rounded-full overflow-hidden">
             <div 
               className="h-full bg-cyan transition-all duration-300"
               style={{ width: `${((currentQuestionIdx) / questions.length) * 100}%` }}
@@ -138,7 +138,7 @@ export default function QuizEngine({ quizId, title, description, questions }: Qu
             const isSelected = selectedOptionId === opt.id;
             const isCorrect = opt.id === currentQuestion.correctOptionId;
             
-            let stateClass = "border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] hover:border-cyan/50 hover:bg-cyan/5";
+            let stateClass = "border-line bg-surface/50 hover:border-cyan/50 hover:bg-cyan/5 text-ink";
             
             if (isAnswered) {
               if (isCorrect) {
@@ -146,7 +146,7 @@ export default function QuizEngine({ quizId, title, description, questions }: Qu
               } else if (isSelected && !isCorrect) {
                 stateClass = "border-red-500/50 bg-red-500/10 text-red-400";
               } else {
-                stateClass = "border-[rgba(255,255,255,0.05)] bg-[rgba(255,255,255,0.01)] opacity-50";
+                stateClass = "border-line bg-surface/20 opacity-50 text-mute";
               }
             } else if (isSelected) {
               stateClass = "border-cyan bg-cyan/10 text-cyan";
@@ -186,13 +186,13 @@ export default function QuizEngine({ quizId, title, description, questions }: Qu
           </div>
         )}
 
-        <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.1)] flex justify-end">
+        <div className="mt-8 pt-6 border-t border-line flex justify-end">
           <button
             onClick={handleSubmit}
             disabled={!selectedOptionId}
             className={`px-6 py-2.5 rounded-lg font-medium transition-colors ${
               !selectedOptionId 
-                ? 'bg-white/5 text-mute cursor-not-allowed' 
+                ? 'bg-surface text-mute cursor-not-allowed border border-line' 
                 : 'bg-cyan text-void hover:bg-cyan-light'
             }`}
           >

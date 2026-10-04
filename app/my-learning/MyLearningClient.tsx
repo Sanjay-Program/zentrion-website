@@ -45,21 +45,21 @@ export default function MyLearningClient() {
     <div className="container-x py-20 md:py-32">
       <header className="mb-14 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
         <div>
-          <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight mb-4 text-[rgb(var(--c-ink))]">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 text-ink">
             My Learning Dashboard
           </h1>
-          <p className="text-xl text-[rgb(var(--c-mute))] max-w-2xl">
+          <p className="text-lg text-mute max-w-2xl">
             Track your progress through the Academy. All progress is saved locally on your device for privacy.
           </p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-3">
           <div className="glass-card px-6 py-4 rounded-2xl flex items-center gap-4 bg-orange-500/10 border-orange-500/30">
             <div className="text-orange-500 text-3xl font-bold font-mono flex items-center gap-2">
               🔥 {rangeState.currentStreak}
             </div>
             <div className="text-xs font-semibold uppercase tracking-wider text-orange-500/80">Day<br/>Streak</div>
           </div>
-          <div className="glass-card px-6 py-4 rounded-2xl flex items-center gap-4 bg-emerald-500/10 border-emerald-500/30 hidden sm:flex">
+          <div className="glass-card px-4 py-3 rounded-2xl flex items-center gap-3 bg-emerald-500/10 border-emerald-500/30 hidden sm:flex">
             <div className="text-emerald-500 text-3xl font-bold font-mono">
               {rangeState.xp}
             </div>
@@ -87,7 +87,7 @@ export default function MyLearningClient() {
           </div>
         </div>
       ) : (
-        <div className="grid lg:grid-cols-[1fr,320px] gap-12">
+        <div className="grid lg:grid-cols-[1fr,300px] gap-8 xl:gap-12">
           
           <div className="space-y-12">
             {/* Completed Guides */}
@@ -160,7 +160,7 @@ export default function MyLearningClient() {
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500/20 to-yellow-500/20 border border-orange-500/30 flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(249,115,22,0.2)] text-3xl">
                       {badge.icon}
                     </div>
-                    <h3 className="font-semibold text-white mb-1 capitalize">{badge.name}</h3>
+                    <h3 className="font-semibold text-ink mb-1 capitalize">{badge.name}</h3>
                     <p className="text-xs text-mute mb-3">{badge.description}</p>
                     <span className="text-[10px] text-mute font-mono mt-auto">Earned: {badge.earnedAt.split('T')[0]}</span>
                   </div>
@@ -174,7 +174,7 @@ export default function MyLearningClient() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                       </svg>
                     </div>
-                    <h3 className="font-semibold text-white mb-1 capitalize">{quiz.id.replace(/-/g, ' ')}</h3>
+                    <h3 className="font-semibold text-ink mb-1 capitalize">{quiz.id.replace(/-/g, ' ')}</h3>
                     <p className="text-xs text-mute font-mono mb-3">Score: {Math.round((quiz.score / quiz.total) * 100)}%</p>
                     <Link href={`/quizzes/${quiz.id}`} className="text-xs text-cyan hover:underline mt-auto">
                       Retake Quiz

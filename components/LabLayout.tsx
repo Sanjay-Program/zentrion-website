@@ -116,7 +116,7 @@ export function LabLayout({
               <span>Terminal / Application</span>
               <button 
                 onClick={() => window.location.reload()} 
-                className="hover:text-white transition-colors"
+                className="hover:text-cyan transition-colors"
               >
                 Reset Environment
               </button>
@@ -133,12 +133,12 @@ export function LabLayout({
               <div className="space-y-6">
                 <div>
                   <h4 className="font-bold mb-2">Explanation</h4>
-                  <div className="text-sm text-gray-300 leading-relaxed">{explanation}</div>
+                  <div className="text-sm text-mute leading-relaxed">{explanation}</div>
                 </div>
                 
                 <div>
                   <h4 className="font-bold mb-2">Remediation</h4>
-                  <div className="text-sm text-gray-300 leading-relaxed">{remediation}</div>
+                  <div className="text-sm text-mute leading-relaxed">{remediation}</div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -203,7 +203,7 @@ export function LabLayout({
               {hints.map((hint, i) => (
                 <div key={i}>
                   {visibleHints > i ? (
-                    <div className="bg-surface/50 border border-line rounded p-3 text-sm text-gray-300">
+                    <div className="bg-surface/50 border border-line rounded p-3 text-sm text-mute">
                       <span className="font-bold mr-2">Hint {i + 1}:</span>
                       {hint}
                     </div>
