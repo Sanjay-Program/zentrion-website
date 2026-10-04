@@ -11,9 +11,37 @@ export const metadata: Metadata = {
 
 const products = [
   {
+    slug: 'terminal',
+    name: 'Zentrion Terminal',
+    tagline: 'The world’s most advanced secure execution broker.',
+    summary:
+      'A unified, zero-trust execution environment that natively replaces legacy shells, vulnerable virtual machines, and unconstrained AI agents with an immutable OS sandbox.',
+    stack: ['Rust', 'Landlock', 'AES-256', 'Seccomp'],
+    earlyAccess: false,
+    capabilities: [
+      {
+        title: 'Execution Broker',
+        text: 'Intercepts every command before execution, applying a strict Deny-by-Default YAML policy.',
+      },
+      {
+        title: 'Deep OS Sandboxing',
+        text: 'Zero-overhead native OS APIs like Linux Landlock and macOS Seatbelt prevent file/network access.',
+      },
+      {
+        title: 'Tamper-Evident Auditing',
+        text: 'Every event is logged into an AES-256 hash-chained local ledger, preventing history tampering.',
+      },
+      {
+        title: 'AI Bill of Materials',
+        text: 'Automatically maps and audits LLMs and AI Agents interacting within your workspace.',
+      },
+    ],
+  },
+  {
     slug: 'behaviordna',
     name: 'BehaviorDNA',
     tagline: 'The intelligence engine for modern cloud and AI identity security',
+    earlyAccess: true,
     summary:
       'As cloud architectures move from static IAM roles to ephemeral Kubernetes workload identities and autonomous LLM agents, traditional SIEMs can’t keep up. BehaviorDNA correlates every identity in your stack into a single graph and scores behavioral drift in real time — before it becomes an incident.',
     stack: ['Rust', 'Python', 'Neo4j', 'Kafka', 'ONNX'],
@@ -48,6 +76,7 @@ const products = [
     slug: 'command-center',
     name: 'Zentrion Command Center',
     tagline: 'One SOC. 55+ tools. A single normalized pipeline.',
+    earlyAccess: true,
     summary:
       'A high-performance, autonomous Security Operations Center platform that unifies 55+ disparate security tools — network scanners, SAST, cloud and container scanners, threat intel feeds, and AI infrastructure monitors — into one structured intelligence pipeline, with an AI layer that triages and can act on what it finds.',
     stack: ['Next.js', 'LangGraph', 'PostgreSQL', 'RabbitMQ', 'Qdrant'],
@@ -110,9 +139,7 @@ export default function ProductsPage() {
             What we&apos;re building next.
           </h1>
           <p className="mt-6 max-w-2xl text-mute leading-relaxed text-lg">
-            Two platforms currently in active development, built on everything we&apos;ve learned
-            running audits and AI engagements for clients. Both are open for early access design
-            partners.
+            Our suite of enterprise-grade security products. Discover the platforms we've built from running thousands of audits and AI engagements for clients worldwide.
           </p>
         </Reveal>
       </section>
@@ -125,10 +152,16 @@ export default function ProductsPage() {
           <section key={p.slug} id={p.slug} className="container-x py-16 border-t border-line scroll-mt-24">
             <div className="grid lg:grid-cols-[1fr,1.3fr] gap-12">
               <Reveal>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 border border-cyan/20 eyebrow !text-cyan">
-                  <span className="h-1.5 w-1.5 rounded-full bg-cyan animate-pulseDot" />
-                  In development · Early access
-                </span>
+                {p.earlyAccess ? (
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan/10 border border-cyan/20 eyebrow !text-cyan">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan animate-pulseDot" />
+                    In development · Early access
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 eyebrow !text-emerald-400">
+                    Production Ready
+                  </span>
+                )}
                 <h2 className="mt-4 font-display text-3xl md:text-4xl font-semibold">{p.name}</h2>
                 <p className="mt-3 text-cyan font-medium">{p.tagline}</p>
                 <p className="mt-5 text-mute leading-relaxed">{p.summary}</p>
@@ -142,9 +175,15 @@ export default function ProductsPage() {
                     </span>
                   ))}
                 </div>
-                <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-primary mt-8">
-                  Get Early Access
-                </a>
+                {p.earlyAccess ? (
+                  <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-primary mt-8 inline-block">
+                    Get Early Access
+                  </a>
+                ) : (
+                  <Link href={`/${p.slug}`} className="btn-primary mt-8 inline-block">
+                    Explore {p.name}
+                  </Link>
+                )}
               </Reveal>
 
               <Reveal delay={0.08}>

@@ -7,43 +7,43 @@ import { CONSULT_EMAIL, HR_EMAIL, COMPANY_ADDRESS, MAPS_LINK } from '@/lib/conta
 
 const columns = [
   {
-    title: 'Learn & Practice',
+    title: 'Products',
+    links: [
+      { href: '/terminal', label: 'Zentrion Terminal' },
+      { href: '/products#behaviordna', label: 'BehaviorDNA' },
+      { href: '/products#command-center', label: 'Command Center' },
+      { href: '/products', label: 'All Products' },
+    ],
+  },
+  {
+    title: 'Services',
+    links: [
+      { href: '/services', label: 'Enterprise Services' },
+      { href: '/services/vapt', label: 'VAPT & Security Audits' },
+      { href: '/services/agentic-ai', label: 'AI & Automation' },
+      { href: '/services/cloud-solutions', label: 'Cloud Solutions' },
+      { href: '/services/full-stack-development', label: 'Software Engineering' },
+    ],
+  },
+  {
+    title: 'Academy',
     links: [
       { href: '/guides', label: 'Guides & Tutorials' },
-      { href: '/knowledge', label: 'Knowledge Base' },
       { href: '/labs', label: 'Interactive Labs' },
       { href: '/ctf', label: 'CTF Challenges' },
+      { href: '/roadmaps', label: 'Learning Roadmaps' },
       { href: '/tools', label: 'Security Tools' },
     ],
   },
   {
-    title: 'Career & Community',
+    title: 'Company & Legal',
     links: [
-      { href: '/roadmaps', label: 'Learning Roadmaps' },
-      { href: '/my-learning', label: 'My Learning Progress' },
-      { href: '/assessments/website-security', label: 'Skills Assessments' },
-      { href: '/career-paths', label: 'Career Paths' },
-      { href: '/careers', label: 'Zentrion Careers' },
-    ],
-  },
-  {
-    title: 'Company & Services',
-    links: [
-      { href: '/services', label: 'Enterprise Services' },
-      { href: '/cybersecurity', label: 'Cybersecurity Testing' },
-      { href: '/case-studies', label: 'Case Studies' },
-      { href: '/research', label: 'Security Research' },
       { href: '/about', label: 'About Us' },
       { href: '/contact', label: 'Contact' },
-    ],
-  },
-  {
-    title: 'Legal',
-    links: [
+      { href: '/careers', label: 'Careers' },
       { href: '/privacy', label: 'Privacy Policy' },
       { href: '/terms', label: 'Terms & Conditions' },
       { href: '/security', label: 'Responsible Disclosure' },
-      { href: '/editorial-policy', label: 'Editorial Policy' },
     ],
   },
 ];

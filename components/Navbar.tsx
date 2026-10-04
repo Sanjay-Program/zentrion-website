@@ -12,12 +12,21 @@ type NavItem = { label: string; href?: string; items?: NavLink[] };
 
 const navItems: NavItem[] = [
   {
+    label: 'Products',
+    items: [
+      { href: '/terminal', label: 'Zentrion Terminal', blurb: 'Secure execution broker & OS sandbox' },
+      { href: '/products#behaviordna', label: 'BehaviorDNA', blurb: 'Cloud & AI identity security' },
+      { href: '/products#command-center', label: 'Command Center', blurb: 'Unified autonomous SOC platform' },
+      { href: '/products', label: 'All Products', blurb: 'View our complete product suite' },
+    ],
+  },
+  {
     label: 'Services',
     items: [
+      { href: '/services', label: 'All Services', blurb: 'End-to-end technology solutions' },
       { href: '/services/full-stack-development', label: 'Full Stack Development', blurb: 'Custom web & app engineering' },
       { href: '/services/vapt', label: 'VAPT & Security Audits', blurb: 'Penetration testing & compliance' },
       { href: '/services/agentic-ai', label: 'AI & Automation', blurb: 'Enterprise AI integrations' },
-      { href: '/services/cloud-solutions', label: 'Cloud Solutions', blurb: 'AWS/Azure architecture' },
     ],
   },
   {
