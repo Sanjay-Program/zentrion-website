@@ -60,8 +60,8 @@ export default function DownloadPage() {
                 </div>
                 <div className="p-4 sm:p-6 text-gray-300 overflow-x-auto whitespace-pre">
                   <span className="text-mute"># 1. Download the verified binary</span><br/>
-                  <span className="text-cyan">wget</span> https://github.com/Sanjay-Program/ZENTRION-TERMINAL/releases/download/v1.14.0/zentrion-linux-x64.tar.gz<br/>
-                  <span className="text-cyan">wget</span> https://github.com/Sanjay-Program/ZENTRION-TERMINAL/releases/download/v1.14.0/zentrion-linux-x64.tar.gz.sha256<br/><br/>
+                  <span className="text-cyan">wget</span> https://raw.githubusercontent.com/Sanjay-Program/ZENTRION-TERMINAL/main/releases/zentrion-linux-x64.tar.gz<br/>
+                  <span className="text-cyan">wget</span> https://raw.githubusercontent.com/Sanjay-Program/ZENTRION-TERMINAL/main/releases/zentrion-linux-x64.tar.gz.sha256<br/><br/>
                   
                   <span className="text-mute"># 2. Verify cryptographic checksum</span><br/>
                   <span className="text-cyan">sha256sum</span> -c zentrion-linux-x64.tar.gz.sha256<br/><br/>
@@ -74,10 +74,10 @@ export default function DownloadPage() {
               <div className="mt-8 pt-8 border-t border-line">
                 <h4 className="font-bold text-ink mb-4">Other Platforms</h4>
                 <div className="flex gap-4">
-                  <a href="https://github.com/Sanjay-Program/ZENTRION-TERMINAL/releases" target="_blank" rel="noopener noreferrer" className="btn-ghost flex-1 text-center justify-center border border-line hover:border-cyan/50 hover:text-cyan transition-all">
+                  <a href="https://raw.githubusercontent.com/Sanjay-Program/ZENTRION-TERMINAL/main/releases/zentrion-macos-universal.tar.gz" target="_blank" rel="noopener noreferrer" className="btn-ghost flex-1 text-center justify-center border border-line hover:border-cyan/50 hover:text-cyan transition-all">
                     macOS (Apple Silicon)
                   </a>
-                  <a href="https://github.com/Sanjay-Program/ZENTRION-TERMINAL/releases" target="_blank" rel="noopener noreferrer" className="btn-ghost flex-1 text-center justify-center border border-line hover:border-cyan/50 hover:text-cyan transition-all">
+                  <a href="https://raw.githubusercontent.com/Sanjay-Program/ZENTRION-TERMINAL/main/releases/Zentrion-Windows-x64.msi" target="_blank" rel="noopener noreferrer" className="btn-ghost flex-1 text-center justify-center border border-line hover:border-cyan/50 hover:text-cyan transition-all">
                     Windows (x64)
                   </a>
                 </div>
