@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Reveal, GlassCard, SectionHeading, ArrowIcon } from '@/components/ui';
+import CopyButton from '@/components/ui/CopyButton';
 
 export const metadata = {
   title: 'ZENTRION TERMINAL | The World\'s #1 Next-Generation Terminal',
@@ -139,7 +140,10 @@ export default function TerminalPage() {
                       <span className="w-3 h-3 rounded-full bg-yellow-500/80"></span>
                       <span className="w-3 h-3 rounded-full bg-emerald-500/80"></span>
                     </div>
-                    <span className="text-xs text-mute uppercase tracking-widest">Terminal</span>
+                    <div className="flex items-center gap-4">
+                      <span className="text-xs text-mute uppercase tracking-widest">Terminal</span>
+                      <CopyButton content="curl -sSL https://raw.githubusercontent.com/Sanjay-Program/ZENTRION-TERMINAL/main/releases/install.sh | bash" />
+                    </div>
                   </div>
                   <div className="p-4 sm:p-5 text-gray-300 overflow-x-auto whitespace-pre">
                     <span className="text-mute"># Run this single command:</span><br/>
@@ -170,6 +174,7 @@ export default function TerminalPage() {
                     <div className="flex gap-2 font-sans font-semibold text-white text-xs">
                       <span className="text-blue-400 mr-1">❱_</span> Administrator: PowerShell
                     </div>
+                    <CopyButton content="Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/Sanjay-Program/ZENTRION-TERMINAL/main/releases/install.ps1'))" />
                   </div>
                   <div className="p-4 sm:p-5 text-gray-300 overflow-x-auto whitespace-pre">
                     <span className="text-mute"># Open PowerShell as Administrator and run:</span><br/>
