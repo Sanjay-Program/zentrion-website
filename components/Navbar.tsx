@@ -61,7 +61,7 @@ const navItems: NavItem[] = [
   {
     label: 'Company',
     items: [
-      { href: '/research', label: 'Research', blurb: 'Zentrion threat intelligence' },
+      { href: '/resources/research', label: 'Research', blurb: 'Zentrion threat intelligence' },
       { href: '/case-studies', label: 'Case Studies', blurb: 'Client success stories' },
       { href: '/about', label: 'About Us', blurb: 'Mission and team' },
     ],
